@@ -1,0 +1,2085 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Base inicial da documentação tecnica e organizacional">
+      
+      
+      
+        <link rel="canonical" href="https://enzoemir.github.io/IDB_JOVEM_DOC/projeto/historia_usuario_novo/">
+      
+      
+        <link rel="prev" href="../..">
+      
+      
+        <link rel="next" href="../backlog_novo/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../imagens/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>História - Documentação do Projeto</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/custom.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introducao" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../.." title="Documentação do Projeto" class="md-header__button md-logo" aria-label="Documentação do Projeto" data-md-component="logo">
+      
+  <img src="../../imagens/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Documentação do Projeto
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              História
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Alternar para tema claro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Alternar para tema claro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="pink"  aria-label="Alternar para tema escuro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Alternar para tema escuro" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="pink"  aria-label="Usar preferência do sistema"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Usar preferência do sistema" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando busca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/EnzoEmir/IDB_JOVEM_DOC" title="Ir para repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Repositorio
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Inicio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  Projeto
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Documentação do Projeto" class="md-nav__button md-logo" aria-label="Documentação do Projeto" data-md-component="logo">
+      
+  <img src="../../imagens/logo.png" alt="logo">
+
+    </a>
+    Documentação do Projeto
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/EnzoEmir/IDB_JOVEM_DOC" title="Ir para repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Repositorio
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projeto
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Projeto
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    História
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    História
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#construcao-das-historias-de-usuario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Construção das Histórias de Usuário
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#definicao-dos-criterios-de-aceitacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Definição dos Critérios de Aceitação
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#participantes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Participantes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sumario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sumário
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historias-de-usuario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Histórias de Usuário
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Histórias de Usuário">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#historia-01-acesso-a-landing-page" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        História 01 — Acesso à Landing Page
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#historia-02-calendario-de-eventos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        História 02 — Calendário de Eventos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#historia-03-navegacao-de-materiais" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        História 03 — Navegação de Materiais
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#historia-04-redirecionamento-de-compra" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        História 04 — Redirecionamento de Compra
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#historia-05-disponibilidade-em-eventos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        História 05 — Disponibilidade em Eventos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#historia-06-criacao-e-edicao-de-eventos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        História 06 — Criação e Edição de Eventos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#historia-07-gestao-de-programacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        História 07 — Gestão de Programação
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#historia-08-inscricao-externa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        História 08 — Inscrição Externa
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#historia-09-sincronizacao-de-agenda" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        História 09 — Sincronização de Agenda
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#historia-10-formulario-de-inscricao-de-voluntario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        História 10 — Formulário de Inscrição de Voluntário
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#historia-11-notificacao-de-candidatura" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        História 11 — Notificação de Candidatura
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#historia-12-armazenamento-de-dados-de-voluntarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        História 12 — Armazenamento de Dados de Voluntários
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#historia-13-aprovacao-de-candidatos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        História 13 — Aprovação de Candidatos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#historia-14-contagem-de-voluntarios-por-evento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        História 14 — Contagem de Voluntários por Evento
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#historia-15-login-administrativo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        História 15 — Login Administrativo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#historia-16-multi-administradores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        História 16 — Multi-Administradores
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#historia-17-gestao-de-estoque" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        História 17 — Gestão de Estoque
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referencias-bibliograficas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Referências Bibliográficas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historico-de-versao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Histórico de Versão
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backlog_novo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backlog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../canvas_mvp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Canvas MVP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prototipo_alta/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Protótipo de alta fidelidade
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modelo_fisico/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modelo Físico
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../entrega_final/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vídeo entrega Final
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#construcao-das-historias-de-usuario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Construção das Histórias de Usuário
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#definicao-dos-criterios-de-aceitacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Definição dos Critérios de Aceitação
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#participantes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Participantes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sumario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sumário
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historias-de-usuario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Histórias de Usuário
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Histórias de Usuário">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#historia-01-acesso-a-landing-page" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        História 01 — Acesso à Landing Page
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#historia-02-calendario-de-eventos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        História 02 — Calendário de Eventos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#historia-03-navegacao-de-materiais" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        História 03 — Navegação de Materiais
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#historia-04-redirecionamento-de-compra" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        História 04 — Redirecionamento de Compra
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#historia-05-disponibilidade-em-eventos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        História 05 — Disponibilidade em Eventos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#historia-06-criacao-e-edicao-de-eventos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        História 06 — Criação e Edição de Eventos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#historia-07-gestao-de-programacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        História 07 — Gestão de Programação
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#historia-08-inscricao-externa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        História 08 — Inscrição Externa
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#historia-09-sincronizacao-de-agenda" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        História 09 — Sincronização de Agenda
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#historia-10-formulario-de-inscricao-de-voluntario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        História 10 — Formulário de Inscrição de Voluntário
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#historia-11-notificacao-de-candidatura" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        História 11 — Notificação de Candidatura
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#historia-12-armazenamento-de-dados-de-voluntarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        História 12 — Armazenamento de Dados de Voluntários
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#historia-13-aprovacao-de-candidatos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        História 13 — Aprovação de Candidatos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#historia-14-contagem-de-voluntarios-por-evento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        História 14 — Contagem de Voluntários por Evento
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#historia-15-login-administrativo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        História 15 — Login Administrativo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#historia-16-multi-administradores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        História 16 — Multi-Administradores
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#historia-17-gestao-de-estoque" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        História 17 — Gestão de Estoque
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referencias-bibliograficas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Referências Bibliográficas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historico-de-versao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Histórico de Versão
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="introducao">Introdução<a class="headerlink" href="#introducao" title="Permanent link">&para;</a></h1>
+<p>O presente documento tem como objetivo apresentar as histórias de usuário elaboradas para o desenvolvimento do projeto da disciplina <strong>TÉCNICAS DE PROGRAMAÇÃO EM PLATAFORMAS EMERGENTES - (FGA0242)</strong> voltado à criação de uma plataforma web para a <strong>Igreja de Deus (IDB Jovem e Teen)</strong>. O projeto consiste em uma landing page estratégica destinada à divulgação de eventos, apresentação da identidade do grupo, localização e centralização de informações essenciais para a comunidade, visando otimizar a comunicação e o engajamento dos membros e visitantes <a href="#REF1" id="cit-1">[1]</a>.</p>
+<p>As histórias de usuário são uma técnica fundamental na Engenharia de Requisitos Ágil, utilizadas para representar funcionalidades, resultados ou características desejadas no software. Elas são criadas a partir da escuta ativa das necessidades dos usuários e servem como guia para o desenvolvimento.</p>
+<p>Cada história de usuário é construída de forma a responder três perguntas essenciais:  </p>
+<ul>
+<li>
+<p><strong>Quem?</strong> — Quem é o usuário ou persona envolvida na interação.  </p>
+</li>
+<li>
+<p><strong>O que?</strong> — Qual é a ação, necessidade ou funcionalidade desejada.  </p>
+</li>
+<li>
+<p><strong>Por que?</strong> — Qual é o valor, objetivo ou benefício buscado por meio daquela ação.</p>
+</li>
+</ul>
+<h3 id="construcao-das-historias-de-usuario">Construção das Histórias de Usuário<a class="headerlink" href="#construcao-das-historias-de-usuario" title="Permanent link">&para;</a></h3>
+<p>As histórias de usuário foram escritas seguindo o modelo clássico:</p>
+<blockquote>
+<p><strong>Como [usuário], quero [ação], para [atingir um objetivo].</strong></p>
+</blockquote>
+<p>Essa estrutura ajuda a garantir que cada história represente uma necessidade real do usuário, deixando claro o objetivo e o valor gerado pela funcionalidade.</p>
+<h3 id="definicao-dos-criterios-de-aceitacao">Definição dos Critérios de Aceitação<a class="headerlink" href="#definicao-dos-criterios-de-aceitacao" title="Permanent link">&para;</a></h3>
+<p>Para cada história de usuário, foram estabelecidos critérios de aceitação claros e objetivos. Esses critérios funcionam como referência para confirmar se a funcionalidade entregue atende aos requisitos previamente acordados e, sobretudo, às expectativas da cliente.</p>
+<h3 id="participantes">Participantes<a class="headerlink" href="#participantes" title="Permanent link">&para;</a></h3>
+<p><font size="3"><p style="text-align: center">Tabela 1: Participantes</p></font></p>
+<div align="center">
+
+<table>
+  <thead>
+    <tr>
+      <th align="center">Nome</th>
+      <th align="center">Data</th>
+      <th align="center">Hora</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="center"><a href="https://github.com/EnzoEmir">Enzo Emir</a></td>
+      <td align="center">29/03/2026</td>
+      <td align="center">14:00</td>
+    </tr>
+    <tr>
+      <td align="center"><a href="https://github.com/GabrielSMonteiro">Gabriel Monteiro</a></td>
+      <td align="center">29/03/2026</td>
+      <td align="center">14:00</td>
+    </tr>
+    <tr>
+      <td align="center"><a href="https://github.com/Leticia-Arisa-K-Higa">Leticia Arisa</a></td>
+      <td align="center">29/03/2026</td>
+      <td align="center">14:00</td>
+    </tr>
+    <tr>
+      <td align="center"><a href="https://github.com/MM4k">Marcelo Makoto</a></td>
+      <td align="center">29/03/2026</td>
+      <td align="center">14:00</td>
+    </tr>
+    <tr>
+      <td align="center"><a href="https://github.com/dudaa28">Maria Eduarda</a></td>
+      <td align="center">29/03/2026</td>
+      <td align="center">14:00</td>
+    </tr>
+    <tr>
+      <td align="center"><a href="https://github.com/VictorPontual">Victor Pontual</a></td>
+      <td align="center">29/03/2026</td>
+      <td align="center">14:00</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p style="text-align: center; font-size: 10pt;">Fonte: <a href="https://github.com/dudaa28">Maria Eduarda</a></p>
+
+<h2 id="sumario">Sumário<a class="headerlink" href="#sumario" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="#h01">H01 – Acesso à Landing Page</a></li>
+<li><a href="#h02">H02 – Calendário de Eventos</a></li>
+<li><a href="#h03">H03 – Navegação de Materiais</a></li>
+<li><a href="#h04">H04 – Redirecionamento de Compra</a></li>
+<li><a href="#h05">H05 – Disponibilidade em Eventos</a></li>
+<li><a href="#h06">H06 – Criação e Edição de Eventos</a></li>
+<li><a href="#h07">H07 – Gestão de Programação</a></li>
+<li><a href="#h08">H08 – Inscrição Externa</a></li>
+<li><a href="#h09">H09 – Sincronização de Agenda</a></li>
+<li><a href="#h10">H10 – Formulário de Inscrição de Voluntário</a></li>
+<li><a href="#h11">H11 – Notificação de Candidatura</a></li>
+<li><a href="#h12">H12 – Armazenamento de Dados de Voluntários</a></li>
+<li><a href="#h13">H13 – Aprovação de Candidatos</a></li>
+<li><a href="#h14">H14 – Contagem de Voluntários por Evento</a></li>
+<li><a href="#h15">H15 – Login Administrativo</a></li>
+<li><a href="#h16">H16 – Multi-Administradores</a></li>
+<li><a href="#h17">H17 – Gestão de Estoque</a></li>
+</ul>
+<hr />
+<h2 id="historias-de-usuario">Histórias de Usuário<a class="headerlink" href="#historias-de-usuario" title="Permanent link">&para;</a></h2>
+<p>A tabela <a href="#tabela-modelo">2</a> será utilizada como modelo para a elaboração das histórias de usuário do projeto. Ela padroniza os principais elementos necessários, como a descrição da necessidade, critérios de aceitação, prioridade, status de validação, entre outros. O objetivo é garantir consistência, rastreabilidade e clareza em todas as histórias documentadas.</p>
+<p align="center">Tabela 2: <i>Modelo para História de Usuário.</i></p>
+<p><a name="tabela-modelo"></a></p>
+<div align="center">
+<table>
+  <thead>
+    <tr>
+      <th><strong>Item</strong></th>
+      <th><strong>Descrição</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ID</td>
+      <td>USx</td>
+    </tr>
+    <tr>
+      <td>Rastreabilidade</td>
+      <td>Código do requisito</td>
+    </tr>
+    <tr>
+      <td>Tema</td>
+      <td>Título</td>
+    </tr>
+    <tr>
+      <td>Descrição</td>
+      <td>Eu, como <em>[tipo de usuário]</em>, desejo <em>[ação desejada]</em> para <em>[objetivo]</em></td>
+    </tr>
+    <tr>
+      <td>Critérios de Aceitação</td>
+      <td>- [Critério 1] <br> - [Critério 2]</td>
+    </tr>
+    <tr>
+      <td>Prioridade Usuário</td>
+      <td>Alta, Média, Baixa</td>
+    </tr>
+    <tr>
+      <td>Status</td>
+      <td>Se a história foi validada ou não pelo usuário</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<p style="text-align: center; font-size: 10pt;">Fonte: <a href="https://github.com/dudaa28">Maria Eduarda</a></p>
+
+<h3 id="historia-01-acesso-a-landing-page">História 01 — Acesso à Landing Page<a class="headerlink" href="#historia-01-acesso-a-landing-page" title="Permanent link">&para;</a></h3>
+<p><font size="3"><p style="text-align: center">Tabela: Acesso à Landing Page</p></font></p>
+<table>
+<thead>
+<tr>
+<th><strong>Item</strong></th>
+<th><strong>Descrição</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ID</strong></td>
+<td>H01</td>
+</tr>
+<tr>
+<td><strong>Tema</strong></td>
+<td><a href="../backlog_novo/#tema1">Experiência do Usuário e Engajamento</a></td>
+</tr>
+<tr>
+<td><strong>Descrição</strong></td>
+<td>Como visitante, quero acessar uma página inicial moderna para conhecer os objetivos da IDB Jovem &amp; Teen e encontrar rapidamente eventos, materiais ou vídeos.</td>
+</tr>
+<tr>
+<td><strong>Critérios de Aceitação</strong></td>
+<td>- Landing page com design moderno e responsivo  <br> - Seção destacada com objetivos da IDB Jovem &amp; Teen <br> - Links navegáveis para eventos, materiais e vídeos <br></td>
+</tr>
+<tr>
+<td><strong>Prioridade</strong></td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>Status</strong></td>
+<td>Não iniciado</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><a name="h02"></a></p>
+<h3 id="historia-02-calendario-de-eventos">História 02 — Calendário de Eventos<a class="headerlink" href="#historia-02-calendario-de-eventos" title="Permanent link">&para;</a></h3>
+<p><font size="3"><p style="text-align: center">Tabela: Calendário de Eventos</p></font></p>
+<table>
+<thead>
+<tr>
+<th><strong>Item</strong></th>
+<th><strong>Descrição</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ID</strong></td>
+<td>H02</td>
+</tr>
+<tr>
+<td><strong>Tema</strong></td>
+<td><a href="../backlog_novo/#tema1">Experiência do Usuário e Engajamento</a></td>
+</tr>
+<tr>
+<td><strong>Descrição</strong></td>
+<td>Como participante, quero visualizar uma aba de eventos em formato de calendário para planejar minha participação.</td>
+</tr>
+<tr>
+<td><strong>Critérios de Aceitação</strong></td>
+<td>- Calendário navegável por mês <br> - Eventos destacados nas datas corretas <br> - Visualização de horário e local ao clicar no evento <br></td>
+</tr>
+<tr>
+<td><strong>Prioridade</strong></td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>Status</strong></td>
+<td>Não iniciado</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><a name="h03"></a></p>
+<h3 id="historia-03-navegacao-de-materiais">História 03 — Navegação de Materiais<a class="headerlink" href="#historia-03-navegacao-de-materiais" title="Permanent link">&para;</a></h3>
+<p><font size="3"><p style="text-align: center">Tabela: Navegação de Materiais</p></font></p>
+<table>
+<thead>
+<tr>
+<th><strong>Item</strong></th>
+<th><strong>Descrição</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ID</strong></td>
+<td>H03</td>
+</tr>
+<tr>
+<td><strong>Tema</strong></td>
+<td><a href="../backlog_novo/#tema1">Experiência do Usuário e Engajamento</a></td>
+</tr>
+<tr>
+<td><strong>Descrição</strong></td>
+<td>Como usuário, quero acessar um catálogo dividido entre produtos físicos (camisetas, livros, etc) e digitais (e-books) para conhecer a produção da igreja.</td>
+</tr>
+<tr>
+<td><strong>Critérios de Aceitação</strong></td>
+<td>- Catálogo com abas de produtos físicos e digitais <br> - Descrição completa de cada produto <br> - Imagens de - qualidade <br> - Filtros por categoria</td>
+</tr>
+<tr>
+<td><strong>Prioridade</strong></td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>Status</strong></td>
+<td>Não iniciado</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><a name="h04"></a></p>
+<h3 id="historia-04-redirecionamento-de-compra">História 04 — Redirecionamento de Compra<a class="headerlink" href="#historia-04-redirecionamento-de-compra" title="Permanent link">&para;</a></h3>
+<p><font size="3"><p style="text-align: center">Tabela: Redirecionamento de Compra</p></font></p>
+<table>
+<thead>
+<tr>
+<th><strong>Item</strong></th>
+<th><strong>Descrição</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ID</strong></td>
+<td>H04</td>
+</tr>
+<tr>
+<td><strong>Tema</strong></td>
+<td><a href="../backlog_novo/#tema1">Experiência do Usuário e Engajamento</a></td>
+</tr>
+<tr>
+<td><strong>Descrição</strong></td>
+<td>Como interessado em um material, quero ser redirecionado para sites externos de compra para finalizar a aquisição com segurança.</td>
+</tr>
+<tr>
+<td><strong>Critérios de Aceitação</strong></td>
+<td>- Botão de compra com redirecionamento seguro <br> - Links para Hotmart, e-inscrição ou plataformas de vendas <br> - Abertura em nova aba <br> - Confirmação visual do redirecionamento</td>
+</tr>
+<tr>
+<td><strong>Prioridade</strong></td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>Status</strong></td>
+<td>Não iniciado</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><a name="h05"></a></p>
+<h3 id="historia-05-disponibilidade-em-eventos">História 05 — Disponibilidade em Eventos<a class="headerlink" href="#historia-05-disponibilidade-em-eventos" title="Permanent link">&para;</a></h3>
+<p><font size="3"><p style="text-align: center">Tabela: Disponibilidade em Eventos</p></font></p>
+<table>
+<thead>
+<tr>
+<th><strong>Item</strong></th>
+<th><strong>Descrição</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ID</strong></td>
+<td>H05</td>
+</tr>
+<tr>
+<td><strong>Tema</strong></td>
+<td><a href="../backlog_novo/#tema1">Experiência do Usuário e Engajamento</a></td>
+</tr>
+<tr>
+<td><strong>Descrição</strong></td>
+<td>Como participante de um evento presencial, quero saber quais produtos estarão à venda física no local.</td>
+</tr>
+<tr>
+<td><strong>Critérios de Aceitação</strong></td>
+<td>- Seção dedicada na página do evento com produtos disponíveis</td>
+</tr>
+<tr>
+<td><strong>Prioridade</strong></td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>Status</strong></td>
+<td>Não iniciado</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><a name="h06"></a></p>
+<h3 id="historia-06-criacao-e-edicao-de-eventos">História 06 — Criação e Edição de Eventos<a class="headerlink" href="#historia-06-criacao-e-edicao-de-eventos" title="Permanent link">&para;</a></h3>
+<p><font size="3"><p style="text-align: center">Tabela: Criação e Edição de Eventos</p></font></p>
+<table>
+<thead>
+<tr>
+<th><strong>Item</strong></th>
+<th><strong>Descrição</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ID</strong></td>
+<td>H06</td>
+</tr>
+<tr>
+<td><strong>Tema</strong></td>
+<td><a href="../backlog_novo/#tema2">Gestão de Eventos</a></td>
+</tr>
+<tr>
+<td><strong>Descrição</strong></td>
+<td>Como administrador, quero criar, editar e excluir eventos nacionais, definindo descrição, palestrantes, bandas e galeria de fotos.</td>
+</tr>
+<tr>
+<td><strong>Critérios de Aceitação</strong></td>
+<td>- Formulário completo para criação de eventos <br> - Campos para descrição, palestrantes, bandas e fotos <br> - Edição posterior sem perder dados <br> - Opção de soft delete ou desativação</td>
+</tr>
+<tr>
+<td><strong>Prioridade</strong></td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>Status</strong></td>
+<td>Não iniciado</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><a name="h07"></a></p>
+<h3 id="historia-07-gestao-de-programacao">História 07 — Gestão de Programação<a class="headerlink" href="#historia-07-gestao-de-programacao" title="Permanent link">&para;</a></h3>
+<p><font size="3"><p style="text-align: center">Tabela: Gestão de Programação</p></font></p>
+<table>
+<thead>
+<tr>
+<th><strong>Item</strong></th>
+<th><strong>Descrição</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ID</strong></td>
+<td>H07</td>
+</tr>
+<tr>
+<td><strong>Tema</strong></td>
+<td><a href="../backlog_novo/#tema2">Gestão de Eventos</a></td>
+</tr>
+<tr>
+<td><strong>Descrição</strong></td>
+<td>Como administrador, quero cadastrar a programação detalhada (horário, atividade e descrição) de cada evento.</td>
+</tr>
+<tr>
+<td><strong>Critérios de Aceitação</strong></td>
+<td>- Interface para adicionar múltiplas atividades com horários <br> - Validação de conflito de horários <br> - Possibilidade de reordenar atividades <br> - Visualização de tabela da programação</td>
+</tr>
+<tr>
+<td><strong>Prioridade</strong></td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>Status</strong></td>
+<td>Não iniciado</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><a name="h08"></a></p>
+<h3 id="historia-08-inscricao-externa">História 08 — Inscrição Externa<a class="headerlink" href="#historia-08-inscricao-externa" title="Permanent link">&para;</a></h3>
+<p><font size="3"><p style="text-align: center">Tabela: Inscrição Externa</p></font></p>
+<table>
+<thead>
+<tr>
+<th><strong>Item</strong></th>
+<th><strong>Descrição</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ID</strong></td>
+<td>H08</td>
+</tr>
+<tr>
+<td><strong>Tema</strong></td>
+<td><a href="../backlog_novo/#tema2">Gestão de Eventos</a></td>
+</tr>
+<tr>
+<td><strong>Descrição</strong></td>
+<td>Como participante, quero ser redirecionado para o e-inscrição ou Sympla para realizar o pagamento da minha inscrição.</td>
+</tr>
+<tr>
+<td><strong>Critérios de Aceitação</strong></td>
+<td>- Botão de inscrição com redirecionamento seguro <br> - Integração com múltiplas plataformas <br> - Rastreamento de conversões <br> - Feedback visual do processo</td>
+</tr>
+<tr>
+<td><strong>Prioridade</strong></td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>Status</strong></td>
+<td>Não iniciado</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><a name="h09"></a></p>
+<h3 id="historia-09-sincronizacao-de-agenda">História 09 — Sincronização de Agenda<a class="headerlink" href="#historia-09-sincronizacao-de-agenda" title="Permanent link">&para;</a></h3>
+<p><font size="3"><p style="text-align: center">Tabela: Sincronização de Agenda</p></font></p>
+<table>
+<thead>
+<tr>
+<th><strong>Item</strong></th>
+<th><strong>Descrição</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ID</strong></td>
+<td>H09</td>
+</tr>
+<tr>
+<td><strong>Tema</strong></td>
+<td><a href="../backlog_novo/#tema2">Gestão de Eventos</a></td>
+</tr>
+<tr>
+<td><strong>Descrição</strong></td>
+<td>Como usuário, quero integrar os eventos diretamente ao meu Google Calendar.</td>
+</tr>
+<tr>
+<td><strong>Critérios de Aceitação</strong></td>
+<td>- Botão para adicionar evento ao Google Calendar <br> - Sincronização automática de detalhes (horário, local, descrição) <br> - Autenticação segura com Google <br> - Possibilidade de sincronizar múltiplos eventos</td>
+</tr>
+<tr>
+<td><strong>Prioridade</strong></td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>Status</strong></td>
+<td>Não iniciado</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><a name="h10"></a></p>
+<h3 id="historia-10-formulario-de-inscricao-de-voluntario">História 10 — Formulário de Inscrição de Voluntário<a class="headerlink" href="#historia-10-formulario-de-inscricao-de-voluntario" title="Permanent link">&para;</a></h3>
+<p><font size="3"><p style="text-align: center">Tabela: Formulário de Inscrição de Voluntário</p></font></p>
+<table>
+<thead>
+<tr>
+<th><strong>Item</strong></th>
+<th><strong>Descrição</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ID</strong></td>
+<td>H10</td>
+</tr>
+<tr>
+<td><strong>Tema</strong></td>
+<td><a href="../backlog_novo/#tema3">Gestão de Voluntários</a></td>
+</tr>
+<tr>
+<td><strong>Descrição</strong></td>
+<td>Como membro, quero preencher um formulário completo (incluindo antecedentes criminais) para me candidatar como voluntário.</td>
+</tr>
+<tr>
+<td><strong>Critérios de Aceitação</strong></td>
+<td>- Formulário com campos obrigatórios e opcionais claramente marcados <br> - Campos para dados pessoais e de antecedentes criminais <br> - Validação de dados em tempo real <br> - Confirmação de envio com ID de candidatura</td>
+</tr>
+<tr>
+<td><strong>Prioridade</strong></td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>Status</strong></td>
+<td>Não iniciado</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><a name="h11"></a></p>
+<h3 id="historia-11-notificacao-de-candidatura">História 11 — Notificação de Candidatura<a class="headerlink" href="#historia-11-notificacao-de-candidatura" title="Permanent link">&para;</a></h3>
+<p><font size="3"><p style="text-align: center">Tabela: Notificação de Candidatura</p></font></p>
+<table>
+<thead>
+<tr>
+<th><strong>Item</strong></th>
+<th><strong>Descrição</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ID</strong></td>
+<td>H11</td>
+</tr>
+<tr>
+<td><strong>Tema</strong></td>
+<td><a href="../backlog_novo/#tema3">Gestão de Voluntários</a></td>
+</tr>
+<tr>
+<td><strong>Descrição</strong></td>
+<td>Como administrador do evento, quero receber um e-mail automático sempre que houver uma nova candidatura para agilizar a validação.</td>
+</tr>
+<tr>
+<td><strong>Critérios de Aceitação</strong></td>
+<td>- E-mail automático ao receber candidatura <br> - Resumo dos dados do candidato no e-mail <br> - Configurar quem recebe e-mail por evento</td>
+</tr>
+<tr>
+<td><strong>Prioridade</strong></td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>Status</strong></td>
+<td>Não iniciado</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><a name="h12"></a></p>
+<h3 id="historia-12-armazenamento-de-dados-de-voluntarios">História 12 — Armazenamento de Dados de Voluntários<a class="headerlink" href="#historia-12-armazenamento-de-dados-de-voluntarios" title="Permanent link">&para;</a></h3>
+<p><font size="3"><p style="text-align: center">Tabela: Armazenamento de Dados de Voluntários</p></font></p>
+<table>
+<thead>
+<tr>
+<th><strong>Item</strong></th>
+<th><strong>Descrição</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ID</strong></td>
+<td>H12</td>
+</tr>
+<tr>
+<td><strong>Tema</strong></td>
+<td><a href="../backlog_novo/#tema3">Gestão de Voluntários</a></td>
+</tr>
+<tr>
+<td><strong>Descrição</strong></td>
+<td>Como administrador, quero que o sistema armazene os formulários dos voluntários para consultas futuras e histórico.</td>
+</tr>
+<tr>
+<td><strong>Critérios de Aceitação</strong></td>
+<td>- Banco de dados seguro para armazenamento <br> - Histórico completo de candidaturas <br> - Conformidade com LGPD</td>
+</tr>
+<tr>
+<td><strong>Prioridade</strong></td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>Status</strong></td>
+<td>Não iniciado</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><a name="h13"></a></p>
+<h3 id="historia-13-aprovacao-de-candidatos">História 13 — Aprovação de Candidatos<a class="headerlink" href="#historia-13-aprovacao-de-candidatos" title="Permanent link">&para;</a></h3>
+<p><font size="3"><p style="text-align: center">Tabela: Aprovação de Candidatos</p></font></p>
+<table>
+<thead>
+<tr>
+<th><strong>Item</strong></th>
+<th><strong>Descrição</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ID</strong></td>
+<td>H13</td>
+</tr>
+<tr>
+<td><strong>Tema</strong></td>
+<td><a href="../backlog_novo/#tema3">Gestão de Voluntários</a></td>
+</tr>
+<tr>
+<td><strong>Descrição</strong></td>
+<td>Como administrador, quero revisar e aprovar as candidaturas de voluntários para garantir que atendem aos requisitos necessários.</td>
+</tr>
+<tr>
+<td><strong>Critérios de Aceitação</strong></td>
+<td>- Interface de visualização detalhada da candidatura <br> - Botões de Aprovar/Rejeitar <br> - Campo para comentários de avaliação <br> - Notificação automática ao candidato sobre decisão</td>
+</tr>
+<tr>
+<td><strong>Prioridade</strong></td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>Status</strong></td>
+<td>Não iniciado</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><a name="h14"></a></p>
+<h3 id="historia-14-contagem-de-voluntarios-por-evento">História 14 — Contagem de Voluntários por Evento<a class="headerlink" href="#historia-14-contagem-de-voluntarios-por-evento" title="Permanent link">&para;</a></h3>
+<p><font size="3"><p style="text-align: center">Tabela: Contagem de Voluntários por Evento</p></font></p>
+<table>
+<thead>
+<tr>
+<th><strong>Item</strong></th>
+<th><strong>Descrição</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ID</strong></td>
+<td>H14</td>
+</tr>
+<tr>
+<td><strong>Tema</strong></td>
+<td><a href="../backlog_novo/#tema3">Gestão de Voluntários</a></td>
+</tr>
+<tr>
+<td><strong>Descrição</strong></td>
+<td>Como administrador, quero visualizar quantos voluntários estão inscritos e aprovados por evento para garantir que as equipes estejam completas.</td>
+</tr>
+<tr>
+<td><strong>Critérios de Aceitação</strong></td>
+<td>- Dashboard com contadores de inscritos vs aprovados <br> - Visualização por evento <br> - Export dos dados dos voluntários e funções</td>
+</tr>
+<tr>
+<td><strong>Prioridade</strong></td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>Status</strong></td>
+<td>Não iniciado</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><a name="h15"></a></p>
+<h3 id="historia-15-login-administrativo">História 15 — Login Administrativo<a class="headerlink" href="#historia-15-login-administrativo" title="Permanent link">&para;</a></h3>
+<p><font size="3"><p style="text-align: center">Tabela: Login Administrativo</p></font></p>
+<table>
+<thead>
+<tr>
+<th><strong>Item</strong></th>
+<th><strong>Descrição</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ID</strong></td>
+<td>H15</td>
+</tr>
+<tr>
+<td><strong>Tema</strong></td>
+<td><a href="../backlog_novo/#tema4">Governança e Operações</a></td>
+</tr>
+<tr>
+<td><strong>Descrição</strong></td>
+<td>Como administrador, quero realizar login no sistema para acessar as ferramentas de gestão.</td>
+</tr>
+<tr>
+<td><strong>Critérios de Aceitação</strong></td>
+<td>- Página de login segura com validação de credenciais <br> - Autenticação com dois fatores <br> - Session management com timeout <br></td>
+</tr>
+<tr>
+<td><strong>Prioridade</strong></td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>Status</strong></td>
+<td>Não iniciado</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><a name="h16"></a></p>
+<h3 id="historia-16-multi-administradores">História 16 — Multi-Administradores<a class="headerlink" href="#historia-16-multi-administradores" title="Permanent link">&para;</a></h3>
+<p><font size="3"><p style="text-align: center">Tabela: Multi-Administradores</p></font></p>
+<table>
+<thead>
+<tr>
+<th><strong>Item</strong></th>
+<th><strong>Descrição</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ID</strong></td>
+<td>H16</td>
+</tr>
+<tr>
+<td><strong>Tema</strong></td>
+<td><a href="../backlog_novo/#tema4">Governança e Operações</a></td>
+</tr>
+<tr>
+<td><strong>Descrição</strong></td>
+<td>Como administrador principal, quero que o sistema suporte pelo menos 6 líderes com permissões de gestão.</td>
+</tr>
+<tr>
+<td><strong>Critérios de Aceitação</strong></td>
+<td>- Auditoria de ações por administrador</td>
+</tr>
+<tr>
+<td><strong>Prioridade</strong></td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>Status</strong></td>
+<td>Não iniciado</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><a name="h17"></a></p>
+<h3 id="historia-17-gestao-de-estoque">História 17 — Gestão de Estoque<a class="headerlink" href="#historia-17-gestao-de-estoque" title="Permanent link">&para;</a></h3>
+<p><font size="3"><p style="text-align: center">Tabela: Gestão de Estoque</p></font></p>
+<table>
+<thead>
+<tr>
+<th><strong>Item</strong></th>
+<th><strong>Descrição</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ID</strong></td>
+<td>H17</td>
+</tr>
+<tr>
+<td><strong>Tema</strong></td>
+<td><a href="../backlog_novo/#tema4">Governança e Operações</a></td>
+</tr>
+<tr>
+<td><strong>Descrição</strong></td>
+<td>Como administrador, quero cadastrar produtos na base de dados.</td>
+</tr>
+<tr>
+<td><strong>Critérios de Aceitação</strong></td>
+<td>- Formulário de cadastro de produtos</td>
+</tr>
+<tr>
+<td><strong>Prioridade</strong></td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>Status</strong></td>
+<td>Não iniciado</td>
+</tr>
+</tbody>
+</table>
+<h2 id="referencias-bibliograficas">Referências Bibliográficas<a class="headerlink" href="#referencias-bibliograficas" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><a id="REF1" href="#cit-1">1.</a>  PRESSMAN, Roger S.; MAXIM, Bruce R.. Engenharia de software: uma abordagem profissional. 8 Porto Alegre: AMGH, 2016, 940 p.</p>
+</blockquote>
+<h2 id="historico-de-versao">Histórico de Versão<a class="headerlink" href="#historico-de-versao" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Versão</th>
+<th>Data</th>
+<th>Descrição</th>
+<th>Autor(es)</th>
+<th>Revisor(es)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0.1</code></td>
+<td>29/03/2026</td>
+<td>Base História de Usuário</td>
+<td><a href="https://github.com/EnzoEmir">Enzo Emir</a>, <a href="https://github.com/GabrielSMonteiro">Gabriel Monteiro</a>, <a href="https://github.com/Leticia-Arisa-K-Higa">Leticia Arisa</a>, <a href="https://github.com/MM4K">Marcelo Makoto</a>, <a href="https://github.com/dudaa28">Maria Eduarda</a>, <a href="https://github.com/VictorPontual">Victor Pontual</a></td>
+<td><a href="https://github.com/EnzoEmir">Enzo Emir</a>, <a href="https://github.com/GabrielSMonteiro">Gabriel Monteiro</a>, <a href="https://github.com/Leticia-Arisa-K-Higa">Leticia Arisa</a>, <a href="https://github.com/MM4K">Marcelo Makoto</a>, <a href="https://github.com/dudaa28">Maria Eduarda</a>, <a href="https://github.com/VictorPontual">Victor Pontual</a></td>
+</tr>
+<tr>
+<td><code>0.2</code></td>
+<td>29/03/2026</td>
+<td>Documentação adicional</td>
+<td><a href="https://github.com/dudaa28">Maria Eduarda</a></td>
+<td><a href="https://github.com/GabrielSMonteiro">Gabriel Monteiro</a></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Voltar para o topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.top", "navigation.instant", "navigation.instant.progress", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
