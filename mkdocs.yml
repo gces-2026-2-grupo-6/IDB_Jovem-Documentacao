@@ -44,11 +44,13 @@ nav:
   - Projeto:
       - História: projeto/historia_usuario_novo.md
       - Backlog: projeto/backlog_novo.md
+      - Backlog de Melhorias: projeto/backlog_melhorias.md
+      - Sprints: projeto/sprints.md
       - Canvas MVP: projeto/canvas_mvp.md
       - Protótipo de alta fidelidade: projeto/prototipo_alta.md
       - Modelo Físico: projeto/modelo_fisico.md
       - Vídeo entrega Final: projeto/entrega_final.md
-      
+
 markdown_extensions:
   - admonition
   - tables
