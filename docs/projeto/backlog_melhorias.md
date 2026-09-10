@@ -11,6 +11,7 @@
 - [Prioridade Baixa](#baixa)
 - [Fora do Escopo desta Etapa](#fora)
 - [Rastreabilidade](#rastreabilidade)
+- [Requisitos Elicitados](#requisitos)
 
 ---
 
@@ -303,8 +304,130 @@ Sites citados como inspiração, úteis para a etapa de prototipação:
 
 ---
 
+<a name="requisitos"></a>
+
+## Requisitos Elicitados
+
+Catálogo completo dos requisitos levantados na elicitação, usado como referência para a coluna **Rastreabilidade** das histórias acima. São **64 requisitos**: 7 originados de relatos diretos da cliente, 54 propostos pela equipe a partir da análise do código-fonte e 3 descobertos nos campos abertos do formulário.
+
+**Legenda de origem:** `C` relato direto da cliente · `C+T` relato confirmado por evidência técnica · `T` achado da equipe na análise do código · `S` sugestão da equipe · `A` resposta aberta do formulário
+
+### Relatos originais da cliente
+
+| ID | Requisito | Origem | Situação | Responsável |
+|---|---|---|---|---|
+| RF01 | Administradores com permissão separada por setor | C+T | US03 — Alta | | 
+| RF02 | Cadastrar e editar líderes atuais pelo painel | C+T | US05 — Alta | | 
+| RF03 | Galeria de diretores anteriores editável | C | US05 — Alta (restrita ao cargo nacional) | | 
+| RF04 | Corrigir foto duplicada do Pr. Áquila | C+T | US04 — Alta (causa: tradução automática) | | 
+| RF05 | Evento com múltiplos dias | C+T | US01 — Alta | | 
+| RF06 | Corrigir tradução automática indevida no celular | C+T | US04 — Alta | | 
+| RF07 | Corrigir problemas da galeria de fotos | C | US07 — Média | | 
+
+### Gestão de eventos
+
+| ID | Requisito | Origem | Situação | Responsável |
+|---|---|---|---|---|
+| RF08 | Rascunho: criar evento e publicar depois | S | US13 — Baixa | | 
+| RF09 | Duplicar evento anterior para nova edição | S | US13 — Baixa | | 
+| RF10 | Eventos recorrentes automáticos | S | Backlog | | 
+| RF11 | Campos novos: vagas, valor, faixa etária, prazo, o que levar | S | US02 — Alta | | 
+| RF12 | Marcar evento como cancelado ou adiado | S | US14 — Baixa | | 
+| RF13 | Histórico de eventos passados com fotos | S | US15 — Baixa | | 
+| RF14 | Inscrição de voluntários dentro do site | S | Backlog | | 
+| RF15 | Confirmação de inscrição por e-mail | S | Backlog | | 
+| RF16 | Controle de vagas com lista de espera | S | Backlog | | 
+| RF17 | Exportar lista de inscritos em planilha | S | Backlog | | 
+| RF18 | Local diferente por dia do evento | S | **Fora do escopo** | | 
+| RF19 | Responsável indicado em cada atividade | S | Backlog | | 
+| RF20 | Botão "adicionar à minha agenda" | S | Backlog | | 
+| RF21 | Contagem regressiva do próximo evento | S | Backlog | | 
+
+### Conteúdo e comunicação
+
+| ID | Requisito | Origem | Situação | Responsável |
+|---|---|---|---|---|
+| RF22 | Upload de imagens direto no site | T | Backlog | | 
+| RF23 | Álbum de fotos separado por evento | T | US07 — Média | | 
+| RF24 | Vídeos além de fotos na galeria | S | Backlog | | 
+| RF25 | Editar textos institucionais pelo painel | S | US11 — Média | | 
+| RF26 | Seção de avisos e comunicados na home | S | US11 — Média | | 
+| RF27 | Espaço para devocional ou conteúdo semanal | S | Backlog | | 
+| RF28 | Integração com Instagram | S | Backlog | | 
+| RF29 | Página com horários de culto e como chegar | S | Backlog | | 
+| RF30 | Formulário de contato com a liderança | S | Backlog | | 
+| RF31 | Lista de e-mails para avisos | S | Backlog | | 
+
+### Loja e produtos
+
+| ID | Requisito | Origem | Situação | Responsável |
+|---|---|---|---|---|
+| RF32 | Preço, tamanho e cor nos produtos | S | US12 — Baixa | | 
+| RF33 | Categorias de produtos | S | US12 — Baixa | | 
+| RF34 | Vincular produto a um evento | S | Backlog | | 
+| RF35 | Reserva ou pedido com envio para o WhatsApp | S | Backlog | | 
+
+### Voluntários
+
+| ID | Requisito | Origem | Situação | Responsável |
+|---|---|---|---|---|
+| RF36 | Notificar voluntário sobre aprovação ou reprovação | S | **Fora do escopo** | | 
+| RF37 | Registrar área de atuação do voluntário | S | Backlog | | 
+| RF38 | Exportar lista de voluntários em planilha | S | Backlog | | 
+| RF39 | Check-in de voluntários no dia do evento | S | Backlog | | 
+| RF40 | Histórico de participação por voluntário | S | Backlog | | 
+| RF41 | Escala de voluntários por atividade | S | Backlog | | 
+
+### Gestão e segurança
+
+| ID | Requisito | Origem | Situação | Responsável |
+|---|---|---|---|---|
+| RF42 | Log de auditoria de alterações | S | Backlog | | 
+| RF43 | Acesso administrativo temporário | S | Backlog | | 
+| RF44 | Recuperação de senha do administrador | S | Backlog | | 
+| RF45 | Painel inicial com números | S | Backlog | | 
+| RF46 | Agenda sem depender de conta Google pessoal | T | **Fora do escopo** | | 
+
+### Bandas e palestrantes
+
+*Área descoberta na auditoria de código, ausente dos relatos iniciais.*
+
+| ID | Requisito | Origem | Situação | Responsável |
+|---|---|---|---|---|
+| RF47 | Gerenciar bandas e palestrantes pelo painel | T | US06 — Alta | | 
+| RF48 | Exibir convidados na página pública do evento | S | US06 — Alta | | 
+| RF49 | Reaproveitar convidado em novo evento | S | US06 — Alta | | 
+| RF50 | Vincular convidado a atividade da programação | S | US06 — Alta | | 
+| RF51 | Histórico de participações por convidado | S | Backlog | | 
+
+### Requisitos surgidos das respostas abertas
+
+| ID | Requisito | Origem | Situação | Responsável |
+|---|---|---|---|---|
+| RF52 | Inscrição de participante, separada da de voluntário | A | US09 — Média | | 
+| RF53 | Cadastro nacional de líderes de jovens e adolescentes | A | US10 — Média | | 
+| RF54 | Área de materiais para download | A | US11 — Média | | 
+
+### Requisitos não funcionais
+
+| ID | Requisito | Origem | Situação | Responsável |
+|---|---|---|---|---|
+| RNF01 | Otimização de desempenho no celular | S | **Fora do escopo** — site classificado como "muito rápido" | | 
+| RNF02 | Acessibilidade e leitor de tela | S | US16 — Baixa | | 
+| RNF03 | Prévia correta ao compartilhar o link | S | US08 — Média | | 
+| RNF04 | SEO — melhor posicionamento no Google | S | Backlog | | 
+| RNF05 | Layout revisado em telas pequenas | S | Backlog | | 
+| RNF06 | Mensagem de erro clara no lugar de tela branca | S | Backlog | | 
+| RNF07 | Backup e restauração dos dados | S | Backlog | | 
+| RNF08 | Padronização de fuso horário nas datas | T | Backlog | | 
+| RNF09 | Funcionar bem com internet ruim | S | Backlog | | 
+| RNF10 | Manual de uso do painel para a equipe | S | Backlog | | 
+
+---
+
 ## Histórico de Versão
 
 | Versão | Data | Descrição | Autor(es) |
 |---|---|---|---|
 | `1.0` | 31/08/2026 | Criação do backlog de melhorias a partir da elicitação com a cliente | [Júlia Massuda](https://github.com/JuliaReis18) |
+| `1.1` | 31/08/2026 | Inclusão do catálogo completo de requisitos elicitados, com coluna de responsável por requisito | [João Pedro](https://github.com/Jadequilin) |
