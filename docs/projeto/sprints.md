@@ -109,18 +109,20 @@ O trabalho de QA ocorre **em paralelo** às histórias acima, não depois delas.
     </tr>
   </thead>
   <tbody>
-    <tr><td>QA01</td><td>Tornar os jobs do pipeline bloqueantes no back-end (remoção do <code>continue-on-error</code>)</td><td>Todas</td><td></td><td>A Fazer</td></tr>
-    <tr><td>QA02</td><td>Criar workflow de integração contínua no front-end (lint, build e Playwright)</td><td>Todas</td><td></td><td>A Fazer</td></tr>
-    <tr><td>QA03</td><td>Testes de regressão do idioma da página e da duplicação de líder sob tradução</td><td>US04</td><td></td><td>A Fazer</td></tr>
-    <tr><td>QA04</td><td>Testes de evento com múltiplos dias e dias não consecutivos</td><td>US01, US02</td><td></td><td>A Fazer</td></tr>
-    <tr><td>QA05</td><td>Matriz de autorização por papel e testes de negação de acesso</td><td>US03</td><td></td><td>A Fazer</td></tr>
-    <tr><td>QA06</td><td>Templates de <em>pull request</em> e de <em>issue</em> com critérios de qualidade</td><td>Processo</td><td></td><td>A Fazer</td></tr>
+    <tr><td>QA01</td><td>Tornar os jobs do pipeline bloqueantes no back-end (remoção do <code>continue-on-error</code>)</td><td>Todas</td><td><a href="https://github.com/Jadequilin">@Jadequilin</a></td><td>Em Revisão</td></tr>
+    <tr><td>QA02</td><td>Criar workflow de integração contínua no front-end (lint, build e Playwright)</td><td>Todas</td><td><a href="https://github.com/RivaFilho">@RivaFilho</a></td><td>A Fazer</td></tr>
+    <tr><td>QA03</td><td>Testes de regressão do idioma da página e da duplicação de líder sob tradução</td><td>US04</td><td><a href="https://github.com/RivaFilho">@RivaFilho</a></td><td>A Fazer</td></tr>
+    <tr><td>QA04</td><td>Testes de evento com múltiplos dias e dias não consecutivos</td><td>US01, US02</td><td><a href="https://github.com/Jadequilin">@Jadequilin</a></td><td>Em Revisão</td></tr>
+    <tr><td>QA05</td><td>Matriz de autorização por papel e testes de negação de acesso</td><td>US03</td><td><a href="https://github.com/Jadequilin">@Jadequilin</a></td><td>Em Revisão</td></tr>
+    <tr><td>QA06</td><td>Templates de <em>pull request</em> e de <em>issue</em> com critérios de qualidade</td><td>Processo</td><td><a href="https://github.com/RivaFilho">@RivaFilho</a></td><td>A Fazer</td></tr>
   </tbody>
 </table>
 
 </center>
 
 > **Ordem recomendada.** QA01 e QA02 nos primeiros dias da sprint, por serem trabalho de horas e condição para tudo o mais. QA03 a QA05 acompanham a implementação das histórias correspondentes — o teste é escrito junto da correção, não depois dela.
+
+> **Resultado das entregas concluídas.** A QA01 destravou **12 testes que já falhavam na `main`** sem que o pipeline acusasse — 6 quebrados por mudança de schema sem atualização das fixtures, e 6 que nunca rodaram por dependência não declarada. A QA04 adicionou **16 testes** de faixa de datas. A QA05 adicionou **44 testes** de autorização e documentou **2 vulnerabilidades**, entre elas as rotas de atividade sem qualquer verificação de papel. Suíte atual: **631 testes**, cobertura em 95%.
 
 ---
 
@@ -141,3 +143,4 @@ As histórias de Prioridade Média e Baixa, assim como os itens fora do escopo, 
 |---|---|---|---|
 | `1.0` | 31/08/2026 | Criação da página de Sprints e cadastro da Sprint 1 | [Júlia Massuda](https://github.com/JuliaReis18) |
 | `1.1` | 31/08/2026 | Inclusão das colunas de requisitos e responsáveis, das entregas de QA da Sprint 1 e das instruções de preenchimento | [João Pedro](https://github.com/Jadequilin) |
+| `1.2` | 11/09/2026 | Atribuição de responsáveis das entregas de QA e registro do resultado das entregas concluídas | [João Pedro](https://github.com/Jadequilin) |
