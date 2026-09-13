@@ -318,11 +318,11 @@ Cada requisito possui campo de **Responsável** e de **O que foi feito**. O prim
 
 | ID | Requisito | Origem | Situação | Responsável | O que foi feito |
 |---|---|---|---|---|---|
-| RF01 | Administradores com permissão separada por setor | C+T | US03 — Alta | [@Jadequilin](https://github.com/Jadequilin) | 44 testes de autorização por papel: matriz de 13 rotas, negação de acesso e escalonamento de privilégio. Duas vulnerabilidades documentadas na [Matriz de Autorização](matriz-autorizacao.md), uma delas corrigida. |
+| RF01 | Administradores com permissão separada por setor | C+T | US03 — Alta | QA: [@Jadequilin](https://github.com/Jadequilin)<br>Implementação: [@daviRolvr](https://github.com/daviRolvr), [@JoaoPedro2206](https://github.com/JoaoPedro2206), [@R-enanVieira](https://github.com/R-enanVieira) | **QA:** 44 testes de autorização por papel: matriz de 13 rotas, negação de acesso e escalonamento de privilégio. Duas vulnerabilidades documentadas na [Matriz de Autorização](matriz-autorizacao.md), uma delas corrigida.<br>**Implementação:** três setores lidos dos papéis do Keycloak, com menu, painel e rotas filtrados por setor; exclusão de conteúdo restrita à superadministradora, recusada também na camada de serviço; tela de gestão de administradores. |
 | RF02 | Cadastrar e editar líderes atuais pelo painel | C+T | US05 — Alta | | |
 | RF03 | Galeria de diretores anteriores editável | C | US05 — Alta (restrita ao cargo nacional) | | |
 | RF04 | Corrigir foto duplicada do Pr. Áquila | C+T | US04 — Alta (causa: tradução automática) | | |
-| RF05 | Evento com múltiplos dias | C+T | US01 — Alta | [@Jadequilin](https://github.com/Jadequilin) | 16 testes de faixa de datas: até três dias, dias não consecutivos, virada de mês e de ano, rejeição de datas invertidas. |
+| RF05 | Evento com múltiplos dias | C+T | US01 — Alta | QA: [@Jadequilin](https://github.com/Jadequilin)<br>Implementação: [@daviRolvr](https://github.com/daviRolvr), [@JoaoPedro2206](https://github.com/JoaoPedro2206), [@R-enanVieira](https://github.com/R-enanVieira) | **QA:** 16 testes de faixa de datas: até três dias, dias não consecutivos, virada de mês e de ano, rejeição de datas invertidas.<br>**Implementação:** card único no calendário com a faixa de datas; evento em andamento deixa de sumir do site; evento que atravessa a virada aparece nos dois meses; seleção de dias não consecutivos no formulário. |
 | RF06 | Corrigir tradução automática indevida no celular | C+T | US04 — Alta | | |
 | RF07 | Corrigir problemas da galeria de fotos | C | US07 — Média | | |
 
@@ -333,7 +333,7 @@ Cada requisito possui campo de **Responsável** e de **O que foi feito**. O prim
 | RF08 | Rascunho: criar evento e publicar depois | S | US13 — Baixa | | |
 | RF09 | Duplicar evento anterior para nova edição | S | US13 — Baixa | | |
 | RF10 | Eventos recorrentes automáticos | S | Backlog | | |
-| RF11 | Campos novos: vagas, valor, faixa etária, prazo, o que levar | S | US02 — Alta | [@Jadequilin](https://github.com/Jadequilin) | Testes de campos complementares: link de formulário, link de galeria e campos opcionais ausentes não bloqueiam a criação. |
+| RF11 | Campos novos: vagas, valor, faixa etária, prazo, o que levar | S | US02 — Alta | QA: [@Jadequilin](https://github.com/Jadequilin)<br>Implementação: [@daviRolvr](https://github.com/daviRolvr), [@JoaoPedro2206](https://github.com/JoaoPedro2206), [@R-enanVieira](https://github.com/R-enanVieira) | **QA:** testes de campos complementares: link de formulário, link de galeria e campos opcionais ausentes não bloqueiam a criação.<br>**Implementação (parcial, via US01):** reestruturação do formulário de evento e da validação de datas, que a US02 estende com os cinco campos novos. |
 | RF12 | Marcar evento como cancelado ou adiado | S | US14 — Baixa | | |
 | RF13 | Histórico de eventos passados com fotos | S | US15 — Baixa | | |
 | RF14 | Inscrição de voluntários dentro do site | S | Backlog | | |
@@ -396,10 +396,10 @@ Cada requisito possui campo de **Responsável** e de **O que foi feito**. O prim
 
 | ID | Requisito | Origem | Situação | Responsável | O que foi feito |
 |---|---|---|---|---|---|
-| RF47 | Gerenciar bandas e palestrantes pelo painel | T | US06 — Alta | | |
-| RF48 | Exibir convidados na página pública do evento | S | US06 — Alta | | |
-| RF49 | Reaproveitar convidado em novo evento | S | US06 — Alta | | |
-| RF50 | Vincular convidado a atividade da programação | S | US06 — Alta | | |
+| RF47 | Gerenciar bandas e palestrantes pelo painel | T | US06 — Alta | [@daviRolvr](https://github.com/daviRolvr), [@JoaoPedro2206](https://github.com/JoaoPedro2206), [@R-enanVieira](https://github.com/R-enanVieira) | Tela de convidados no painel, com busca por nome e função, cadastro, edição e exclusão. Construída sobre o CRUD que a API já oferecia e que nenhuma tela alcançava. A função (banda, pregador, convidado) é derivada do campo de texto livre da API, sem descaracterizar o que já estava cadastrado. |
+| RF48 | Exibir convidados na página pública do evento | S | US06 — Alta | [@daviRolvr](https://github.com/daviRolvr), [@JoaoPedro2206](https://github.com/JoaoPedro2206), [@R-enanVieira](https://github.com/R-enanVieira) | Convidados separados por função na página do evento: antes o título era fixo em "Palestrantes" e uma banda aparecia anunciada como palestrante. Grupo sem ninguém não é exibido. |
+| RF49 | Reaproveitar convidado em novo evento | S | US06 — Alta | [@daviRolvr](https://github.com/daviRolvr), [@JoaoPedro2206](https://github.com/JoaoPedro2206), [@R-enanVieira](https://github.com/R-enanVieira) | No formulário do evento, o texto livre deu lugar à seleção dos já cadastrados, com cadastro rápido para quem ainda não existe. O vínculo passou a ser por identificador: antes era resolvido comparando nomes, e corrigir a grafia de um nome criava um cadastro novo. |
+| RF50 | Vincular convidado a atividade da programação | S | US06 — Alta | [@daviRolvr](https://github.com/daviRolvr), [@JoaoPedro2206](https://github.com/JoaoPedro2206), [@R-enanVieira](https://github.com/R-enanVieira) | **Não entregue.** Exige tabela nova no back-end ligando convidado a atividade — a `atividade` só conhece o evento. Levado a refinamento em vez de virar tela que não guarda nada. |
 | RF51 | Histórico de participações por convidado | S | Backlog | | |
 
 ### Requisitos surgidos das respostas abertas
@@ -434,3 +434,4 @@ Cada requisito possui campo de **Responsável** e de **O que foi feito**. O prim
 | `1.0` | 31/08/2026 | Criação do backlog de melhorias a partir da elicitação com a cliente | [Júlia Massuda](https://github.com/JuliaReis18) |
 | `1.1` | 31/08/2026 | Inclusão do catálogo completo de requisitos elicitados, com coluna de responsável por requisito | [João Pedro](https://github.com/Jadequilin) |
 | `1.2` | 11/09/2026 | Inclusão do campo "O que foi feito" no catálogo e registro das entregas de QA da Sprint 1 | [João Pedro](https://github.com/Jadequilin) |
+| `1.3` | 13/09/2026 | Registro da implementação dos requisitos das histórias US01, US03 e US06 no catálogo, ao lado das entregas de QA já cadastradas | [Davi Emanuel](https://github.com/daviRolvr) |
