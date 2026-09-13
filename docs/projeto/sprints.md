@@ -112,11 +112,11 @@ O trabalho de QA ocorre **em paralelo** às histórias acima, não depois delas.
   </thead>
   <tbody>
     <tr><td>QA01</td><td>Tornar os jobs do pipeline bloqueantes no back-end (remoção do <code>continue-on-error</code>)</td><td>Todas</td><td><a href="https://github.com/Jadequilin">@Jadequilin</a></td><td>Em Revisão</td></tr>
-    <tr><td>QA02</td><td>Criar workflow de integração contínua no front-end (lint, build e Playwright)</td><td>Todas</td><td><a href="https://github.com/RivaFilho">@RivaFilho</a></td><td>A Fazer</td></tr>
-    <tr><td>QA03</td><td>Testes de regressão do idioma da página e da duplicação de líder sob tradução</td><td>US04</td><td><a href="https://github.com/RivaFilho">@RivaFilho</a></td><td>A Fazer</td></tr>
+    <tr><td>QA02</td><td>Criar workflow de integração contínua no front-end (lint, build e Playwright)</td><td>Todas</td><td><a href="https://github.com/RivaFilho">@RivaFilho</a></td><td>Em revisão</td></tr>
+    <tr><td>QA03</td><td>Testes de regressão do idioma da página e da duplicação de líder sob tradução</td><td>US04</td><td><a href="https://github.com/RivaFilho">@RivaFilho</a></td><td>Em Revisão</td></tr>
     <tr><td>QA04</td><td>Testes de evento com múltiplos dias e dias não consecutivos</td><td>US01, US02</td><td><a href="https://github.com/Jadequilin">@Jadequilin</a></td><td>Em Revisão</td></tr>
     <tr><td>QA05</td><td>Matriz de autorização por papel e testes de negação de acesso</td><td>US03</td><td><a href="https://github.com/Jadequilin">@Jadequilin</a></td><td>Em Revisão</td></tr>
-    <tr><td>QA06</td><td>Templates de <em>pull request</em> e de <em>issue</em> com critérios de qualidade</td><td>Processo</td><td><a href="https://github.com/RivaFilho">@RivaFilho</a></td><td>A Fazer</td></tr>
+    <tr><td>QA06</td><td>Templates de <em>pull request</em> e de <em>issue</em> com critérios de qualidade</td><td>Processo</td><td><a href="https://github.com/RivaFilho">@RivaFilho</a></td><td>Em Revisão</td></tr>
   </tbody>
 </table>
 
