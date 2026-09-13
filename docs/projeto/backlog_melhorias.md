@@ -400,7 +400,7 @@ Cada requisito possui campo de **Responsável** e de **O que foi feito**. O prim
 | RF48 | Exibir convidados na página pública do evento | S | US06 — Alta | [@daviRolvr](https://github.com/daviRolvr), [@JoaoPedro2206](https://github.com/JoaoPedro2206), [@R-enanVieira](https://github.com/R-enanVieira) | Convidados separados por função na página do evento: antes o título era fixo em "Palestrantes" e uma banda aparecia anunciada como palestrante. Grupo sem ninguém não é exibido. |
 | RF49 | Reaproveitar convidado em novo evento | S | US06 — Alta | [@daviRolvr](https://github.com/daviRolvr), [@JoaoPedro2206](https://github.com/JoaoPedro2206), [@R-enanVieira](https://github.com/R-enanVieira) | No formulário do evento, o texto livre deu lugar à seleção dos já cadastrados, com cadastro rápido para quem ainda não existe. O vínculo passou a ser por identificador: antes era resolvido comparando nomes, e corrigir a grafia de um nome criava um cadastro novo. |
 | RF50 | Vincular convidado a atividade da programação | S | US06 — Alta | [@daviRolvr](https://github.com/daviRolvr), [@JoaoPedro2206](https://github.com/JoaoPedro2206), [@R-enanVieira](https://github.com/R-enanVieira) | **Não entregue.** Exige tabela nova no back-end ligando convidado a atividade — a `atividade` só conhece o evento. Levado a refinamento em vez de virar tela que não guarda nada. |
-| RF51 | Histórico de participações por convidado | S | Backlog | | |
+| RF51 | Histórico de participações por convidado | S | Backlog | [@daviRolvr](https://github.com/daviRolvr), [@JoaoPedro2206](https://github.com/JoaoPedro2206), [@R-enanVieira](https://github.com/R-enanVieira) | **Parcial.** A listagem de convidados mostra em quantos eventos cada um já esteve, e a confirmação de exclusão avisa quando o convidado está anunciado em algum. Não há tela de histórico por convidado — o dado existe, falta a visualização dedicada. |
 
 ### Requisitos surgidos das respostas abertas
 
@@ -415,13 +415,13 @@ Cada requisito possui campo de **Responsável** e de **O que foi feito**. O prim
 | ID | Requisito | Origem | Situação | Responsável | O que foi feito |
 |---|---|---|---|---|---|
 | RNF01 | Otimização de desempenho no celular | S | **Fora do escopo** — site classificado como "muito rápido" | | |
-| RNF02 | Acessibilidade e leitor de tela | S | US16 — Baixa | | |
+| RNF02 | Acessibilidade e leitor de tela | S | US16 — Baixa | [@daviRolvr](https://github.com/daviRolvr), [@JoaoPedro2206](https://github.com/JoaoPedro2206), [@R-enanVieira](https://github.com/R-enanVieira) | **Parcial e incidental.** Rótulos acessíveis acrescentados onde as histórias passaram: navegação de mês do calendário, campos de dia do evento, busca de convidados e botões de remover. Não houve revisão de acessibilidade do site — isso segue sendo o escopo da US16. |
 | RNF03 | Prévia correta ao compartilhar o link | S | US08 — Média | | |
 | RNF04 | SEO — melhor posicionamento no Google | S | Backlog | | |
 | RNF05 | Layout revisado em telas pequenas | S | Backlog | | |
 | RNF06 | Mensagem de erro clara no lugar de tela branca | S | Backlog | | |
 | RNF07 | Backup e restauração dos dados | S | Backlog | | |
-| RNF08 | Padronização de fuso horário nas datas | T | Backlog | | |
+| RNF08 | Padronização de fuso horário nas datas | T | Backlog | [@daviRolvr](https://github.com/daviRolvr), [@JoaoPedro2206](https://github.com/JoaoPedro2206), [@R-enanVieira](https://github.com/R-enanVieira) | **Parcial, no front.** A leitura de data passou a usar o relógio de parede da string em vez de `new Date`, que interpretava data sem hora como UTC e mostrava um dia a menos. Verificado contra o back-end: a coluna é `timestamptz`, não há conversão no caminho, e a ida e volta é estável. |
 | RNF09 | Funcionar bem com internet ruim | S | Backlog | | |
 | RNF10 | Manual de uso do painel para a equipe | S | Backlog | | |
 
@@ -435,3 +435,4 @@ Cada requisito possui campo de **Responsável** e de **O que foi feito**. O prim
 | `1.1` | 31/08/2026 | Inclusão do catálogo completo de requisitos elicitados, com coluna de responsável por requisito | [João Pedro](https://github.com/Jadequilin) |
 | `1.2` | 11/09/2026 | Inclusão do campo "O que foi feito" no catálogo e registro das entregas de QA da Sprint 1 | [João Pedro](https://github.com/Jadequilin) |
 | `1.3` | 13/09/2026 | Registro da implementação dos requisitos das histórias US01, US03 e US06 no catálogo, ao lado das entregas de QA já cadastradas | [Davi Emanuel](https://github.com/daviRolvr) |
+| `1.4` | 13/09/2026 | Registro dos requisitos tocados de forma parcial pelas histórias US01, US03 e US06 — RF51, RNF02 e RNF08 | [Davi Emanuel](https://github.com/daviRolvr) |
