@@ -310,118 +310,120 @@ Sites citados como inspiração, úteis para a etapa de prototipação:
 
 Catálogo completo dos requisitos levantados na elicitação, usado como referência para a coluna **Rastreabilidade** das histórias acima. São **64 requisitos**: 7 originados de relatos diretos da cliente, 54 propostos pela equipe a partir da análise do código-fonte e 3 descobertos nos campos abertos do formulário.
 
+Cada requisito possui campo de **Responsável** e de **O que foi feito**. O primeiro identifica quem assumiu o item; o segundo descreve a entrega de forma que possa ser verificada sem abrir o código.
+
 **Legenda de origem:** `C` relato direto da cliente · `C+T` relato confirmado por evidência técnica · `T` achado da equipe na análise do código · `S` sugestão da equipe · `A` resposta aberta do formulário
 
 ### Relatos originais da cliente
 
-| ID | Requisito | Origem | Situação | Responsável |
-|---|---|---|---|---|
-| RF01 | Administradores com permissão separada por setor | C+T | US03 — Alta | | 
-| RF02 | Cadastrar e editar líderes atuais pelo painel | C+T | US05 — Alta | | 
-| RF03 | Galeria de diretores anteriores editável | C | US05 — Alta (restrita ao cargo nacional) | | 
-| RF04 | Corrigir foto duplicada do Pr. Áquila | C+T | US04 — Alta (causa: tradução automática) | | 
-| RF05 | Evento com múltiplos dias | C+T | US01 — Alta | | 
-| RF06 | Corrigir tradução automática indevida no celular | C+T | US04 — Alta | | 
-| RF07 | Corrigir problemas da galeria de fotos | C | US07 — Média | | 
+| ID | Requisito | Origem | Situação | Responsável | O que foi feito |
+|---|---|---|---|---|---|
+| RF01 | Administradores com permissão separada por setor | C+T | US03 — Alta | QA: [@Jadequilin](https://github.com/Jadequilin)<br>Implementação: [@daviRolvr](https://github.com/daviRolvr), [@JoaoPedro2206](https://github.com/JoaoPedro2206), [@R-enanVieira](https://github.com/R-enanVieira) | **QA:** 44 testes de autorização por papel: matriz de 13 rotas, negação de acesso e escalonamento de privilégio. Duas vulnerabilidades documentadas na [Matriz de Autorização](matriz-autorizacao.md), uma delas corrigida.<br>**Implementação:** três setores lidos dos papéis do Keycloak, com menu, painel e rotas filtrados por setor; exclusão de conteúdo restrita à superadministradora, recusada também na camada de serviço; tela de gestão de administradores. |
+| RF02 | Cadastrar e editar líderes atuais pelo painel | C+T | US05 — Alta | Implementação: [@BrzGab](https://github.com/BrzGab), [@SamaraAlvess](https://github.com/SamaraAlvess), [@Joaovitor045](https://github.com/Joaovitor045) | **Implementação:** tela "Diretores & Líderes" no painel, restrita à superadministradora — o administrador comum não vê o item no menu e é redirecionado ao acessar a rota. Listagem em abas (atuais e anteriores), cadastro, edição e exclusão com confirmação. Campos: nome, cargo, foto (link do Drive com pré-visualização), região, redes sociais, mini-biografia, ordem de exibição e marcação manual de "diretor anterior". A seção "Nosso Organograma" da página inicial passou a ler os líderes da API: deixaram de estar fixos no código-fonte. 12 testes E2E. [PR #2](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/2).<br>**Pendência no back-end:** persistir `regiao`, `bio`, `redes_sociais` e `gestao` — o front já envia os quatro campos, que hoje são ignorados pelo schema. |
+| RF03 | Galeria de diretores anteriores editável | C | US05 — Alta (restrita ao cargo nacional) | Implementação: [@BrzGab](https://github.com/BrzGab), [@SamaraAlvess](https://github.com/SamaraAlvess), [@Joaovitor045](https://github.com/Joaovitor045) | **Implementação:** aba "Diretores anteriores" no painel e "Galeria de Diretores" na página inicial listam apenas quem foi marcado manualmente como anterior **e** tem cargo nacional. O formulário avisa quando um líder regional marcado como anterior não entrará na galeria e coleta o período de gestão exibido no card ("Gestão 2020 – 2023"). [PR #2](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/2). |
+| RF04 | Corrigir foto duplicada do Pr. Áquila | C+T | US04 — Alta (causa: tradução automática) | QA e implementação: [@RivaFilho](https://github.com/RivaFilho)<br>Implementação: [@BrzGab](https://github.com/BrzGab), [@SamaraAlvess](https://github.com/SamaraAlvess), [@Joaovitor045](https://github.com/Joaovitor045) | **QA:** 4 testes de ausência de líder duplicado — nas duas abas da seção, repetição de imagem e estabilidade da contagem ao alternar entre elas. Rodados antes da correção, os quatro já passavam: sem tradutor ativo as listas não duplicam, o que confirma que o defeito é artefato da tradução e não cadastro repetido.<br>**Implementação:** resolvido junto com RF06 — a duplicação some com a correção do idioma. No [PR #6](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/6), os nomes dos líderes (página inicial e painel) receberam `translate="no"`, e um teste de regressão percorre as duas abas da seção verificando que não há nome nem foto repetidos. |
+| RF05 | Evento com múltiplos dias | C+T | US01 — Alta | QA: [@Jadequilin](https://github.com/Jadequilin)<br>Implementação: [@daviRolvr](https://github.com/daviRolvr), [@JoaoPedro2206](https://github.com/JoaoPedro2206), [@R-enanVieira](https://github.com/R-enanVieira) | **QA:** 16 testes de faixa de datas: até três dias, dias não consecutivos, virada de mês e de ano, rejeição de datas invertidas.<br>**Implementação:** card único no calendário com a faixa de datas; evento em andamento deixa de sumir do site; evento que atravessa a virada aparece nos dois meses; seleção de dias não consecutivos no formulário. |
+| RF06 | Corrigir tradução automática indevida no celular | C+T | US04 — Alta | QA e implementação: [@RivaFilho](https://github.com/RivaFilho)<br>Implementação: [@BrzGab](https://github.com/BrzGab), [@SamaraAlvess](https://github.com/SamaraAlvess), [@Joaovitor045](https://github.com/Joaovitor045) | **QA:** 2 testes verificando que o documento declara `pt-BR`, na página inicial e em rotas internas. Ambos falhavam antes da correção. Suíte de `tests/public` e `tests/layout` reexecutada: 108 passando.<br>**Implementação:** `lang="en"` corrigido para `pt-BR` no `index.html`. O navegador deixa de oferecer tradução automática, e com isso para de reescrever os nós de texto e quebrar a reconciliação do React.<br>**Complemento ([PR #6](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/6)):** meta `notranslate`, para que o Chrome não ofereça tradução mesmo com o celular em outro idioma; `translate="no"` no título da marca; `lang` e nome do aplicativo no `site.webmanifest`; 4 testes de regressão — idioma do documento, meta, nomes não traduzíveis e ausência de duplicação. |
+| RF07 | Corrigir problemas da galeria de fotos | C | US07 — Média | | |
 
 ### Gestão de eventos
 
-| ID | Requisito | Origem | Situação | Responsável |
-|---|---|---|---|---|
-| RF08 | Rascunho: criar evento e publicar depois | S | US13 — Baixa | | 
-| RF09 | Duplicar evento anterior para nova edição | S | US13 — Baixa | | 
-| RF10 | Eventos recorrentes automáticos | S | Backlog | | 
-| RF11 | Campos novos: vagas, valor, faixa etária, prazo, o que levar | S | US02 — Alta | | 
-| RF12 | Marcar evento como cancelado ou adiado | S | US14 — Baixa | | 
-| RF13 | Histórico de eventos passados com fotos | S | US15 — Baixa | | 
-| RF14 | Inscrição de voluntários dentro do site | S | Backlog | | 
-| RF15 | Confirmação de inscrição por e-mail | S | Backlog | | 
-| RF16 | Controle de vagas com lista de espera | S | Backlog | | 
-| RF17 | Exportar lista de inscritos em planilha | S | Backlog | | 
-| RF18 | Local diferente por dia do evento | S | **Fora do escopo** | | 
-| RF19 | Responsável indicado em cada atividade | S | Backlog | | 
-| RF20 | Botão "adicionar à minha agenda" | S | Backlog | | 
-| RF21 | Contagem regressiva do próximo evento | S | Backlog | | 
+| ID | Requisito | Origem | Situação | Responsável | O que foi feito |
+|---|---|---|---|---|---|
+| RF08 | Rascunho: criar evento e publicar depois | S | US13 — Baixa | | |
+| RF09 | Duplicar evento anterior para nova edição | S | US13 — Baixa | | |
+| RF10 | Eventos recorrentes automáticos | S | Backlog | | |
+| RF11 | Campos novos: vagas, valor, faixa etária, prazo, o que levar | S | US02 — Alta | QA: [@Jadequilin](https://github.com/Jadequilin)<br>Implementação (US01): [@daviRolvr](https://github.com/daviRolvr), [@JoaoPedro2206](https://github.com/JoaoPedro2206), [@R-enanVieira](https://github.com/R-enanVieira)<br>Implementação (US02): [@BrzGab](https://github.com/BrzGab), [@SamaraAlvess](https://github.com/SamaraAlvess), [@Joaovitor045](https://github.com/Joaovitor045) | **QA:** testes de campos complementares: link de formulário, link de galeria e campos opcionais ausentes não bloqueiam a criação.<br>**Implementação (parcial, via US01):** reestruturação do formulário de evento e da validação de datas, que a US02 estende com os cinco campos novos.<br>**Implementação (US02):** cinco campos novos no formulário de criação e edição de evento — quantidade de vagas, contato do responsável, valor/investimento, link de pagamento e regulamento (link de PDF no Drive, no mesmo padrão da capa e da galeria) — carregados a partir do evento ao editar ([commit 78de466](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/commit/78de466d82e35f9df0b49f09b1fd59b21fb8f2fc)).<br>**Pendência:** mapear os campos em `eventService.toApiEvent`, criar as colunas no back-end e exibir o regulamento na página pública do evento. |
+| RF12 | Marcar evento como cancelado ou adiado | S | US14 — Baixa | | |
+| RF13 | Histórico de eventos passados com fotos | S | US15 — Baixa | | |
+| RF14 | Inscrição de voluntários dentro do site | S | Backlog | | |
+| RF15 | Confirmação de inscrição por e-mail | S | Backlog | | |
+| RF16 | Controle de vagas com lista de espera | S | Backlog | | |
+| RF17 | Exportar lista de inscritos em planilha | S | Backlog | | |
+| RF18 | Local diferente por dia do evento | S | **Fora do escopo** | | |
+| RF19 | Responsável indicado em cada atividade | S | Backlog | | |
+| RF20 | Botão "adicionar à minha agenda" | S | Backlog | | |
+| RF21 | Contagem regressiva do próximo evento | S | Backlog | | |
 
 ### Conteúdo e comunicação
 
-| ID | Requisito | Origem | Situação | Responsável |
-|---|---|---|---|---|
-| RF22 | Upload de imagens direto no site | T | Backlog | | 
-| RF23 | Álbum de fotos separado por evento | T | US07 — Média | | 
-| RF24 | Vídeos além de fotos na galeria | S | Backlog | | 
-| RF25 | Editar textos institucionais pelo painel | S | US11 — Média | | 
-| RF26 | Seção de avisos e comunicados na home | S | US11 — Média | | 
-| RF27 | Espaço para devocional ou conteúdo semanal | S | Backlog | | 
-| RF28 | Integração com Instagram | S | Backlog | | 
-| RF29 | Página com horários de culto e como chegar | S | Backlog | | 
-| RF30 | Formulário de contato com a liderança | S | Backlog | | 
-| RF31 | Lista de e-mails para avisos | S | Backlog | | 
+| ID | Requisito | Origem | Situação | Responsável | O que foi feito |
+|---|---|---|---|---|---|
+| RF22 | Upload de imagens direto no site | T | Backlog | | |
+| RF23 | Álbum de fotos separado por evento | T | US07 — Média | | |
+| RF24 | Vídeos além de fotos na galeria | S | Backlog | | |
+| RF25 | Editar textos institucionais pelo painel | S | US11 — Média | | |
+| RF26 | Seção de avisos e comunicados na home | S | US11 — Média | | |
+| RF27 | Espaço para devocional ou conteúdo semanal | S | Backlog | | |
+| RF28 | Integração com Instagram | S | Backlog | | |
+| RF29 | Página com horários de culto e como chegar | S | Backlog | | |
+| RF30 | Formulário de contato com a liderança | S | Backlog | | |
+| RF31 | Lista de e-mails para avisos | S | Backlog | | |
 
 ### Loja e produtos
 
-| ID | Requisito | Origem | Situação | Responsável |
-|---|---|---|---|---|
-| RF32 | Preço, tamanho e cor nos produtos | S | US12 — Baixa | | 
-| RF33 | Categorias de produtos | S | US12 — Baixa | | 
-| RF34 | Vincular produto a um evento | S | Backlog | | 
-| RF35 | Reserva ou pedido com envio para o WhatsApp | S | Backlog | | 
+| ID | Requisito | Origem | Situação | Responsável | O que foi feito |
+|---|---|---|---|---|---|
+| RF32 | Preço, tamanho e cor nos produtos | S | US12 — Baixa | | |
+| RF33 | Categorias de produtos | S | US12 — Baixa | | |
+| RF34 | Vincular produto a um evento | S | Backlog | | |
+| RF35 | Reserva ou pedido com envio para o WhatsApp | S | Backlog | | |
 
 ### Voluntários
 
-| ID | Requisito | Origem | Situação | Responsável |
-|---|---|---|---|---|
-| RF36 | Notificar voluntário sobre aprovação ou reprovação | S | **Fora do escopo** | | 
-| RF37 | Registrar área de atuação do voluntário | S | Backlog | | 
-| RF38 | Exportar lista de voluntários em planilha | S | Backlog | | 
-| RF39 | Check-in de voluntários no dia do evento | S | Backlog | | 
-| RF40 | Histórico de participação por voluntário | S | Backlog | | 
-| RF41 | Escala de voluntários por atividade | S | Backlog | | 
+| ID | Requisito | Origem | Situação | Responsável | O que foi feito |
+|---|---|---|---|---|---|
+| RF36 | Notificar voluntário sobre aprovação ou reprovação | S | **Fora do escopo** | | |
+| RF37 | Registrar área de atuação do voluntário | S | Backlog | | |
+| RF38 | Exportar lista de voluntários em planilha | S | Backlog | | |
+| RF39 | Check-in de voluntários no dia do evento | S | Backlog | | |
+| RF40 | Histórico de participação por voluntário | S | Backlog | | |
+| RF41 | Escala de voluntários por atividade | S | Backlog | | |
 
 ### Gestão e segurança
 
-| ID | Requisito | Origem | Situação | Responsável |
-|---|---|---|---|---|
-| RF42 | Log de auditoria de alterações | S | Backlog | | 
-| RF43 | Acesso administrativo temporário | S | Backlog | | 
-| RF44 | Recuperação de senha do administrador | S | Backlog | | 
-| RF45 | Painel inicial com números | S | Backlog | | 
-| RF46 | Agenda sem depender de conta Google pessoal | T | **Fora do escopo** | | 
+| ID | Requisito | Origem | Situação | Responsável | O que foi feito |
+|---|---|---|---|---|---|
+| RF42 | Log de auditoria de alterações | S | Backlog | | |
+| RF43 | Acesso administrativo temporário | S | Backlog | | |
+| RF44 | Recuperação de senha do administrador | S | Backlog | | |
+| RF45 | Painel inicial com números | S | Backlog | | |
+| RF46 | Agenda sem depender de conta Google pessoal | T | **Fora do escopo** | | |
 
 ### Bandas e palestrantes
 
 *Área descoberta na auditoria de código, ausente dos relatos iniciais.*
 
-| ID | Requisito | Origem | Situação | Responsável |
-|---|---|---|---|---|
-| RF47 | Gerenciar bandas e palestrantes pelo painel | T | US06 — Alta | | 
-| RF48 | Exibir convidados na página pública do evento | S | US06 — Alta | | 
-| RF49 | Reaproveitar convidado em novo evento | S | US06 — Alta | | 
-| RF50 | Vincular convidado a atividade da programação | S | US06 — Alta | | 
-| RF51 | Histórico de participações por convidado | S | Backlog | | 
+| ID | Requisito | Origem | Situação | Responsável | O que foi feito |
+|---|---|---|---|---|---|
+| RF47 | Gerenciar bandas e palestrantes pelo painel | T | US06 — Alta | [@daviRolvr](https://github.com/daviRolvr), [@JoaoPedro2206](https://github.com/JoaoPedro2206), [@R-enanVieira](https://github.com/R-enanVieira) | Tela de convidados no painel, com busca por nome e função, cadastro, edição e exclusão. Construída sobre o CRUD que a API já oferecia e que nenhuma tela alcançava. A função (banda, pregador, convidado) é derivada do campo de texto livre da API, sem descaracterizar o que já estava cadastrado. |
+| RF48 | Exibir convidados na página pública do evento | S | US06 — Alta | [@daviRolvr](https://github.com/daviRolvr), [@JoaoPedro2206](https://github.com/JoaoPedro2206), [@R-enanVieira](https://github.com/R-enanVieira) | Convidados separados por função na página do evento: antes o título era fixo em "Palestrantes" e uma banda aparecia anunciada como palestrante. Grupo sem ninguém não é exibido. |
+| RF49 | Reaproveitar convidado em novo evento | S | US06 — Alta | [@daviRolvr](https://github.com/daviRolvr), [@JoaoPedro2206](https://github.com/JoaoPedro2206), [@R-enanVieira](https://github.com/R-enanVieira) | No formulário do evento, o texto livre deu lugar à seleção dos já cadastrados, com cadastro rápido para quem ainda não existe. O vínculo passou a ser por identificador: antes era resolvido comparando nomes, e corrigir a grafia de um nome criava um cadastro novo. |
+| RF50 | Vincular convidado a atividade da programação | S | US06 — Alta | [@daviRolvr](https://github.com/daviRolvr), [@JoaoPedro2206](https://github.com/JoaoPedro2206), [@R-enanVieira](https://github.com/R-enanVieira) | **Não entregue.** Exige tabela nova no back-end ligando convidado a atividade — a `atividade` só conhece o evento. Levado a refinamento em vez de virar tela que não guarda nada. |
+| RF51 | Histórico de participações por convidado | S | Backlog | [@daviRolvr](https://github.com/daviRolvr), [@JoaoPedro2206](https://github.com/JoaoPedro2206), [@R-enanVieira](https://github.com/R-enanVieira) | **Parcial.** A listagem de convidados mostra em quantos eventos cada um já esteve, e a confirmação de exclusão avisa quando o convidado está anunciado em algum. Não há tela de histórico por convidado — o dado existe, falta a visualização dedicada. |
 
 ### Requisitos surgidos das respostas abertas
 
-| ID | Requisito | Origem | Situação | Responsável |
-|---|---|---|---|---|
-| RF52 | Inscrição de participante, separada da de voluntário | A | US09 — Média | | 
-| RF53 | Cadastro nacional de líderes de jovens e adolescentes | A | US10 — Média | | 
-| RF54 | Área de materiais para download | A | US11 — Média | | 
+| ID | Requisito | Origem | Situação | Responsável | O que foi feito |
+|---|---|---|---|---|---|
+| RF52 | Inscrição de participante, separada da de voluntário | A | US09 — Média | | |
+| RF53 | Cadastro nacional de líderes de jovens e adolescentes | A | US10 — Média | | |
+| RF54 | Área de materiais para download | A | US11 — Média | | |
 
 ### Requisitos não funcionais
 
-| ID | Requisito | Origem | Situação | Responsável |
-|---|---|---|---|---|
-| RNF01 | Otimização de desempenho no celular | S | **Fora do escopo** — site classificado como "muito rápido" | | 
-| RNF02 | Acessibilidade e leitor de tela | S | US16 — Baixa | | 
-| RNF03 | Prévia correta ao compartilhar o link | S | US08 — Média | | 
-| RNF04 | SEO — melhor posicionamento no Google | S | Backlog | | 
-| RNF05 | Layout revisado em telas pequenas | S | Backlog | | 
-| RNF06 | Mensagem de erro clara no lugar de tela branca | S | Backlog | | 
-| RNF07 | Backup e restauração dos dados | S | Backlog | | 
-| RNF08 | Padronização de fuso horário nas datas | T | Backlog | | 
-| RNF09 | Funcionar bem com internet ruim | S | Backlog | | 
-| RNF10 | Manual de uso do painel para a equipe | S | Backlog | | 
+| ID | Requisito | Origem | Situação | Responsável | O que foi feito |
+|---|---|---|---|---|---|
+| RNF01 | Otimização de desempenho no celular | S | **Fora do escopo** — site classificado como "muito rápido" | | |
+| RNF02 | Acessibilidade e leitor de tela | S | US16 — Baixa | [@daviRolvr](https://github.com/daviRolvr), [@JoaoPedro2206](https://github.com/JoaoPedro2206), [@R-enanVieira](https://github.com/R-enanVieira) | **Parcial e incidental.** Rótulos acessíveis acrescentados onde as histórias passaram: navegação de mês do calendário, campos de dia do evento, busca de convidados e botões de remover. Não houve revisão de acessibilidade do site — isso segue sendo o escopo da US16. |
+| RNF03 | Prévia correta ao compartilhar o link | S | US08 — Média | | |
+| RNF04 | SEO — melhor posicionamento no Google | S | Backlog | | |
+| RNF05 | Layout revisado em telas pequenas | S | Backlog | | |
+| RNF06 | Mensagem de erro clara no lugar de tela branca | S | Backlog | | |
+| RNF07 | Backup e restauração dos dados | S | Backlog | | |
+| RNF08 | Padronização de fuso horário nas datas | T | Backlog | [@daviRolvr](https://github.com/daviRolvr), [@JoaoPedro2206](https://github.com/JoaoPedro2206), [@R-enanVieira](https://github.com/R-enanVieira) | **Parcial, no front.** A leitura de data passou a usar o relógio de parede da string em vez de `new Date`, que interpretava data sem hora como UTC e mostrava um dia a menos. Verificado contra o back-end: a coluna é `timestamptz`, não há conversão no caminho, e a ida e volta é estável. |
+| RNF09 | Funcionar bem com internet ruim | S | Backlog | | |
+| RNF10 | Manual de uso do painel para a equipe | S | Backlog | | |
 
 ---
 
@@ -431,3 +433,8 @@ Catálogo completo dos requisitos levantados na elicitação, usado como referê
 |---|---|---|---|
 | `1.0` | 31/08/2026 | Criação do backlog de melhorias a partir da elicitação com a cliente | [Júlia Massuda](https://github.com/JuliaReis18) |
 | `1.1` | 31/08/2026 | Inclusão do catálogo completo de requisitos elicitados, com coluna de responsável por requisito | [João Pedro](https://github.com/Jadequilin) |
+| `1.2` | 11/09/2026 | Inclusão do campo "O que foi feito" no catálogo e registro das entregas de QA da Sprint 1 | [João Pedro](https://github.com/Jadequilin) |
+| `1.3` | 13/09/2026 | Registro da implementação dos requisitos das histórias US01, US03 e US06 no catálogo, ao lado das entregas de QA já cadastradas | [Davi Emanuel](https://github.com/daviRolvr) |
+| `1.4` | 13/09/2026 | Registro dos requisitos tocados de forma parcial pelas histórias US01, US03 e US06 — RF51, RNF02 e RNF08 | [Davi Emanuel](https://github.com/daviRolvr) |
+| `1.5` | 13/09/2026 | Registro das entregas de QA do front-end — correção do idioma, metadados de compartilhamento e testes de regressão da duplicação | [João Pedro](https://github.com/Jadequilin) e [Rivadalvio](https://github.com/RivaFilho)   |
+| `1.6` | 13/09/2026 | Registro da implementação das histórias US02, US04 e US05 no catálogo — RF11, RF02, RF03, RF04 e RF06 | [Gabriel Lopes](https://github.com/BrzGab), [Samara Alves](https://github.com/SamaraAlvess) e [João Vitor](https://github.com/Joaovitor045) |
