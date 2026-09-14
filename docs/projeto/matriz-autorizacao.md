@@ -20,7 +20,7 @@ O sistema reconhece apenas dois papéis de *realm* no Keycloak:
 | Papel | Descrição |
 |---|---|
 | `admin` | Administrador geral. Acessa a maior parte das operações de conteúdo. |
-| `superadmin` | Administrador máximo. Exclusivo para produtos e gestão de administradores. |
+| `superadmin` | Administrador máximo. Exclusivo para produtos, gestão de administradores e cadastro de líderes (US05). |
 
 **Não existe segmentação por setor.** A US03 exige criar essa granularidade — segundo a elicitação, para **Loja/Produtos**, **Agenda/Eventos** e **Inscrições**, mantendo a exclusão restrita ao superadministrador e sem separação entre Jovem e Teen.
 
@@ -34,10 +34,13 @@ O sistema reconhece apenas dois papéis de *realm* no Keycloak:
 | Evento | `/evento` | GET | Sim | Sim | **Sim** |
 | Evento | `/evento/{id}` | PUT | Sim | Sim | Não |
 | Evento | `/evento/{id}` | DELETE | Sim | Sim | Não |
-| Líder | `/lider` | POST | Sim | Sim | Não |
+| Líder | `/lider` | POST | **Não** | Sim | Não |
 | Líder | `/lider` | GET | Sim | Sim | **Sim** |
-| Líder | `/lider/{id}` | PUT | Sim | Sim | Não |
-| Líder | `/lider/{id}` | DELETE | Sim | Sim | Não |
+| Líder | `/lider/atuais` | GET | Sim | Sim | **Sim** |
+| Líder | `/lider/diretores-anteriores` | GET | Sim | Sim | **Sim** |
+| Líder | `/lider/{id}` | GET | Sim | Sim | **Sim** |
+| Líder | `/lider/{id}` | PUT | **Não** | Sim | Não |
+| Líder | `/lider/{id}` | DELETE | **Não** | Sim | Não |
 | Produto | `/produto` | POST | **Não** | Sim | Não |
 | Produto | `/produto/{id}` | PUT | **Não** | Sim | Não |
 | Produto | `/produto/{id}` | DELETE | **Não** | Sim | Não |
@@ -82,6 +85,20 @@ Comportamento correto, mas não testado até agora. Um token com `resource_acces
 
 ---
 
+### 4. Matriz automatizada não lê os controladores
+
+**Severidade: média.** Encontrada na implementação da US05.
+
+A classe `TestMatrizDeRotasProtegidas` declara a lista `MATRIZ` e executa `verificar_roles` com os papéis **da própria lista**, sem consultar o router de cada módulo. O teste confirma que a função de autorização funciona, mas não que o controlador exige o papel documentado. Na prática, a promessa do docstring — *"se um controlador mudar a exigência de papel, este teste falha"* — não se cumpre.
+
+A evidência veio da US05: com `/lider` restrito a `superadmin`, a combinação da branch `feat/us05` com `qa/ci-bloqueante` passou nos 706 testes, embora a `MATRIZ` ainda declare `admin` com acesso de escrita em líderes.
+
+**Correção sugerida:** ler a exigência diretamente das rotas, como já faz `TestRotasSemProtecao` — percorrer `router.routes` e extrair os papéis da dependência de cada rota de escrita. Ao integrar `qa/ci-bloqueante`, as três linhas de `/lider` da `MATRIZ` devem passar a `[SUPERADMIN]`.
+
+Enquanto a correção não chega, o controle de acesso de líderes é verificado pelos testes de integração `tests/integration/test_lider.py`, que chamam as rotas reais e esperam `403` para `admin`, para papel de setor e para requisição sem token.
+
+---
+
 ## Impacto na implementação da US03
 
 A introdução de papéis por setor deve preservar as garantias já testadas:
@@ -100,3 +117,4 @@ A alteração ocorre em três camadas — configuração do Keycloak, guardas de
 | Versão | Data | Descrição | Autor(es) |
 |---|---|---|---|
 | `1.0` | 01/09/2026 | Criação da matriz e registro das lacunas da auditoria | [João Pedro](https://github.com/Jadequilin) |
+| `1.1` | 14/09/2026 | Escrita em líderes restrita à superadministradora e novas rotas de leitura (US05); registro da lacuna 4, matriz automatizada que não lê os controladores | [João Pedro Rodrigues](https://github.com/JpRodrigues2) |
