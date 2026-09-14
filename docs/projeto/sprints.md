@@ -36,7 +36,7 @@ A partir de 09/2026, o software segue em produção e passa por um ciclo de manu
     <tr><td>Daniel Sousa</td><td><a href="https://github.com/daniel-de-sousa">@daniel-de-sousa</a></td></tr>
     <tr><td>Davi Emanuel Ribeiro de Oliveira</td><td><a href="https://github.com/daviRolvr">@daviRolvr</a></td></tr>
     <tr><td>Carlos Henrique</td><td><a href="https://github.com/Depaiiva">@Depaiiva</a></td></tr>
-    <tr><td>Filipe</td><td><a href="https://github.com/Filipe-002">@Filipe-002</a></td></tr>
+    <tr><td>Filipe Carvalho</td><td><a href="https://github.com/Filipe-002">@Filipe-002</a></td></tr>
     <tr><td>João Pedro</td><td><a href="https://github.com/Jadequilin">@Jadequilin</a></td></tr>
     <tr><td>João Pedro Ferreira Moraes</td><td><a href="https://github.com/JoaoPedro2206">@JoaoPedro2206</a></td></tr>
     <tr><td>João Vitor Alves Viana</td><td><a href="https://github.com/Joaovitor045">@Joaovitor045</a></td></tr>
@@ -67,7 +67,7 @@ A partir de 09/2026, o software segue em produção e passa por um ciclo de manu
 </tbody>
 </table>
 
-Todas as histórias classificadas como **Prioridade Alta** no Backlog de Melhorias entraram no escopo desta sprint.
+Todas as histórias classificadas como **Prioridade Alta** e parte das histórias classificadas como **Prioridade Média** no Backlog de Melhorias entraram no escopo desta sprint.
 
 <center>
 
@@ -89,6 +89,9 @@ Todas as histórias classificadas como **Prioridade Alta** no Backlog de Melhori
     <tr><td><a href="../backlog_melhorias/#us04">US04</a></td><td>Experiência do Usuário e Engajamento</td><td>Página não traduzida automaticamente pelo navegador (corrige foto duplicada)</td><td>RF06, RF04</td><td><a href="https://github.com/BrzGab">@BrzGab</a>, <a href="https://github.com/SamaraAlvess">@SamaraAlvess</a>, <a href="https://github.com/Joaovitor045">@Joaovitor045</a></td><td>Em Revisão<br><small><a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/6">PR #6</a></small></td></tr>
     <tr><td><a href="../backlog_melhorias/#us05">US05</a></td><td>Governança e Operações</td><td>CRUD de líderes e galeria de diretores anteriores pelo painel</td><td>RF02, RF03</td><td><a href="https://github.com/BrzGab">@BrzGab</a>, <a href="https://github.com/SamaraAlvess">@SamaraAlvess</a>, <a href="https://github.com/Joaovitor045">@Joaovitor045</a></td><td>Concluído<br><small><a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/2">PR #2</a></small></td></tr>
     <tr><td><a href="../backlog_melhorias/#us06">US06</a></td><td>Gestão de Eventos</td><td>CRUD de bandas e palestrantes, reaproveitáveis entre eventos</td><td>RF47 a RF50</td><td><a href="https://github.com/daviRolvr">@daviRolvr</a>, <a href="https://github.com/R-enanVieira">@R-enanVieira</a>, <a href="https://github.com/JoaoPedro2206">@JoaoPedro2206</a></td><td>Concluído<br><small><a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/3">PR #3</a></small></td></tr>
+    <tr><td><a href="../backlog_melhorias/#us09">US09</a></td><td>Gestão de Eventos</td><td>Dois links de inscrição por evento, um para participantes e outro para voluntários</td><td>RF52</td><td><a href="https://github.com/Filipe-002">@Filipe-002</a>, <a href="https://github.com/JuliaReis18">@JuliaReis18</a>, <a href="https://github.com/JpRodrigues2">@JpRodrigues2</a></td><td>A Fazer</td></tr>
+    <tr><td><a href="../backlog_melhorias/#us10">US10</a></td><td>Governança e Operações</td><td>Cadastro nacional de líderes de jovens e adolescentes</td><td>RF53</td><td><a href="https://github.com/Filipe-002">@Filipe-002</a>, <a href="https://github.com/JuliaReis18">@JuliaReis18</a>, <a href="https://github.com/JpRodrigues2">@JpRodrigues2</a></td><td>A Fazer</td></tr>
+    <tr><td><a href="../backlog_melhorias/#us11">US11</a></td><td>Experiência do Usuário e Engajamento</td><td>Materiais para download e conteúdo institucional (missão, visão e valores)</td><td>RF54, RF25, RF26</td><td><a href="https://github.com/Filipe-002">@Filipe-002</a>, <a href="https://github.com/JuliaReis18">@JuliaReis18</a>, <a href="https://github.com/JpRodrigues2">@JpRodrigues2</a></td><td>A Fazer</td></tr>
   </tbody>
 </table>
 
@@ -245,3 +248,4 @@ As histórias de Prioridade Média e Baixa, assim como os itens fora do escopo, 
 | `1.2` | 11/09/2026 | Atribuição de responsáveis das entregas de QA e registro do resultado das entregas concluídas | [João Pedro](https://github.com/Jadequilin) |
 | `1.3` | 13/09/2026 | Responsáveis e status das histórias US01, US03 e US06, detalhamento das entregas com a divisão do trabalho por integrante e inclusão de João Pedro Ferreira Moraes na tabela da equipe | [Davi Emanuel](https://github.com/daviRolvr) |
 | `1.4` | 13/09/2026 | Responsáveis e status das histórias US02, US04 e US05 e registro das entregas do trio na Sprint 1 | [Gabriel Lopes](https://github.com/BrzGab), [Samara Alves](https://github.com/SamaraAlvess) e [João Vitor](https://github.com/Joaovitor045) |
+| `1.5` | 14/09/2026 | Inclusão das histórias US09, US10 e US11 na Sprint 1, com responsáveis definidos | [Filipe](https://github.com/Filipe-002), [Júlia Massuda](https://github.com/JuliaReis18) |
