@@ -83,9 +83,9 @@ Todas as histórias classificadas como **Prioridade Alta** no Backlog de Melhori
     </tr>
   </thead>
   <tbody>
-    <tr><td><a href="../backlog_melhorias/#us01">US01</a></td><td>Gestão de Eventos</td><td>Evento com múltiplos dias, inclusive não consecutivos</td><td>RF05, RF11</td><td><a href="https://github.com/daviRolvr">@daviRolvr</a>, <a href="https://github.com/R-enanVieira">@R-enanVieira</a>, <a href="https://github.com/JoaoPedro2206">@JoaoPedro2206</a></td><td>Concluído<br><small><a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/3">PR #3</a></small></td></tr>
+    <tr><td><a href="../backlog_melhorias/#us01">US01</a></td><td>Gestão de Eventos</td><td>Evento com múltiplos dias, inclusive não consecutivos</td><td>RF05, RF11</td><td>Front-end: <a href="https://github.com/daviRolvr">@daviRolvr</a>, <a href="https://github.com/R-enanVieira">@R-enanVieira</a>, <a href="https://github.com/JoaoPedro2206">@JoaoPedro2206</a><br>Back-end: <a href="https://github.com/daniel-de-sousa">@daniel-de-sousa</a>, <a href="https://github.com/luizh-gsoares">@luizh-gsoares</a></td><td>Concluído<br><small><a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/3">PR #3</a></small><br><small><a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/4">PR #4</a></small><br><small><a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/6">PR #6</a></small></td></tr>
     <tr><td><a href="../backlog_melhorias/#us02">US02</a></td><td>Gestão de Eventos</td><td>Informações completas do evento (valor, vagas, link de pagamento, contato, regulamento)</td><td>RF11</td><td><a href="https://github.com/BrzGab">@BrzGab</a>, <a href="https://github.com/SamaraAlvess">@SamaraAlvess</a>, <a href="https://github.com/Joaovitor045">@Joaovitor045</a></td><td>Concluído<br><small><a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/commit/78de466d82e35f9df0b49f09b1fd59b21fb8f2fc">commit 78de466</a></small></td></tr>
-    <tr><td><a href="../backlog_melhorias/#us03">US03</a></td><td>Governança e Operações</td><td>Administrador com acesso restrito ao setor pelo qual responde</td><td>RF01</td><td><a href="https://github.com/daviRolvr">@daviRolvr</a>, <a href="https://github.com/R-enanVieira">@R-enanVieira</a>, <a href="https://github.com/JoaoPedro2206">@JoaoPedro2206</a></td><td>Concluído<br><small><a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/3">PR #3</a></small></td></tr>
+    <tr><td><a href="../backlog_melhorias/#us03">US03</a></td><td>Governança e Operações</td><td>Administrador com acesso restrito ao setor pelo qual responde</td><td>RF01</td><td>Front-end: <a href="https://github.com/daviRolvr">@daviRolvr</a>, <a href="https://github.com/R-enanVieira">@R-enanVieira</a>, <a href="https://github.com/JoaoPedro2206">@JoaoPedro2206</a><br>Back-end: <a href="https://github.com/luizh-gsoares">@luizh-gsoares</a>, <a href="https://github.com/daniel-de-sousa">@daniel-de-sousa</a></td><td>Concluído<br><small><a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/3">PR #3</a></small><br><small><a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/5">PR #5</a></small></td></tr>
     <tr><td><a href="../backlog_melhorias/#us04">US04</a></td><td>Experiência do Usuário e Engajamento</td><td>Página não traduzida automaticamente pelo navegador (corrige foto duplicada)</td><td>RF06, RF04</td><td><a href="https://github.com/BrzGab">@BrzGab</a>, <a href="https://github.com/SamaraAlvess">@SamaraAlvess</a>, <a href="https://github.com/Joaovitor045">@Joaovitor045</a></td><td>Em Revisão<br><small><a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/6">PR #6</a></small></td></tr>
     <tr><td><a href="../backlog_melhorias/#us05">US05</a></td><td>Governança e Operações</td><td>CRUD de líderes e galeria de diretores anteriores pelo painel</td><td>RF02, RF03</td><td>Front-end: <a href="https://github.com/BrzGab">@BrzGab</a>, <a href="https://github.com/SamaraAlvess">@SamaraAlvess</a>, <a href="https://github.com/Joaovitor045">@Joaovitor045</a><br>Back-end: <a href="https://github.com/Filipe-002">@Filipe-002</a>, <a href="https://github.com/JpRodrigues2">@JpRodrigues2</a>, <a href="https://github.com/JuliaMassuda">@JuliaMassuda</a></td><td>Concluído<br><small><a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/2">PR #2</a></small></td></tr>
     <tr><td><a href="../backlog_melhorias/#us06">US06</a></td><td>Gestão de Eventos</td><td>CRUD de bandas e palestrantes, reaproveitáveis entre eventos</td><td>RF47 a RF50</td><td><a href="https://github.com/daviRolvr">@daviRolvr</a>, <a href="https://github.com/R-enanVieira">@R-enanVieira</a>, <a href="https://github.com/JoaoPedro2206">@JoaoPedro2206</a></td><td>Concluído<br><small><a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/3">PR #3</a></small></td></tr>
@@ -145,6 +145,39 @@ testes), sem divisão por integrante. O código está no
 [PR #2](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/2) (US05), no
 [PR #6](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/6) (US04) e no
 [commit 78de466](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/commit/78de466d82e35f9df0b49f09b1fd59b21fb8f2fc) (US02).
+
+### Desenvolvimento em pares — Luiz Henrique Soares e Daniel Sousa
+
+Durante a Sprint 1, [@luizh-gsoares](https://github.com/luizh-gsoares) e
+[@daniel-de-sousa](https://github.com/daniel-de-sousa) atuaram em par na
+implementação e na revisão das entregas relacionadas às histórias de maior
+dependência de regra de negócio e autorização.
+
+<center>
+
+<table border="1" cellspacing="0" cellpadding="4">
+  <thead>
+    <tr>
+      <th>História</th>
+      <th>Atuação</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="../backlog_melhorias/#us01">US01</a></td>
+      <td>Implementação principal: Daniel Sousa<br>Revisão: Luiz Henrique Soares</td>
+      <td>Daniel foi o principal responsável pela lógica de eventos com múltiplos dias, conduzindo a implementação e refinando o comportamento do fluxo de cadastro. Luiz contribuiu com revisão crítica, validação do resultado e apoio na consolidação da solução.</td>
+    </tr>
+    <tr>
+      <td><a href="../backlog_melhorias/#us03">US03</a></td>
+      <td>Implementação principal: Luiz Henrique Soares<br>Revisão: Daniel Sousa</td>
+      <td>Luiz foi o principal responsável pela implementação do controle de permissões por setor, incluindo filtros de acesso, regras de autorização e gestão de administradores. Daniel participou da revisão e validação do comportamento durante o desenvolvimento.</td>
+    </tr>
+  </tbody>
+</table>
+
+</center>
 
 ### Divisão do trabalho
 
@@ -251,3 +284,4 @@ As histórias de Prioridade Média e Baixa, assim como os itens fora do escopo, 
 | `1.3` | 13/09/2026 | Responsáveis e status das histórias US01, US03 e US06, detalhamento das entregas com a divisão do trabalho por integrante e inclusão de João Pedro Ferreira Moraes na tabela da equipe | [Davi Emanuel](https://github.com/daviRolvr) |
 | `1.4` | 13/09/2026 | Responsáveis e status das histórias US02, US04 e US05 e registro das entregas do trio na Sprint 1 | [Gabriel Lopes](https://github.com/BrzGab), [Samara Alves](https://github.com/SamaraAlvess) e [João Vitor](https://github.com/Joaovitor045) |
 | `1.5` | 14/09/2026 | Registro do trio responsável pelo back-end da US05 | [Filipe Carvalho](https://github.com/Filipe-002), [João Pedro](https://github.com/JpRodrigues2) e [Júlia Massuda](https://github.com/JuliaMassuda) |
+| `1.6` | 14/09/2026 | Registro da contribuição em dupla do back-end nas histórias US01 e US03, com a atribuição da implementação e dos PRs correspondentes | [Luiz Henrique Soares](https://github.com/luizh-gsoares) e [Daniel Sousa](https://github.com/daniel-de-sousa) |
