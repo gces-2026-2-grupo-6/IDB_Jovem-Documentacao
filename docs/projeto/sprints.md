@@ -83,12 +83,12 @@ Todas as histórias classificadas como **Prioridade Alta** no Backlog de Melhori
     </tr>
   </thead>
   <tbody>
-    <tr><td><a href="../backlog_melhorias/#us01">US01</a></td><td>Gestão de Eventos</td><td>Evento com múltiplos dias, inclusive não consecutivos</td><td>RF05, RF11</td><td><a href="https://github.com/daviRolvr">@daviRolvr</a>, <a href="https://github.com/R-enanVieira">@R-enanVieira</a>, <a href="https://github.com/JoaoPedro2206">@JoaoPedro2206</a></td><td>Concluído<br><small><a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/3">PR #3</a></small></td></tr>
+    <tr><td><a href="../backlog_melhorias/#us01">US01</a></td><td>Gestão de Eventos</td><td>Evento com múltiplos dias, inclusive não consecutivos</td><td>RF05, RF11</td><td><a href="https://github.com/daviRolvr">Davi Emanuel</a>, <a href="https://github.com/R-enanVieira">Renan Vieira</a>, <a href="https://github.com/JoaoPedro2206">Joao Pedro</a></td><td>Concluído<br><small><a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/3">PR #3</a></small></td></tr>
     <tr><td><a href="../backlog_melhorias/#us02">US02</a></td><td>Gestão de Eventos</td><td>Informações completas do evento (valor, vagas, link de pagamento, contato, regulamento)</td><td>RF11</td><td><a href="https://github.com/BrzGab">@BrzGab</a>, <a href="https://github.com/SamaraAlvess">@SamaraAlvess</a>, <a href="https://github.com/Joaovitor045">@Joaovitor045</a></td><td>Concluído<br><small><a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/commit/78de466d82e35f9df0b49f09b1fd59b21fb8f2fc">commit 78de466</a></small></td></tr>
-    <tr><td><a href="../backlog_melhorias/#us03">US03</a></td><td>Governança e Operações</td><td>Administrador com acesso restrito ao setor pelo qual responde</td><td>RF01</td><td><a href="https://github.com/daviRolvr">@daviRolvr</a>, <a href="https://github.com/R-enanVieira">@R-enanVieira</a>, <a href="https://github.com/JoaoPedro2206">@JoaoPedro2206</a></td><td>Concluído<br><small><a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/3">PR #3</a></small></td></tr>
+    <tr><td><a href="../backlog_melhorias/#us03">US03</a></td><td>Governança e Operações</td><td>Administrador com acesso restrito ao setor pelo qual responde</td><td>RF01</td><td><a href="https://github.com/daviRolvr">Davi Emanuel</a>, <a href="https://github.com/R-enanVieira">Renan Vieira</a>, <a href="https://github.com/JoaoPedro2206">Joao Pedro</a></td><td>Concluído<br><small><a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/3">PR #3</a></small></td></tr>
     <tr><td><a href="../backlog_melhorias/#us04">US04</a></td><td>Experiência do Usuário e Engajamento</td><td>Página não traduzida automaticamente pelo navegador (corrige foto duplicada)</td><td>RF06, RF04</td><td><a href="https://github.com/BrzGab">@BrzGab</a>, <a href="https://github.com/SamaraAlvess">@SamaraAlvess</a>, <a href="https://github.com/Joaovitor045">@Joaovitor045</a></td><td>Em Revisão<br><small><a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/6">PR #6</a></small></td></tr>
     <tr><td><a href="../backlog_melhorias/#us05">US05</a></td><td>Governança e Operações</td><td>CRUD de líderes e galeria de diretores anteriores pelo painel</td><td>RF02, RF03</td><td><a href="https://github.com/BrzGab">@BrzGab</a>, <a href="https://github.com/SamaraAlvess">@SamaraAlvess</a>, <a href="https://github.com/Joaovitor045">@Joaovitor045</a>, <a href="https://github.com/Filipe-002">@Filipe-002</a>, <a href="https://github.com/JuliaReis18">@JuliaReis18</a>, <a href="https://github.com/JpRodrigues2">@JpRodrigues2</a></td><td>Em Andamento<br><small><a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/2">PR #2</a></small></td></tr>
-    <tr><td><a href="../backlog_melhorias/#us06">US06</a></td><td>Gestão de Eventos</td><td>CRUD de bandas e palestrantes, reaproveitáveis entre eventos</td><td>RF47 a RF50</td><td><a href="https://github.com/daviRolvr">@daviRolvr</a>, <a href="https://github.com/R-enanVieira">@R-enanVieira</a>, <a href="https://github.com/JoaoPedro2206">@JoaoPedro2206</a></td><td>Concluído<br><small><a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/3">PR #3</a></small></td></tr>
+    <tr><td><a href="../backlog_melhorias/#us06">US06</a></td><td>Gestão de Eventos</td><td>CRUD de bandas e palestrantes, reaproveitáveis entre eventos</td><td>RF47 a RF50</td><td><a href="https://github.com/daviRolvr">Davi Emanuel</a>, <a href="https://github.com/R-enanVieira">Renan Vieira</a>, <a href="https://github.com/JoaoPedro2206">Joao Pedro</a></td><td>Concluído<br><small><a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/3">PR #3</a></small></td></tr>
   </tbody>
 </table>
 
@@ -160,19 +160,19 @@ que o visitante vê e da verificação.
   </thead>
   <tbody>
     <tr>
-      <td><a href="https://github.com/daviRolvr">@daviRolvr</a></td>
+      <td><a href="https://github.com/daviRolvr">Davi Emanuel</a></td>
       <td>Regra de data e calendário da página inicial</td>
       <td>Contrato de papéis, guarda de rota por setor e destino de acesso negado</td>
       <td>Modelo do convidado, listagem, cadastro e edição</td>
     </tr>
     <tr>
-      <td><a href="https://github.com/JoaoPedro2206">@JoaoPedro2206</a></td>
+      <td><a href="https://github.com/JoaoPedro2206">Joao Pedro</a></td>
       <td>Agenda da semana no painel e caixas de data</td>
       <td>Menu e painel por setor, restrição de exclusão</td>
       <td>Seleção de convidados no evento e vínculo por identificador</td>
     </tr>
     <tr>
-      <td><a href="https://github.com/R-enanVieira">@R-enanVieira</a></td>
+      <td><a href="https://github.com/R-enanVieira">Renan Vieira</a></td>
       <td>Página pública do evento e suíte de testes</td>
       <td>Gestão de administradores e matriz de permissão</td>
       <td>Exibição pública, exclusão com travas e testes</td>
