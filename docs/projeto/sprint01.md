@@ -10,7 +10,7 @@
 | Gabriel Lopes / Samara Alves / João Vitor Viana | 3 | US02, US04, US05 | Campos do evento, tradução automática e CRUD de líderes |
 | Filipe Carvalho / Júlia Massuda / João Pedro Rodrigues | 1 | US05 | Migração do back-end para o CRUD de líderes |
 | João Pedro Araújo / Riva Filho | 6 | US01 a US04, US08 | Garantia de qualidade, pipeline e testes de regressão |
-| Daniel Sousa / Carlos Henrique / Luiz Henrique | 0 | — | Sem US registrada nesta sprint |
+| Daniel dos Santos Barros de Sousa / Luiz Henrique Soares | 2 | US01, US03 | Back-End de Evento em múltiplos dias e de administrador por setor |
 
 ---
 
@@ -18,9 +18,9 @@
 
 | US | Assunto | Responsáveis | Status | Evidência |
 |---|---|---|---|---|
-| US01 | Evento com múltiplos dias, inclusive não consecutivos | Davi Emanuel, Renan Vieira, João Pedro Ferreira | Concluído | [PR #3](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/3) |
+| US01 | Evento com múltiplos dias, inclusive não consecutivos | Front: Davi Emanuel, Renan Vieira, João Pedro Ferreira <br> Back Daniel dos Santos Barros de Sousa, Luiz Henrique Soares | Concluído | Front: [PR #3](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/3) <br> Back: [PR #4](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/4), [PR #6](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/6) |
 | US02 | Informações completas do evento | Gabriel Lopes, Samara Alves, João Vitor | Concluído | [commit 78de466](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/commit/78de466d82e35f9df0b49f09b1fd59b21fb8f2fc) |
-| US03 | Administrador com acesso restrito ao setor | Davi Emanuel, Renan Vieira, João Pedro Ferreira | Concluído | [PR #3](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/3) |
+| US03 | Administrador com acesso restrito ao setor | Front: Davi Emanuel, Renan Vieira, João Pedro Ferreira <br> Back:  Daniel dos Santos Barros de Sousa, Luiz Henrique Soares | Concluído | Front: [PR #3](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/3) <br> Back: [PR #5](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/5)|
 | US04 | Página não traduzida automaticamente | Gabriel Lopes, Samara Alves, João Vitor | Em Revisão | [PR #6](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/6) |
 | US05 | CRUD de líderes e galeria de diretores | Gabriel Lopes, Samara Alves, João Vitor, Filipe, Júlia, João Pedro Rodrigues | Em Andamento | [PR #2](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/2) |
 | US06 | CRUD de bandas e palestrantes | Davi Emanuel, Renan Vieira, João Pedro Ferreira | Concluído | [PR #3](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/3) |
