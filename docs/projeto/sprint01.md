@@ -18,7 +18,7 @@
 
 | US | Assunto | Responsáveis | Status | Evidência |
 |---|---|---|---|---|
-| US01 | Evento com múltiplos dias, inclusive não consecutivos | Front: Davi Emanuel, Renan Vieira, João Pedro Ferreira <br> Back Daniel dos Santos Barros de Sousa, Luiz Henrique Soares | Concluído | Front: [PR #3](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/3) <br> Back: [PR #4](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/4), [PR #6](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/6) |
+| US01 | Evento com múltiplos dias, inclusive não consecutivos | Front: Davi Emanuel, Renan Vieira, João Pedro Ferreira <br> Back: Daniel dos Santos Barros de Sousa, Luiz Henrique Soares | Concluído | Front: [PR #3](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/3) <br> Back: [PR #4](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/4), [PR #6](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/6) |
 | US02 | Informações completas do evento | Gabriel Lopes, Samara Alves, João Vitor | Concluído | [commit 78de466](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/commit/78de466d82e35f9df0b49f09b1fd59b21fb8f2fc) |
 | US03 | Administrador com acesso restrito ao setor | Front: Davi Emanuel, Renan Vieira, João Pedro Ferreira <br> Back:  Daniel dos Santos Barros de Sousa, Luiz Henrique Soares | Concluído | Front: [PR #3](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/3) <br> Back: [PR #5](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/5)|
 | US04 | Página não traduzida automaticamente | Gabriel Lopes, Samara Alves, João Vitor | Em Revisão | [PR #6](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/6) |
@@ -59,3 +59,4 @@
 | Versão | Data | Descrição | Autor(es) |
 |---|---|---|---|
 | `1.0` | 14/09/2026 | Criação do relatório da Sprint 01 | [João Pedro Araújo (Jadequilin)](https://github.com/Jadequilin) |
+| `1.1` | 14/09/2026 | Ajustes no relatórii da Sprint 01| [Daniel Sousa (daniel-de-sousa)](https://github.com/daniel-de-sousa) |
