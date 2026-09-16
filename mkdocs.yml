@@ -1,8 +1,8 @@
 site_name: Documentação do Projeto
 site_description: Base inicial da documentação tecnica e organizacional
-site_url: "https://enzoemir.github.io/IDB_JOVEM_DOC/"
+site_url: "https://gces-2026-2-grupo-6.github.io/IDB_Jovem-Documentacao/"
 
-repo_url: "https://github.com/EnzoEmir/IDB_JOVEM_DOC"
+repo_url: "https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Documentacao"
 repo_name: Repositorio
 
 theme:
