@@ -27,31 +27,32 @@ A partir de 09/2026, o software segue em produção e passa por um ciclo de manu
 <table border="1" cellspacing="0" cellpadding="4">
   <thead>
     <tr>
-      <th>Nome</th>
+      <th>Nome completo</th>
+      <th>Matrícula</th>
       <th>GitHub</th>
     </tr>
   </thead>
   <tbody>
-    <tr><td>Gabriel Lopes</td><td><a href="https://github.com/BrzGab">@BrzGab</a></td></tr>
-    <tr><td>Daniel Sousa</td><td><a href="https://github.com/daniel-de-sousa">@daniel-de-sousa</a></td></tr>
-    <tr><td>Davi Emanuel Ribeiro de Oliveira</td><td><a href="https://github.com/daviRolvr">@daviRolvr</a></td></tr>
-    <tr><td>Carlos Henrique</td><td><a href="https://github.com/Depaiiva">@Depaiiva</a></td></tr>
-    <tr><td>Filipe</td><td><a href="https://github.com/Filipe-002">@Filipe-002</a></td></tr>
-    <tr><td>João Pedro</td><td><a href="https://github.com/Jadequilin">@Jadequilin</a></td></tr>
-    <tr><td>João Pedro Ferreira Moraes</td><td><a href="https://github.com/JoaoPedro2206">@JoaoPedro2206</a></td></tr>
-    <tr><td>João Vitor Alves Viana</td><td><a href="https://github.com/Joaovitor045">@Joaovitor045</a></td></tr>
-    <tr><td>João Pedro Rodrigues</td><td><a href="https://github.com/JpRodrigues2">@JpRodrigues2</a></td></tr>
-    <tr><td>Júlia Massuda</td><td><a href="https://github.com/JuliaReis18">@JuliaReis18</a></td></tr>
-    <tr><td>Luiz Henrique Soares</td><td><a href="https://github.com/luizh-gsoares">@luizh-gsoares</a></td></tr>
-    <tr><td>Renan Vieira</td><td><a href="https://github.com/R-enanVieira">@R-enanVieira</a></td></tr>
-    <tr><td>Riva Filho</td><td><a href="https://github.com/RivaFilho">@RivaFilho</a></td></tr>
-    <tr><td>Samara Alves</td><td><a href="https://github.com/SamaraAlvess">@SamaraAlvess</a></td></tr>
+    <tr><td>João Pedro Araújo de Freitas Lyra</td><td>232003661</td><td><a href="https://github.com/Jadequilin">@Jadequilin</a></td></tr>
+    <tr><td>João Vitor Alves Viana</td><td>222006122</td><td><a href="https://github.com/Joaovitor045">@Joaovitor045</a></td></tr>
+    <tr><td>Luiz Henrique Guimarães Soares</td><td>222022144</td><td><a href="https://github.com/luizh-gsoares">@luizh-gsoares</a></td></tr>
+    <tr><td>Júlia dos Reis Teixeira Massuda</td><td>231035150</td><td><a href="https://github.com/JuliaReis18">@JuliaReis18</a></td></tr>
+    <tr><td>João Rodrigues</td><td>231026966</td><td><a href="https://github.com/JpRodrigues2">@JpRodrigues2</a></td></tr>
+    <tr><td>Maria Samara Alves Silva</td><td>231027005</td><td><a href="https://github.com/SamaraAlvess">@SamaraAlvess</a></td></tr>
+    <tr><td>Daniel dos Santos Barros de Sousa</td><td>211030980</td><td><a href="https://github.com/daniel-de-sousa">@daniel-de-sousa</a></td></tr>
+    <tr><td>Davi Emanuel Ribeiro de Oliveira</td><td>231026616</td><td><a href="https://github.com/daviRolvr">@daviRolvr</a></td></tr>
+    <tr><td>Gabriel Lopes de Amorim</td><td>231012129</td><td><a href="https://github.com/BrzGab">@BrzGab</a></td></tr>
+    <tr><td>Filipe Carvalho da Silva</td><td>211030747</td><td><a href="https://github.com/Filipe-002">@Filipe-002</a></td></tr>
+    <tr><td>Rivadalvio Joaquim da Silva Filho</td><td>232024026</td><td><a href="https://github.com/RivaFilho">@RivaFilho</a></td></tr>
+    <tr><td>João Pedro Ferreira Moraes</td><td>231028989</td><td><a href="https://github.com/JoaoPedro2206">@JoaoPedro2206</a></td></tr>
+    <tr><td>Renan Vieira Guedes</td><td>221031363</td><td><a href="https://github.com/R-enanVieira">@R-enanVieira</a></td></tr>
+    <tr><td>Carlos Henrique de Paiva Munis</td><td>221022480</td><a href="https://github.com/Depaiiva">@Depaiiva</a></td><tr>
   </tbody>
 </table>
 
 </center>
 
-> Nomes obtidos a partir do perfil público do GitHub de cada integrante. Corrija diretamente nesta tabela caso algum nome esteja incompleto ou incorreto.
+> Nome completo e matrícula conforme a lista oficial da turma.
 
 ---
 
@@ -83,12 +84,12 @@ Todas as histórias classificadas como **Prioridade Alta** no Backlog de Melhori
     </tr>
   </thead>
   <tbody>
-    <tr><td><a href="../backlog_melhorias/#us01">US01</a></td><td>Gestão de Eventos</td><td>Evento com múltiplos dias, inclusive não consecutivos</td><td>RF05, RF11</td><td>Front-end: <a href="https://github.com/daviRolvr">Davi Emanuel</a>, <a href="https://github.com/R-enanVieira">Renan Vieira</a>, <a href="https://github.com/JoaoPedro2206">João Pedro Ferreira</a><br>Back-end: Daniel dos Santos Barros de Sousa - 211030980 (<a href="https://github.com/daniel-de-sousa">Daniel Sousa</a>), <a href="https://github.com/luizh-gsoares">Luiz Henrique Soares</a></td><td>Concluído<br><small><a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/3">PR #3</a></small><br><small><a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/4">PR #4</a></small><br><small><a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/6">PR #6</a></small></td></tr>
-    <tr><td><a href="../backlog_melhorias/#us02">US02</a></td><td>Gestão de Eventos</td><td>Informações completas do evento (valor, vagas, link de pagamento, contato, regulamento)</td><td>RF11</td><td><a href="https://github.com/BrzGab">Gabriel Lopes</a>, <a href="https://github.com/SamaraAlvess">Samara Alves</a>, <a href="https://github.com/Joaovitor045">João Vitor</a></td><td>Concluído<br><small><a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/commit/78de466d82e35f9df0b49f09b1fd59b21fb8f2fc">commit 78de466</a></small></td></tr>
-    <tr><td><a href="../backlog_melhorias/#us03">US03</a></td><td>Governança e Operações</td><td>Administrador com acesso restrito ao setor pelo qual responde</td><td>RF01</td><td>Front-end: <a href="https://github.com/daviRolvr">Davi Emanuel</a>, <a href="https://github.com/R-enanVieira">Renan Vieira</a>, <a href="https://github.com/JoaoPedro2206">João Pedro Ferreira</a><br>Back-end: <a href="https://github.com/luizh-gsoares">Luiz Henrique Soares</a>, Daniel dos Santos Barros de Sousa - 211030980 (<a href="https://github.com/daniel-de-sousa">Daniel Sousa</a>)</td><td>Concluído<br><small><a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/3">PR #3</a></small><br><small><a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/5">PR #5</a></small></td></tr>
-    <tr><td><a href="../backlog_melhorias/#us04">US04</a></td><td>Experiência do Usuário e Engajamento</td><td>Página não traduzida automaticamente pelo navegador (corrige foto duplicada)</td><td>RF06, RF04</td><td><a href="https://github.com/BrzGab">Gabriel Lopes</a>, <a href="https://github.com/SamaraAlvess">Samara Alves</a>, <a href="https://github.com/Joaovitor045">João Vitor</a></td><td>Em Revisão<br><small><a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/6">PR #6</a></small></td></tr>
-    <tr><td><a href="../backlog_melhorias/#us05">US05</a></td><td>Governança e Operações</td><td>CRUD de líderes e galeria de diretores anteriores pelo painel</td><td>RF02, RF03</td><td>Front-end: <a href="https://github.com/BrzGab">Gabriel Lopes</a>, <a href="https://github.com/SamaraAlvess">Samara Alves</a>, <a href="https://github.com/Joaovitor045">João Vitor</a><br>Back-end: <a href="https://github.com/Filipe-002">Filipe Carvalho</a>, <a href="https://github.com/JpRodrigues2">João Pedro Rodrigues</a>, <a href="https://github.com/JuliaMassuda">Júlia Massuda</a></td><td>Concluído<br><small><a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/2">PR #2</a></small></td></tr>
-    <tr><td><a href="../backlog_melhorias/#us06">US06</a></td><td>Gestão de Eventos</td><td>CRUD de bandas e palestrantes, reaproveitáveis entre eventos</td><td>RF47 a RF50</td><td><a href="https://github.com/daviRolvr">Davi Emanuel</a>, <a href="https://github.com/R-enanVieira">Renan Vieira</a>, <a href="https://github.com/JoaoPedro2206">João Pedro Ferreira</a></td><td>Concluído<br><small><a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/3">PR #3</a></small></td></tr>
+    <tr><td><a href="../backlog_melhorias/#us01">US01</a></td><td>Gestão de Eventos</td><td>Evento com múltiplos dias, inclusive não consecutivos</td><td>RF05, RF11</td><td>Front-end: <a href="https://github.com/daviRolvr">Davi Emanuel Ribeiro de Oliveira</a>, <a href="https://github.com/R-enanVieira">Renan Vieira Guedes</a>, <a href="https://github.com/JoaoPedro2206">João Pedro Ferreira Moraes</a><br>Back-end: Daniel dos Santos Barros de Sousa (<a href="https://github.com/daniel-de-sousa">Daniel dos Santos Barros de Sousa</a>), <a href="https://github.com/luizh-gsoares">Luiz Henrique Guimarães Soares</a></td><td>Concluído<br><small><a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/3">PR #3</a></small><br><small><a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/4">PR #4</a></small><br><small><a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/6">PR #6</a></small></td></tr>
+    <tr><td><a href="../backlog_melhorias/#us02">US02</a></td><td>Gestão de Eventos</td><td>Informações completas do evento (valor, vagas, link de pagamento, contato, regulamento)</td><td>RF11</td><td><a href="https://github.com/BrzGab">Gabriel Lopes de Amorim</a>, <a href="https://github.com/SamaraAlvess">Maria Samara Alves Silva</a>, <a href="https://github.com/Joaovitor045">João Vitor Alves Viana</a></td><td>Concluído<br><small><a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/commit/78de466d82e35f9df0b49f09b1fd59b21fb8f2fc">commit 78de466</a></small></td></tr>
+    <tr><td><a href="../backlog_melhorias/#us03">US03</a></td><td>Governança e Operações</td><td>Administrador com acesso restrito ao setor pelo qual responde</td><td>RF01</td><td>Front-end: <a href="https://github.com/daviRolvr">Davi Emanuel Ribeiro de Oliveira</a>, <a href="https://github.com/R-enanVieira">Renan Vieira Guedes</a>, <a href="https://github.com/JoaoPedro2206">João Pedro Ferreira Moraes</a><br>Back-end: <a href="https://github.com/luizh-gsoares">Luiz Henrique Guimarães Soares</a>, Daniel dos Santos Barros de Sousa (<a href="https://github.com/daniel-de-sousa">Daniel dos Santos Barros de Sousa</a>)</td><td>Concluído<br><small><a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/3">PR #3</a></small><br><small><a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/5">PR #5</a></small></td></tr>
+    <tr><td><a href="../backlog_melhorias/#us04">US04</a></td><td>Experiência do Usuário e Engajamento</td><td>Página não traduzida automaticamente pelo navegador (corrige foto duplicada)</td><td>RF06, RF04</td><td><a href="https://github.com/BrzGab">Gabriel Lopes de Amorim</a>, <a href="https://github.com/SamaraAlvess">Maria Samara Alves Silva</a>, <a href="https://github.com/Joaovitor045">João Vitor Alves Viana</a></td><td>Em Revisão<br><small><a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/6">PR #6</a></small></td></tr>
+    <tr><td><a href="../backlog_melhorias/#us05">US05</a></td><td>Governança e Operações</td><td>CRUD de líderes e galeria de diretores anteriores pelo painel</td><td>RF02, RF03</td><td>Front-end: <a href="https://github.com/BrzGab">Gabriel Lopes de Amorim</a>, <a href="https://github.com/SamaraAlvess">Maria Samara Alves Silva</a>, <a href="https://github.com/Joaovitor045">João Vitor Alves Viana</a><br>Back-end: <a href="https://github.com/Filipe-002">Filipe Carvalho da Silva</a>, <a href="https://github.com/JpRodrigues2">João Rodrigues</a>, <a href="https://github.com/JuliaReis18">Júlia dos Reis Teixeira Massuda</a></td><td>Concluído<br><small><a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/2">PR #2</a></small></td></tr>
+    <tr><td><a href="../backlog_melhorias/#us06">US06</a></td><td>Gestão de Eventos</td><td>CRUD de bandas e palestrantes, reaproveitáveis entre eventos</td><td>RF47 a RF50</td><td><a href="https://github.com/daviRolvr">Davi Emanuel Ribeiro de Oliveira</a>, <a href="https://github.com/R-enanVieira">Renan Vieira Guedes</a>, <a href="https://github.com/JoaoPedro2206">João Pedro Ferreira Moraes</a></td><td>Concluído<br><small><a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/3">PR #3</a></small></td></tr>
   </tbody>
 </table>
 
@@ -111,12 +112,12 @@ O trabalho de QA ocorre **em paralelo** às histórias acima, não depois delas.
     </tr>
   </thead>
   <tbody>
-    <tr><td>QA01</td><td>Tornar os jobs do pipeline bloqueantes no back-end (remoção do <code>continue-on-error</code>)</td><td>Todas</td><td><a href="https://github.com/Jadequilin">João Pedro Araújo</a></td><td>Em Revisão</td></tr>
-    <tr><td>QA02</td><td>Criar workflow de integração contínua no front-end (lint, build e Playwright)</td><td>Todas</td><td><a href="https://github.com/RivaFilho">Riva Filho</a></td><td>Em revisão</td></tr>
-    <tr><td>QA03</td><td>Testes de regressão do idioma da página e da duplicação de líder sob tradução</td><td>US04</td><td><a href="https://github.com/RivaFilho">Riva Filho</a></td><td>Em Revisão</td></tr>
-    <tr><td>QA04</td><td>Testes de evento com múltiplos dias e dias não consecutivos</td><td>US01, US02</td><td><a href="https://github.com/Jadequilin">João Pedro Araújo</a></td><td>Em Revisão</td></tr>
-    <tr><td>QA05</td><td>Matriz de autorização por papel e testes de negação de acesso</td><td>US03</td><td><a href="https://github.com/Jadequilin">João Pedro Araújo</a></td><td>Em Revisão</td></tr>
-    <tr><td>QA06</td><td>Templates de <em>pull request</em> e de <em>issue</em> com critérios de qualidade</td><td>Processo</td><td><a href="https://github.com/RivaFilho">Riva Filho</a></td><td>Em Revisão</td></tr>
+    <tr><td>QA01</td><td>Tornar os jobs do pipeline bloqueantes no back-end (remoção do <code>continue-on-error</code>)</td><td>Todas</td><td><a href="https://github.com/Jadequilin">João Pedro Araújo de Freitas Lyra</a></td><td>Em Revisão</td></tr>
+    <tr><td>QA02</td><td>Criar workflow de integração contínua no front-end (lint, build e Playwright)</td><td>Todas</td><td><a href="https://github.com/RivaFilho">Rivadalvio Joaquim da Silva Filho</a></td><td>Em revisão</td></tr>
+    <tr><td>QA03</td><td>Testes de regressão do idioma da página e da duplicação de líder sob tradução</td><td>US04</td><td><a href="https://github.com/RivaFilho">Rivadalvio Joaquim da Silva Filho</a></td><td>Em Revisão</td></tr>
+    <tr><td>QA04</td><td>Testes de evento com múltiplos dias e dias não consecutivos</td><td>US01, US02</td><td><a href="https://github.com/Jadequilin">João Pedro Araújo de Freitas Lyra</a></td><td>Em Revisão</td></tr>
+    <tr><td>QA05</td><td>Matriz de autorização por papel e testes de negação de acesso</td><td>US03</td><td><a href="https://github.com/Jadequilin">João Pedro Araújo de Freitas Lyra</a></td><td>Em Revisão</td></tr>
+    <tr><td>QA06</td><td>Templates de <em>pull request</em> e de <em>issue</em> com critérios de qualidade</td><td>Processo</td><td><a href="https://github.com/RivaFilho">Rivadalvio Joaquim da Silva Filho</a></td><td>Em Revisão</td></tr>
   </tbody>
 </table>
 
@@ -138,8 +139,8 @@ testes e o detalhamento técnico de cada entrega estão no
 repositório do front-end.
 
 As histórias US02, US04 e US05 foram conduzidas por outro trio —
-[Gabriel Lopes](https://github.com/BrzGab), [Samara Alves](https://github.com/SamaraAlvess)
-e [João Vitor](https://github.com/Joaovitor045) — que atuou em conjunto em
+[Gabriel Lopes de Amorim](https://github.com/BrzGab), [Maria Samara Alves Silva](https://github.com/SamaraAlvess)
+e [João Vitor Alves Viana](https://github.com/Joaovitor045) — que atuou em conjunto em
 todas as etapas de cada entrega (regra de negócio, painel, página pública e
 testes), sem divisão por integrante. O código está no
 [PR #2](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/2) (US05), no
@@ -148,8 +149,8 @@ testes), sem divisão por integrante. O código está no
 
 ### Desenvolvimento em pares — Luiz Henrique Soares e Daniel Sousa
 
-Durante a Sprint 1, [Luiz Henrique Soares](https://github.com/luizh-gsoares) e
-Daniel dos Santos Barros de Sousa - 211030980 ([@daniel-de-sousa](https://github.com/daniel-de-sousa)) atuaram em par na
+Durante a Sprint 1, [Luiz Henrique Guimarães Soares](https://github.com/luizh-gsoares) e
+Daniel dos Santos Barros de Sousa ([Daniel dos Santos Barros de Sousa](https://github.com/daniel-de-sousa)) atuaram em par na
 implementação e na revisão das entregas relacionadas às histórias de maior
 dependência de regra de negócio e autorização.
 
@@ -193,19 +194,19 @@ que o visitante vê e da verificação.
   </thead>
   <tbody>
     <tr>
-      <td><a href="https://github.com/daviRolvr">Davi Emanuel</a></td>
+      <td><a href="https://github.com/daviRolvr">Davi Emanuel Ribeiro de Oliveira</a></td>
       <td>Regra de data e calendário da página inicial</td>
       <td>Contrato de papéis, guarda de rota por setor e destino de acesso negado</td>
       <td>Modelo do convidado, listagem, cadastro e edição</td>
     </tr>
     <tr>
-      <td><a href="https://github.com/JoaoPedro2206">João Pedro Ferreira</a></td>
+      <td><a href="https://github.com/JoaoPedro2206">João Pedro Ferreira Moraes</a></td>
       <td>Agenda da semana no painel e caixas de data</td>
       <td>Menu e painel por setor, restrição de exclusão</td>
       <td>Seleção de convidados no evento e vínculo por identificador</td>
     </tr>
     <tr>
-      <td><a href="https://github.com/R-enanVieira">Renan Vieira</a></td>
+      <td><a href="https://github.com/R-enanVieira">Renan Vieira Guedes</a></td>
       <td>Página pública do evento e suíte de testes</td>
       <td>Gestão de administradores e matriz de permissão</td>
       <td>Exibição pública, exclusão com travas e testes</td>
@@ -253,9 +254,9 @@ conferindo idioma, meta e ausência de nome ou foto repetidos.
 líderes atuais e diretores anteriores, cadastro, edição e exclusão. A marcação
 de "diretor anterior" é manual, a galeria de anteriores mostra apenas o cargo
 nacional, e a página inicial passou a ler os líderes da API em vez de uma lista
-fixa no código. No back-end, o trio [Filipe Carvalho](https://github.com/Filipe-002),
-[João Pedro Rodrigues](https://github.com/JpRodrigues2) e
-[Júlia Massuda](https://github.com/JuliaMassuda) implementou a persistência dos
+fixa no código. No back-end, o trio [Filipe Carvalho da Silva](https://github.com/Filipe-002),
+[João Rodrigues](https://github.com/JpRodrigues2) e
+[Júlia dos Reis Teixeira Massuda](https://github.com/JuliaReis18) implementou a persistência dos
 campos de região, mini-biografia, redes sociais e gestão — antes enviados pelo
 front-end e ignorados pelo schema —, expôs o perfil do líder na API com escrita
 restrita à superadministradora e cobriu schema, repositório, serviço,
@@ -278,10 +279,11 @@ As histórias de Prioridade Média e Baixa, assim como os itens fora do escopo, 
 
 | Versão | Data | Descrição | Autor(es) |
 |---|---|---|---|
-| `1.0` | 31/08/2026 | Criação da página de Sprints e cadastro da Sprint 1 | [Júlia Massuda](https://github.com/JuliaReis18) |
-| `1.1` | 31/08/2026 | Inclusão das colunas de requisitos e responsáveis, das entregas de QA da Sprint 1 e das instruções de preenchimento | [João Pedro](https://github.com/Jadequilin) |
-| `1.2` | 11/09/2026 | Atribuição de responsáveis das entregas de QA e registro do resultado das entregas concluídas | [João Pedro](https://github.com/Jadequilin) |
-| `1.3` | 13/09/2026 | Responsáveis e status das histórias US01, US03 e US06, detalhamento das entregas com a divisão do trabalho por integrante e inclusão de João Pedro Ferreira Moraes na tabela da equipe | [Davi Emanuel](https://github.com/daviRolvr) |
-| `1.4` | 13/09/2026 | Responsáveis e status das histórias US02, US04 e US05 e registro das entregas do trio na Sprint 1 | [Gabriel Lopes](https://github.com/BrzGab), [Samara Alves](https://github.com/SamaraAlvess) e [João Vitor](https://github.com/Joaovitor045) |
-| `1.5` | 14/09/2026 | Registro do trio responsável pelo back-end da US05 | [Filipe Carvalho](https://github.com/Filipe-002), [João Pedro](https://github.com/JpRodrigues2) e [Júlia Massuda](https://github.com/JuliaMassuda) |
-| `1.6` | 14/09/2026 | Registro da contribuição em dupla do back-end nas histórias US01 e US03, com a atribuição da implementação e dos PRs correspondentes | [Luiz Henrique Soares](https://github.com/luizh-gsoares) e [Daniel Sousa](https://github.com/daniel-de-sousa) |
+| `1.0` | 31/08/2026 | Criação da página de Sprints e cadastro da Sprint 1 | [Júlia dos Reis Teixeira Massuda](https://github.com/JuliaReis18) |
+| `1.1` | 31/08/2026 | Inclusão das colunas de requisitos e responsáveis, das entregas de QA da Sprint 1 e das instruções de preenchimento | [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin) |
+| `1.2` | 11/09/2026 | Atribuição de responsáveis das entregas de QA e registro do resultado das entregas concluídas | [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin) |
+| `1.3` | 13/09/2026 | Responsáveis e status das histórias US01, US03 e US06, detalhamento das entregas com a divisão do trabalho por integrante e inclusão de João Pedro Ferreira Moraes na tabela da equipe | [Davi Emanuel Ribeiro de Oliveira](https://github.com/daviRolvr) |
+| `1.4` | 13/09/2026 | Responsáveis e status das histórias US02, US04 e US05 e registro das entregas do trio na Sprint 1 | [Gabriel Lopes de Amorim](https://github.com/BrzGab), [Maria Samara Alves Silva](https://github.com/SamaraAlvess) e [João Vitor Alves Viana](https://github.com/Joaovitor045) |
+| `1.5` | 14/09/2026 | Registro do trio responsável pelo back-end da US05 | [Filipe Carvalho da Silva](https://github.com/Filipe-002), [João Rodrigues](https://github.com/JpRodrigues2) e [Júlia dos Reis Teixeira Massuda](https://github.com/JuliaReis18) |
+| `1.6` | 14/09/2026 | Registro da contribuição em dupla do back-end nas histórias US01 e US03, com a atribuição da implementação e dos PRs correspondentes | [Luiz Henrique Guimarães Soares](https://github.com/luizh-gsoares) e [Daniel dos Santos Barros de Sousa](https://github.com/daniel-de-sousa) |
+| `1.7` | 15/09/2026 | Altera o registro dos nomes dos membros do grupo, afim de facilitar a busca | [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin)| 
