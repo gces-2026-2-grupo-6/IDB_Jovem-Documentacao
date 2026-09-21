@@ -932,6 +932,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../sprint02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sprint 02
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../sprints/" class="md-nav__link">
         
   
@@ -1939,7 +1967,7 @@
 <td>C+T</td>
 <td>US03 — Alta</td>
 <td>QA: <a href="https://github.com/Jadequilin">João Pedro Araújo de Freitas Lyra</a><br>Back-end: <a href="https://github.com/luizh-gsoares">Luiz Henrique Guimarães Soares</a>, Daniel dos Santos Barros de Sousa (<a href="https://github.com/daniel-de-sousa">Daniel dos Santos Barros de Sousa</a>)<br>Front-end: <a href="https://github.com/daviRolvr">Davi Emanuel Ribeiro de Oliveira</a>, <a href="https://github.com/JoaoPedro2206">João Pedro Ferreira Moraes</a>, <a href="https://github.com/R-enanVieira">Renan Vieira Guedes</a></td>
-<td><strong>QA:</strong> 44 testes de autorização por papel: matriz de 13 rotas, negação de acesso e escalonamento de privilégio. Duas vulnerabilidades documentadas na <a href="../matriz-autorizacao/">Matriz de Autorização</a>, uma delas corrigida.<br><strong>Back-end:</strong> desenvolvimento do controle de permissões por setor, incluindo filtros de acesso, regras de autorização e o fluxo de gestão de administradores.<br><strong>Front-end:</strong> três setores lidos dos papéis do Keycloak, com menu, painel e rotas filtrados por setor; exclusão de conteúdo restrita à superadministradora, recusada também na camada de serviço; tela de gestão de administradores.</td>
+<td><strong>QA:</strong> 44 testes de autorização por papel: matriz de 13 rotas, negação de acesso e escalonamento de privilégio. Duas vulnerabilidades documentadas na <a href="../matriz-autorizacao/">Matriz de Autorização</a>, uma delas corrigida.<br><strong>Back-end:</strong> desenvolvimento do controle de permissões por setor, incluindo filtros de acesso, regras de autorização e o fluxo de gestão de administradores.<br><strong>Front-end:</strong> três setores lidos dos papéis do Keycloak, com menu, painel e rotas filtrados por setor; exclusão de conteúdo restrita à superadministradora, recusada também na camada de serviço; tela de gestão de administradores.<br><strong>QA (Sprint 2):</strong> a matriz de autorização passou a ser lida das rotas registradas na aplicação, cobrindo as 49 rotas — rota nova sem decisão de acesso, escrita sem guarda ou exclusão sem superadministrador fazem o teste falhar. Com isso, a listagem de inscritos de cada evento, que era pública, passou a exigir o setor de inscrições. As duas guardas de acesso passaram a recusar com 403 papéis em formato inesperado, que antes concediam acesso ou respondiam 500.</td>
 </tr>
 <tr>
 <td>RF02</td>
@@ -2398,7 +2426,7 @@
 <td>T</td>
 <td>US06 — Alta</td>
 <td><a href="https://github.com/daviRolvr">Davi Emanuel Ribeiro de Oliveira</a>, <a href="https://github.com/JoaoPedro2206">João Pedro Ferreira Moraes</a>, <a href="https://github.com/R-enanVieira">Renan Vieira Guedes</a></td>
-<td>Tela de convidados no painel, com busca por nome e função, cadastro, edição e exclusão. Construída sobre o CRUD que a API já oferecia e que nenhuma tela alcançava. A função (banda, pregador, convidado) é derivada do campo de texto livre da API, sem descaracterizar o que já estava cadastrado.</td>
+<td>Tela de convidados no painel, com busca por nome e função, cadastro, edição e exclusão. Construída sobre o CRUD que a API já oferecia e que nenhuma tela alcançava. A função (banda, pregador, convidado) é derivada do campo de texto livre da API, sem descaracterizar o que já estava cadastrado.<br><strong>QA (Sprint 2):</strong> edição de convidados coberta, inclusive a persistência. Registrado defeito: excluir convidado vinculado a evento responde 500 e não apaga — aguarda decisão entre apagar os vínculos junto ou recusar com 409.</td>
 </tr>
 <tr>
 <td>RF48</td>
@@ -2414,7 +2442,7 @@
 <td>S</td>
 <td>US06 — Alta</td>
 <td><a href="https://github.com/daviRolvr">Davi Emanuel Ribeiro de Oliveira</a>, <a href="https://github.com/JoaoPedro2206">João Pedro Ferreira Moraes</a>, <a href="https://github.com/R-enanVieira">Renan Vieira Guedes</a></td>
-<td>No formulário do evento, o texto livre deu lugar à seleção dos já cadastrados, com cadastro rápido para quem ainda não existe. O vínculo passou a ser por identificador: antes era resolvido comparando nomes, e corrigir a grafia de um nome criava um cadastro novo.</td>
+<td>No formulário do evento, o texto livre deu lugar à seleção dos já cadastrados, com cadastro rápido para quem ainda não existe. O vínculo passou a ser por identificador: antes era resolvido comparando nomes, e corrigir a grafia de um nome criava um cadastro novo.<br><strong>QA (Sprint 2):</strong> vínculo por identificador testado contra banco real — o mesmo convidado em dois eventos, eventos que não misturam convidados, duplicata barrada pela chave composta e desvínculo que preserva o cadastro.</td>
 </tr>
 <tr>
 <td>RF50</td>
@@ -2644,6 +2672,12 @@
 <td><code>2.0</code></td>
 <td>15/09/2026</td>
 <td>Altera o registro dos nomes dos membros do grupo, afim de facilitar a busca</td>
+<td><a href="https://github.com/Jadequilin">João Pedro Araújo de Freitas Lyra</a></td>
+</tr>
+<tr>
+<td><code>2.1</code></td>
+<td>21/09/2026</td>
+<td>Registro das entregas de QA do back-end da Sprint 2 — RF01, RF47 e RF49</td>
 <td><a href="https://github.com/Jadequilin">João Pedro Araújo de Freitas Lyra</a></td>
 </tr>
 </tbody>
