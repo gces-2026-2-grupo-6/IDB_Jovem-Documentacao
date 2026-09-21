@@ -6,6 +6,7 @@
 - [Equipe Responsável](#equipe)
 - [Sprint 1](#sprint1)
 - [Entregas da Sprint 1](#entregas)
+- [Sprint 2](#sprint2)
 - [Como Preencher Esta Página](#preencher)
 
 ---
@@ -116,7 +117,7 @@ O trabalho de QA ocorre **em paralelo** às histórias acima, não depois delas.
     <tr><td>QA02</td><td>Criar workflow de integração contínua no front-end (lint, build e Playwright)</td><td>Todas</td><td><a href="https://github.com/RivaFilho">Rivadalvio Joaquim da Silva Filho</a></td><td>Concluído</td></tr>
     <tr><td>QA03</td><td>Testes de regressão do idioma da página e da duplicação de líder sob tradução</td><td>US04</td><td><a href="https://github.com/RivaFilho">Rivadalvio Joaquim da Silva Filho</a></td><td>Concluído</td></tr>
     <tr><td>QA04</td><td>Testes de evento com múltiplos dias e dias não consecutivos</td><td>US01, US02</td><td><a href="https://github.com/Jadequilin">João Pedro Araújo de Freitas Lyra</a></td><td>Concluído</td></tr>
-    <tr><td>QA05</td><td>Matriz de autorização por papel e testes de negação de acesso</td><td>US03</td><td><a href="https://github.com/Jadequilin">João Pedro Araújo de Freitas Lyra</a></td><td>Concluído</td></tr>
+    <tr><td>QA05</td><td>Matriz de autorização por papel e testes de negação de acesso</td><td>US03</td><td><a href="https://github.com/Jadequilin">João Pedro Araújo de Freitas Lyra</a></td><td>Concluído<br><small>reintegrado na Sprint 2</small></td></tr>
     <tr><td>QA06</td><td>Templates de <em>pull request</em> e de <em>issue</em> com critérios de qualidade</td><td>Processo</td><td><a href="https://github.com/RivaFilho">Rivadalvio Joaquim da Silva Filho</a></td><td>Concluído</td></tr>
   </tbody>
 </table>
@@ -264,6 +265,58 @@ controller e autorização com testes.
 
 ---
 
+<a name="sprint2"></a>
+
+## Sprint 2
+
+<table border="1" cellspacing="0" cellpadding="4">
+<tbody>
+<tr><td><strong>Início</strong></td><td>15/09/2026</td></tr>
+<tr><td><strong>Término</strong></td><td>28/09/2026</td></tr>
+<tr><td><strong>Duração</strong></td><td>2 semanas (14 dias)</td></tr>
+</tbody>
+</table>
+
+> **A preencher pelos trios:** histórias assumidas na Sprint 2, no mesmo formato da tabela da Sprint 1. Vêm da Sprint 1 a US04 (em revisão) e o back-end da US05 (em andamento).
+
+### Garantia de Qualidade na Sprint 2
+
+<center>
+
+<table border="1" cellspacing="0" cellpadding="4">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Entrega</th>
+      <th>Cobre</th>
+      <th>Responsáveis</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>QA07</td><td>Testes do vínculo entre evento e convidado e da edição de convidados</td><td>US06</td><td><a href="https://github.com/Jadequilin">João Pedro Araújo de Freitas Lyra</a></td><td>Em Revisão</td></tr>
+    <tr><td>QA08</td><td>Registro do defeito na exclusão de evento ou convidado com vínculo</td><td>US06</td><td><a href="https://github.com/Jadequilin">João Pedro Araújo de Freitas Lyra</a></td><td>Em Revisão</td></tr>
+    <tr><td>QA09</td><td>Verificação de <em>head</em> único na cadeia de migrations</td><td>US01, US05</td><td><a href="https://github.com/Jadequilin">João Pedro Araújo de Freitas Lyra</a></td><td>Em Revisão</td></tr>
+    <tr><td>QA10</td><td>Proteção da listagem de inscritos e matriz de autorização lida do código</td><td>US03</td><td><a href="https://github.com/Jadequilin">João Pedro Araújo de Freitas Lyra</a></td><td>Em Revisão</td></tr>
+    <tr><td>QA11</td><td>Recusa de token com papéis em formato inesperado nas duas guardas de acesso</td><td>US03</td><td><a href="https://github.com/Jadequilin">João Pedro Araújo de Freitas Lyra</a></td><td>Em Revisão</td></tr>
+    <tr><td>QA12</td><td>Remoção da sobreposição com os testes de idioma da PR #6</td><td>US04</td><td><a href="https://github.com/RivaFilho">Rivadalvio Joaquim da Silva Filho</a></td><td>A Fazer</td></tr>
+    <tr><td>QA13</td><td>Testes da tela de líderes no painel</td><td>US05</td><td><a href="https://github.com/RivaFilho">Rivadalvio Joaquim da Silva Filho</a></td><td>A Fazer</td></tr>
+    <tr><td>QA14</td><td>Testes da galeria de diretores restrita ao cargo nacional</td><td>US05</td><td><a href="https://github.com/RivaFilho">Rivadalvio Joaquim da Silva Filho</a></td><td>A Fazer</td></tr>
+    <tr><td>QA15</td><td>Testes da tela de convidados com busca por função</td><td>US06</td><td><a href="https://github.com/RivaFilho">Rivadalvio Joaquim da Silva Filho</a></td><td>A Fazer</td></tr>
+    <tr><td>QA16</td><td>Issue para as regras de <code>react-hooks</code> rebaixadas a aviso</td><td>Processo</td><td><a href="https://github.com/RivaFilho">Rivadalvio Joaquim da Silva Filho</a></td><td>A Fazer</td></tr>
+  </tbody>
+</table>
+
+</center>
+
+> **Organização das PRs do back-end.** As entregas QA07 a QA11 foram agrupadas em duas PRs por tema, ambas com base na `main`: `qa/sprint2-convidados-e-migrations` (QA07 a QA09) e `qa/sprint2-autorizacao` (QA10 e QA11). Cada entrega continua em commit próprio.
+
+> **Reintegração da QA05.** A PR #2 do back-end foi mesclada em `qa/testes-evento-multiplos-dias` depois que essa branch já tinha entrado na `main`, e a correção nunca chegou lá — a `main` ficou com 610 testes, não 631. Reintegrada no início da Sprint 2 pela PR `qa/reintegrar-autorizacao`. A partir daqui, PRs de QA têm base sempre na `main`.
+
+> **Pendências para a equipe de implementação.** (1) A US05 deve apontar o `down_revision` da migration `26e93df0f2ac` para `259093bc4c8e` antes do merge — do contrário, `alembic upgrade head` falha. (2) Excluir evento ou convidado com vínculo responde 500; decidir entre apagar os vínculos junto ou recusar com 409. O detalhamento está no [relatório da Sprint 02](sprint02.md).
+
+---
+
 ## Como preencher esta página
 
 - **Responsáveis:** cada integrante insere seu nome na linha da história ou entrega que assumir. Mais de um nome por linha é esperado.
@@ -286,4 +339,5 @@ As histórias de Prioridade Média e Baixa, assim como os itens fora do escopo, 
 | `1.4` | 13/09/2026 | Responsáveis e status das histórias US02, US04 e US05 e registro das entregas do trio na Sprint 1 | [Gabriel Lopes de Amorim](https://github.com/BrzGab), [Maria Samara Alves Silva](https://github.com/SamaraAlvess) e [João Vitor Alves Viana](https://github.com/Joaovitor045) |
 | `1.5` | 14/09/2026 | Registro do trio responsável pelo back-end da US05 | [Filipe Carvalho da Silva](https://github.com/Filipe-002), [João Rodrigues](https://github.com/JpRodrigues2) e [Júlia dos Reis Teixeira Massuda](https://github.com/JuliaReis18) |
 | `1.6` | 14/09/2026 | Registro da contribuição em dupla do back-end nas histórias US01 e US03, com a atribuição da implementação e dos PRs correspondentes | [Luiz Henrique Guimarães Soares](https://github.com/luizh-gsoares) e [Daniel dos Santos Barros de Sousa](https://github.com/daniel-de-sousa) |
-| `1.7` | 15/09/2026 | Altera o registro dos nomes dos membros do grupo, afim de facilitar a busca | [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin)| 
+| `1.7` | 15/09/2026 | Altera o registro dos nomes dos membros do grupo, afim de facilitar a busca | [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin)|
+| `1.8` | 21/09/2026 | Cadastro da Sprint 2 com as entregas de QA, registro da reintegração da QA05 e das pendências para a implementação | [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin) |
