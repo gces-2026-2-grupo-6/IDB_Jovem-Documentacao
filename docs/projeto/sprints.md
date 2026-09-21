@@ -317,6 +317,7 @@ controller e autorização com testes.
 
 ---
 
+<a name="preencher"></a>
 ## Como preencher esta página
 
 - **Responsáveis:** cada integrante insere seu nome na linha da história ou entrega que assumir. Mais de um nome por linha é esperado.
