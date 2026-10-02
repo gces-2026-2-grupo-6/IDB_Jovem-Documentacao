@@ -44,7 +44,7 @@
 
 ## Resumo
 
-- *Líder da Apresentação*: a definir
+- *Líder da Apresentação*: João Vitor A Viana - 222006122
 - *Total de US concluídas:* 5 de 6 (US01, US02, US03, US05 e US06)
 - *US em revisão:* 1 (US04)
 - *Entregas de QA:* 6
