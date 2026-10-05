@@ -8,12 +8,20 @@
 |---|---:|---|---|
 
 | [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin) / [Rivadalvio Joaquim da Silva Filho](https://github.com/RivaFilho) | 5 | US01, US03 a US06 | Garantia de qualidade: autorização, convidados, migrations e regressão das histórias de líderes |
+| [Filipe Carvalho da Silva](https://github.com/Filipe-002) / [João Rodrigues](https://github.com/JpRodrigues2) / [Júlia dos Reis Teixeira Massuda](https://github.com/JuliaReis18) | 1 | US09 | Back-end da inscrição separada para voluntários |
 
 > **A preencher pelos trios:** as histórias novas assumidas na Sprint 2.
 
 ---
 
 ## Detalhamento por história
+
+### US09 — Inscrição separada para voluntários (Back-end)
+
+- **Requisito:** RF52
+- **Descrição:** Eu, como *administradora*, desejo *disponibilizar dois links de inscrição por evento — um para participantes e outro para voluntários*, para *separar quem vai participar de quem vai trabalhar no evento*.
+- **Responsáveis (Back-end):** [Filipe Carvalho da Silva](https://github.com/Filipe-002), [João Rodrigues](https://github.com/JpRodrigues2) e [Júlia dos Reis Teixeira Massuda](https://github.com/JuliaReis18).
+- **Atuação:** implementação do back-end do fluxo de inscrição separada para voluntários na Sprint 2.
 
 
 ---
@@ -64,3 +72,4 @@
 | Versão | Data | Descrição | Autor(es) |
 |---|---|---|---|
 | `1.0` | 21/09/2026 | Criação do relatório da Sprint 02 com as entregas de QA do back-end | [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin) |
+| `1.1` | 05/10/2026 | Registro do trio no back-end da US09 da Sprint 2 | [Filipe Carvalho da Silva](https://github.com/Filipe-002), [João Rodrigues](https://github.com/JpRodrigues2) e [Júlia dos Reis Teixeira Massuda](https://github.com/JuliaReis18) |
