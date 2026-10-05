@@ -1,6 +1,6 @@
 # Sprint 02
 
-*Período:* 15/09/2026 a 28/09/2026
+*Período:* 15/09/2026 a 06/10/2026
 
 ## Entregas da Sprint
 
@@ -40,8 +40,11 @@
 | QA14 | Testes da galeria de diretores restrita ao cargo nacional | US05 | [Rivadalvio Joaquim da Silva Filho](https://github.com/RivaFilho) | Concluído |
 | QA15 | Testes da tela de convidados com busca por função | US06 | [Rivadalvio Joaquim da Silva Filho](https://github.com/RivaFilho) | Concluído|
 | QA16 | Issue para as regras de `react-hooks` rebaixadas a aviso | Processo | [Rivadalvio Joaquim da Silva Filho](https://github.com/RivaFilho) | Concluído|
+| QA17 | Revisão da suíte do back-end por teste de mutação | Processo | [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin) | Concluído |
 
-**Resultados.** 94 testes novos no back-end, 5 defeitos encontrados — 3 corrigidos e 2 registrados para a equipe de implementação. Suíte do back-end: de 610 para 747 testes (43 da reintegração da QA05 e 94 desta sprint), cobertura de 95,3% para 97,2%. `evento` passou de 90,0% para 99,6% e `banda_palestrante` de 93,1% para 100%.
+**Resultados.** 94 testes novos no back-end e 4 defeitos encontrados no código — 2 corrigidos e 2 registrados para a equipe de implementação. A suíte foi de 610 para 747 testes (43 da reintegração da QA05 e 94 desta sprint) e, após a revisão da QA17, para 581, mantendo a mesma detecção de defeitos. Cobertura de 95,3% para 97,2%: `evento` passou de 90,0% para 99,6% e `banda_palestrante` de 93,1% para 100%.
+
+**Revisão da suíte (QA17).** Cada teste foi avaliado por teste de mutação: 622 defeitos plantados no código, registrando quais testes pegavam cada um. Um arquivo só foi removido se, sem ele, nenhum defeito deixasse de ser pego. Saíram 166 casos — uma cópia literal de seis arquivos, duas suítes do mesmo serviço, cenários testados em duas camadas, repetições com valores equivalentes e a matriz manual da Sprint 1. Os 519 defeitos que a suíte pegava continuam sendo pegos, com a mesma cobertura. Um teste antigo não tinha nenhum `assert`; foi substituído por um que confere o resultado.
 
 **Defeitos encontrados.**
 
@@ -49,7 +52,8 @@
 |---|---|---|
 | A listagem de inscritos de cada evento era pública: devolvia nome e e-mail, enumeráveis pelo id, e gravava no banco a cada chamada. | Alta | Corrigido (QA10) |
 | Excluir um evento ou convidado com vínculo responde 500 e não apaga nada. No evento, a agenda do Google é apagada antes do banco recusar. | Alta | Registrado (QA08). A correção depende de decisão: apagar os vínculos junto ou recusar com 409. |
-| As migrations da US05 e da US01 partem da mesma revisão; ao mesclar a US05, `alembic upgrade head` falha. | Alta | Registrado (QA09). A US05 deve apontar o `down_revision` para `259093bc4c8e`. |
+| As migrations da US05 e da US01 partiam da mesma revisão; ao mesclar a US05, `alembic upgrade head` falhava. | Alta | Corrigido na PR #11, encadeando a migration da US01 depois das da US05. Como a reordenação deixa sem as colunas novas todo banco já atualizado antes, uma migration de reparo cria o que faltar sem afetar quem já está correto. |
+| Evento sem latitude e longitude derruba a listagem inteira com erro 500, inclusive a pública: a coluna aceita nulo, mas o schema de resposta exige os dois. | Média | Registrado. Previsto para a Sprint 3. |
 | A guarda de setor aceitava papéis em formato de dicionário e respondia 500 com papéis nulos. | Média | Corrigido (QA11) |
 | A correção e os testes da QA05 não chegaram à `main`: a PR foi mesclada numa branch empilhada já integrada. | Processo | Corrigido. PRs de QA passam a ter base sempre na `main`. |
 
@@ -61,7 +65,7 @@
 
 - *Líder da Apresentação*: João Pedro Araújo de Freitas Lyra
 - *Total de US concluídas:* a definir
-- *Entregas de QA:* 10 (5 do back-end em revisão, 5 do front-end a fazer)
+- *Entregas de QA:* 11 (6 do back-end e 5 do front-end)
 - *Início da Sprint:* 15/09/2026
 - *Fim da Sprint:* 06/10/2026
 
@@ -73,3 +77,4 @@
 |---|---|---|---|
 | `1.0` | 21/09/2026 | Criação do relatório da Sprint 02 com as entregas de QA do back-end | [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin) |
 | `1.1` | 05/10/2026 | Registro do trio no back-end da US09 da Sprint 2 | [Filipe Carvalho da Silva](https://github.com/Filipe-002), [João Rodrigues](https://github.com/JpRodrigues2) e [Júlia dos Reis Teixeira Massuda](https://github.com/JuliaReis18) |
+| `1.2` | 05/10/2026 | Registro da QA17, dos números após a revisão da suíte e da situação dos defeitos de migration e de coordenadas | [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin) |
