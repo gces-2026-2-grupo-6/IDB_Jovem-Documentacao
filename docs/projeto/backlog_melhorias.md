@@ -197,7 +197,7 @@ Por esse motivo, a grade **não foi usada como critério único**. A priorizaç�
 <tr><td><strong>Descrição</strong></td><td>Eu, como <em>administradora</em>, desejo <em>disponibilizar dois links de inscrição por evento — um para participantes e outro para voluntários</em>, para <em>separar quem vai participar de quem vai trabalhar no evento</em>.</td></tr>
 <tr><td><strong>Critérios de Aceitação</strong></td><td>- O evento comporta dois fluxos de inscrição distintos <br> - Cada fluxo tem seu próprio link e sua própria listagem <br> - O fluxo de voluntariado mantém o status pendente/aprovado/reprovado atual</td></tr>
 <tr><td><strong>Prioridade</strong></td><td>Média</td></tr>
-<tr><td><strong>Status</strong></td><td>Requisito novo — surgido de campo aberto</td></tr>
+<tr><td><strong>Status</strong></td><td>Back-end concluído na Sprint 2 — integração do front-end pendente</td></tr>
 </tbody>
 </table>
 
@@ -406,7 +406,7 @@ Cada requisito possui campo de **Responsável** e de **O que foi feito**. O prim
 
 | ID | Requisito | Origem | Situação | Responsável | O que foi feito |
 |---|---|---|---|---|---|
-| RF52 | Inscrição de participante, separada da de voluntário | A | US09 — Média | | |
+| RF52 | Inscrição de participante, separada da de voluntário | A | US09 — Média | [@Filipe-002](https://github.com/Filipe-002), [@JpRodrigues2](https://github.com/JpRodrigues2) e [@JuliaReis18](https://github.com/JuliaReis18) | **Back-end:** o evento passou a ter dois links de inscrição — `formulario_link` para voluntariado e `formulario_participante_link` para participantes — e cada fluxo ganhou a sua listagem. Tabelas `participante` e `inscricao` espelham `voluntario` e `trabalha`, sem coluna de status: pendente/aprovado/reprovado continua exclusivo do voluntariado. Nova rota `GET /formulario/eventos/{id}/participantes`, restrita ao setor de Inscrições. As chaves estrangeiras usam `ON DELETE CASCADE`, para não repetir o defeito da QA08 ao excluir um evento. 30 testes novos e cobertura de 100% em `src/formulario` e `src/participante`. Contrato para o front-end em [Contrato da API de Inscrições](contrato-api-inscricoes.md).<br>**Pendência no front-end:** campo do segundo link no formulário de evento e tela da listagem de participantes. |
 | RF53 | Cadastro nacional de líderes de jovens e adolescentes | A | US10 — Média | | |
 | RF54 | Área de materiais para download | A | US11 — Média | | |
 
@@ -443,3 +443,4 @@ Cada requisito possui campo de **Responsável** e de **O que foi feito**. O prim
 | `1.9` | 14/09/2026 | Registro da contribuição em dupla do back-end nas histórias US01 e US03 e ajuste da atribuição de RF05 e RF01 entre front-end e back-end | [Luiz Henrique Guimarães Soares](https://github.com/luizh-gsoares) e [Daniel dos Santos Barros de Sousa](https://github.com/daniel-de-sousa) |
 | `2.0` | 15/09/2026 | Altera o registro dos nomes dos membros do grupo, afim de facilitar a busca | [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin)|
 | `2.1` | 21/09/2026 | Registro das entregas de QA do back-end da Sprint 2 — RF01, RF47 e RF49 | [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin) |
+| `2.2` | 05/10/2026 | Registro da entrega do back-end da US09 (RF52) — dois fluxos de inscrição por evento | [Filipe Carvalho da Silva](https://github.com/Filipe-002), [João Rodrigues](https://github.com/JpRodrigues2) e [Júlia dos Reis Teixeira Massuda](https://github.com/JuliaReis18) |

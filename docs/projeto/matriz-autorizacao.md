@@ -42,6 +42,8 @@ O sistema reconhece apenas dois papéis de *realm* no Keycloak:
 | Produto | `/produto/{id}` | PUT | **Não** | Sim | Não |
 | Produto | `/produto/{id}` | DELETE | **Não** | Sim | Não |
 | Voluntário | `/voluntario/*` | POST/PUT/DELETE | Sim | Sim | Não |
+| Inscrições | `/formulario/eventos/{id}/inscricoes` | GET | Só com `admin-inscricoes` | Sim | Não |
+| Inscrições | `/formulario/eventos/{id}/participantes` | GET | Só com `admin-inscricoes` | Sim | Não |
 | Banda/Palestrante | `/banda-palestrante` | POST/PUT/DELETE | Sim | Sim | Não |
 | Admin | `/admin` | POST | **Não** | Sim | Não |
 | Admin | `/admin` | GET | Sim | Sim | Não |
@@ -82,6 +84,21 @@ Comportamento correto, mas não testado até agora. Um token com `resource_acces
 
 ---
 
+### 5. Dois fluxos de inscrição por evento (US09)
+
+A US09 separou a inscrição de participante da de voluntário. Cada fluxo tem o seu link no evento e a sua listagem:
+
+| Fluxo | Link no evento | Rota de listagem |
+|---|---|---|
+| Voluntariado | `formulario_link` | `GET /formulario/eventos/{id}/inscricoes` |
+| Participantes | `formulario_participante_link` | `GET /formulario/eventos/{id}/participantes` |
+
+As duas listagens devolvem nome e e-mail de quem se inscreveu, então ambas exigem o setor de **Inscrições**. A rota de participantes nasceu protegida: o defeito corrigido na QA10, em que a listagem de voluntários era pública, não se repete aqui.
+
+A exigência é verificada por `tests/unit/test_matriz_rotas.py`, que lê as dependências registradas na aplicação. Uma rota nova sem entrada na matriz faz o teste falhar.
+
+---
+
 ## Impacto na implementação da US03
 
 A introdução de papéis por setor deve preservar as garantias já testadas:
@@ -100,3 +117,5 @@ A alteração ocorre em três camadas — configuração do Keycloak, guardas de
 | Versão | Data | Descrição | Autor(es) |
 |---|---|---|---|
 | `1.0` | 01/09/2026 | Criação da matriz e registro das lacunas da auditoria | [João Pedro](https://github.com/Jadequilin) |
+
+| `1.1` | 05/10/2026 | Registro das duas listagens de inscrição da US09 e da exigência do setor de Inscrições | [Filipe Carvalho da Silva](https://github.com/Filipe-002), [João Rodrigues](https://github.com/JpRodrigues2) e [Júlia dos Reis Teixeira Massuda](https://github.com/JuliaReis18) |

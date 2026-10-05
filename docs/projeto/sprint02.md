@@ -22,6 +22,20 @@
 - **Descrição:** Eu, como *administradora*, desejo *disponibilizar dois links de inscrição por evento — um para participantes e outro para voluntários*, para *separar quem vai participar de quem vai trabalhar no evento*.
 - **Responsáveis (Back-end):** [Filipe Carvalho da Silva](https://github.com/Filipe-002), [João Rodrigues](https://github.com/JpRodrigues2) e [Júlia dos Reis Teixeira Massuda](https://github.com/JuliaReis18).
 - **Atuação:** implementação do back-end do fluxo de inscrição separada para voluntários na Sprint 2.
+- **Situação:** back-end concluído; integração do front-end pendente.
+
+**O que foi entregue.** O evento passou a comportar dois fluxos de inscrição, cada um com o seu link e a sua listagem:
+
+| Fluxo | Link no evento | Listagem |
+|---|---|---|
+| Voluntariado (já existia) | `formulario_link` | `GET /formulario/eventos/{id}/inscricoes` |
+| Participantes (novo) | `formulario_participante_link` | `GET /formulario/eventos/{id}/participantes` |
+
+As tabelas `participante` e `inscricao` espelham `voluntario` e `trabalha`. A inscrição de participante **não tem status**: pendente/aprovado/reprovado permanece exclusivo do voluntariado, como pede o terceiro critério de aceitação. As chaves estrangeiras novas usam `ON DELETE CASCADE`, de modo que excluir um evento não repita o defeito registrado na QA08.
+
+A listagem de participantes exige o setor de **Inscrições** desde o primeiro commit, e tem entrada própria na matriz lida do código. Foram 30 testes novos, com cobertura de 100% em `src/formulario` e `src/participante`; a suíte do back-end foi de 668 para 698 testes.
+
+**Pendência no front-end.** Falta o campo do segundo link no formulário de evento e a tela da listagem de participantes. O contrato está em [Contrato da API de Inscrições](contrato-api-inscricoes.md).
 
 
 ---
@@ -73,3 +87,4 @@
 |---|---|---|---|
 | `1.0` | 21/09/2026 | Criação do relatório da Sprint 02 com as entregas de QA do back-end | [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin) |
 | `1.1` | 05/10/2026 | Registro do trio no back-end da US09 da Sprint 2 | [Filipe Carvalho da Silva](https://github.com/Filipe-002), [João Rodrigues](https://github.com/JpRodrigues2) e [Júlia dos Reis Teixeira Massuda](https://github.com/JuliaReis18) |
+| `1.2` | 05/10/2026 | Registro da entrega do back-end da US09 — dois fluxos de inscrição por evento | [Filipe Carvalho da Silva](https://github.com/Filipe-002), [João Rodrigues](https://github.com/JpRodrigues2) e [Júlia dos Reis Teixeira Massuda](https://github.com/JuliaReis18) |
