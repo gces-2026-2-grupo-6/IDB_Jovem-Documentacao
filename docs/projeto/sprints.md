@@ -279,6 +279,26 @@ controller e autorização com testes.
 
 > **A preencher pelos trios:** histórias assumidas na Sprint 2, no mesmo formato da tabela da Sprint 1. Vêm da Sprint 1 a US04 (em revisão) e o back-end da US05 (em andamento).
 
+<center>
+
+<table border="1" cellspacing="0" cellpadding="4">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Tema</th>
+      <th>História (resumo)</th>
+      <th>Requisitos</th>
+      <th>Responsáveis</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td><a href="../backlog_melhorias/#us09">US09</a></td><td>Gestão de Eventos</td><td>Inscrição separada para voluntários</td><td>RF52</td><td>Back-end: <a href="https://github.com/Filipe-002">Filipe Carvalho da Silva</a>, <a href="https://github.com/JpRodrigues2">João Rodrigues</a>, <a href="https://github.com/JuliaReis18">Júlia dos Reis Teixeira Massuda</a></td><td>Em Andamento</td></tr>
+  </tbody>
+</table>
+
+</center>
+
 ### Garantia de Qualidade na Sprint 2
 
 <center>
@@ -342,3 +362,4 @@ As histórias de Prioridade Média e Baixa, assim como os itens fora do escopo, 
 | `1.6` | 14/09/2026 | Registro da contribuição em dupla do back-end nas histórias US01 e US03, com a atribuição da implementação e dos PRs correspondentes | [Luiz Henrique Guimarães Soares](https://github.com/luizh-gsoares) e [Daniel dos Santos Barros de Sousa](https://github.com/daniel-de-sousa) |
 | `1.7` | 15/09/2026 | Altera o registro dos nomes dos membros do grupo, afim de facilitar a busca | [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin)|
 | `1.8` | 21/09/2026 | Cadastro da Sprint 2 com as entregas de QA, registro da reintegração da QA05 e das pendências para a implementação | [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin) |
+| `1.9` | 05/10/2026 | Registro do trio no back-end da US09 da Sprint 2 | [Filipe Carvalho da Silva](https://github.com/Filipe-002), [João Rodrigues](https://github.com/JpRodrigues2) e [Júlia dos Reis Teixeira Massuda](https://github.com/JuliaReis18) |
