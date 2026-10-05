@@ -38,7 +38,7 @@
 | QA12 | Remoção da sobreposição com os testes de idioma da PR #6 | US04 | [Rivadalvio Joaquim da Silva Filho](https://github.com/RivaFilho) | Concluído|
 | QA13 | Testes da tela de líderes no painel | US05 | [Rivadalvio Joaquim da Silva Filho](https://github.com/RivaFilho) | Concluído|
 | QA14 | Testes da galeria de diretores restrita ao cargo nacional | US05 | [Rivadalvio Joaquim da Silva Filho](https://github.com/RivaFilho) | Concluído |
-| QA15 | Testes da tela de convidados com busca por função | US06 | [Rivadalvio Joaquim da Silva Filho](https://github.com/RivaFilho) | Concluído|
+| QA15 | Testes da separação de convidados por função na página pública | US06 | [Rivadalvio Joaquim da Silva Filho](https://github.com/RivaFilho) | Concluído |
 | QA16 | Issue para as regras de `react-hooks` rebaixadas a aviso | Processo | [Rivadalvio Joaquim da Silva Filho](https://github.com/RivaFilho) | Concluído|
 | QA17 | Revisão da suíte do back-end por teste de mutação | Processo | [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin) | Concluído |
 
