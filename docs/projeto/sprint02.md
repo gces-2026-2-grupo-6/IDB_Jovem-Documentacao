@@ -7,7 +7,7 @@
 | Trio de Desenvolvedores | Qtd. de US | US | Assunto das US |
 |---|---:|---|---|
 | [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin) / [Rivadalvio Joaquim da Silva Filho](https://github.com/RivaFilho) | 5 | US01, US03 a US06 | Garantia de qualidade: autorização, convidados, migrations e regressão das histórias de líderes |
-| [Davi Emanuel Ribeiro de Oliveira](https://github.com/daviRolvr) / [Renan Vieira Guedes](https://github.com/R-enanVieira) / [João Pedro Ferreira Moraes](https://github.com/JoaoPedro2206) | 1 | US09 | Front-end da inscrição separada para voluntários |
+| [Davi Emanuel Ribeiro de Oliveira](https://github.com/daviRolvr) / [Renan Vieira Guedes](https://github.com/R-enanVieira) / [João Pedro Ferreira Moraes](https://github.com/JoaoPedro2206) | 2 | US09, US15 | Front-end da inscrição separada para voluntários; histórico de eventos passados com fotos |
 | [Filipe Carvalho da Silva](https://github.com/Filipe-002) / [João Rodrigues](https://github.com/JpRodrigues2) / [Júlia dos Reis Teixeira Massuda](https://github.com/JuliaReis18) | 1 | US09 | Back-end da inscrição separada para voluntários |
 | [Gabriel Lopes de Amorim](https://github.com/BrzGab) / [Maria Samara Alves Silva](https://github.com/SamaraAlvess) / [João Vitor Alves Viana](https://github.com/Joaovitor045) | 3 | US04, US05, US07 | Álbuns de fotos por evento (front-end) e envio das US04 e US05 para produção |
 | **Back-end:** [Luiz Henrique Guimarães Soares](https://github.com/luizh-gsoares), [Daniel dos Santos Barros de Sousa](https://github.com/daniel-de-sousa) | 1 | US07 | Experiência do Usuário e Engajamento - Gestão de fotos de eventos |
@@ -73,6 +73,30 @@ A troca custou três linhas, porque os nomes estavam isolados na camada de servi
 - **Verificação:** build ok e 253 testes Playwright passando no envio; após a sincronização, `npx eslint src` sem erros e 412 testes Playwright passando no front-end, e 668 testes passando no back-end.
 - **Dependência:** a região, a mini-biografia, as redes sociais e a gestão do líder só são salvas depois que o back-end da US05 for publicado na VPS, onde o deploy não é automático (é preciso reconstruir o container e rodar `alembic upgrade head`).
 
+### US15 — Histórico de eventos passados com fotos (Front-end)
+
+- **Requisito:** RF13
+- **Responsáveis:** [Davi Emanuel Ribeiro de Oliveira](https://github.com/daviRolvr), [Renan Vieira Guedes](https://github.com/R-enanVieira) e [João Pedro Ferreira Moraes](https://github.com/JoaoPedro2206).
+- **Situação:** concluído. [PR #20](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/20) do repositório do front-end.
+
+**Por que entrou agora.** A história estava no backlog como Prioridade Baixa, com a nota "depende de US07". A US07 foi mesclada nesta sprint, e com isso a US15 deixou de estar bloqueada — foi o que permitiu pegá-la sem depender de mais ninguém.
+
+**O que foi entregue.** Um evento encerrado sumia do site público inteiro: a agenda, o mapa e a página inicial filtram todos pelo que ainda não terminou. As fotos existiam na galeria, mas soltas do evento que as originou — não havia como ver o que já aconteceu.
+
+A página de eventos ganhou a seção "Já aconteceram", depois da agenda, com os eventos encerrados do mais recente para o mais antigo. Cada card traz a capa do álbum, a contagem de fotos, a data e o local, e leva à página do evento, onde o álbum da US07 já é exibido.
+
+| Decisão | Motivo |
+|---|---|
+| A capa é a primeira foto do álbum; sem álbum, a imagem do evento | Mantém o card completo mesmo para evento antigo sem galeria cadastrada |
+| Se a foto do Drive falhar, troca pela imagem do evento — uma vez só | Evita card com capa quebrada, e a marca impede laço se a reserva também falhar |
+| A contagem de fotos só aparece quando há fotos | Evento sem álbum não deve prometer o que não tem |
+| A seção se esconde sozinha sem eventos encerrados, e também se a busca falhar | O histórico é complemento da agenda; não pode derrubar o resto da página |
+| Só busca a galeria de quem tem `linkGaleria` | Evita uma chamada por evento sem necessidade |
+
+**Sem dependência do back-end.** Os eventos já vinham de `GET /evento/` e as fotos de `GET /evento/{id}/galeria`, ambos já consumidos pela aplicação. Nenhuma alteração foi pedida à outra equipe.
+
+**Verificação.** 5 testes E2E: a ordenação do mais recente para o mais antigo, o selo de fotos só onde há álbum, o link para a página do evento, a separação entre histórico e agenda, e a seção sumindo quando não há evento encerrado.
+
 ---
 
 ## Garantia de Qualidade
@@ -130,3 +154,4 @@ A troca custou três linhas, porque os nomes estavam isolados na camada de servi
 | `1.3` | 05/10/2026 | Registro do trio no front-end da US07 e no envio das US04 e US05 para produção | [Gabriel Lopes de Amorim](https://github.com/BrzGab), [Maria Samara Alves Silva](https://github.com/SamaraAlvess) e [João Vitor Alves Viana](https://github.com/Joaovitor045) |
 | `1.4` | 05/10/2026 | Registro da entrega do front-end da US09, com a divisão em doze tasks e a integração com o contrato publicado pelo back-end | [Davi Emanuel Ribeiro de Oliveira](https://github.com/daviRolvr), [Renan Vieira Guedes](https://github.com/R-enanVieira) e [João Pedro Ferreira Moraes](https://github.com/JoaoPedro2206) |
 | `1.5` | 05/10/2026 | Adição de contribuição da Sprint 02 | [Daniel dos Santos Barros de Sousa](https://github.com/daniel-de-sousa) |
+| `1.6` | 05/10/2026 | Registro da entrega da US15 — histórico de eventos passados com fotos | [Davi Emanuel Ribeiro de Oliveira](https://github.com/daviRolvr), [Renan Vieira Guedes](https://github.com/R-enanVieira) e [João Pedro Ferreira Moraes](https://github.com/JoaoPedro2206) |
