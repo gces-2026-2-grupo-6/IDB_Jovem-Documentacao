@@ -10,6 +10,7 @@
 | [Davi Emanuel Ribeiro de Oliveira](https://github.com/daviRolvr) / [Renan Vieira Guedes](https://github.com/R-enanVieira) / [João Pedro Ferreira Moraes](https://github.com/JoaoPedro2206) | 1 | US09 | Front-end da inscrição separada para voluntários |
 | [Filipe Carvalho da Silva](https://github.com/Filipe-002) / [João Rodrigues](https://github.com/JpRodrigues2) / [Júlia dos Reis Teixeira Massuda](https://github.com/JuliaReis18) | 1 | US09 | Back-end da inscrição separada para voluntários |
 | [Gabriel Lopes de Amorim](https://github.com/BrzGab) / [Maria Samara Alves Silva](https://github.com/SamaraAlvess) / [João Vitor Alves Viana](https://github.com/Joaovitor045) | 3 | US04, US05, US07 | Álbuns de fotos por evento (front-end) e envio das US04 e US05 para produção |
+| **Back-end:** [Luiz Henrique Guimarães Soares](https://github.com/luizh-gsoares), [Daniel dos Santos Barros de Sousa](https://github.com/daniel-de-sousa) | 1 | US07 | Experiência do Usuário e Engajamento - Gestão de fotos de eventos |
 
 > **A preencher pelos trios:** as histórias novas assumidas na Sprint 2.
 
@@ -128,3 +129,4 @@ A troca custou três linhas, porque os nomes estavam isolados na camada de servi
 | `1.2` | 05/10/2026 | Registro da QA17, dos números após a revisão da suíte e da situação dos defeitos de migration e de coordenadas | [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin) |
 | `1.3` | 05/10/2026 | Registro do trio no front-end da US07 e no envio das US04 e US05 para produção | [Gabriel Lopes de Amorim](https://github.com/BrzGab), [Maria Samara Alves Silva](https://github.com/SamaraAlvess) e [João Vitor Alves Viana](https://github.com/Joaovitor045) |
 | `1.4` | 05/10/2026 | Registro da entrega do front-end da US09, com a divisão em doze tasks e a integração com o contrato publicado pelo back-end | [Davi Emanuel Ribeiro de Oliveira](https://github.com/daviRolvr), [Renan Vieira Guedes](https://github.com/R-enanVieira) e [João Pedro Ferreira Moraes](https://github.com/JoaoPedro2206) |
+| `1.5` | 05/10/2026 | Adição de contribuição da Sprint 02 | [Daniel dos Santos Barros de Sousa](https://github.com/daniel-de-sousa) |
