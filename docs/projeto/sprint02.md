@@ -12,7 +12,7 @@
 | [Gabriel Lopes de Amorim](https://github.com/BrzGab) / [Maria Samara Alves Silva](https://github.com/SamaraAlvess) / [João Vitor Alves Viana](https://github.com/Joaovitor045) | 3 | US04, US05, US07 | Álbuns de fotos por evento (front-end) e envio das US04 e US05 para produção |
 | **Back-end:** [Luiz Henrique Guimarães Soares](https://github.com/luizh-gsoares), [Daniel dos Santos Barros de Sousa](https://github.com/daniel-de-sousa) | 1 | US07 | Experiência do Usuário e Engajamento - Gestão de fotos de eventos |
 
-> **A preencher pelos trios:** as histórias novas assumidas na Sprint 2.
+
 
 ---
 
@@ -137,7 +137,7 @@ A página de eventos ganhou a seção "Já aconteceram", depois da agenda, com o
 ## Resumo
 
 - *Líder da Apresentação*: João Pedro Araújo de Freitas Lyra
-- *Total de US concluídas:* a definir
+- *Total de US concluídas:* 12
 - *Entregas de QA:* 11 (6 do back-end e 5 do front-end)
 - *Início da Sprint:* 15/09/2026
 - *Fim da Sprint:* 06/10/2026
