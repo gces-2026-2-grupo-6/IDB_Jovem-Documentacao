@@ -20,7 +20,7 @@ Além disso, busca melhorar a experiência dos jovens, permitindo acesso rápido
 
 ## 🔗 Links Importantes
 
-* 🌍 Documentação: [https://enzoemir.github.io/IDB_JOVEM_DOC/](https://enzoemir.github.io/IDB_JOVEM_DOC/)
+* 🌍 Documentação: [https://gces-2026-2-grupo-6.github.io/IDB_Jovem-Documentacao/](https://gces-2026-2-grupo-6.github.io/IDB_Jovem-Documentacao/)
 * 🎯 Referência visual: [https://itsbr.com.br/](https://itsbr.com.br/)
 * 📝 Inscrição de eventos (externo): [https://home.e-inscricao.com/](https://home.e-inscricao.com/)
 
