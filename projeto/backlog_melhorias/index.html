@@ -1721,12 +1721,13 @@
 <tr><td><strong>Descrição</strong></td><td>Eu, como <em>administradora</em>, desejo <em>disponibilizar dois links de inscrição por evento — um para participantes e outro para voluntários</em>, para <em>separar quem vai participar de quem vai trabalhar no evento</em>.</td></tr>
 <tr><td><strong>Critérios de Aceitação</strong></td><td>- O evento comporta dois fluxos de inscrição distintos <br> - Cada fluxo tem seu próprio link e sua própria listagem <br> - O fluxo de voluntariado mantém o status pendente/aprovado/reprovado atual</td></tr>
 <tr><td><strong>Prioridade</strong></td><td>Média</td></tr>
-<tr><td><strong>Status</strong></td><td>Requisito novo — surgido de campo aberto</td></tr>
+<tr><td><strong>Responsáveis (front-end)</strong></td><td><a href="https://github.com/daviRolvr">Davi Emanuel Ribeiro de Oliveira</a>, <a href="https://github.com/R-enanVieira">Renan Vieira Guedes</a>, <a href="https://github.com/JoaoPedro2206">João Pedro Ferreira Moraes</a></td></tr>
+<tr><td><strong>Status</strong></td><td>Concluída na Sprint 2 — os três critérios atendidos, com front e back-end integrados</td></tr>
 </tbody>
 </table>
 
 <blockquote>
-<p><strong>Requisito não previsto no catálogo.</strong> A cliente escreveu: <em>"Nessa etapa podia ter a inscrição do evento e também de voluntários, seriam 2 links então."</em> Hoje o sistema contempla <strong>apenas</strong> o fluxo de voluntariado.</p>
+<p><strong>Requisito não previsto no catálogo.</strong> A cliente escreveu: <em>"Nessa etapa podia ter a inscrição do evento e também de voluntários, seriam 2 links então."</em> Até esta entrega o sistema contemplava <strong>apenas</strong> o fluxo de voluntariado — e o botão "Inscreva-se" das telas públicas abria justamente o formulário de voluntariado, que é outra inscrição.</p>
 </blockquote>
 <p><a name="us10"></a></p>
 <h3 id="us10-cadastro-nacional-de-lideres">US10 — Cadastro nacional de líderes<a class="headerlink" href="#us10-cadastro-nacional-de-lideres" title="Permanent link">&para;</a></h3>
@@ -1797,7 +1798,7 @@
 <td>US15</td>
 <td>Histórico de eventos passados com fotos</td>
 <td>RF13</td>
-<td>Nota 4; depende de US07</td>
+<td>Nota 4; dependia da US07 — <strong>entregue na Sprint 2</strong>, assim que a US07 foi mesclada</td>
 </tr>
 <tr>
 <td>US16</td>
@@ -1967,7 +1968,7 @@
 <td>C+T</td>
 <td>US03 — Alta</td>
 <td>QA: <a href="https://github.com/Jadequilin">João Pedro Araújo de Freitas Lyra</a><br>Back-end: <a href="https://github.com/luizh-gsoares">Luiz Henrique Guimarães Soares</a>, Daniel dos Santos Barros de Sousa (<a href="https://github.com/daniel-de-sousa">Daniel dos Santos Barros de Sousa</a>)<br>Front-end: <a href="https://github.com/daviRolvr">Davi Emanuel Ribeiro de Oliveira</a>, <a href="https://github.com/JoaoPedro2206">João Pedro Ferreira Moraes</a>, <a href="https://github.com/R-enanVieira">Renan Vieira Guedes</a></td>
-<td><strong>QA:</strong> 44 testes de autorização por papel: matriz de 13 rotas, negação de acesso e escalonamento de privilégio. Duas vulnerabilidades documentadas na <a href="../matriz-autorizacao/">Matriz de Autorização</a>, uma delas corrigida.<br><strong>Back-end:</strong> desenvolvimento do controle de permissões por setor, incluindo filtros de acesso, regras de autorização e o fluxo de gestão de administradores.<br><strong>Front-end:</strong> três setores lidos dos papéis do Keycloak, com menu, painel e rotas filtrados por setor; exclusão de conteúdo restrita à superadministradora, recusada também na camada de serviço; tela de gestão de administradores.<br><strong>QA (Sprint 2):</strong> a matriz de autorização passou a ser lida das rotas registradas na aplicação, cobrindo as 49 rotas — rota nova sem decisão de acesso, escrita sem guarda ou exclusão sem superadministrador fazem o teste falhar. Com isso, a listagem de inscritos de cada evento, que era pública, passou a exigir o setor de inscrições. As duas guardas de acesso passaram a recusar com 403 papéis em formato inesperado, que antes concediam acesso ou respondiam 500.</td>
+<td><strong>QA:</strong> 44 testes de autorização por papel: matriz de 13 rotas, negação de acesso e escalonamento de privilégio. Duas vulnerabilidades documentadas na <a href="../matriz-autorizacao/">Matriz de Autorização</a>, uma delas corrigida.<br><strong>Back-end:</strong> desenvolvimento do controle de permissões por setor, incluindo filtros de acesso, regras de autorização e o fluxo de gestão de administradores.<br><strong>Front-end:</strong> três setores lidos dos papéis do Keycloak, com menu, painel e rotas filtrados por setor; exclusão de conteúdo restrita à superadministradora, recusada também na camada de serviço; tela de gestão de administradores.<br><strong>QA (Sprint 2):</strong> a matriz de autorização passou a ser lida das rotas registradas na aplicação, cobrindo as 49 rotas — rota nova sem decisão de acesso, escrita sem guarda ou exclusão sem superadministrador fazem o teste falhar. Com isso, a listagem de inscritos de cada evento, que era pública, passou a exigir o setor de inscrições. As duas guardas de acesso passaram a recusar com 403 papéis em formato inesperado, que antes concediam acesso ou respondiam 500. <br><br><strong>QA:</strong> a matriz de autorização passou a ser lida das rotas registradas na aplicação, cobrindo as 49 rotas — rota nova sem decisão de acesso, escrita sem guarda ou exclusão sem superadministrador fazem o teste falhar. Com isso, a listagem de inscritos de cada evento, que era pública e devolvia nome e e-mail, passou a exigir o setor de inscrições. As duas guardas passaram a recusar com 403 papéis em formato inesperado, que antes concediam acesso ou respondiam 500.</td>
 </tr>
 <tr>
 <td>RF02</td>
@@ -1975,7 +1976,7 @@
 <td>C+T</td>
 <td>US05 — Alta</td>
 <td>Implementação (front-end): <a href="https://github.com/BrzGab">Gabriel Lopes de Amorim</a>, <a href="https://github.com/SamaraAlvess">Maria Samara Alves Silva</a>, <a href="https://github.com/Joaovitor045">João Vitor Alves Viana</a><br>Implementação (back-end): <a href="https://github.com/Filipe-002">Filipe Carvalho da Silva</a>, <a href="https://github.com/JpRodrigues2">João Rodrigues</a>, <a href="https://github.com/JuliaReis18">Júlia dos Reis Teixeira Massuda</a></td>
-<td><strong>Implementação (front-end):</strong> tela "Diretores &amp; Líderes" no painel, restrita à superadministradora — o administrador comum não vê o item no menu e é redirecionado ao acessar a rota. Listagem em abas (atuais e anteriores), cadastro, edição e exclusão com confirmação. Campos: nome, cargo, foto (link do Drive com pré-visualização), região, redes sociais, mini-biografia, ordem de exibição e marcação manual de "diretor anterior". A seção "Nosso Organograma" da página inicial passou a ler os líderes da API: deixaram de estar fixos no código-fonte. 12 testes E2E.<br><strong>Implementação (back-end):</strong> persistência dos campos <code>regiao</code>, <code>bio</code>, <code>redes_sociais</code> e <code>gestao</code> no cadastro de líder — que antes eram enviados pelo front-end e ignorados pelo schema —, endpoint de perfil exposto na API com escrita restrita à superadministradora, e padronização dos erros das rotas de líderes. Cobertura de testes unitários e de integração para schema, repositório, serviço, controller e autorização.<br><strong>Protótipo:</strong> seis telas no Figma do projeto, feitas pelo trio — <a href="https://www.figma.com/design/a6mGpOqwc1ZCeVTOIWtyxo/IDB_Jovem?node-id=1428-1476">listagem</a>, <a href="https://www.figma.com/design/a6mGpOqwc1ZCeVTOIWtyxo/IDB_Jovem?node-id=1428-1648">anteriores</a>, <a href="https://www.figma.com/design/a6mGpOqwc1ZCeVTOIWtyxo/IDB_Jovem?node-id=1390-1369">cadastrar</a>, <a href="https://www.figma.com/design/a6mGpOqwc1ZCeVTOIWtyxo/IDB_Jovem?node-id=1428-1771">editar</a>, <a href="https://www.figma.com/design/a6mGpOqwc1ZCeVTOIWtyxo/IDB_Jovem?node-id=1438-1574">excluir</a> e <a href="https://www.figma.com/design/a6mGpOqwc1ZCeVTOIWtyxo/IDB_Jovem?node-id=1440-1684">após exclusão</a>.</td>
+<td><strong>Implementação (front-end):</strong> tela "Diretores &amp; Líderes" no painel, restrita à superadministradora — o administrador comum não vê o item no menu e é redirecionado ao acessar a rota. Listagem em abas (atuais e anteriores), cadastro, edição e exclusão com confirmação. Campos: nome, cargo, foto (link do Drive com pré-visualização), região, redes sociais, mini-biografia, ordem de exibição e marcação manual de "diretor anterior". A seção "Nosso Organograma" da página inicial passou a ler os líderes da API: deixaram de estar fixos no código-fonte. 12 testes E2E.<br><strong>Implementação (back-end):</strong> persistência dos campos <code>regiao</code>, <code>bio</code>, <code>redes_sociais</code> e <code>gestao</code> no cadastro de líder — que antes eram enviados pelo front-end e ignorados pelo schema —, endpoint de perfil exposto na API com escrita restrita à superadministradora, e padronização dos erros das rotas de líderes. Cobertura de testes unitários e de integração para schema, repositório, serviço, controller e autorização.<br><strong>Protótipo:</strong> seis telas no Figma do projeto, feitas pelo trio — <a href="https://www.figma.com/design/a6mGpOqwc1ZCeVTOIWtyxo/IDB_Jovem?node-id=1428-1476">listagem</a>, <a href="https://www.figma.com/design/a6mGpOqwc1ZCeVTOIWtyxo/IDB_Jovem?node-id=1428-1648">anteriores</a>, <a href="https://www.figma.com/design/a6mGpOqwc1ZCeVTOIWtyxo/IDB_Jovem?node-id=1390-1369">cadastrar</a>, <a href="https://www.figma.com/design/a6mGpOqwc1ZCeVTOIWtyxo/IDB_Jovem?node-id=1428-1771">editar</a>, <a href="https://www.figma.com/design/a6mGpOqwc1ZCeVTOIWtyxo/IDB_Jovem?node-id=1438-1574">excluir</a> e <a href="https://www.figma.com/design/a6mGpOqwc1ZCeVTOIWtyxo/IDB_Jovem?node-id=1440-1684">após exclusão</a>. <br><strong>Produção (Sprint 2):</strong> publicado no site em 05/10/2026 pelo <a href="https://github.com/idbjovemnacional/IDB_Jovem-Teen/pull/2">PR #2 da organização</a>, enviado pelo trio do front-end.</td>
 </tr>
 <tr>
 <td>RF03</td>
@@ -2007,15 +2008,15 @@
 <td>C+T</td>
 <td>US04 — Alta</td>
 <td>QA e implementação: <a href="https://github.com/RivaFilho">Rivadalvio Joaquim da Silva Filho</a><br>Implementação: <a href="https://github.com/BrzGab">Gabriel Lopes de Amorim</a>, <a href="https://github.com/SamaraAlvess">Maria Samara Alves Silva</a>, <a href="https://github.com/Joaovitor045">João Vitor Alves Viana</a></td>
-<td><strong>QA:</strong> 2 testes verificando que o documento declara <code>pt-BR</code>, na página inicial e em rotas internas. Ambos falhavam antes da correção. Suíte de <code>tests/public</code> e <code>tests/layout</code> reexecutada: 108 passando.<br><strong>Implementação:</strong> <code>lang="en"</code> corrigido para <code>pt-BR</code> no <code>index.html</code>. O navegador deixa de oferecer tradução automática, e com isso para de reescrever os nós de texto e quebrar a reconciliação do React.<br><strong>Complemento (<a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/6">PR #6</a>):</strong> meta <code>notranslate</code>, para que o Chrome não ofereça tradução mesmo com o celular em outro idioma; <code>translate="no"</code> no título da marca; <code>lang</code> e nome do aplicativo no <code>site.webmanifest</code>; 4 testes de regressão — idioma do documento, meta, nomes não traduzíveis e ausência de duplicação.</td>
+<td><strong>QA:</strong> 2 testes verificando que o documento declara <code>pt-BR</code>, na página inicial e em rotas internas. Ambos falhavam antes da correção. Suíte de <code>tests/public</code> e <code>tests/layout</code> reexecutada: 108 passando.<br><strong>Implementação:</strong> <code>lang="en"</code> corrigido para <code>pt-BR</code> no <code>index.html</code>. O navegador deixa de oferecer tradução automática, e com isso para de reescrever os nós de texto e quebrar a reconciliação do React.<br><strong>Complemento (<a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/6">PR #6</a>):</strong> meta <code>notranslate</code>, para que o Chrome não ofereça tradução mesmo com o celular em outro idioma; <code>translate="no"</code> no título da marca; <code>lang</code> e nome do aplicativo no <code>site.webmanifest</code>; 4 testes de regressão — idioma do documento, meta, nomes não traduzíveis e ausência de duplicação. <br><strong>Produção (Sprint 2):</strong> publicado no site em 05/10/2026 pelo <a href="https://github.com/idbjovemnacional/IDB_Jovem-Teen/pull/2">PR #2 da organização</a>, enviado pelo trio do front-end.</td>
 </tr>
 <tr>
 <td>RF07</td>
 <td>Corrigir problemas da galeria de fotos</td>
 <td>C</td>
 <td>US07 — Média</td>
-<td></td>
-<td></td>
+<td>Implementação (front-end): <a href="https://github.com/BrzGab">Gabriel Lopes de Amorim</a>, <a href="https://github.com/SamaraAlvess">Maria Samara Alves Silva</a>, <a href="https://github.com/Joaovitor045">João Vitor Alves Viana</a></td>
+<td><strong>Implementação (front-end, Sprint 2):</strong> a galeria pública deixou de misturar as fotos de eventos diferentes numa grade única, que era o problema relatado pela cliente. As fotos passaram a ser agrupadas por evento (ver RF23). Ainda não atendido: a inclusão de fotos pelo painel segue o processo atual, pelo link do Drive do evento. <a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/15">PR #15</a>.</td>
 </tr>
 </tbody>
 </table>
@@ -2077,8 +2078,8 @@
 <td>Histórico de eventos passados com fotos</td>
 <td>S</td>
 <td>US15 — Baixa</td>
-<td></td>
-<td></td>
+<td><a href="https://github.com/daviRolvr">Davi Emanuel Ribeiro de Oliveira</a>, <a href="https://github.com/R-enanVieira">Renan Vieira Guedes</a>, <a href="https://github.com/JoaoPedro2206">João Pedro Ferreira Moraes</a></td>
+<td><strong>Entregue.</strong> Um evento encerrado sumia do site público inteiro — a agenda, o mapa e a página inicial filtram todos pelo que ainda não terminou —, e as fotos ficavam na galeria soltas do evento que as originou. A página de eventos ganhou a seção "Já aconteceram", com os eventos passados do mais recente para o mais antigo: capa do álbum, contagem de fotos, data e local, e o card levando à página do evento, onde o álbum da US07 já aparece. A contagem só é exibida quando há fotos, e a seção se esconde quando não existe evento encerrado ou quando a busca falha. 5 testes E2E.<br><strong>Sem dependência do back-end:</strong> os eventos já vinham de <code>GET /evento/</code> e as fotos de <code>GET /evento/{id}/galeria</code>. A história dependia da US07, mesclada nesta sprint — foi o que a destravou.</td>
 </tr>
 <tr>
 <td>RF14</td>
@@ -2172,8 +2173,8 @@
 <td>Álbum de fotos separado por evento</td>
 <td>T</td>
 <td>US07 — Média</td>
-<td></td>
-<td></td>
+<td>Implementação (front-end): <a href="https://github.com/BrzGab">Gabriel Lopes de Amorim</a>, <a href="https://github.com/SamaraAlvess">Maria Samara Alves Silva</a>, <a href="https://github.com/Joaovitor045">João Vitor Alves Viana</a></td>
+<td><strong>Implementação (front-end, Sprint 2):</strong> a página <code>/galeria</code> lista um álbum por evento com galeria cadastrada, cada um com capa, nome, local e quantidade de fotos. Ao abrir um álbum, aparecem só as fotos daquele evento, e o botão de voltar retorna à lista. As fotos vêm da galeria do Drive de cada evento; sem nenhuma foto cadastrada, a página mostra fotos de exemplo. Pendente: escolher a foto de capa (hoje é a primeira do álbum) e reordenar as imagens. <a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/15">PR #15</a>.</td>
 </tr>
 <tr>
 <td>RF24</td>
@@ -2425,24 +2426,24 @@
 <td>Gerenciar bandas e palestrantes pelo painel</td>
 <td>T</td>
 <td>US06 — Alta</td>
-<td><a href="https://github.com/daviRolvr">Davi Emanuel Ribeiro de Oliveira</a>, <a href="https://github.com/JoaoPedro2206">João Pedro Ferreira Moraes</a>, <a href="https://github.com/R-enanVieira">Renan Vieira Guedes</a></td>
-<td>Tela de convidados no painel, com busca por nome e função, cadastro, edição e exclusão. Construída sobre o CRUD que a API já oferecia e que nenhuma tela alcançava. A função (banda, pregador, convidado) é derivada do campo de texto livre da API, sem descaracterizar o que já estava cadastrado.<br><strong>QA (Sprint 2):</strong> edição de convidados coberta, inclusive a persistência. Registrado defeito: excluir convidado vinculado a evento responde 500 e não apaga — aguarda decisão entre apagar os vínculos junto ou recusar com 409.</td>
+<td>QA: <a href="https://github.com/Jadequilin">João Pedro Araújo de Freitas Lyra</a><br>Implementação: <a href="https://github.com/daviRolvr">Davi Emanuel Ribeiro de Oliveira</a>, <a href="https://github.com/JoaoPedro2206">João Pedro Ferreira Moraes</a>, <a href="https://github.com/R-enanVieira">Renan Vieira Guedes</a></td>
+<td><strong>Implementação:</strong> Tela de convidados no painel, com busca por nome e função, cadastro, edição e exclusão. Construída sobre o CRUD que a API já oferecia e que nenhuma tela alcançava. A função (banda, pregador, convidado) é derivada do campo de texto livre da API, sem descaracterizar o que já estava cadastrado.<br><br><strong>QA (Sprint 2):</strong> edição de convidados coberta, inclusive a persistência. Registrado defeito em aberto: excluir convidado vinculado a evento responde 500 e não apaga nada — aguarda decisão entre apagar os vínculos junto ou recusar com 409.</td>
 </tr>
 <tr>
 <td>RF48</td>
 <td>Exibir convidados na página pública do evento</td>
 <td>S</td>
 <td>US06 — Alta</td>
-<td><a href="https://github.com/daviRolvr">Davi Emanuel Ribeiro de Oliveira</a>, <a href="https://github.com/JoaoPedro2206">João Pedro Ferreira Moraes</a>, <a href="https://github.com/R-enanVieira">Renan Vieira Guedes</a></td>
-<td>Convidados separados por função na página do evento: antes o título era fixo em "Palestrantes" e uma banda aparecia anunciada como palestrante. Grupo sem ninguém não é exibido.</td>
+<td>QA: <a href="https://github.com/RivaFilho">Rivadalvio Joaquim da Silva Filho</a><br>Implementação: <a href="https://github.com/daviRolvr">Davi Emanuel Ribeiro de Oliveira</a>, <a href="https://github.com/JoaoPedro2206">João Pedro Ferreira Moraes</a>, <a href="https://github.com/R-enanVieira">Renan Vieira Guedes</a></td>
+<td><strong>QA:</strong> teste que percorre a página do evento verificando que cada convidado aparece sob a função correta e que grupo sem ninguém não é renderizado — a regressão a evitar é uma banda voltar a ser anunciada como palestrante.<br><strong>Implementação:</strong> convidados separados por função na página do evento: antes o título era fixo em "Palestrantes" e uma banda aparecia anunciada como palestrante. Grupo sem ninguém não é exibido.</td>
 </tr>
 <tr>
 <td>RF49</td>
 <td>Reaproveitar convidado em novo evento</td>
 <td>S</td>
 <td>US06 — Alta</td>
-<td><a href="https://github.com/daviRolvr">Davi Emanuel Ribeiro de Oliveira</a>, <a href="https://github.com/JoaoPedro2206">João Pedro Ferreira Moraes</a>, <a href="https://github.com/R-enanVieira">Renan Vieira Guedes</a></td>
-<td>No formulário do evento, o texto livre deu lugar à seleção dos já cadastrados, com cadastro rápido para quem ainda não existe. O vínculo passou a ser por identificador: antes era resolvido comparando nomes, e corrigir a grafia de um nome criava um cadastro novo.<br><strong>QA (Sprint 2):</strong> vínculo por identificador testado contra banco real — o mesmo convidado em dois eventos, eventos que não misturam convidados, duplicata barrada pela chave composta e desvínculo que preserva o cadastro.</td>
+<td>QA: <a href="https://github.com/Jadequilin">João Pedro Araújo de Freitas Lyra</a><br>Implementação: <a href="https://github.com/daviRolvr">Davi Emanuel Ribeiro de Oliveira</a>, <a href="https://github.com/JoaoPedro2206">João Pedro Ferreira Moraes</a>, <a href="https://github.com/R-enanVieira">Renan Vieira Guedes</a></td>
+<td><strong>Implementação:</strong> No formulário do evento, o texto livre deu lugar à seleção dos já cadastrados, com cadastro rápido para quem ainda não existe. O vínculo passou a ser por identificador: antes era resolvido comparando nomes, e corrigir a grafia de um nome criava um cadastro novo.<br><br><strong>QA (Sprint 2):</strong> vínculo por identificador testado contra banco real — o mesmo convidado em dois eventos, eventos que não misturam convidados, duplicata barrada pela chave composta e desvínculo que preserva o cadastro.</td>
 </tr>
 <tr>
 <td>RF50</td>
@@ -2480,8 +2481,8 @@
 <td>Inscrição de participante, separada da de voluntário</td>
 <td>A</td>
 <td>US09 — Média</td>
-<td></td>
-<td></td>
+<td>Front-end: <a href="https://github.com/daviRolvr">Davi Emanuel Ribeiro de Oliveira</a>, <a href="https://github.com/R-enanVieira">Renan Vieira Guedes</a>, <a href="https://github.com/JoaoPedro2206">João Pedro Ferreira Moraes</a></td>
+<td><strong>Entregue no front.</strong> O evento passou a ter dois fluxos de inscrição independentes: dois campos de link no formulário do painel e duas listagens em abas na tela de inscrições do evento. A de voluntários manteve pendente/aprovado/reprovado; a de participantes não tem aprovação, porque ninguém aprova quem vai ao evento. Nas telas públicas, "Inscreva-se" passou a apontar para a inscrição de participante — antes abria o formulário de voluntariado — e cada botão só aparece quando o evento abriu aquele fluxo, no lugar do "Seja Voluntário" que era exibido sempre e não fazia nada. 16 testes E2E.<br><strong>Integrado com o back-end.</strong> O front foi escrito antes de o back-end expor o fluxo e usava nomes supostos; alinhado ao contrato publicado — campo <code>formulario_participante_link</code> no evento e <code>GET /formulario/eventos/{id}/participantes</code> para a listagem, que devolve <code>participante_id</code> e exige o setor Inscrições. A troca custou três linhas, porque os nomes estavam isolados na camada de serviço. Não resta pendência nesta história.</td>
 </tr>
 <tr>
 <td>RF53</td>
@@ -2679,6 +2680,36 @@
 <td>21/09/2026</td>
 <td>Registro das entregas de QA do back-end da Sprint 2 — RF01, RF47 e RF49</td>
 <td><a href="https://github.com/Jadequilin">João Pedro Araújo de Freitas Lyra</a></td>
+</tr>
+<tr>
+<td><code>2.2</code></td>
+<td>05/10/2026</td>
+<td>Complemento do Registro das entregas de QA do back-end da Sprint 2 — RF01, RF47 e RF49</td>
+<td><a href="https://github.com/Jadequilin">João Pedro Araújo de Freitas Lyra</a></td>
+</tr>
+<tr>
+<td><code>2.3</code></td>
+<td>05/10/2026</td>
+<td>Registro da implementação do front-end da US07 (RF07 e RF23) e do envio das US04 e US05 para produção (RF02 e RF06)</td>
+<td><a href="https://github.com/BrzGab">Gabriel Lopes de Amorim</a>, <a href="https://github.com/SamaraAlvess">Maria Samara Alves Silva</a> e <a href="https://github.com/Joaovitor045">João Vitor Alves Viana</a></td>
+</tr>
+<tr>
+<td><code>2.4</code></td>
+<td>05/10/2026</td>
+<td>Registro da implementação da US09 (RF52) na Sprint 2, com responsáveis, status, a divisão em doze tasks e a integração entre front e back-end</td>
+<td><a href="https://github.com/daviRolvr">Davi Emanuel Ribeiro de Oliveira</a>, <a href="https://github.com/R-enanVieira">Renan Vieira Guedes</a> e <a href="https://github.com/JoaoPedro2206">João Pedro Ferreira Moraes</a></td>
+</tr>
+<tr>
+<td><code>2.5</code></td>
+<td>05/10/2026</td>
+<td>Registro da implementação da US15 (RF13) na Sprint 2 — histórico de eventos passados com fotos</td>
+<td><a href="https://github.com/daviRolvr">Davi Emanuel Ribeiro de Oliveira</a>, <a href="https://github.com/R-enanVieira">Renan Vieira Guedes</a> e <a href="https://github.com/JoaoPedro2206">João Pedro Ferreira Moraes</a></td>
+</tr>
+<tr>
+<td><code>2.6</code></td>
+<td>05/10/2026</td>
+<td>Remoção da tabela de doze tasks da US09, redundante com a descrição da entrega no RF52 e no relatório da sprint</td>
+<td><a href="https://github.com/daviRolvr">Davi Emanuel Ribeiro de Oliveira</a>, <a href="https://github.com/R-enanVieira">Renan Vieira Guedes</a> e <a href="https://github.com/JoaoPedro2206">João Pedro Ferreira Moraes</a></td>
 </tr>
 </tbody>
 </table>
