@@ -7,7 +7,9 @@
 | Trio de Desenvolvedores | Qtd. de US | US | Assunto das US |
 |---|---:|---|---|
 | [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin) / [Rivadalvio Joaquim da Silva Filho](https://github.com/RivaFilho) | 5 | US01, US03 a US06 | Garantia de qualidade: autorização, convidados, migrations e regressão das histórias de líderes |
+| [Davi Emanuel Ribeiro de Oliveira](https://github.com/daviRolvr) / [Renan Vieira Guedes](https://github.com/R-enanVieira) / [João Pedro Ferreira Moraes](https://github.com/JoaoPedro2206) | 1 | US09 | Front-end da inscrição separada para voluntários |
 | [Filipe Carvalho da Silva](https://github.com/Filipe-002) / [João Rodrigues](https://github.com/JpRodrigues2) / [Júlia dos Reis Teixeira Massuda](https://github.com/JuliaReis18) | 1 | US09 | Back-end da inscrição separada para voluntários |
+| [Gabriel Lopes de Amorim](https://github.com/BrzGab) / [Maria Samara Alves Silva](https://github.com/SamaraAlvess) / [João Vitor Alves Viana](https://github.com/Joaovitor045) | 3 | US04, US05, US07 | Álbuns de fotos por evento (front-end) e envio das US04 e US05 para produção |
 | **Back-end:** [Luiz Henrique Guimarães Soares](https://github.com/luizh-gsoares), [Daniel dos Santos Barros de Sousa](https://github.com/daniel-de-sousa) | 1 | US07 | Experiência do Usuário e Engajamento - Gestão de fotos de eventos |
 
 > **A preencher pelos trios:** as histórias novas assumidas na Sprint 2.
@@ -23,6 +25,53 @@
 - **Responsáveis (Back-end):** [Filipe Carvalho da Silva](https://github.com/Filipe-002), [João Rodrigues](https://github.com/JpRodrigues2) e [Júlia dos Reis Teixeira Massuda](https://github.com/JuliaReis18).
 - **Atuação:** implementação do back-end do fluxo de inscrição separada para voluntários na Sprint 2.
 
+### US09 — Inscrição separada para voluntários (Front-end)
+
+- **Requisito:** RF52
+- **Responsáveis (Front-end):** [Davi Emanuel Ribeiro de Oliveira](https://github.com/daviRolvr), [Renan Vieira Guedes](https://github.com/R-enanVieira) e [João Pedro Ferreira Moraes](https://github.com/JoaoPedro2206).
+- **Situação:** concluído e integrado com o back-end. [PR #16](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/16) do repositório do front-end.
+
+**O que foi entregue.** O evento deixou de ter uma inscrição e passou a ter duas, independentes entre si: participantes (quem vai ao evento) e voluntários (quem trabalha nele). Até aqui existia um `formulario_link` só, usado pelo voluntariado — e o botão "Inscreva-se" das telas públicas abria justamente esse formulário, de modo que quem só queria ir ao evento acabava preenchendo a ficha de quem vai trabalhar nele.
+
+No painel, o formulário do evento ganhou dois campos de link, e a tela de inscrições virou uma casca com duas abas, uma por fluxo, cada uma com a sua tabela, o seu link e a sua contagem. A listagem de voluntários mantém pendente/aprovado/reprovado; a de participantes não tem status, porque ninguém aprova quem vai ao evento — é o que justifica tabelas separadas em vez de um filtro sobre a mesma lista.
+
+Nas telas públicas, "Inscreva-se" passou a apontar para a inscrição de participante e "Seja Voluntário" para a de voluntário, na página do evento, nos cards da listagem e no evento em destaque. Cada botão só aparece quando o evento abriu aquele fluxo: antes "Seja Voluntário" era exibido em todo evento e não fazia nada nos que não tinham formulário.
+
+**Divisão do trabalho.** Doze tasks, quatro por integrante, na mesma lógica das US01, US03 e US06 — contrato e regra num módulo isolado, painel administrativo, telas públicas e verificação. O detalhamento task a task está no [Backlog de Melhorias](backlog_melhorias.md#us09).
+
+**Verificação.** 16 testes E2E novos: as duas listagens, a separação entre elas, os dois links, os estados de fluxo não aberto, a degradação quando a API não fornece a listagem e o erro real de servidor.
+
+**Integração com o back-end.** O front foi escrito antes de o back-end expor o fluxo de participantes, sobre nomes supostos. Com a entrega do trio do back-end, os nomes foram alinhados ao contrato publicado:
+
+| | Suposto pelo front | Publicado pelo back-end |
+|---|---|---|
+| Campo do evento | `formulario_link_participantes` | `formulario_participante_link` |
+| Listagem | `/formulario/eventos/{id}/inscricoes-participantes` | `/formulario/eventos/{id}/participantes` |
+| Id do inscrito | `inscricao_id` | `participante_id` |
+
+A troca custou três linhas, porque os nomes estavam isolados na camada de serviço — foi justamente o que a T01 e a T03 tinham preparado. As duas listagens passaram a exigir o setor Inscrições, inclusive a de voluntários, que era pública: o cliente HTTP do front já manda o token em toda chamada, então o painel segue funcionando. **Não restou pendência de integração nesta história.**
+
+### US07 — Álbuns de fotos por evento (Front-end)
+
+- **Requisitos:** RF07, RF23
+- **Descrição:** Eu, como *administradora*, desejo *que as fotos fiquem organizadas em álbuns separados por evento*, para *que as imagens de eventos diferentes não se misturem*.
+- **Responsáveis (Front-end):** [Gabriel Lopes de Amorim](https://github.com/BrzGab), [Maria Samara Alves Silva](https://github.com/SamaraAlvess) e [João Vitor Alves Viana](https://github.com/Joaovitor045).
+- **Atuação:** a página pública `/galeria` deixou de mostrar uma grade única com as fotos de todos os eventos misturadas. Agora ela mostra um álbum por evento: cada card exibe a capa, o nome e o local do evento e a quantidade de fotos. Ao abrir um álbum, aparecem só as fotos daquele evento, e o botão de voltar retorna à lista de álbuns. As fotos vêm da galeria do Drive de cada evento que tem `link_galeria` cadastrado. Quando nenhum evento tem fotos, a página mostra quatro fotos de exemplo.
+- **Código:** [PR #15](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/15) do front-end. O lint do CI falhava porque as imagens de exemplo eram referenciadas como texto (`"galeria1"`) e não pela variável importada, o que também impedia que aparecessem; corrigido no commit [087a130](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/commit/087a1300de7e646ec45dd6bdb9dfb72cfc523bea).
+- **Critérios de aceitação:** atendidos o álbum próprio por evento e a separação das fotos entre eventos. Ficam para a próxima sprint a escolha da foto de capa (hoje é a primeira do álbum), a reordenação das imagens e a simplificação da inclusão de fotos pelo painel.
+- **Próximos passos:** consumir o endpoint agregado `GET /evento/galerias/todas` do back-end da US07 ([PR #14](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/14) do back-end), que devolve as fotos de todos os eventos numa só chamada, e retirar as fotos de exemplo antes de enviar a página para produção.
+
+### Envio das US04 e US05 para produção (Front-end)
+
+- **Responsáveis:** [Gabriel Lopes de Amorim](https://github.com/BrzGab), [Maria Samara Alves Silva](https://github.com/SamaraAlvess) e [João Vitor Alves Viana](https://github.com/Joaovitor045).
+- **Atuação:** as US04 e US05, concluídas na Sprint 1 no repositório do grupo, foram enviadas ao repositório da organização pela branch `deploy/us04-us05`, montada a partir da `main` da organização. O [PR #2 da organização](https://github.com/idbjovemnacional/IDB_Jovem-Teen/pull/2) foi aceito em 05/10/2026, e a Vercel publicou o site em produção no mesmo dia.
+- **O que foi ao ar:**
+    - **US04:** `lang="pt-BR"`, meta `notranslate` e `translate="no"` nos nomes dos líderes e no título da marca. O navegador do celular deixa de traduzir a página e a foto do Pr. Áquila não aparece mais duplicada.
+    - **US05:** tela "Diretores & Líderes" no painel, restrita à superadministradora, e a seção "Nosso Organograma" da página inicial lendo os líderes da API.
+- **Ajuste de contrato:** o painel passou a enviar `mini_biografia`, `redes_sociais` como objeto (`{"instagram": "@perfil"}`) e `gestao`, no formato do back-end da US05. Antes enviava `bio` e as redes como texto, o que daria erro 422 ao salvar um líder com rede social.
+- **Sincronização dos repositórios do grupo:** o [PR #14](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/14) do front-end e o [PR #11](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/11) do back-end trouxeram o que foi enviado à produção de volta para a `main` do grupo, para que o PR com as demais histórias entre sem conflito. No back-end, a migration da US01 passou a partir da última migration da US05, evitando duas *heads* na cadeia (defeito registrado na QA09).
+- **Verificação:** build ok e 253 testes Playwright passando no envio; após a sincronização, `npx eslint src` sem erros e 412 testes Playwright passando no front-end, e 668 testes passando no back-end.
+- **Dependência:** a região, a mini-biografia, as redes sociais e a gestão do líder só são salvas depois que o back-end da US05 for publicado na VPS, onde o deploy não é automático (é preciso reconstruir o container e rodar `alembic upgrade head`).
 
 ---
 
@@ -78,4 +127,6 @@
 | `1.0` | 21/09/2026 | Criação do relatório da Sprint 02 com as entregas de QA do back-end | [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin) |
 | `1.1` | 05/10/2026 | Registro do trio no back-end da US09 da Sprint 2 | [Filipe Carvalho da Silva](https://github.com/Filipe-002), [João Rodrigues](https://github.com/JpRodrigues2) e [Júlia dos Reis Teixeira Massuda](https://github.com/JuliaReis18) |
 | `1.2` | 05/10/2026 | Registro da QA17, dos números após a revisão da suíte e da situação dos defeitos de migration e de coordenadas | [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin) |
-| `1.3` | 05/10/2026 | Adição de contribuição da Sprint 02 | [Daniel dos Santos Barros de Sousa](https://github.com/daniel-de-sousa) |
+| `1.3` | 05/10/2026 | Registro do trio no front-end da US07 e no envio das US04 e US05 para produção | [Gabriel Lopes de Amorim](https://github.com/BrzGab), [Maria Samara Alves Silva](https://github.com/SamaraAlvess) e [João Vitor Alves Viana](https://github.com/Joaovitor045) |
+| `1.4` | 05/10/2026 | Registro da entrega do front-end da US09, com a divisão em doze tasks e a integração com o contrato publicado pelo back-end | [Davi Emanuel Ribeiro de Oliveira](https://github.com/daviRolvr), [Renan Vieira Guedes](https://github.com/R-enanVieira) e [João Pedro Ferreira Moraes](https://github.com/JoaoPedro2206) |
+| `1.5` | 05/10/2026 | Adição de contribuição da Sprint 02 | [Daniel dos Santos Barros de Sousa](https://github.com/daniel-de-sousa) |
