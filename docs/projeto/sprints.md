@@ -348,8 +348,7 @@ separando o que era teste desatualizado pelo formato de álbuns do que era
 defeito de produto — a galeria exibia fotos fictícias embutidas no código
 quando a API falhava — e o trio da US07 corrigiu os dois no
 [PR #19](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/19). O
-detalhamento das duas histórias, com as doze tasks da US09, está no
-[Backlog de Melhorias](backlog_melhorias.md#us09) e no
+detalhamento das duas histórias está no
 [relatório da Sprint 02](sprint02.md).
 
 ### Entregas do trio — US07 e envio das US04 e US05 para produção
