@@ -294,10 +294,37 @@ controller e autorização com testes.
   </thead>
   <tbody>
     <tr><td><a href="../backlog_melhorias/#us09">US09</a></td><td>Gestão de Eventos</td><td>Inscrição separada para voluntários</td><td>RF52</td><td>Back-end: <a href="https://github.com/Filipe-002">Filipe Carvalho da Silva</a>, <a href="https://github.com/JpRodrigues2">João Rodrigues</a>, <a href="https://github.com/JuliaReis18">Júlia dos Reis Teixeira Massuda</a></td><td>Em Andamento</td></tr>
+    <tr><td><a href="../backlog_melhorias/#us07">US07</a></td><td>Experiência do Usuário e Engajamento</td><td>Álbuns de fotos separados por evento</td><td>RF07, RF23</td><td>Front-end: <a href="https://github.com/BrzGab">Gabriel Lopes de Amorim</a>, <a href="https://github.com/SamaraAlvess">Maria Samara Alves Silva</a>, <a href="https://github.com/Joaovitor045">João Vitor Alves Viana</a></td><td>Concluído (front-end)<br><small><a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/15">PR #15</a></small></td></tr>
+    <tr><td><a href="../backlog_melhorias/#us04">US04</a></td><td>Experiência do Usuário e Engajamento</td><td>Envio para produção da correção da tradução automática</td><td>RF06, RF04</td><td><a href="https://github.com/BrzGab">Gabriel Lopes de Amorim</a>, <a href="https://github.com/SamaraAlvess">Maria Samara Alves Silva</a>, <a href="https://github.com/Joaovitor045">João Vitor Alves Viana</a></td><td>Concluído<br><small><a href="https://github.com/idbjovemnacional/IDB_Jovem-Teen/pull/2">PR #2 da organização</a></small></td></tr>
+    <tr><td><a href="../backlog_melhorias/#us05">US05</a></td><td>Governança e Operações</td><td>Envio para produção do front-end de líderes e diretores anteriores</td><td>RF02, RF03</td><td><a href="https://github.com/BrzGab">Gabriel Lopes de Amorim</a>, <a href="https://github.com/SamaraAlvess">Maria Samara Alves Silva</a>, <a href="https://github.com/Joaovitor045">João Vitor Alves Viana</a></td><td>Concluído<br><small><a href="https://github.com/idbjovemnacional/IDB_Jovem-Teen/pull/2">PR #2 da organização</a></small><br><small><a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/14">PR #14</a></small><br><small><a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/11">PR #11 (back-end)</a></small></td></tr>
   </tbody>
 </table>
 
 </center>
+
+### Entregas do trio — US07 e envio das US04 e US05 para produção
+
+O trio [Gabriel Lopes de Amorim](https://github.com/BrzGab), [Maria Samara Alves Silva](https://github.com/SamaraAlvess)
+e [João Vitor Alves Viana](https://github.com/Joaovitor045) seguiu trabalhando em conjunto, sem divisão por integrante.
+
+**US07 — Álbuns de fotos por evento (front-end).** A galeria pública mostrava
+as fotos de todos os eventos numa grade só, que era a reclamação da cliente:
+*"os eventos se misturam"*. Agora a página mostra um álbum por evento, com capa,
+nome, local e quantidade de fotos, e ao abrir um álbum aparecem apenas as fotos
+daquele evento. A escolha da capa, a reordenação das fotos e o uso do endpoint
+agregado do back-end ficam para a próxima sprint. Código no
+[PR #15](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/15).
+
+**Envio das US04 e US05 para produção.** As duas histórias, concluídas na
+Sprint 1, foram enviadas ao repositório da organização pelo
+[PR #2](https://github.com/idbjovemnacional/IDB_Jovem-Teen/pull/2), aceito em
+05/10/2026, e a Vercel publicou o site no mesmo dia. Foram ao ar a correção da
+tradução automática e da foto duplicada (US04) e a tela "Diretores & Líderes"
+com a seção de líderes lida da API (US05). Os PRs
+[#14](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/14) do front-end e
+[#11](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/11) do back-end
+trouxeram o envio de volta para a `main` do grupo e encadearam as migrations da
+US01 depois das da US05. O detalhamento está no [relatório da Sprint 02](sprint02.md).
 
 ### Garantia de Qualidade na Sprint 2
 
@@ -363,3 +390,4 @@ As histórias de Prioridade Média e Baixa, assim como os itens fora do escopo, 
 | `1.7` | 15/09/2026 | Altera o registro dos nomes dos membros do grupo, afim de facilitar a busca | [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin)|
 | `1.8` | 21/09/2026 | Cadastro da Sprint 2 com as entregas de QA, registro da reintegração da QA05 e das pendências para a implementação | [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin) |
 | `1.9` | 05/10/2026 | Registro do trio no back-end da US09 da Sprint 2 | [Filipe Carvalho da Silva](https://github.com/Filipe-002), [João Rodrigues](https://github.com/JpRodrigues2) e [Júlia dos Reis Teixeira Massuda](https://github.com/JuliaReis18) |
+| `2.0` | 05/10/2026 | Registro do trio no front-end da US07 e no envio das US04 e US05 para produção | [Gabriel Lopes de Amorim](https://github.com/BrzGab), [Maria Samara Alves Silva](https://github.com/SamaraAlvess) e [João Vitor Alves Viana](https://github.com/Joaovitor045) |

@@ -6,9 +6,9 @@
 
 | Trio de Desenvolvedores | Qtd. de US | US | Assunto das US |
 |---|---:|---|---|
-
 | [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin) / [Rivadalvio Joaquim da Silva Filho](https://github.com/RivaFilho) | 5 | US01, US03 a US06 | Garantia de qualidade: autorização, convidados, migrations e regressão das histórias de líderes |
 | [Filipe Carvalho da Silva](https://github.com/Filipe-002) / [João Rodrigues](https://github.com/JpRodrigues2) / [Júlia dos Reis Teixeira Massuda](https://github.com/JuliaReis18) | 1 | US09 | Back-end da inscrição separada para voluntários |
+| [Gabriel Lopes de Amorim](https://github.com/BrzGab) / [Maria Samara Alves Silva](https://github.com/SamaraAlvess) / [João Vitor Alves Viana](https://github.com/Joaovitor045) | 3 | US04, US05, US07 | Álbuns de fotos por evento (front-end) e envio das US04 e US05 para produção |
 
 > **A preencher pelos trios:** as histórias novas assumidas na Sprint 2.
 
@@ -23,6 +23,28 @@
 - **Responsáveis (Back-end):** [Filipe Carvalho da Silva](https://github.com/Filipe-002), [João Rodrigues](https://github.com/JpRodrigues2) e [Júlia dos Reis Teixeira Massuda](https://github.com/JuliaReis18).
 - **Atuação:** implementação do back-end do fluxo de inscrição separada para voluntários na Sprint 2.
 
+
+### US07 — Álbuns de fotos por evento (Front-end)
+
+- **Requisitos:** RF07, RF23
+- **Descrição:** Eu, como *administradora*, desejo *que as fotos fiquem organizadas em álbuns separados por evento*, para *que as imagens de eventos diferentes não se misturem*.
+- **Responsáveis (Front-end):** [Gabriel Lopes de Amorim](https://github.com/BrzGab), [Maria Samara Alves Silva](https://github.com/SamaraAlvess) e [João Vitor Alves Viana](https://github.com/Joaovitor045).
+- **Atuação:** a página pública `/galeria` deixou de mostrar uma grade única com as fotos de todos os eventos misturadas. Agora ela mostra um álbum por evento: cada card exibe a capa, o nome e o local do evento e a quantidade de fotos. Ao abrir um álbum, aparecem só as fotos daquele evento, e o botão de voltar retorna à lista de álbuns. As fotos vêm da galeria do Drive de cada evento que tem `link_galeria` cadastrado. Quando nenhum evento tem fotos, a página mostra quatro fotos de exemplo.
+- **Código:** [PR #15](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/15) do front-end. O lint do CI falhava porque as imagens de exemplo eram referenciadas como texto (`"galeria1"`) e não pela variável importada, o que também impedia que aparecessem; corrigido no commit [087a130](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/commit/087a1300de7e646ec45dd6bdb9dfb72cfc523bea).
+- **Critérios de aceitação:** atendidos o álbum próprio por evento e a separação das fotos entre eventos. Ficam para a próxima sprint a escolha da foto de capa (hoje é a primeira do álbum), a reordenação das imagens e a simplificação da inclusão de fotos pelo painel.
+- **Próximos passos:** consumir o endpoint agregado `GET /evento/galerias/todas` do back-end da US07 ([PR #14](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/14) do back-end), que devolve as fotos de todos os eventos numa só chamada, e retirar as fotos de exemplo antes de enviar a página para produção.
+
+### Envio das US04 e US05 para produção (Front-end)
+
+- **Responsáveis:** [Gabriel Lopes de Amorim](https://github.com/BrzGab), [Maria Samara Alves Silva](https://github.com/SamaraAlvess) e [João Vitor Alves Viana](https://github.com/Joaovitor045).
+- **Atuação:** as US04 e US05, concluídas na Sprint 1 no repositório do grupo, foram enviadas ao repositório da organização pela branch `deploy/us04-us05`, montada a partir da `main` da organização. O [PR #2 da organização](https://github.com/idbjovemnacional/IDB_Jovem-Teen/pull/2) foi aceito em 05/10/2026, e a Vercel publicou o site em produção no mesmo dia.
+- **O que foi ao ar:**
+    - **US04:** `lang="pt-BR"`, meta `notranslate` e `translate="no"` nos nomes dos líderes e no título da marca. O navegador do celular deixa de traduzir a página e a foto do Pr. Áquila não aparece mais duplicada.
+    - **US05:** tela "Diretores & Líderes" no painel, restrita à superadministradora, e a seção "Nosso Organograma" da página inicial lendo os líderes da API.
+- **Ajuste de contrato:** o painel passou a enviar `mini_biografia`, `redes_sociais` como objeto (`{"instagram": "@perfil"}`) e `gestao`, no formato do back-end da US05. Antes enviava `bio` e as redes como texto, o que daria erro 422 ao salvar um líder com rede social.
+- **Sincronização dos repositórios do grupo:** o [PR #14](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/14) do front-end e o [PR #11](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/11) do back-end trouxeram o que foi enviado à produção de volta para a `main` do grupo, para que o PR com as demais histórias entre sem conflito. No back-end, a migration da US01 passou a partir da última migration da US05, evitando duas *heads* na cadeia (defeito registrado na QA09).
+- **Verificação:** build ok e 253 testes Playwright passando no envio; após a sincronização, `npx eslint src` sem erros e 412 testes Playwright passando no front-end, e 668 testes passando no back-end.
+- **Dependência:** a região, a mini-biografia, as redes sociais e a gestão do líder só são salvas depois que o back-end da US05 for publicado na VPS, onde o deploy não é automático (é preciso reconstruir o container e rodar `alembic upgrade head`).
 
 ---
 
@@ -78,3 +100,4 @@
 | `1.0` | 21/09/2026 | Criação do relatório da Sprint 02 com as entregas de QA do back-end | [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin) |
 | `1.1` | 05/10/2026 | Registro do trio no back-end da US09 da Sprint 2 | [Filipe Carvalho da Silva](https://github.com/Filipe-002), [João Rodrigues](https://github.com/JpRodrigues2) e [Júlia dos Reis Teixeira Massuda](https://github.com/JuliaReis18) |
 | `1.2` | 05/10/2026 | Registro da QA17, dos números após a revisão da suíte e da situação dos defeitos de migration e de coordenadas | [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin) |
+| `1.3` | 05/10/2026 | Registro do trio no front-end da US07 e no envio das US04 e US05 para produção | [Gabriel Lopes de Amorim](https://github.com/BrzGab), [Maria Samara Alves Silva](https://github.com/SamaraAlvess) e [João Vitor Alves Viana](https://github.com/Joaovitor045) |
