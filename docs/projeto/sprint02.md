@@ -7,6 +7,7 @@
 | Trio de Desenvolvedores | Qtd. de US | US | Assunto das US |
 |---|---:|---|---|
 | [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin) / [Rivadalvio Joaquim da Silva Filho](https://github.com/RivaFilho) | 5 | US01, US03 a US06 | Garantia de qualidade: autorização, convidados, migrations e regressão das histórias de líderes |
+| [Davi Emanuel Ribeiro de Oliveira](https://github.com/daviRolvr) / [Renan Vieira Guedes](https://github.com/R-enanVieira) / [João Pedro Ferreira Moraes](https://github.com/JoaoPedro2206) | 1 | US09 | Front-end da inscrição separada para voluntários |
 | [Filipe Carvalho da Silva](https://github.com/Filipe-002) / [João Rodrigues](https://github.com/JpRodrigues2) / [Júlia dos Reis Teixeira Massuda](https://github.com/JuliaReis18) | 1 | US09 | Back-end da inscrição separada para voluntários |
 | [Gabriel Lopes de Amorim](https://github.com/BrzGab) / [Maria Samara Alves Silva](https://github.com/SamaraAlvess) / [João Vitor Alves Viana](https://github.com/Joaovitor045) | 3 | US04, US05, US07 | Álbuns de fotos por evento (front-end) e envio das US04 e US05 para produção |
 
@@ -23,6 +24,31 @@
 - **Responsáveis (Back-end):** [Filipe Carvalho da Silva](https://github.com/Filipe-002), [João Rodrigues](https://github.com/JpRodrigues2) e [Júlia dos Reis Teixeira Massuda](https://github.com/JuliaReis18).
 - **Atuação:** implementação do back-end do fluxo de inscrição separada para voluntários na Sprint 2.
 
+### US09 — Inscrição separada para voluntários (Front-end)
+
+- **Requisito:** RF52
+- **Responsáveis (Front-end):** [Davi Emanuel Ribeiro de Oliveira](https://github.com/daviRolvr), [Renan Vieira Guedes](https://github.com/R-enanVieira) e [João Pedro Ferreira Moraes](https://github.com/JoaoPedro2206).
+- **Situação:** concluído e integrado com o back-end. [PR #16](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/16) do repositório do front-end.
+
+**O que foi entregue.** O evento deixou de ter uma inscrição e passou a ter duas, independentes entre si: participantes (quem vai ao evento) e voluntários (quem trabalha nele). Até aqui existia um `formulario_link` só, usado pelo voluntariado — e o botão "Inscreva-se" das telas públicas abria justamente esse formulário, de modo que quem só queria ir ao evento acabava preenchendo a ficha de quem vai trabalhar nele.
+
+No painel, o formulário do evento ganhou dois campos de link, e a tela de inscrições virou uma casca com duas abas, uma por fluxo, cada uma com a sua tabela, o seu link e a sua contagem. A listagem de voluntários mantém pendente/aprovado/reprovado; a de participantes não tem status, porque ninguém aprova quem vai ao evento — é o que justifica tabelas separadas em vez de um filtro sobre a mesma lista.
+
+Nas telas públicas, "Inscreva-se" passou a apontar para a inscrição de participante e "Seja Voluntário" para a de voluntário, na página do evento, nos cards da listagem e no evento em destaque. Cada botão só aparece quando o evento abriu aquele fluxo: antes "Seja Voluntário" era exibido em todo evento e não fazia nada nos que não tinham formulário.
+
+**Divisão do trabalho.** Doze tasks, quatro por integrante, na mesma lógica das US01, US03 e US06 — contrato e regra num módulo isolado, painel administrativo, telas públicas e verificação. O detalhamento task a task está no [Backlog de Melhorias](backlog_melhorias.md#us09).
+
+**Verificação.** 16 testes E2E novos: as duas listagens, a separação entre elas, os dois links, os estados de fluxo não aberto, a degradação quando a API não fornece a listagem e o erro real de servidor.
+
+**Integração com o back-end.** O front foi escrito antes de o back-end expor o fluxo de participantes, sobre nomes supostos. Com a entrega do trio do back-end, os nomes foram alinhados ao contrato publicado:
+
+| | Suposto pelo front | Publicado pelo back-end |
+|---|---|---|
+| Campo do evento | `formulario_link_participantes` | `formulario_participante_link` |
+| Listagem | `/formulario/eventos/{id}/inscricoes-participantes` | `/formulario/eventos/{id}/participantes` |
+| Id do inscrito | `inscricao_id` | `participante_id` |
+
+A troca custou três linhas, porque os nomes estavam isolados na camada de serviço — foi justamente o que a T01 e a T03 tinham preparado. As duas listagens passaram a exigir o setor Inscrições, inclusive a de voluntários, que era pública: o cliente HTTP do front já manda o token em toda chamada, então o painel segue funcionando. **Não restou pendência de integração nesta história.**
 
 ### US07 — Álbuns de fotos por evento (Front-end)
 
@@ -101,3 +127,4 @@
 | `1.1` | 05/10/2026 | Registro do trio no back-end da US09 da Sprint 2 | [Filipe Carvalho da Silva](https://github.com/Filipe-002), [João Rodrigues](https://github.com/JpRodrigues2) e [Júlia dos Reis Teixeira Massuda](https://github.com/JuliaReis18) |
 | `1.2` | 05/10/2026 | Registro da QA17, dos números após a revisão da suíte e da situação dos defeitos de migration e de coordenadas | [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin) |
 | `1.3` | 05/10/2026 | Registro do trio no front-end da US07 e no envio das US04 e US05 para produção | [Gabriel Lopes de Amorim](https://github.com/BrzGab), [Maria Samara Alves Silva](https://github.com/SamaraAlvess) e [João Vitor Alves Viana](https://github.com/Joaovitor045) |
+| `1.4` | 05/10/2026 | Registro da entrega do front-end da US09, com a divisão em doze tasks e a integração com o contrato publicado pelo back-end | [Davi Emanuel Ribeiro de Oliveira](https://github.com/daviRolvr), [Renan Vieira Guedes](https://github.com/R-enanVieira) e [João Pedro Ferreira Moraes](https://github.com/JoaoPedro2206) |

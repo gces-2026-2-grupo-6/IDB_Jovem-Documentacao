@@ -197,11 +197,40 @@ Por esse motivo, a grade **não foi usada como critério único**. A priorizaç�
 <tr><td><strong>Descrição</strong></td><td>Eu, como <em>administradora</em>, desejo <em>disponibilizar dois links de inscrição por evento — um para participantes e outro para voluntários</em>, para <em>separar quem vai participar de quem vai trabalhar no evento</em>.</td></tr>
 <tr><td><strong>Critérios de Aceitação</strong></td><td>- O evento comporta dois fluxos de inscrição distintos <br> - Cada fluxo tem seu próprio link e sua própria listagem <br> - O fluxo de voluntariado mantém o status pendente/aprovado/reprovado atual</td></tr>
 <tr><td><strong>Prioridade</strong></td><td>Média</td></tr>
-<tr><td><strong>Status</strong></td><td>Requisito novo — surgido de campo aberto</td></tr>
+<tr><td><strong>Responsáveis (front-end)</strong></td><td><a href="https://github.com/daviRolvr">Davi Emanuel Ribeiro de Oliveira</a>, <a href="https://github.com/R-enanVieira">Renan Vieira Guedes</a>, <a href="https://github.com/JoaoPedro2206">João Pedro Ferreira Moraes</a></td></tr>
+<tr><td><strong>Status</strong></td><td>Concluída na Sprint 2 — os três critérios atendidos, com front e back-end integrados</td></tr>
 </tbody>
 </table>
 
-> **Requisito não previsto no catálogo.** A cliente escreveu: *"Nessa etapa podia ter a inscrição do evento e também de voluntários, seriam 2 links então."* Hoje o sistema contempla **apenas** o fluxo de voluntariado.
+> **Requisito não previsto no catálogo.** A cliente escreveu: *"Nessa etapa podia ter a inscrição do evento e também de voluntários, seriam 2 links então."* Até esta entrega o sistema contemplava **apenas** o fluxo de voluntariado — e o botão "Inscreva-se" das telas públicas abria justamente o formulário de voluntariado, que é outra inscrição.
+
+#### Divisão do trabalho
+
+A história seguiu a mesma lógica das US01, US03 e US06: uma pessoa define o contrato e a regra num módulo isolado, outra a aplica no painel administrativo, e a terceira cuida do que o visitante vê e da verificação. Doze tasks, quatro por integrante.
+
+<center>
+
+<table border="1" cellspacing="0" cellpadding="4">
+  <thead>
+    <tr><th>#</th><th>Task</th><th>Responsável</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>T01</td><td>Mapear o contrato dos dois fluxos no adaptador de evento: campo novo <code>formulario_link_participantes</code> isolado numa única linha de ida e uma de volta, ao lado do <code>formulario_link</code> já existente</td><td rowspan="4"><a href="https://github.com/daviRolvr">Davi Emanuel Ribeiro de Oliveira</a></td></tr>
+    <tr><td>T02</td><td>Escrever o serviço de inscrições com um adaptador por fluxo — o de voluntário carrega status, o de participante não, porque ninguém aprova quem vai ao evento</td></tr>
+    <tr><td>T03</td><td>Acrescentar o acesso à listagem de participantes na camada de API, com o tratamento de falha alinhado ao do voluntariado — as duas exigem o setor Inscrições e respondem 404 para evento inexistente</td></tr>
+    <tr><td>T04</td><td>Conferir o contrato com a equipe do back-end e alinhar os nomes publicados — <code>formulario_participante_link</code> no evento e <code>/formulario/eventos/{id}/participantes</code> na listagem —, mantendo-os isolados na camada de serviço</td></tr>
+    <tr><td>T05</td><td>Desdobrar o campo único de link do formulário do evento em dois, um por fluxo, com rótulo próprio e texto explicando que deixar em branco fecha aquele fluxo</td><td rowspan="4"><a href="https://github.com/JoaoPedro2206">João Pedro Ferreira Moraes</a></td></tr>
+    <tr><td>T06</td><td>Transformar a tela de inscrições do evento em casca com abas, uma por fluxo, cada painel carregando os próprios dados ao entrar em tela</td></tr>
+    <tr><td>T07</td><td>Extrair a listagem de voluntários para painel próprio, preservando as estatísticas e a troca otimista de status pendente/aprovado/reprovado</td></tr>
+    <tr><td>T08</td><td>Construir a listagem de participantes — sem coluna de status, com o aviso de integração pendente e o bloco que mostra o link daquele fluxo ou orienta onde cadastrá-lo</td></tr>
+    <tr><td>T09</td><td>Separar os botões no topo da página do evento: "Inscreva-se" para participante e "Seja Voluntário" para voluntário, cada um existindo só quando o evento abriu aquele fluxo</td><td rowspan="4"><a href="https://github.com/R-enanVieira">Renan Vieira Guedes</a></td></tr>
+    <tr><td>T10</td><td>Corrigir o destino do "Inscreva-se" nos cards e no evento em destaque da listagem pública, que abria o formulário de voluntariado</td></tr>
+    <tr><td>T11</td><td>Estender o mock de API dos testes ao campo e ao endpoint novos, incluindo um evento sem nenhum dos dois fluxos para exercitar os estados vazios</td></tr>
+    <tr><td>T12</td><td>Escrever os 16 testes E2E — duas listagens, separação entre elas, dois links, fluxo não aberto, degradação no 404 e erro real no 500 — e as capturas de tela da história</td></tr>
+  </tbody>
+</table>
+
+</center>
 
 <a name="us10"></a>
 
@@ -406,7 +435,7 @@ Cada requisito possui campo de **Responsável** e de **O que foi feito**. O prim
 
 | ID | Requisito | Origem | Situação | Responsável | O que foi feito |
 |---|---|---|---|---|---|
-| RF52 | Inscrição de participante, separada da de voluntário | A | US09 — Média | | |
+| RF52 | Inscrição de participante, separada da de voluntário | A | US09 — Média | Front-end: [Davi Emanuel Ribeiro de Oliveira](https://github.com/daviRolvr), [Renan Vieira Guedes](https://github.com/R-enanVieira), [João Pedro Ferreira Moraes](https://github.com/JoaoPedro2206) | **Entregue no front.** O evento passou a ter dois fluxos de inscrição independentes: dois campos de link no formulário do painel e duas listagens em abas na tela de inscrições do evento. A de voluntários manteve pendente/aprovado/reprovado; a de participantes não tem aprovação, porque ninguém aprova quem vai ao evento. Nas telas públicas, "Inscreva-se" passou a apontar para a inscrição de participante — antes abria o formulário de voluntariado — e cada botão só aparece quando o evento abriu aquele fluxo, no lugar do "Seja Voluntário" que era exibido sempre e não fazia nada. 16 testes E2E.<br>**Integrado com o back-end.** O front foi escrito antes de o back-end expor o fluxo e usava nomes supostos; alinhado ao contrato publicado — campo `formulario_participante_link` no evento e `GET /formulario/eventos/{id}/participantes` para a listagem, que devolve `participante_id` e exige o setor Inscrições. A troca custou três linhas, porque os nomes estavam isolados na camada de serviço. Não resta pendência nesta história. |
 | RF53 | Cadastro nacional de líderes de jovens e adolescentes | A | US10 — Média | | |
 | RF54 | Área de materiais para download | A | US11 — Média | | |
 
@@ -445,3 +474,4 @@ Cada requisito possui campo de **Responsável** e de **O que foi feito**. O prim
 | `2.1` | 21/09/2026 | Registro das entregas de QA do back-end da Sprint 2 — RF01, RF47 e RF49 | [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin) |
 | `2.2` | 05/10/2026 |Complemento do Registro das entregas de QA do back-end da Sprint 2 — RF01, RF47 e RF49 | [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin) |
 | `2.3` | 05/10/2026 | Registro da implementação do front-end da US07 (RF07 e RF23) e do envio das US04 e US05 para produção (RF02 e RF06) | [Gabriel Lopes de Amorim](https://github.com/BrzGab), [Maria Samara Alves Silva](https://github.com/SamaraAlvess) e [João Vitor Alves Viana](https://github.com/Joaovitor045) |
+| `2.4` | 05/10/2026 | Registro da implementação da US09 (RF52) na Sprint 2, com responsáveis, status, a divisão em doze tasks e a integração entre front e back-end | [Davi Emanuel Ribeiro de Oliveira](https://github.com/daviRolvr), [Renan Vieira Guedes](https://github.com/R-enanVieira) e [João Pedro Ferreira Moraes](https://github.com/JoaoPedro2206) |
