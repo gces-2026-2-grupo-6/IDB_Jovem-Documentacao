@@ -303,6 +303,55 @@ controller e autorização com testes.
 
 </center>
 
+### Entregas do trio — US09 e US15
+
+O trio [Davi Emanuel Ribeiro de Oliveira](https://github.com/daviRolvr),
+[Renan Vieira Guedes](https://github.com/R-enanVieira) e
+[João Pedro Ferreira Moraes](https://github.com/JoaoPedro2206) manteve a divisão
+das US01, US03 e US06: uma pessoa define o contrato e a regra num módulo
+isolado, outra a aplica no painel administrativo, e a terceira cuida do que o
+visitante vê e da verificação.
+
+**US09 — Inscrição separada para voluntários (front-end).** Um evento tinha uma
+inscrição só, e ela era a de voluntário: o botão "Inscreva-se" das telas
+públicas abria justamente esse formulário, e quem só queria ir ao evento
+acabava preenchendo a ficha de quem vai trabalhar nele. Agora o evento tem dois
+fluxos independentes — dois campos de link no formulário do painel, duas
+listagens em abas na tela de inscrições e um botão por fluxo nas páginas
+públicas, cada um aparecendo só quando aquele fluxo foi aberto. A listagem de
+voluntários manteve pendente/aprovado/reprovado; a de participantes não tem
+aprovação, porque ninguém aprova quem vai ao evento. O contrato e os serviços
+ficaram com Davi Emanuel, o painel com João Pedro, e as telas públicas e os 16
+testes com Renan Vieira. O front foi escrito antes de o back-end expor o fluxo,
+sobre nomes supostos, e precisou ser alinhado aos publicados
+(`formulario_participante_link` e `GET /formulario/eventos/{id}/participantes`):
+a troca custou três linhas porque os nomes estavam isolados na camada de
+serviço, e fica a lição de combinar o nome antes de escrever. Código no
+[PR #16](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/16).
+
+**US15 — Histórico de eventos passados com fotos (front-end).** A história
+estava em Prioridade Baixa com a nota "depende de US07"; a US07 entrou nesta
+sprint e a destravou. Até então um evento encerrado sumia do site público
+inteiro — a agenda, o mapa e a página inicial filtram todos pelo que ainda não
+terminou — e as fotos ficavam na galeria soltas do evento que as originou. A
+página de eventos ganhou a seção "Já aconteceram", com os eventos passados do
+mais recente para o mais antigo, cada um com a capa do álbum, a quantidade de
+fotos e o caminho para a sua página, onde o álbum da US07 aparece. O serviço do
+histórico ficou com Davi Emanuel, o card com João Pedro, e a seção e os 5 testes
+com Renan Vieira. Não exigiu nada do back-end. Código no
+[PR #20](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/20).
+
+**Correção fora do escopo das histórias.** A `main` ficou com o CI vermelho
+depois da US07, em quatro testes da galeria. O trio registrou o caso na
+[issue #17](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/issues/17),
+separando o que era teste desatualizado pelo formato de álbuns do que era
+defeito de produto — a galeria exibia fotos fictícias embutidas no código
+quando a API falhava — e o trio da US07 corrigiu os dois no
+[PR #19](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/19). O
+detalhamento das duas histórias, com as doze tasks da US09, está no
+[Backlog de Melhorias](backlog_melhorias.md#us09) e no
+[relatório da Sprint 02](sprint02.md).
+
 ### Entregas do trio — US07 e envio das US04 e US05 para produção
 
 O trio [Gabriel Lopes de Amorim](https://github.com/BrzGab), [Maria Samara Alves Silva](https://github.com/SamaraAlvess)
@@ -393,4 +442,4 @@ As histórias de Prioridade Média e Baixa, assim como os itens fora do escopo, 
 | `1.9` | 05/10/2026 | Registro do trio no back-end da US09 da Sprint 2 | [Filipe Carvalho da Silva](https://github.com/Filipe-002), [João Rodrigues](https://github.com/JpRodrigues2) e [Júlia dos Reis Teixeira Massuda](https://github.com/JuliaReis18) |
 | `2.0` | 05/10/2026 | Registro do trio no front-end da US07 e no envio das US04 e US05 para produção | [Gabriel Lopes de Amorim](https://github.com/BrzGab), [Maria Samara Alves Silva](https://github.com/SamaraAlvess) e [João Vitor Alves Viana](https://github.com/Joaovitor045) |
 | `2.1` | 05/10/2026 | Registro do trio do front-end na US09 da Sprint 2 e da conclusão da história com as duas frentes integradas | [Davi Emanuel Ribeiro de Oliveira](https://github.com/daviRolvr), [Renan Vieira Guedes](https://github.com/R-enanVieira) e [João Pedro Ferreira Moraes](https://github.com/JoaoPedro2206) |
-| `2.2` | 05/10/2026 | Registro da US15 na Sprint 2 — histórico de eventos passados com fotos, destravada pela entrega da US07 | [Davi Emanuel Ribeiro de Oliveira](https://github.com/daviRolvr), [Renan Vieira Guedes](https://github.com/R-enanVieira) e [João Pedro Ferreira Moraes](https://github.com/JoaoPedro2206) |
+| `2.2` | 05/10/2026 | Registro da US15 na Sprint 2 e da seção de entregas do trio, com as US09 e US15 e a divisão do trabalho | [Davi Emanuel Ribeiro de Oliveira](https://github.com/daviRolvr), [Renan Vieira Guedes](https://github.com/R-enanVieira) e [João Pedro Ferreira Moraes](https://github.com/JoaoPedro2206) |
