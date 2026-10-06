@@ -37,7 +37,7 @@ No painel, o formulário do evento ganhou dois campos de link, e a tela de inscr
 
 Nas telas públicas, "Inscreva-se" passou a apontar para a inscrição de participante e "Seja Voluntário" para a de voluntário, na página do evento, nos cards da listagem e no evento em destaque. Cada botão só aparece quando o evento abriu aquele fluxo: antes "Seja Voluntário" era exibido em todo evento e não fazia nada nos que não tinham formulário.
 
-**Divisão do trabalho.** Doze tasks, quatro por integrante, na mesma lógica das US01, US03 e US06 — contrato e regra num módulo isolado, painel administrativo, telas públicas e verificação. O detalhamento task a task está no [Backlog de Melhorias](backlog_melhorias.md#us09).
+**Divisão do trabalho.** A mesma lógica das US01, US03 e US06: o contrato e a regra num módulo isolado com Davi Emanuel, o painel administrativo com João Pedro, e as telas públicas e a verificação com Renan Vieira.
 
 **Verificação.** 16 testes E2E novos: as duas listagens, a separação entre elas, os dois links, os estados de fluxo não aberto, a degradação quando a API não fornece a listagem e o erro real de servidor.
 
@@ -49,7 +49,7 @@ Nas telas públicas, "Inscreva-se" passou a apontar para a inscrição de partic
 | Listagem | `/formulario/eventos/{id}/inscricoes-participantes` | `/formulario/eventos/{id}/participantes` |
 | Id do inscrito | `inscricao_id` | `participante_id` |
 
-A troca custou três linhas, porque os nomes estavam isolados na camada de serviço — foi justamente o que a T01 e a T03 tinham preparado. As duas listagens passaram a exigir o setor Inscrições, inclusive a de voluntários, que era pública: o cliente HTTP do front já manda o token em toda chamada, então o painel segue funcionando. **Não restou pendência de integração nesta história.**
+A troca custou três linhas, porque os nomes estavam isolados na camada de serviço desde o início — foi justamente o que esse isolamento preparou. As duas listagens passaram a exigir o setor Inscrições, inclusive a de voluntários, que era pública: o cliente HTTP do front já manda o token em toda chamada, então o painel segue funcionando. **Não restou pendência de integração nesta história.**
 
 ### US07 — Álbuns de fotos por evento (Front-end)
 
@@ -155,3 +155,4 @@ A página de eventos ganhou a seção "Já aconteceram", depois da agenda, com o
 | `1.4` | 05/10/2026 | Registro da entrega do front-end da US09, com a divisão em doze tasks e a integração com o contrato publicado pelo back-end | [Davi Emanuel Ribeiro de Oliveira](https://github.com/daviRolvr), [Renan Vieira Guedes](https://github.com/R-enanVieira) e [João Pedro Ferreira Moraes](https://github.com/JoaoPedro2206) |
 | `1.5` | 05/10/2026 | Adição de contribuição da Sprint 02 | [Daniel dos Santos Barros de Sousa](https://github.com/daniel-de-sousa) |
 | `1.6` | 05/10/2026 | Registro da entrega da US15 — histórico de eventos passados com fotos | [Davi Emanuel Ribeiro de Oliveira](https://github.com/daviRolvr), [Renan Vieira Guedes](https://github.com/R-enanVieira) e [João Pedro Ferreira Moraes](https://github.com/JoaoPedro2206) |
+| `1.7` | 05/10/2026 | Divisão do trabalho da US09 dita em uma linha, no lugar da referência à tabela de tasks removida | [Davi Emanuel Ribeiro de Oliveira](https://github.com/daviRolvr), [Renan Vieira Guedes](https://github.com/R-enanVieira) e [João Pedro Ferreira Moraes](https://github.com/JoaoPedro2206) |
