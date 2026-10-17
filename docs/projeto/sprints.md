@@ -7,6 +7,9 @@
 - [Sprint 1](#sprint1)
 - [Entregas da Sprint 1](#entregas)
 - [Sprint 2](#sprint2)
+- [Sprint 3](#sprint3)
+- [Próxima Sprint (Sprint 4)](#sprint4)
+- [Pendências](#pendencias)
 - [Como Preencher Esta Página](#preencher)
 
 ---
@@ -413,6 +416,125 @@ US01 depois das da US05. O detalhamento está no [relatório da Sprint 02](sprin
 
 ---
 
+<a name="sprint3"></a>
+
+## Sprint 3
+
+<table border="1" cellspacing="0" cellpadding="4">
+<tbody>
+<tr><td><strong>Início</strong></td><td>A confirmar pela equipe</td></tr>
+<tr><td><strong>Término</strong></td><td>A confirmar pela equipe</td></tr>
+<tr><td><strong>Duração</strong></td><td>2 semanas (14 dias)</td></tr>
+</tbody>
+</table>
+
+O escopo segue a ordem de prioridade definida pela cliente na reunião de validação de 16/10/2026. A ordem completa e as histórias estão no [Backlog Priorizado](backlog_melhorias.md#priorizado). Critérios marcados como **PENDENTE** não entram nesta sprint até a cliente responder a [dúvida](backlog_melhorias.md#duvidas) correspondente.
+
+<center>
+
+<table border="1" cellspacing="0" cellpadding="4">
+  <thead>
+    <tr>
+      <th>Ordem</th>
+      <th>ID</th>
+      <th>Tema</th>
+      <th>História (resumo)</th>
+      <th>Requisitos</th>
+      <th>Tamanho</th>
+      <th>Escopo nesta sprint</th>
+      <th>Responsáveis</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>1</td><td><a href="../backlog_melhorias/#us11">US11</a></td><td>Experiência do Usuário e Engajamento</td><td>Materiais para download (vídeo, foto e documentos), enviados só pela superadministradora e baixados sem login</td><td>RF54</td><td>M</td><td>CA1 a CA4. O CA5 (armazenamento e formatos) depende da D05</td><td></td><td>A Fazer</td></tr>
+    <tr><td>2</td><td><a href="../backlog_melhorias/#us10">US10</a></td><td>Governança e Operações</td><td>Cadastro nacional de líderes por link externo, fixado na página inicial do painel da superadministradora</td><td>RF53</td><td>P (+ M/G)</td><td>CA1 a CA3 (link no painel). A entrada automática na galeria (CA4 a CA7) aguarda as D01 a D04</td><td></td><td>A Fazer</td></tr>
+    <tr><td>3</td><td><a href="../backlog_melhorias/#us14">US14</a></td><td>Gestão de Eventos</td><td>Marcar evento como cancelado ou adiado, sem apagar evento nem inscrições</td><td>RF12</td><td>P</td><td>CA1 a CA3. A exibição e o aviso aos inscritos (CA4 e CA5) aguardam a D11</td><td></td><td>A Fazer</td></tr>
+  </tbody>
+</table>
+
+</center>
+
+### Publicação do que a cliente aprovou
+
+Na reunião, a cliente aceitou a galeria por álbum (US07) e os dois caminhos de inscrição (US09), com o texto dos botões aprovado. As duas histórias estão concluídas no repositório do grupo, mas ainda não foram publicadas.
+
+| Item | Cobre | O que falta | Responsáveis | Status |
+|---|---|---|---|---|
+| Publicar os álbuns por evento | US07 | Retirar as fotos de exemplo e consumir o endpoint agregado `GET /evento/galerias/todas`, conforme o relatório da Sprint 02 | | A Fazer |
+| Publicar os dois caminhos de inscrição | US09 | Enviar o front-end e o back-end ao repositório da organização. No back-end, a publicação na VPS é manual | | A Fazer |
+| Levar o histórico de eventos passados ao aval da cliente | US15 | Apresentar a seção "Já aconteceram" à cliente. A tela está concluída, mas não foi validada | | A Fazer |
+
+### Compromisso herdado da Sprint 2
+
+| Item | Origem | Por que entra agora | Responsáveis | Status |
+|---|---|---|---|---|
+| Evento sem latitude e longitude derruba a listagem com erro 500 | Defeito registrado no [relatório da Sprint 02](sprint02.md), previsto para a Sprint 3 | Já previsto para esta sprint, e é pré-requisito da US19 (eventos online não têm coordenadas) | | A Fazer |
+
+---
+
+<a name="sprint4"></a>
+
+## Próxima Sprint (Sprint 4)
+
+Candidatas na ordem dada pela cliente. A seleção final depende da capacidade e das respostas às dúvidas.
+
+<center>
+
+<table border="1" cellspacing="0" cellpadding="4">
+  <thead>
+    <tr>
+      <th>Ordem</th>
+      <th>ID</th>
+      <th>História (resumo)</th>
+      <th>Requisitos</th>
+      <th>Tamanho</th>
+      <th>Pode começar?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>4</td><td><a href="../backlog_melhorias/#us18">US18</a></td><td>Excluir fotos específicas de um álbum (pedido de remoção de imagem de menor)</td><td>RF55, RF07</td><td>M (G se a D06 pedir exclusão no Drive)</td><td>Sim, CA1 a CA5. O CA6 aguarda a D06</td></tr>
+    <tr><td>5</td><td><a href="../backlog_melhorias/#us03">US03</a> (revisão)</td><td>Separar as telas de produtos e de eventos; rever a lista de setores</td><td>RF01</td><td>P a M</td><td>Separação das telas: sim. Setores: aguarda a D07</td></tr>
+    <tr><td>6</td><td><a href="../backlog_melhorias/#us19">US19</a></td><td>Separar eventos online e presenciais</td><td>RF56</td><td>M</td><td>Só depois da correção do defeito de coordenadas. A forma de separar aguarda a D10</td></tr>
+    <tr><td>7</td><td><a href="../backlog_melhorias/#us20">US20</a></td><td>Exclusão de evento com inscritos</td><td>QA08, RF13</td><td>P</td><td><strong>Não.</strong> Bloqueada até a D09</td></tr>
+  </tbody>
+</table>
+
+</center>
+
+---
+
+<a name="pendencias"></a>
+
+## Pendências
+
+### Aguardando a cliente
+
+As perguntas completas estão em [Dúvidas para confirmar com a Pra. Raquel](backlog_melhorias.md#duvidas).
+
+| Dúvida | Trava | Sprint afetada |
+|---|---|---|
+| D01, D02, D03, D04 — galeria automática de diretores e dados do cadastro | US10, CA4 a CA7 | 3 |
+| D05 — onde ficam os arquivos para download e quais formatos | US11, CA5 | 3 |
+| D11 — exibição de evento cancelado ou adiado e aviso aos inscritos | US14, CA4 e CA5 | 3 |
+| D06 — excluir a foto só do site ou também do Drive | US18, CA6 | 4 |
+| D07 — lista exata dos setores | US03 (revisão) | 4 |
+| D10 — forma de separar online e presencial | US19 | 4 |
+| D09 — "Apagar tudo junto": escolha ou rejeição | US20 inteira | 4 |
+| D08 — o que é "pedido do produto" | US21 inteira | Sem previsão |
+| D12 — capa e reordenação do álbum ainda são necessárias | Restante da US07 | Sem previsão |
+
+### Defeitos e trabalho técnico em aberto
+
+| Item | Situação |
+|---|---|
+| Excluir evento ou convidado com vínculo responde 500 e não apaga nada; a agenda do Google é apagada antes de o banco recusar (QA08) | **Continua aberto.** No caso do evento, a correção é a US20 e depende da D09. No caso do convidado, a decisão segue pendente desde a Sprint 2 |
+| Evento sem coordenadas derruba a listagem | Planejado para a Sprint 3 (ver acima) |
+| Campos da US02 (vagas, valor, pagamento, contato, regulamento): mapear no serviço do front-end, criar as colunas no back-end e exibir o regulamento na página pública | Pendente desde a Sprint 1 |
+| Back-end da US05 (região, mini-biografia, redes sociais e gestão) na VPS, onde a publicação não é automática | Pendente, conforme o relatório da Sprint 02 |
+
+---
+
 <a name="preencher"></a>
 ## Como preencher esta página
 
@@ -442,3 +564,4 @@ As histórias de Prioridade Média e Baixa, assim como os itens fora do escopo, 
 | `2.0` | 05/10/2026 | Registro do trio no front-end da US07 e no envio das US04 e US05 para produção | [Gabriel Lopes de Amorim](https://github.com/BrzGab), [Maria Samara Alves Silva](https://github.com/SamaraAlvess) e [João Vitor Alves Viana](https://github.com/Joaovitor045) |
 | `2.1` | 05/10/2026 | Registro do trio do front-end na US09 da Sprint 2 e da conclusão da história com as duas frentes integradas | [Davi Emanuel Ribeiro de Oliveira](https://github.com/daviRolvr), [Renan Vieira Guedes](https://github.com/R-enanVieira) e [João Pedro Ferreira Moraes](https://github.com/JoaoPedro2206) |
 | `2.2` | 05/10/2026 | Registro da US15 na Sprint 2 e da seção de entregas do trio, com as US09 e US15 e a divisão do trabalho | [Davi Emanuel Ribeiro de Oliveira](https://github.com/daviRolvr), [Renan Vieira Guedes](https://github.com/R-enanVieira) e [João Pedro Ferreira Moraes](https://github.com/JoaoPedro2206) |
+| `2.3` | 17/10/2026 | Planejamento da Sprint 3 e das candidatas da Sprint 4 a partir da reunião de validação de 16/10/2026, com a seção de pendências | [Rivadalvio Joaquim da Silva Filho](https://github.com/RivaFilho) |
