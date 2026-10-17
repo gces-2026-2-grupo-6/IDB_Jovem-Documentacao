@@ -59,10 +59,12 @@ Itens que a cliente aprovou na reunião.
 |---|---|---|---|
 | Tradução automática e foto duplicada | [US04](#us04) | "OK" | Validada. No ar desde 05/10/2026 |
 | Página de líderes | [US05](#us05) | "OK" | Validada. No ar desde 05/10/2026 |
-| Evento de vários dias | [US01](#us01) | "OK" | Validada |
-| Galeria por álbum de evento | [US07](#us07) | "OK" | Validada. Aguarda publicação |
-| Dois caminhos de inscrição (participante × voluntário) | [US09](#us09) | "OK", texto dos botões aprovado | Validada. Aguarda publicação |
-| Histórico de eventos passados | [US15](#us15) | "Não é preocupação." | Regra confirmada: o histórico é mantido sempre, sem expiração. A tela ainda aguarda o aval da cliente |
+| Evento de vários dias | [US01](#us01) | "OK" | Validada. Enviada à organização em 06/10/2026 |
+| Galeria por álbum de evento | [US07](#us07) | "OK" | Validada. Enviada à organização em 06/10/2026 |
+| Dois caminhos de inscrição (participante × voluntário) | [US09](#us09) | "OK", texto dos botões aprovado | Validada. Enviada à organização em 06/10/2026 |
+| Histórico de eventos passados | [US15](#us15) | "Não é preocupação." | Regra confirmada: o histórico é mantido sempre, sem expiração. A tela foi enviada à organização em 06/10/2026 |
+
+> **Publicação.** As histórias da Sprint 2 chegaram aos repositórios da organização em 06/10/2026: o front-end pelo [PR #4](https://github.com/idbjovemnacional/IDB_Jovem-Teen/pull/4), com US01, US02, US03, US06, US07, US09 e US15, e o back-end pelos PRs [#9](https://github.com/idbjovemnacional/IDB_Jovem-Backend/pull/9) e [#10](https://github.com/idbjovemnacional/IDB_Jovem-Backend/pull/10). O front-end é publicado automaticamente pela Vercel. O back-end na VPS é atualizado manualmente, e a sua atualização ainda precisa ser conferida (ver [Sprints](sprints.md#sprint3)).
 
 ---
 
@@ -103,7 +105,7 @@ Ordem definida pela cliente em 16/10/2026. As três primeiras são as prioridade
 <tr><td><strong>Descrição</strong></td><td>Eu, como <em>administradora</em>, desejo <em>cadastrar um evento que ocorra em vários dias, inclusive em dias não consecutivos</em>, para <em>registrar acampamentos e congressos sem precisar criar um evento por dia</em>.</td></tr>
 <tr><td><strong>Critérios de Aceitação</strong></td><td>- Formulário aceita data de início e data de término <br> - Permite marcar dias não consecutivos (ex.: três sábados seguidos) <br> - O evento aparece como <strong>um único card</strong> no calendário da página inicial, exibindo a faixa de datas <br> - O local do evento é único, não variando por dia</td></tr>
 <tr><td><strong>Prioridade</strong></td><td>Alta</td></tr>
-<tr><td><strong>Status</strong></td><td>Concluída na Sprint 1 — <strong>aceita pela cliente em 16/10/2026</strong> ("OK")</td></tr>
+<tr><td><strong>Status</strong></td><td>Concluída na Sprint 1 e enviada à organização em 06/10/2026 — <strong>aceita pela cliente em 16/10/2026</strong> ("OK")</td></tr>
 </tbody>
 </table>
 
@@ -297,7 +299,7 @@ As três histórias abaixo são as prioridades 1, 2 e 3 da cliente e formam o es
 <tr><td><strong>Descrição</strong></td><td>Eu, como <em>administradora</em>, desejo <em>que as fotos fiquem organizadas em álbuns separados por evento</em>, para <em>que as imagens de eventos diferentes não se misturem</em>.</td></tr>
 <tr><td><strong>Critérios de Aceitação</strong></td><td>- Cada evento possui seu próprio álbum de fotos <br> - As fotos de um evento não aparecem misturadas às de outro <br> - O processo de inclusão de fotos é simplificado em relação ao atual <br> - Possível definir foto de capa e reordenar as imagens</td></tr>
 <tr><td><strong>Prioridade</strong></td><td>Média</td></tr>
-<tr><td><strong>Status</strong></td><td>Front-end concluído na Sprint 2 — <strong>álbuns por evento aceitos pela cliente em 16/10/2026</strong> ("OK"). Aguarda publicação. Capa, reordenação e inclusão simplificada ainda não entregues; a necessidade de capa e reordenação está na <a href="#duvidas">D12</a></td></tr>
+<tr><td><strong>Status</strong></td><td>Front-end concluído na Sprint 2 — <strong>álbuns por evento aceitos pela cliente em 16/10/2026</strong> ("OK"). Enviado à organização em 06/10/2026. Capa, reordenação e inclusão simplificada ainda não entregues; a necessidade de capa e reordenação está na <a href="#duvidas">D12</a></td></tr>
 </tbody>
 </table>
 
@@ -334,7 +336,7 @@ As três histórias abaixo são as prioridades 1, 2 e 3 da cliente e formam o es
 <tr><td><strong>Critérios de Aceitação</strong></td><td>- O evento comporta dois fluxos de inscrição distintos <br> - Cada fluxo tem seu próprio link e sua própria listagem <br> - O fluxo de voluntariado mantém o status pendente/aprovado/reprovado atual</td></tr>
 <tr><td><strong>Prioridade</strong></td><td>Média</td></tr>
 <tr><td><strong>Responsáveis (front-end)</strong></td><td><a href="https://github.com/daviRolvr">Davi Emanuel Ribeiro de Oliveira</a>, <a href="https://github.com/R-enanVieira">Renan Vieira Guedes</a>, <a href="https://github.com/JoaoPedro2206">João Pedro Ferreira Moraes</a></td></tr>
-<tr><td><strong>Status</strong></td><td>Concluída na Sprint 2 — os três critérios atendidos, com front e back-end integrados. <strong>Aceita pela cliente em 16/10/2026</strong> ("OK", texto dos botões aprovado). Aguarda publicação</td></tr>
+<tr><td><strong>Status</strong></td><td>Concluída na Sprint 2 — os três critérios atendidos, com front e back-end integrados. <strong>Aceita pela cliente em 16/10/2026</strong> ("OK", texto dos botões aprovado). Enviada à organização em 06/10/2026</td></tr>
 </tbody>
 </table>
 
@@ -432,7 +434,7 @@ As três histórias abaixo são as prioridades 1, 2 e 3 da cliente e formam o es
 |---|---|---|---|
 | US12 | Cadastro de produtos com preço, tamanho e disponibilidade | RF32, RF33 | A cliente respondeu *"queremos usar, mas ainda não cadastramos os produtos"* — a loja **permanece no escopo**, mas a venda segue por link externo |
 | US13 | Rascunho e duplicação de evento | RF08, RF09 | Nota 4 na grade; não citado no desempate |
-| US15<a name="us15"></a> | Histórico de eventos passados com fotos | RF13 | Nota 4; dependia da US07 — **entregue na Sprint 2**, assim que a US07 foi mesclada. Em 16/10/2026 a cliente confirmou: *"Não é preocupação."* O histórico é mantido sempre, sem expiração nem remoção automática. A tela aguarda o aval dela para ir ao ar |
+| US15<a name="us15"></a> | Histórico de eventos passados com fotos | RF13 | Nota 4; dependia da US07 — **entregue na Sprint 2**, assim que a US07 foi mesclada. Em 16/10/2026 a cliente confirmou: *"Não é preocupação."* O histórico é mantido sempre, sem expiração nem remoção automática. Enviada à organização em 06/10/2026 |
 | US16 | Acessibilidade e leitor de tela | RNF02 | Nota 4; sem demanda concreta relatada |
 | US17 | Controle de direito de imagem de menores | RF07 | A cliente marcou *"sim, precisa de controle"*. **Escopo definido em 16/10/2026:** a autorização existe por evento, ninguém confere as fotos antes de subir (*"Só o fotógrafo é responsável"*), e o controle necessário é excluir fotos específicas a pedido do responsável. Atendida pela [US18](#us18) |
 

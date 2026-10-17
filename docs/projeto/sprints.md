@@ -455,15 +455,14 @@ O escopo segue a ordem de prioridade definida pela cliente na reunião de valida
 
 </center>
 
-### Publicação do que a cliente aprovou
+### Conferência da publicação
 
-Na reunião, a cliente aceitou a galeria por álbum (US07) e os dois caminhos de inscrição (US09), com o texto dos botões aprovado. As duas histórias estão concluídas no repositório do grupo, mas ainda não foram publicadas.
+Em 06/10/2026 o código da Sprint 2 foi aceito nos repositórios da organização: o front-end pelo [PR #4](https://github.com/idbjovemnacional/IDB_Jovem-Teen/pull/4) (US01, US02, US03, US06, US07, US09 e US15) e o back-end pelos PRs [#9](https://github.com/idbjovemnacional/IDB_Jovem-Backend/pull/9) e [#10](https://github.com/idbjovemnacional/IDB_Jovem-Backend/pull/10). O front-end é publicado automaticamente pela Vercel. O back-end na VPS não é: sem a atualização, as telas novas ficam sem os dados de que dependem.
 
-| Item | Cobre | O que falta | Responsáveis | Status |
+| Item | Cobre | O que conferir | Responsáveis | Status |
 |---|---|---|---|---|
-| Publicar os álbuns por evento | US07 | Retirar as fotos de exemplo e consumir o endpoint agregado `GET /evento/galerias/todas`, conforme o relatório da Sprint 02 | | A Fazer |
-| Publicar os dois caminhos de inscrição | US09 | Enviar o front-end e o back-end ao repositório da organização. No back-end, a publicação na VPS é manual | | A Fazer |
-| Levar o histórico de eventos passados ao aval da cliente | US15 | Apresentar a seção "Já aconteceram" à cliente. A tela está concluída, mas não foi validada | | A Fazer |
+| Back-end da organização atualizado na VPS | US01, US03, US05, US09 | Container reconstruído e `alembic upgrade head` executado. Confirmar que a listagem de participantes e os campos de perfil do líder respondem em produção | | A Fazer |
+| Verificação no site em produção | US07, US09, US15 | Abrir no site publicado a galeria por álbum, os dois botões de inscrição e a seção "Já aconteceram" | | A Fazer |
 
 ### Compromisso herdado da Sprint 2
 
@@ -531,7 +530,7 @@ As perguntas completas estão em [Dúvidas para confirmar com a Pra. Raquel](bac
 | Excluir evento ou convidado com vínculo responde 500 e não apaga nada; a agenda do Google é apagada antes de o banco recusar (QA08) | **Continua aberto.** No caso do evento, a correção é a US20 e depende da D09. No caso do convidado, a decisão segue pendente desde a Sprint 2 |
 | Evento sem coordenadas derruba a listagem | Planejado para a Sprint 3 (ver acima) |
 | Campos da US02 (vagas, valor, pagamento, contato, regulamento): mapear no serviço do front-end, criar as colunas no back-end e exibir o regulamento na página pública | Pendente desde a Sprint 1 |
-| Back-end da US05 (região, mini-biografia, redes sociais e gestão) na VPS, onde a publicação não é automática | Pendente, conforme o relatório da Sprint 02 |
+| Back-end da organização na VPS, onde a publicação não é automática | Código aceito em 06/10/2026; atualização da VPS a conferir na Sprint 3 (ver acima) |
 
 ---
 
