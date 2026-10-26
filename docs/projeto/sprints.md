@@ -7,6 +7,7 @@
 - [Sprint 1](#sprint1)
 - [Entregas da Sprint 1](#entregas)
 - [Sprint 2](#sprint2)
+- [Sprint 3](#sprint3)
 - [Como Preencher Esta Página](#preencher)
 
 ---
@@ -413,6 +414,55 @@ US01 depois das da US05. O detalhamento está no [relatório da Sprint 02](sprin
 
 ---
 
+<a name="sprint3"></a>
+
+## Sprint 3
+
+<table border="1" cellspacing="0" cellpadding="4">
+<tbody>
+<tr><td><strong>Início</strong></td><td>07/10/2026</td></tr>
+<tr><td><strong>Término</strong></td><td>27/10/2026</td></tr>
+</tbody>
+</table>
+
+Escopo: as três prioridades definidas pela cliente em 06/10/2026 — US11, US10 e US14. O detalhamento está no [relatório da Sprint 03](sprint03.md).
+
+<center>
+
+<table border="1" cellspacing="0" cellpadding="4">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Tema</th>
+      <th>História (resumo)</th>
+      <th>Requisitos</th>
+      <th>Responsáveis</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td><a href="../backlog_melhorias/#us11">US11</a></td><td>Experiência do Usuário e Engajamento</td><td>Materiais para download: cadastro pela superadmin, download aberto e botão "Baixar" nas galerias</td><td>RF54</td><td>Back-end: <a href="https://github.com/JuliaReis18">Júlia dos Reis Teixeira Massuda</a>, <a href="https://github.com/Filipe-002">Filipe Carvalho da Silva</a>, <a href="https://github.com/JpRodrigues2">João Rodrigues</a></td><td>Back-end concluído<br><small><a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/16">PR #16</a></small></td></tr>
+    <tr><td><a href="../backlog_melhorias/#us10">US10</a></td><td>Governança e Operações</td><td>Cadastro nacional de líderes: links fixados no painel e cargo único por abrangência</td><td>RF53, RF58</td><td>Back-end: <a href="https://github.com/JuliaReis18">Júlia dos Reis Teixeira Massuda</a>, <a href="https://github.com/Filipe-002">Filipe Carvalho da Silva</a>, <a href="https://github.com/JpRodrigues2">João Rodrigues</a></td><td>Back-end concluído<br><small><a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/16">PR #16</a></small></td></tr>
+    <tr><td><a href="../backlog_melhorias/#us14">US14</a></td><td>Gestão de Eventos</td><td>Marcar evento como cancelado ou adiado, sem apagar nada</td><td>RF12</td><td>Back-end: <a href="https://github.com/JuliaReis18">Júlia dos Reis Teixeira Massuda</a>, <a href="https://github.com/Filipe-002">Filipe Carvalho da Silva</a>, <a href="https://github.com/JpRodrigues2">João Rodrigues</a></td><td>Back-end concluído<br><small><a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/16">PR #16</a></small></td></tr>
+  </tbody>
+</table>
+
+</center>
+
+### Entregas do trio — back-end das US10, US11 e US14
+
+O trio [Júlia dos Reis Teixeira Massuda](https://github.com/JuliaReis18), [Filipe Carvalho da Silva](https://github.com/Filipe-002) e [João Rodrigues](https://github.com/JpRodrigues2) entregou o back-end das três prioridades da cliente num único
+[PR #16](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/16), com um commit por história:
+
+- **US10:** `GET` e `PUT /painel/links` para os links de cadastro e da planilha, só para a superadministradora, e recusa com 409 de dois líderes ativos no mesmo cargo e região.
+- **US11:** módulo de materiais (leitura pública, escrita da superadministradora), download com o nome original em `/drive/download/{file_id}` e `url_download` em todo material e em toda foto das galerias.
+- **US14:** `situacao` e `nova_data` no evento e `PATCH /evento/{id}/situacao` para marcar, adiar e desfazer, sem apagar nada.
+
+Para o front-end, o trio deixou o [Guia do Front-end](guia_front_us10_us11_us14.md), com as chamadas, os exemplos de
+resposta e arquivos de serviço prontos para copiar.
+
+---
+
 <a name="preencher"></a>
 ## Como preencher esta página
 
@@ -442,3 +492,4 @@ As histórias de Prioridade Média e Baixa, assim como os itens fora do escopo, 
 | `2.0` | 05/10/2026 | Registro do trio no front-end da US07 e no envio das US04 e US05 para produção | [Gabriel Lopes de Amorim](https://github.com/BrzGab), [Maria Samara Alves Silva](https://github.com/SamaraAlvess) e [João Vitor Alves Viana](https://github.com/Joaovitor045) |
 | `2.1` | 05/10/2026 | Registro do trio do front-end na US09 da Sprint 2 e da conclusão da história com as duas frentes integradas | [Davi Emanuel Ribeiro de Oliveira](https://github.com/daviRolvr), [Renan Vieira Guedes](https://github.com/R-enanVieira) e [João Pedro Ferreira Moraes](https://github.com/JoaoPedro2206) |
 | `2.2` | 05/10/2026 | Registro da US15 na Sprint 2 e da seção de entregas do trio, com as US09 e US15 e a divisão do trabalho | [Davi Emanuel Ribeiro de Oliveira](https://github.com/daviRolvr), [Renan Vieira Guedes](https://github.com/R-enanVieira) e [João Pedro Ferreira Moraes](https://github.com/JoaoPedro2206) |
+| `2.3` | 26/10/2026 | Inclusão da Sprint 3 com o back-end das US10, US11 e US14 | [Júlia dos Reis Teixeira Massuda](https://github.com/JuliaReis18), [Filipe Carvalho da Silva](https://github.com/Filipe-002) e [João Rodrigues](https://github.com/JpRodrigues2) |

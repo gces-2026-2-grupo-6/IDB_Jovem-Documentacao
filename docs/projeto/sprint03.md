@@ -2,14 +2,16 @@
 
 *Período:* 07/10/2026 a 27/10/2026
 
-> Sprint em andamento. Este relatório registra, por enquanto, as entregas de
-> garantia de qualidade do back-end e do pipeline. As entregas dos trios de
-> desenvolvimento serão acrescentadas à medida que forem concluídas.
+> Sprint em andamento. Este relatório registra as entregas de garantia de
+> qualidade do back-end e do pipeline e o back-end das três prioridades da
+> cliente (US10, US11 e US14). As entregas dos demais trios serão
+> acrescentadas à medida que forem concluídas.
 
 ## Entregas da Sprint
 
 | Trio de Desenvolvedores | Qtd. de US | US | Assunto das US |
 |---|---:|---|---|
+| [Júlia dos Reis Teixeira Massuda](https://github.com/JuliaReis18), [Filipe Carvalho da Silva](https://github.com/Filipe-002) e [João Rodrigues](https://github.com/JpRodrigues2) | 3 | US10, US11, US14 | Back-end das três prioridades da cliente: cargo único e links fixados no painel, materiais para download e evento cancelado ou adiado |
 | [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin) | 9 | US01, US02, US07, US09, US10, US11, US14, US19, US23 | Garantia de qualidade: portões de CI, correção da listagem pública de eventos, contrato das respostas da API, cobertura das integrações com o Google e especificação executável das melhorias validadas com a cliente |
 
 ---
@@ -36,6 +38,97 @@ passa a ser aceito sem endereço.
 
 O front já tratava latitude e longitude nulas antes de desenhar o mapa, o que
 foi verificado antes da correção: a mudança não quebra tela nenhuma.
+
+### US10 — Cadastro nacional de líderes (back-end)
+
+- **Requisitos:** RF53, RF58
+- **Responsáveis:** [Júlia dos Reis Teixeira Massuda](https://github.com/JuliaReis18), [Filipe Carvalho da Silva](https://github.com/Filipe-002) e [João Rodrigues](https://github.com/JpRodrigues2)
+- **Situação:** back-end concluído ([PR #16](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/16)). Falta o front-end — ver o [Guia do Front-end](guia_front_us10_us11_us14.md).
+
+O cadastro dos mais de 2500 líderes fica fora do site, num formulário
+externo cujas respostas vão para uma planilha. O site só precisa fixar os
+dois links na página inicial do painel e impedir que dois líderes ativos
+ocupem o mesmo cargo. Foram duas entregas:
+
+**Links fixados no painel.** `GET` e `PUT /painel/links` guardam o link de
+cadastro e o da planilha (CA1, CA2 e CA4). As duas rotas são exclusivas da
+superadministradora, **inclusive a leitura** (CA3): a planilha reúne nome,
+e-mail e WhatsApp de mais de 2500 pessoas, e um link desses não pode chegar a
+quem não deveria vê-lo. A atualização é parcial — trocar um link não apaga o
+outro — e enviar o campo vazio remove o link.
+
+**Cargo único por abrangência (RF58).** O cadastro e a edição de líder
+recusam com **409** um segundo líder ativo no mesmo par (cargo, região), com
+uma mensagem que diz quem ocupa o cargo e como liberá-lo (CA8). A regra
+segue a decisão da cliente: "diretor regional do Sul" e "diretor regional do
+Centro Oeste" são cargos diferentes e convivem (CA9). A comparação ignora
+acento, caixa e hífen, para que "Vice-Diretor Nacional" e "vice diretor
+nacional" não burlem a regra. Diretor anterior não ocupa cargo: marcar o
+antecessor como anterior libera a vaga para o sucessor (CA7). A regra vale
+também na edição, caminho que costuma escapar quando a validação entra só no
+cadastro.
+
+### US11 — Materiais para download (back-end)
+
+- **Requisito:** RF54
+- **Responsáveis:** [Júlia dos Reis Teixeira Massuda](https://github.com/JuliaReis18), [Filipe Carvalho da Silva](https://github.com/Filipe-002) e [João Rodrigues](https://github.com/JpRodrigues2)
+- **Situação:** back-end concluído ([PR #16](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/16)). Falta o front-end — ver o [Guia do Front-end](guia_front_us10_us11_us14.md).
+
+**Cadastro de materiais.** O módulo novo `material` guarda título, tipo
+(foto, vídeo ou documento), descrição e o link do arquivo no Drive — o
+arquivo continua no Drive, como a cliente decidiu, e o servidor não recebe
+upload (CA1). A listagem é pública, sem login, com filtro por tipo (CA3), e
+cadastrar, editar e excluir são exclusivos da superadministradora, recusados
+pelo servidor para qualquer outro papel (CA2 e CA4).
+
+**Download com o nome original.** A rota `GET /drive/download/{file_id}`
+devolve o arquivo como anexo, com o nome que ele tem no Drive; documento
+nativo do Google (Docs, Planilhas, Apresentações) é exportado em PDF. Como a
+rota usa a conta institucional, ela **só entrega imagem ou arquivo cadastrado
+como material**: o resto responde 404. Sem essa trava, quem soubesse o id de
+um arquivo da conta — a planilha de líderes, por exemplo — conseguiria
+baixá-lo sem login.
+
+**Botão "Baixar" em todo o site (CA5).** Todo material e toda foto das
+galerias (`/evento/{id}/galeria` e `/evento/galerias/todas`) passaram a trazer
+`url_download`. O front não precisa montar URL nenhuma: o botão é um link
+para esse campo.
+
+### US14 — Marcar evento como cancelado ou adiado (back-end)
+
+- **Requisito:** RF12
+- **Responsáveis:** [Júlia dos Reis Teixeira Massuda](https://github.com/JuliaReis18), [Filipe Carvalho da Silva](https://github.com/Filipe-002) e [João Rodrigues](https://github.com/JpRodrigues2)
+- **Situação:** back-end concluído ([PR #16](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/16)). Falta o front-end — ver o [Guia do Front-end](guia_front_us10_us11_us14.md).
+
+O evento ganhou `situacao` (ativo, cancelado ou adiado) e `nova_data`,
+opcional e válida só para o adiado (CA4). A marcação e o desfazer são feitos
+por `PATCH /evento/{id}/situacao`, com um corpo de uma ou duas linhas,
+liberado para o setor de eventos e para a superadministradora (CA1). Nada é
+apagado — evento, inscrições e fotos continuam guardados (CA3) — e ninguém é
+avisado, porque a comunicação com os inscritos segue sendo da equipe (CA5).
+
+Na agenda do Google, o título ganha `[CANCELADO]` ou `[ADIADO]`. Se o Google
+falhar, a marcação no site é mantida: a agenda é um espelho, e o site é a
+fonte da verdade.
+
+Um cuidado do PUT completo: um formulário que edita só a descrição de um
+evento adiado, sem enviar a situação, **preserva** o adiamento e a nova data.
+Voltar para ativo, ou passar a cancelado, limpa a nova data.
+
+### Verificação das três histórias
+
+- Os **8 testes `xfail`** da especificação executável (QA23) que estas
+  histórias atendem — cargo único, download e situação do evento — passaram
+  e tiveram o marcador removido, ficando como regressão. Restam 6, de
+  US19, US23 e da exclusão com vínculo.
+- **130 testes novos** no back-end: a suíte foi de 762 para 892 testes, com
+  cobertura de 99,41% e pylint 9,88.
+- A `MATRIZ` de autorização e o `CONTRATO` das respostas foram atualizados
+  com as 10 rotas e os campos novos — ver a
+  [Matriz de Autorização](matriz-autorizacao.md#sprint3).
+- As três migrations ficaram encadeadas depois de `7a3d9e1c5b20`, com head
+  único `d4a7b9c1e3f6`, e foram testadas em Postgres (upgrade, downgrade e
+  upgrade).
 
 ---
 
@@ -230,7 +323,7 @@ de tela, que precisam de seletor para existir.
 ## Resumo
 
 - *Histórias cobertas pela QA:* 9 — US01, US02, US07, US09, US10, US11, US14, US19 e US23
-- *Total de US concluídas pelos trios:* a definir ao fim da sprint
+- *Total de US concluídas pelos trios:* 3 no back-end até o momento — US10, US11 e US14 ([PR #16](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/16)); as demais a definir ao fim da sprint
 - *Entregas de QA:* 7 (6 do back-end e pipeline, 1 do front-end)
 - *Início da Sprint:* 07/10/2026
 - *Fim da Sprint:* 27/10/2026
@@ -242,3 +335,4 @@ de tela, que precisam de seletor para existir.
 | Versão | Data | Descrição | Autor(es) |
 |---|---|---|---|
 | `1.0` | 19/10/2026 | Criação do relatório da Sprint 03 com as entregas de QA do back-end e do pipeline (QA18 a QA24), a correção do defeito da listagem pública e os achados da sprint | [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin) |
+| `1.1` | 26/10/2026 | Registro do back-end das US10, US11 e US14 pelo trio, com a verificação das três histórias e o guia do front-end | [Júlia dos Reis Teixeira Massuda](https://github.com/JuliaReis18), [Filipe Carvalho da Silva](https://github.com/Filipe-002) e [João Rodrigues](https://github.com/JpRodrigues2) |
