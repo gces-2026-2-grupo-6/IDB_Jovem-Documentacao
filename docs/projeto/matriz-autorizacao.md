@@ -95,8 +95,30 @@ A alteração ocorre em três camadas — configuração do Keycloak, guardas de
 
 ---
 
+<a name="sprint3"></a>
+
+## Rotas novas da Sprint 3 — US10, US11 e US14
+
+Registradas na `MATRIZ` de `tests/unit/test_matriz_rotas.py`, que lê as guardas
+das próprias rotas da aplicação ([PR #16](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/16)).
+
+| Módulo | Rota | Método | Exigência | Motivo |
+|---|---|---|---|---|
+| Painel | `/painel/links` | GET | `superadmin` | US10: a planilha tem dados pessoais de mais de 2500 líderes, então até a leitura é restrita |
+| Painel | `/painel/links` | PUT | `superadmin` | US10: só a superadministradora troca os links fixados |
+| Material | `/material/` | GET | Pública | US11: "todas as pessoas podem baixar, sem login" |
+| Material | `/material/{material_id}` | GET | Pública | US11 |
+| Material | `/material/` | POST | `superadmin` | US11: "só o superadmin envia" |
+| Material | `/material/{material_id}` | PUT | `superadmin` | US11 |
+| Material | `/material/{material_id}` | DELETE | `superadmin` | Toda exclusão exige superadmin |
+| Drive | `/drive/download/{file_id}` | GET | Pública | US11: download aberto. A rota só entrega imagem ou arquivo cadastrado como material; o resto responde 404 |
+| Evento | `/evento/{evento_id}/situacao` | PATCH | Setor de eventos | US14: cancelar, adiar ou desfazer é edição do evento, não exclusão |
+
+---
+
 ## Histórico de Versão
 
 | Versão | Data | Descrição | Autor(es) |
 |---|---|---|---|
 | `1.0` | 01/09/2026 | Criação da matriz e registro das lacunas da auditoria | [João Pedro](https://github.com/Jadequilin) |
+| `1.1` | 26/10/2026 | Registro das rotas novas da Sprint 3 (US10, US11 e US14) | [Júlia dos Reis Teixeira Massuda](https://github.com/JuliaReis18), [Filipe Carvalho da Silva](https://github.com/Filipe-002) e [João Rodrigues](https://github.com/JpRodrigues2) |
