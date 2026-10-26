@@ -124,7 +124,7 @@ Voltar para ativo, ou passar a cancelado, limpa a nova data.
 - **130 testes novos** no back-end: a suíte foi de 762 para 892 testes, com
   cobertura de 99,41% e pylint 9,88.
 - A `MATRIZ` de autorização e o `CONTRATO` das respostas foram atualizados
-  com as 10 rotas e os campos novos — ver a
+  com as 9 rotas e os campos novos — ver a
   [Matriz de Autorização](matriz-autorizacao.md#sprint3).
 - As três migrations ficaram encadeadas depois de `7a3d9e1c5b20`, com head
   único `d4a7b9c1e3f6`, e foram testadas em Postgres (upgrade, downgrade e
