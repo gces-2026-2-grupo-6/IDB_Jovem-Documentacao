@@ -479,6 +479,15 @@ todas elas, sem divisão por integrante:
 
 A US23 ficou completa só com o front. As outras cinco aguardam o back-end, a cargo de outro trio; o contrato esperado está no [relatório da Sprint 03](sprint03.md). Foram 76 testes novos, e a suíte do front-end terminou a sprint com 514 testes passando.
 
+### Garantia de Qualidade do front-end — telas pequenas
+
+[Rivadalvio Joaquim da Silva Filho](https://github.com/RivaFilho) levou a suíte de telas para o celular, cobrindo o [RNF05](backlog_melhorias.md#requisitos) (layout revisado em telas pequenas):
+
+- **QA25** ([PR #22](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/22)): projetos `mobile-android` (Pixel 7) e `mobile-iphone` (iPhone 13) no Playwright, rodando a suíte inteira como o desktop, com o WebKit instalado na CI. No caminho, o job de end-to-end foi fixado no Ubuntu 24.04 e três instabilidades dos testes foram corrigidas.
+- **QA31** ([PR #23](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/23)): `admin-mobile.spec.js` verifica o menu do painel no celular e que 13 listagens e formulários não rolam para o lado nem cortam botões.
+
+Os testes encontraram três defeitos, todos registrados como issue no front-end: as opções de status do voluntário abrem fora da tela ([#24](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/issues/24)), o botão "Adicionar Administrador" fica cortado no iPhone ([#25](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/issues/25)) e a tabela de voluntários fica ilegível no celular ([#26](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/issues/26)). Os dois primeiros ficam marcados com `test.fail`, que avisa quando a correção entrar.
+
 ---
 
 <a name="preencher"></a>
@@ -512,3 +521,4 @@ As histórias de Prioridade Média e Baixa, assim como os itens fora do escopo, 
 | `2.2` | 05/10/2026 | Registro da US15 na Sprint 2 e da seção de entregas do trio, com as US09 e US15 e a divisão do trabalho | [Davi Emanuel Ribeiro de Oliveira](https://github.com/daviRolvr), [Renan Vieira Guedes](https://github.com/R-enanVieira) e [João Pedro Ferreira Moraes](https://github.com/JoaoPedro2206) |
 | `2.3` | 26/10/2026 | Inclusão da Sprint 3 com o back-end das US10, US11 e US14 | [Júlia dos Reis Teixeira Massuda](https://github.com/JuliaReis18), [Filipe Carvalho da Silva](https://github.com/Filipe-002) e [João Rodrigues](https://github.com/JpRodrigues2) |
 | `2.4` | 27/10/2026 | Registro do front-end das US03 (CA1), US18, US19, US20, US22 e US23 na Sprint 3 pelo Trio 01 | [Gabriel Lopes de Amorim](https://github.com/BrzGab), [Maria Samara Alves Silva](https://github.com/SamaraAlvess) e [João Vitor Alves Viana](https://github.com/Joaovitor045) |
+| `2.5` | 28/10/2026 | Registro das entregas de QA do front-end em tela pequena na Sprint 3 (QA25 e QA31) e dos defeitos encontrados | [Rivadalvio Joaquim da Silva Filho](https://github.com/RivaFilho) |

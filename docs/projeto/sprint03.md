@@ -14,6 +14,7 @@
 | [Júlia dos Reis Teixeira Massuda](https://github.com/JuliaReis18), [Filipe Carvalho da Silva](https://github.com/Filipe-002) e [João Rodrigues](https://github.com/JpRodrigues2) | 3 | US10, US11, US14 | Back-end das três prioridades da cliente: cargo único e links fixados no painel, materiais para download e evento cancelado ou adiado |
 | [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin) | 9 | US01, US02, US07, US09, US10, US11, US14, US19, US23 | Garantia de qualidade: portões de CI, correção da listagem pública de eventos, contrato das respostas da API, cobertura das integrações com o Google e especificação executável das melhorias validadas com a cliente |
 | [Gabriel Lopes de Amorim](https://github.com/BrzGab), [Maria Samara Alves Silva](https://github.com/SamaraAlvess) e [João Vitor Alves Viana](https://github.com/Joaovitor045) | 6 | US03, US18, US19, US20, US22, US23 | Front-end: separação das telas de produtos e eventos, exclusão de fotos do álbum, eventos online e presenciais, exclusão de evento com inscritos, missão, visão e valores e calendário com os eventos já ocorridos |
+| [Rivadalvio Joaquim da Silva Filho](https://github.com/RivaFilho) | — | RNF05 | Garantia de qualidade do front-end: suíte de telas rodando também em celular Android e iPhone e verificação do painel administrativo em tela pequena |
 
 ---
 
@@ -208,6 +209,8 @@ Os detalhes do evento no painel ganharam a seção **Álbum do evento**, com as 
 | QA22 | Busca de evento por nome verificada contra o Postgres | US01 | [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin) | Concluído |
 | QA23 | Especificação executável das melhorias validadas com a cliente | US10, US11, US14, US19, US23 | [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin) | Concluído |
 | QA24 | Testes end-to-end do front-end executados contra o build publicado | Processo | [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin) | Concluído |
+| QA25 | Projetos móveis no Playwright: a suíte de telas rodando em Android e iPhone | RNF05 | [Rivadalvio Joaquim da Silva Filho](https://github.com/RivaFilho) | Concluído |
+| QA31 | Painel administrativo verificado em tela pequena | RNF05 | [Rivadalvio Joaquim da Silva Filho](https://github.com/RivaFilho) | Concluído |
 
 **Resultados.** 64 testes novos no back-end e 1 defeito de severidade alta
 corrigido. A suíte foi de 698 para 762 testes, com 15 `xfailed` — 2 defeitos
@@ -358,6 +361,73 @@ esperar pelo evento, verificados em repetição.
 **Resultado:** 436 testes, sem falha e sem teste instável, com os dois
 servidores de pé.
 
+### QA25 — Projetos móveis no Playwright
+
+- **Código:** [PR #22](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/22) do front-end, mesclado na `main` do grupo em 28/10/2026.
+
+A suíte de telas só rodava num navegador de computador, e o site é usado
+sobretudo pelo celular. O Playwright ganhou dois projetos novos,
+`mobile-android` (Pixel 7, Chromium) e `mobile-iphone` (iPhone 13, WebKit),
+que rodam a suíte inteira, como o desktop. O job de end-to-end da CI passou a
+instalar também o WebKit, que o iPhone exige.
+
+O que só faz sentido no computador foi pulado no celular, com a justificativa
+no código:
+
+- os testes que clicam na barra lateral ou na navegação do cabeçalho, que no
+  celular ficam recolhidas atrás do botão "Abrir menu". O caminho pelo menu
+  móvel é coberto pela QA31;
+- 2 checagens de texto que o layout esconde de propósito no celular
+  (`hidden sm:block`). Só a checagem é pulada; o resto do teste continua
+  rodando.
+
+**Os projetos móveis revelaram um defeito real:** no celular, as opções do
+status do voluntário abrem fora da tela
+([issue #24](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/issues/24)).
+Os 3 testes afetados ficam suspensos com `test.fixme` só no Android, onde o
+resultado varia entre execuções; o defeito é verificado de forma estável na
+QA31.
+
+Pôr o WebKit na CI expôs também instabilidades que não eram do site:
+
+- a lista de `eventos-proximos.spec.js` era contada uma única vez, sem esperar
+  o carregamento dos eventos;
+- no WebKit, o primeiro toque no marcador do mapa às vezes é descartado pelo
+  Leaflet e o popup não abre. O teste repete o toque até o popup aparecer;
+- o `ubuntu-latest` passou a apontar para o 26.04, que o Playwright 1.60 não
+  suporta: a instalação dos navegadores falhava e o job caía em menos de 30 s,
+  antes de rodar qualquer teste. O job ficou fixado no Ubuntu 24.04;
+- o `<Analytics />` do build busca `/_vercel/insights/script.js`, que só existe
+  com o site hospedado na Vercel. Os testes passaram a responder esse script
+  vazio, e o aviso deixou de encher o log da CI; o site em produção continua
+  igual;
+- o 404 proposital da página `/test-coverage` (voluntário 99999, para cobrir o
+  caminho de erro) deixou de ser repetido no log. Qualquer outro 404 continua
+  aparecendo.
+
+### QA31 — Painel administrativo em tela pequena
+
+- **Código:** [PR #23](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/23), mesclado na branch da QA25 e com ela na `main`.
+
+Rodar a suíte existente no celular verifica que as telas funcionam, mas não
+que cabem na tela. O arquivo novo `tests/admin/admin-mobile.spec.js` roda só
+nos projetos móveis e verifica:
+
+- o menu do painel começa fechado, abre pelo botão, leva a cada tela e fecha
+  depois de navegar; o botão Sair é alcançável. A tela **Missão e valores** da
+  US22 entrou aqui;
+- 13 listagens e formulários do painel não rolam para o lado — nem a página,
+  nem o `<main>`, que tem rolagem própria — e nenhum botão ou campo fica
+  cortado;
+- as ações de cadastro de cada listagem cabem inteiras na tela;
+- as opções de status do voluntário podem ser tocadas.
+
+Os defeitos confirmados ficam marcados com `test.fail`: o teste continua
+rodando e fica vermelho quando o defeito for corrigido, avisando quem corrigiu
+para retirar a marcação. Cada teste foi validado com uma quebra proposital,
+desfeita antes do commit — menu desativado, botão mais largo que a tela e o
+defeito do status corrigido temporariamente —, e falhou nos três casos.
+
 ### Defeitos e achados
 
 | Defeito ou achado | Severidade | Situação |
@@ -369,6 +439,10 @@ servidores de pé.
 | A suíte do front-end misturava teste de unidade em navegador com teste de tela, e a CI verificava as duas contra o servidor de desenvolvimento. | Processo | Corrigido (QA24) |
 | A CI não exigia piso de cobertura e exigia pylint 7,5 com nota real 9,88. | Processo | Corrigido (QA18) |
 | O fork do grupo estava atrás da organização em duas migrations, o que geraria duas *heads* na primeira migration da sprint. | Processo | Corrigido: fork sincronizado, `alembic heads` em `7a3d9e1c5b20`. |
+| No celular, as opções de status do voluntário (Pendente, Aprovado, Reprovado) abrem abaixo da área visível na última linha da tabela, e a administradora não consegue mudar o status. Causa provável: o `Dropdown` posiciona o menu abaixo do botão sem limitar à altura da janela. | Alta | Aberto ([issue #24](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/issues/24)). Coberto pela QA31 com `test.fail`. |
+| Em `/admin/administradores`, no iPhone (390 px), o botão "Adicionar Administrador" passa 6 px da tela e o painel ganha rolagem para o lado. | Baixa | Aberto ([issue #25](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/issues/25)). Coberto pela QA31 com `test.fail`. |
+| Tabela de voluntários ilegível no celular: as colunas de largura fixa deixam quase nenhum espaço para nome e e-mail, e não dá para saber de qual voluntário é cada linha. | Média | Aberto ([issue #26](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/issues/26)) |
+| `ubuntu-latest` passou a apontar para uma versão que o Playwright não suporta, e o job de end-to-end caía antes de rodar qualquer teste. | Processo | Corrigido (QA25): job fixado no Ubuntu 24.04. |
 
 ### Ajuste em relação ao plano
 
@@ -389,7 +463,7 @@ de tela, que precisam de seletor para existir.
 
 - *Histórias cobertas pela QA:* 9 — US01, US02, US07, US09, US10, US11, US14, US19 e US23
 - *Total de US concluídas pelos trios:* 3 no back-end — US10, US11 e US14 ([PR #16](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/16)) — e 6 no front-end pelo Trio 01 — US03 (CA1), US18, US19, US20, US22 e US23 ([PR #27](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/27), [PR #28](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/28) e [PR #29](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/29)); destas, a US23 está completa e as outras cinco aguardam o back-end
-- *Entregas de QA:* 7 (6 do back-end e pipeline, 1 do front-end)
+- *Entregas de QA:* 9 (6 do back-end e pipeline, 3 do front-end)
 - *Início da Sprint:* 07/10/2026
 - *Fim da Sprint:* 27/10/2026
 
@@ -402,3 +476,4 @@ de tela, que precisam de seletor para existir.
 | `1.0` | 19/10/2026 | Criação do relatório da Sprint 03 com as entregas de QA do back-end e do pipeline (QA18 a QA24), a correção do defeito da listagem pública e os achados da sprint | [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin) |
 | `1.1` | 26/10/2026 | Registro do back-end das US10, US11 e US14 pelo trio, com a verificação das três histórias e o guia do front-end | [Júlia dos Reis Teixeira Massuda](https://github.com/JuliaReis18), [Filipe Carvalho da Silva](https://github.com/Filipe-002) e [João Rodrigues](https://github.com/JpRodrigues2) |
 | `1.2` | 27/10/2026 | Registro do front-end das US03 (CA1), US18, US19, US20, US22 e US23 pelo Trio 01, com o contrato esperado do back-end em cada história | [Gabriel Lopes de Amorim](https://github.com/BrzGab), [Maria Samara Alves Silva](https://github.com/SamaraAlvess) e [João Vitor Alves Viana](https://github.com/Joaovitor045) |
+| `1.3` | 28/10/2026 | Registro das entregas de QA do front-end em tela pequena (QA25 e QA31): projetos móveis no Playwright, verificação do painel no celular e os três defeitos encontrados | [Rivadalvio Joaquim da Silva Filho](https://github.com/RivaFilho) |
