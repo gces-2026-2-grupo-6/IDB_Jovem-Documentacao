@@ -13,6 +13,7 @@
 |---|---:|---|---|
 | [Júlia dos Reis Teixeira Massuda](https://github.com/JuliaReis18), [Filipe Carvalho da Silva](https://github.com/Filipe-002) e [João Rodrigues](https://github.com/JpRodrigues2) | 3 | US10, US11, US14 | Back-end das três prioridades da cliente: cargo único e links fixados no painel, materiais para download e evento cancelado ou adiado |
 | [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin) | 9 | US01, US02, US07, US09, US10, US11, US14, US19, US23 | Garantia de qualidade: portões de CI, correção da listagem pública de eventos, contrato das respostas da API, cobertura das integrações com o Google e especificação executável das melhorias validadas com a cliente |
+| [Gabriel Lopes de Amorim](https://github.com/BrzGab), [Maria Samara Alves Silva](https://github.com/SamaraAlvess) e [João Vitor Alves Viana](https://github.com/Joaovitor045) | 6 | US03, US18, US19, US20, US22, US23 | Front-end: separação das telas de produtos e eventos, exclusão de fotos do álbum, eventos online e presenciais, exclusão de evento com inscritos, missão, visão e valores e calendário com os eventos já ocorridos |
 
 ---
 
@@ -129,6 +130,70 @@ Voltar para ativo, ou passar a cancelado, limpa a nova data.
 - As três migrations ficaram encadeadas depois de `7a3d9e1c5b20`, com head
   único `d4a7b9c1e3f6`, e foram testadas em Postgres (upgrade, downgrade e
   upgrade).
+
+### Front-end do Trio 01 — US03, US18, US19, US20, US22 e US23
+
+- **Responsáveis:** [Gabriel Lopes de Amorim](https://github.com/BrzGab), [Maria Samara Alves Silva](https://github.com/SamaraAlvess) e [João Vitor Alves Viana](https://github.com/Joaovitor045)
+- **Código:** [PR #27](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/27) (US19 e US20), [PR #28](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/28) (US22 e US23) e [PR #29](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/29) (US03 e US18) do front-end, todos mesclados na `main` do grupo.
+- **Atuação:** o trio trabalhou em conjunto em todas as histórias, sem divisão por integrante. As seis foram feitas só no front-end; o back-end da US18, US19, US20 e US22 fica com outro trio, e o contrato esperado está descrito em cada história abaixo e nos PRs.
+
+#### US19 — Eventos online e presenciais (front-end)
+
+- **Requisito:** RF56
+- **Situação:** front-end concluído ([PR #27](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/27)). Depende do back-end.
+
+O cadastro de evento ganhou a escolha entre **Presencial** e **Online** (CA1). No online, o mapa dá lugar ao campo do link da transmissão, que pode ser cadastrado depois; no presencial, o cadastro continua igual, com o local obrigatório. Os cards de `/eventos`, o destaque "Em breve" e a página do evento trazem um selo de modalidade, e um filtro **Modalidade** mostra só um dos tipos (CA5). A grade de `/eventos` passou a seguir a ordem das datas — antes seguia a ordem de cadastro —, que é o que o selo e o filtro preservam no lugar de duas seções separadas. O evento online mostra "Evento online" no lugar do endereço e o botão **Assistir à transmissão** quando há link; "Adicionar ao Google Calendar" leva o link como local. Evento sem o campo, como os já cadastrados, é tratado como presencial (CA4).
+
+**Contrato esperado do back-end:** `modalidade` (`presencial` ou `online`) e `link_transmissao` no evento, com as coordenadas opcionais no online. Os dois testes `xfail` da QA23 sobre modalidade aceitam o nome `modalidade`.
+
+#### US20 — Exclusão de evento com inscritos (front-end)
+
+- **Requisito:** defeito QA08, RF13
+- **Situação:** front-end concluído ([PR #27](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/27)). Depende do back-end.
+
+Antes de confirmar a exclusão, o modal mostra quantas inscrições de participantes e de voluntários, atividades da programação e vínculos com convidados saem junto com o evento, e avisa que o evento sai da agenda do Google (A1). A confirmação fica travada enquanto a contagem carrega e enquanto a exclusão roda, contra o clique duplo. Se a contagem falhar, o modal avisa e a exclusão continua possível; se o servidor responder que a agenda do Google falhou, a mensagem dele aparece e o evento continua na lista (A3).
+
+**Contrato esperado do back-end:** `GET /evento/{id}/exclusao` devolvendo `participantes`, `voluntarios`, `atividades` e `convidados`; e a exclusão do evento apagando tudo isso junto, com a agenda só depois do banco (Opção A).
+
+#### US22 — Missão, visão e valores (front-end)
+
+- **Requisitos:** RF25. O RF26 (seção de avisos e comunicados na home), que o catálogo liga à mesma história, não foi tratado.
+- **Situação:** front-end concluído ([PR #28](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/28)). Depende do back-end.
+
+Nova página pública **Quem somos** (`/quem-somos`), com os blocos Missão, Visão e Valores; cada bloco só aparece quando tem conteúdo. O botão **Saiba mais** da seção "Conheça o IDB Jovem & Teen" da página inicial passou a levar à página — antes ia para o rodapé — e o rodapé ganhou o link "Missão, visão e valores" (navegação clara a partir da página inicial). No painel, a tela **Missão e valores**, só para a superadministradora, edita a missão, a visão e a lista de valores. A missão do rodapé passa a ser a mesma editada no painel.
+
+**Contrato esperado do back-end:** `GET /institucional` (público) e `PUT /institucional` (só superadmin) com `{ missao, visao, valores: [] }`. Enquanto a rota não existir, o site mostra apenas a missão que já estava publicada no rodapé — nenhum texto inventado —, e salvar pelo painel avisa que o servidor ainda não oferece o cadastro.
+
+#### US23 — Calendário com os eventos já ocorridos
+
+- **Requisitos:** RF59, RF13
+- **Situação:** concluída ([PR #28](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/28)).
+
+O calendário da página inicial deixou de descartar os eventos encerrados: navegando para os meses anteriores, eles aparecem no dia em que ocorreram (CA1, CA2). O evento passado aparece em tons de cinza, com a etiqueta **Já aconteceu**, e leva à página do evento; com álbum, o botão vira **Ver fotos** (CA4). O evento em curso continua com a aparência normal, porque o que decide o passado é a data de término (CA3).
+
+**Não dependeu do back-end.** O calendário da página inicial lê `GET /evento/`, que já devolve os eventos passados, e não o `ServicoCalendario`. O achado da QA23 sobre `timeMin=agora` continua valendo para a agenda do Google, mas não afeta este calendário.
+
+#### US03 (revisão, CA1) — Produtos e eventos em telas separadas
+
+- **Requisito:** RF01
+- **Situação:** CA1 concluído ([PR #29](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/29)). CA2 e CA3 (setor Comercial no Keycloak) ficam para depois.
+
+Eventos e produtos já tinham telas e itens de menu próprios; o único lugar que misturava os dois era a página inicial do painel, onde "Produtos Cadastrados" dividia a tela com o calendário de eventos. A página inicial passou a resumir só a agenda, e o resumo da loja é a própria tela **Produtos**. Quem administra apenas a loja entra direto na tela de Produtos, em vez de cair num painel sem nada do seu setor. Esta é a leitura da equipe para "separar a tela de produtos da tela de eventos".
+
+#### US18 — Excluir fotos específicas de um álbum (front-end)
+
+- **Requisitos:** RF55, RF07
+- **Situação:** front-end concluído ([PR #29](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/29)). Depende do back-end.
+
+Os detalhes do evento no painel ganharam a seção **Álbum do evento**, com as fotos e a capa marcada. A superadministradora seleciona uma ou mais fotos, ou todas, e confirma (CA1); o aviso diz que elas somem da galeria, da página do evento e de "Já aconteceram", que as outras fotos continuam e que o arquivo no Drive não é apagado (CA2, CA4, CA6). Excluída a capa, a foto seguinte assume (CA3). O administrador de setor vê o álbum, mas não a opção de excluir (CA5). As linhas de Próximos e Em Andamento da lista de eventos ganharam o atalho **Abrir evento e álbum**: até então, só os eventos anteriores tinham caminho até os detalhes, e um evento em andamento ficava sem acesso ao álbum pelo menu.
+
+**Contrato esperado do back-end:** `POST /evento/{id}/galeria/excluidas` (só superadmin) com `{ "fotos": ["<id do arquivo>", ...] }`, e as fotos excluídas fora de `GET /evento/{id}/galeria` e de `GET /evento/galerias/todas`. Sem a rota, o álbum aparece normalmente e a exclusão avisa que o servidor ainda não oferece a função.
+
+#### Verificação
+
+- **76 testes novos** de Playwright: 32 da US19 e US20, 26 da US22 e US23 e 18 da US03 e US18. A suíte do front-end terminou a sprint com **514 testes passando** no modo da CI, contra o build, sem teste instável.
+- `npx eslint src` sem erros em todos os commits, com os mesmos 15 avisos da `main`.
+- Enquanto o back-end não entra, nenhuma tela quebra: os eventos aparecem como presenciais, os modais de exclusão avisam que não conseguiram conferir as inscrições ou que o servidor não oferece a função, e o site mantém a missão já publicada.
 
 ---
 
@@ -323,7 +388,7 @@ de tela, que precisam de seletor para existir.
 ## Resumo
 
 - *Histórias cobertas pela QA:* 9 — US01, US02, US07, US09, US10, US11, US14, US19 e US23
-- *Total de US concluídas pelos trios:* 3 no back-end até o momento — US10, US11 e US14 ([PR #16](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/16)); as demais a definir ao fim da sprint
+- *Total de US concluídas pelos trios:* 3 no back-end — US10, US11 e US14 ([PR #16](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/16)) — e 6 no front-end pelo Trio 01 — US03 (CA1), US18, US19, US20, US22 e US23 ([PR #27](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/27), [PR #28](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/28) e [PR #29](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/29)); destas, a US23 está completa e as outras cinco aguardam o back-end
 - *Entregas de QA:* 7 (6 do back-end e pipeline, 1 do front-end)
 - *Início da Sprint:* 07/10/2026
 - *Fim da Sprint:* 27/10/2026
@@ -336,3 +401,4 @@ de tela, que precisam de seletor para existir.
 |---|---|---|---|
 | `1.0` | 19/10/2026 | Criação do relatório da Sprint 03 com as entregas de QA do back-end e do pipeline (QA18 a QA24), a correção do defeito da listagem pública e os achados da sprint | [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin) |
 | `1.1` | 26/10/2026 | Registro do back-end das US10, US11 e US14 pelo trio, com a verificação das três histórias e o guia do front-end | [Júlia dos Reis Teixeira Massuda](https://github.com/JuliaReis18), [Filipe Carvalho da Silva](https://github.com/Filipe-002) e [João Rodrigues](https://github.com/JpRodrigues2) |
+| `1.2` | 27/10/2026 | Registro do front-end das US03 (CA1), US18, US19, US20, US22 e US23 pelo Trio 01, com o contrato esperado do back-end em cada história | [Gabriel Lopes de Amorim](https://github.com/BrzGab), [Maria Samara Alves Silva](https://github.com/SamaraAlvess) e [João Vitor Alves Viana](https://github.com/Joaovitor045) |
