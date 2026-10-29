@@ -2,14 +2,6 @@
 
 *Período:* 07/10/2026 a 29/10/2026
 
-> Sprint encerrada, com todas as frentes entregues. Este relatório registra a
-> garantia de qualidade do back-end, do pipeline e do front-end; o back-end das
-> três prioridades da cliente (US10, US11 e US14) e o das US18, US19, US20 e
-> US23; e o front-end de seis histórias pelo Trio 01. Quatro histórias ficaram
-> completas nas duas pontas — US18, US19, US20 e US23 —, três estão com o
-> back-end pronto à espera do front-end, e uma com o front-end à espera do
-> back-end.
-
 ## Entregas da Sprint
 
 | Trio de Desenvolvedores | Qtd. de US | US | Assunto das US |
@@ -549,7 +541,7 @@ Sprint 5 segue reservada só para o que depender de código que ainda não exist
 - *US entregues em uma das pontas:* 5 — US10, US11 e US14 com o back-end pronto ([PR #16](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/16)) e o front-end pendente; US22 com o front-end pronto ([PR #28](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/28)) e o back-end pendente; e a US03, com o CA1 concluído ([PR #29](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/29)) e os CA2 e CA3 fora desta sprint
 - *Trabalho dos trios por ponta:* 7 histórias no back-end — US10, US11 e US14 ([PR #16](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/16)); US19 e US20 ([PR #17](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/17)); US18 e US23 ([PR #18](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/18)) — e 6 no front-end pelo Trio 01 — US03 (CA1), US18, US19, US20, US22 e US23 ([PR #27](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/27), [PR #28](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/28) e [PR #29](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/29))
 - *Entregas de QA:* 9 (6 do back-end e pipeline, 3 do front-end)
-- *Líder da Apresentação*: João Pedro Araújo de Freitas Lyra
+- *Líder da Apresentação*: ***
 - *Início da Sprint:* 07/10/2026
 - *Fim da Sprint:* 29/10/2026
 
