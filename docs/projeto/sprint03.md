@@ -15,6 +15,7 @@
 | [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin) | 9 | US01, US02, US07, US09, US10, US11, US14, US19, US23 | Garantia de qualidade: portões de CI, correção da listagem pública de eventos, contrato das respostas da API, cobertura das integrações com o Google e especificação executável das melhorias validadas com a cliente |
 | [Gabriel Lopes de Amorim](https://github.com/BrzGab), [Maria Samara Alves Silva](https://github.com/SamaraAlvess) e [João Vitor Alves Viana](https://github.com/Joaovitor045) | 6 | US03, US18, US19, US20, US22, US23 | Front-end: separação das telas de produtos e eventos, exclusão de fotos do álbum, eventos online e presenciais, exclusão de evento com inscritos, missão, visão e valores e calendário com os eventos já ocorridos |
 | [Rivadalvio Joaquim da Silva Filho](https://github.com/RivaFilho) | — | RNF05 | Garantia de qualidade do front-end: suíte de telas rodando também em celular Android e iPhone e verificação do painel administrativo em tela pequena |
+| [Luiz Henrique Guimarães Soares](https://github.com/luizh-gsoares), [Daniel dos Santos Barros de Sousa](https://github.com/daniel-de-sousa) | 4 | US18, US19, US20, US23 | Back-End: Exclusão de fotos do álbum, eventos online e presenciais, exclusão de evento com inscritos e calendário com os eventos já ocorridos.|
 
 ---
 
@@ -141,7 +142,7 @@ Voltar para ativo, ou passar a cancelado, limpa a nova data.
 #### US19 — Eventos online e presenciais (front-end)
 
 - **Requisito:** RF56
-- **Situação:** front-end concluído ([PR #27](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/27)). Depende do back-end.
+- **Situação:** front-end concluído ([PR #27](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/27)). back-end concluído ([17](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/17)).
 
 O cadastro de evento ganhou a escolha entre **Presencial** e **Online** (CA1). No online, o mapa dá lugar ao campo do link da transmissão, que pode ser cadastrado depois; no presencial, o cadastro continua igual, com o local obrigatório. Os cards de `/eventos`, o destaque "Em breve" e a página do evento trazem um selo de modalidade, e um filtro **Modalidade** mostra só um dos tipos (CA5). A grade de `/eventos` passou a seguir a ordem das datas — antes seguia a ordem de cadastro —, que é o que o selo e o filtro preservam no lugar de duas seções separadas. O evento online mostra "Evento online" no lugar do endereço e o botão **Assistir à transmissão** quando há link; "Adicionar ao Google Calendar" leva o link como local. Evento sem o campo, como os já cadastrados, é tratado como presencial (CA4).
 
@@ -150,7 +151,7 @@ O cadastro de evento ganhou a escolha entre **Presencial** e **Online** (CA1). N
 #### US20 — Exclusão de evento com inscritos (front-end)
 
 - **Requisito:** defeito QA08, RF13
-- **Situação:** front-end concluído ([PR #27](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/27)). Depende do back-end.
+- **Situação:** front-end concluído ([PR #27](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/27)). back-end concluído ([17](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/17)).
 
 Antes de confirmar a exclusão, o modal mostra quantas inscrições de participantes e de voluntários, atividades da programação e vínculos com convidados saem junto com o evento, e avisa que o evento sai da agenda do Google (A1). A confirmação fica travada enquanto a contagem carrega e enquanto a exclusão roda, contra o clique duplo. Se a contagem falhar, o modal avisa e a exclusão continua possível; se o servidor responder que a agenda do Google falhou, a mensagem dele aparece e o evento continua na lista (A3).
 
@@ -189,6 +190,53 @@ Eventos e produtos já tinham telas e itens de menu próprios; o único lugar qu
 Os detalhes do evento no painel ganharam a seção **Álbum do evento**, com as fotos e a capa marcada. A superadministradora seleciona uma ou mais fotos, ou todas, e confirma (CA1); o aviso diz que elas somem da galeria, da página do evento e de "Já aconteceram", que as outras fotos continuam e que o arquivo no Drive não é apagado (CA2, CA4, CA6). Excluída a capa, a foto seguinte assume (CA3). O administrador de setor vê o álbum, mas não a opção de excluir (CA5). As linhas de Próximos e Em Andamento da lista de eventos ganharam o atalho **Abrir evento e álbum**: até então, só os eventos anteriores tinham caminho até os detalhes, e um evento em andamento ficava sem acesso ao álbum pelo menu.
 
 **Contrato esperado do back-end:** `POST /evento/{id}/galeria/excluidas` (só superadmin) com `{ "fotos": ["<id do arquivo>", ...] }`, e as fotos excluídas fora de `GET /evento/{id}/galeria` e de `GET /evento/galerias/todas`. Sem a rota, o álbum aparece normalmente e a exclusão avisa que o servidor ainda não oferece a função.
+
+
+### Back-end do Trio 02 — US18, US19, US20 e US23
+
+- **Responsáveis:** [Luiz Henrique Guimarães Soares](https://github.com/luizh-gsoares) e [Daniel dos Santos Barros de Sousa](https://github.com/daniel-de-sousa)
+- **Código:** [PR #17](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/17) (US19 e US20) e [PR #18](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/18) (US18 e US23) do back-end.
+- **Atuação:** a dupla trabalhou em conjunto nas quatro histórias, sem divisão por integrante. O back-end implementou os contratos consumidos pelo front-end; as telas não foram alteradas por esta frente.
+
+#### US18 — Excluir fotos específicas de um álbum (back-end)
+ 
+- **Requisitos:** RF55, RF07
+- **Situação:** concluída no PR #18.
+ 
+O back-end passou a persistir as fotos ocultadas de cada álbum na tabela `evento_foto_excluida` (chave composta `evento_id` e `foto_id`, com `ON DELETE CASCADE` para limpar os vínculos caso o evento seja removido). A rota `POST /evento/{evento_id}/galeria/excluidas`, exclusiva da superadministradora (CA5), valida o payload no schema `SolicitacaoFotosExcluidas` — removendo espaços em branco, descartando entradas vazias, deduplicando IDs na mesma requisição e recusando listas vazias com `422` —, registra apenas os IDs ainda não excluídos de forma idempotente e retorna `204 No Content` (CA1).
+ 
+Na leitura pública, tanto `GET /evento/{evento_id}/galeria` quanto `GET /evento/galerias/todas` cruzam os arquivos retornados pelo Google Drive com os IDs registrados no banco e filtram as fotos excluídas antes de devolver a resposta (CA2). Como o site define a capa do álbum como a primeira foto da lista retornada, ocultar a foto de capa promove automaticamente a próxima foto disponível, e ocultar todas deixa o evento sem fotos públicas sem quebrar a listagem (CA3, CA4). Nenhuma chamada de exclusão é feita na API do Google Drive, preservando os arquivos originais na pasta institucional (CA6). Eventos inexistentes respondem `404`, e tentativas por administradores de setor ou usuários sem papel de superadmin são barradas com `403`.
+ 
+**Contrato implementado:** `POST /evento/{evento_id}/galeria/excluidas` (`superadmin`) recebendo `{ "fotos": ["<file_id>", ...] }` → `204 No Content`, com filtragem automática dos IDs excluídos em `GET /evento/{evento_id}/galeria` e `GET /evento/galerias/todas`.
+
+#### US19 — Eventos online e presenciais (back-end)
+
+- **Requisito:** RF56
+- **Situação:** concluída no PR #17, mesclado na `main`.
+
+O evento passou a ter `modalidade` (`presencial` ou `online`) e `link_transmissao`. A migration `f1e2d3c4b5a6` cria as colunas com `modalidade` padrão `presencial`, cobrindo os eventos já cadastrados (CA4). No cadastro e na edição, evento presencial continua exigindo latitude e longitude e ignora o link; evento online dispensa coordenadas, limpa o endereço e usa o link da transmissão como local na agenda do Google. Eventos antigos, sem o campo, são lidos como presenciais. Os dois testes `xfail` da QA23 sobre modalidade passaram a rodar como testes normais.
+
+**Contrato implementado:** `modalidade` e `link_transmissao` na resposta do evento, com coordenadas opcionais no online.
+
+#### US20 — Exclusão de evento com inscritos (back-end)
+
+- **Requisitos:** defeito QA08, RF13
+- **Situação:** concluída no PR #17, mesclado na `main`.
+
+A nova rota `GET /evento/{id}/exclusao`, restrita à superadministradora, devolve a contagem de participantes, voluntários, atividades e vínculos com convidados para o modal de confirmação (A1). O `DELETE /evento/{id}` passou a apagar o evento junto com as inscrições, os vínculos de voluntários, os vínculos com bandas/palestrantes e as atividades, em uma única transação (A2). Como as FKs de `trabalha`, `participa` e `atividade` não têm `ON DELETE CASCADE`, os vínculos são removidos explicitamente. O cadastro de participantes, voluntários e convidados é preservado; só o vínculo com o evento sai.
+
+Para atender à atomicidade (A3), o banco prepara as exclusões e recebe `flush`, depois o evento é removido do Google Agenda e só então o banco recebe `commit`. Se o banco falhar, a agenda não é acionada; se o Google falhar, há `rollback`. Nesses casos a API responde `502` ou `500` com “Nada foi apagado”. Evento sem inscrições continua sendo excluído como antes.
+
+**Contrato implementado:** `GET /evento/{id}/exclusao` (superadmin) e `DELETE /evento/{id}` (superadmin, `204` no sucesso). A US20 não exigiu migration.
+
+#### US23 — Calendário com os eventos já ocorridos (back-end)
+ 
+- **Requisitos:** RF59, RF13
+- **Situação:** concluída no PR #18.
+ 
+O `ServicoCalendario` deixou de filtrar os eventos pelo instante atual na consulta ao Google Calendar (`_montar_url_evento`). Antes, a URL era montada com `timeMin=datetime.now(timezone.utc).isoformat()` e `maxResults=10`, o que impedia qualquer evento encerrado de ser retornado pela API do Google e truncava a listagem em dez itens sem aviso (achado registrado pela QA23). O parâmetro `timeMin` foi removido para preservar o histórico de eventos já ocorridos (CA1 e CA2), e `maxResults` foi elevado para `250` com ordenação por `startTime`. Na conversão (`_converter_evento`), eventos passados continuam sendo transformados normalmente em `RespostaEvento`, e os dois testes de especificação que estavam como `xfail` em `TestCalendarioComEventosPassados` tiveram o marcador removido e passaram a rodar como regressão.
+ 
+**Contrato implementado:** `ServicoCalendario._montar_url_evento()` consulta `GET /calendars/primary/events` sem `timeMin` e com `maxResults=250`, `singleEvents=true` e `orderBy=startTime`, retornando eventos passados, em curso e futuros em `listar_evento()`.
 
 #### Verificação
 
@@ -477,3 +525,4 @@ de tela, que precisam de seletor para existir.
 | `1.1` | 26/10/2026 | Registro do back-end das US10, US11 e US14 pelo trio, com a verificação das três histórias e o guia do front-end | [Júlia dos Reis Teixeira Massuda](https://github.com/JuliaReis18), [Filipe Carvalho da Silva](https://github.com/Filipe-002) e [João Rodrigues](https://github.com/JpRodrigues2) |
 | `1.2` | 27/10/2026 | Registro do front-end das US03 (CA1), US18, US19, US20, US22 e US23 pelo Trio 01, com o contrato esperado do back-end em cada história | [Gabriel Lopes de Amorim](https://github.com/BrzGab), [Maria Samara Alves Silva](https://github.com/SamaraAlvess) e [João Vitor Alves Viana](https://github.com/Joaovitor045) |
 | `1.3` | 28/10/2026 | Registro das entregas de QA do front-end em tela pequena (QA25 e QA31): projetos móveis no Playwright, verificação do painel no celular e os três defeitos encontrados | [Rivadalvio Joaquim da Silva Filho](https://github.com/RivaFilho) |
+| `1.4` | 28/10/2026 | Registro da dupla do Back-end | [Daniel dos Santos Barros de Sousa](https://github.com/daniel-de-sousa) |
