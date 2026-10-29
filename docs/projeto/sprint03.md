@@ -568,7 +568,7 @@ de código que ainda não existe.
 - *Trabalho dos trios por ponta:* 7 histórias no back-end — US10, US11 e US14 ([PR #16](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/16)); US19 e US20 ([PR #17](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/17)); US18 e US23 ([PR #18](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/18)) — e 9 no front-end: US10, US11 e US14 pelo Trio 02, e US03 (CA1), US18, US19, US20, US22 e US23 pelo Trio 01
 - *Histórias cobertas pela QA:* 18 e o RNF05 — US01, US02, US07, US09, US10, US11, US14, US19 e US23 no back-end; e, no front-end, toda história com tela, porque a suíte inteira passou a rodar também em Android e iPhone: US01 a US09, US15, US18, US19, US20, US22 e US23
 - *Entregas de QA:* 9 — QA18 a QA23 no back-end e na sua esteira e QA24 no pipeline do front-end, por [João Pedro](https://github.com/Jadequilin); QA25 e QA31 nos testes de tela em celular, por [Rivadalvio](https://github.com/RivaFilho)
-- *Líder da Apresentação*: a definir
+- *Líder da Apresentação*: Gabriel Lopes de Amorim
 - *Início da Sprint:* 07/10/2026
 - *Fim da Sprint:* 29/10/2026
 
@@ -584,3 +584,4 @@ de código que ainda não existe.
 | `1.3` | 28/10/2026 | Registro das entregas de QA do front-end em tela pequena (QA25 e QA31): projetos móveis no Playwright, verificação do painel no celular e os três defeitos encontrados | [Rivadalvio Joaquim da Silva Filho](https://github.com/RivaFilho) |
 | `1.4` | 28/10/2026 | Registro da dupla do Back-end | [Daniel dos Santos Barros de Sousa](https://github.com/daniel-de-sousa) |
 | `1.5` | 28/10/2026 | Fechamento do relatório da Sprint 3: correção dos números da QA18 a QA24 (83 testes novos, não 64; 15 na QA22); registro de que os trios converteram 12 dos 14 `xfail` da QA23 em regressão ao entregar as histórias; dupla de QA reunida numa linha, como nas Sprints 1 e 2, com as 18 histórias que a suíte passou a cobrir em celular; resumo refeito (7 histórias completas nas duas pontas); data de fim corrigida para 29/10/2026; e a situação da US18 no front-end deixando de dizer que depende do back-end, já entregue | [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin) |
+| `1.6` | 28/10/2026 | Registro do líder da apresentação da Sprint 3 | [Gabriel Lopes de Amorim](https://github.com/BrzGab) |
