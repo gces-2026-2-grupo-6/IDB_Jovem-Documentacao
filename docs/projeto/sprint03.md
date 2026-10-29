@@ -14,6 +14,7 @@
 | [Júlia dos Reis Teixeira Massuda](https://github.com/JuliaReis18), [Filipe Carvalho da Silva](https://github.com/Filipe-002) e [João Rodrigues](https://github.com/JpRodrigues2) | 3 | US10, US11, US14 | Back-end das três prioridades da cliente: cargo único e links fixados no painel, materiais para download e evento cancelado ou adiado |
 | [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin) | 9 | US01, US02, US07, US09, US10, US11, US14, US19, US23 | Garantia de qualidade: portões de CI, correção da listagem pública de eventos, contrato das respostas da API, cobertura das integrações com o Google e especificação executável das melhorias validadas com a cliente |
 | [Gabriel Lopes de Amorim](https://github.com/BrzGab), [Maria Samara Alves Silva](https://github.com/SamaraAlvess) e [João Vitor Alves Viana](https://github.com/Joaovitor045) | 6 | US03, US18, US19, US20, US22, US23 | Front-end: separação das telas de produtos e eventos, exclusão de fotos do álbum, eventos online e presenciais, exclusão de evento com inscritos, missão, visão e valores e calendário com os eventos já ocorridos |
+| [Davi Emanuel Ribeiro de Oliveira](https://github.com/daviRolvr), [João Pedro Ferreira Moraes](https://github.com/JoaoPedro2206) e [Renan Vieira Guedes](https://github.com/R-enanVieira) | 3 | US10, US11, US14 | Front-end das três prioridades da cliente: links fixados no painel e recusa de cargo ocupado, área de materiais para download e aviso de evento cancelado ou adiado |
 | [Rivadalvio Joaquim da Silva Filho](https://github.com/RivaFilho) | — | RNF05 | Garantia de qualidade do front-end: suíte de telas rodando também em celular Android e iPhone e verificação do painel administrativo em tela pequena |
 | [Luiz Henrique Guimarães Soares](https://github.com/luizh-gsoares), [Daniel dos Santos Barros de Sousa](https://github.com/daniel-de-sousa) | 4 | US18, US19, US20, US23 | Back-End: Exclusão de fotos do álbum, eventos online e presenciais, exclusão de evento com inscritos e calendário com os eventos já ocorridos.|
 
@@ -46,7 +47,7 @@ foi verificado antes da correção: a mudança não quebra tela nenhuma.
 
 - **Requisitos:** RF53, RF58
 - **Responsáveis:** [Júlia dos Reis Teixeira Massuda](https://github.com/JuliaReis18), [Filipe Carvalho da Silva](https://github.com/Filipe-002) e [João Rodrigues](https://github.com/JpRodrigues2)
-- **Situação:** back-end concluído ([PR #16](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/16)). Falta o front-end — ver o [Guia do Front-end](guia_front_us10_us11_us14.md).
+- **Situação:** back-end e front-end concluídos ([PR #16](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/16) e [Front-end](front_us10_us11_us14.md)).
 
 O cadastro dos mais de 2500 líderes fica fora do site, num formulário
 externo cujas respostas vão para uma planilha. O site só precisa fixar os
@@ -75,7 +76,7 @@ cadastro.
 
 - **Requisito:** RF54
 - **Responsáveis:** [Júlia dos Reis Teixeira Massuda](https://github.com/JuliaReis18), [Filipe Carvalho da Silva](https://github.com/Filipe-002) e [João Rodrigues](https://github.com/JpRodrigues2)
-- **Situação:** back-end concluído ([PR #16](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/16)). Falta o front-end — ver o [Guia do Front-end](guia_front_us10_us11_us14.md).
+- **Situação:** back-end e front-end concluídos ([PR #16](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/16) e [Front-end](front_us10_us11_us14.md)).
 
 **Cadastro de materiais.** O módulo novo `material` guarda título, tipo
 (foto, vídeo ou documento), descrição e o link do arquivo no Drive — o
@@ -101,7 +102,7 @@ para esse campo.
 
 - **Requisito:** RF12
 - **Responsáveis:** [Júlia dos Reis Teixeira Massuda](https://github.com/JuliaReis18), [Filipe Carvalho da Silva](https://github.com/Filipe-002) e [João Rodrigues](https://github.com/JpRodrigues2)
-- **Situação:** back-end concluído ([PR #16](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/16)). Falta o front-end — ver o [Guia do Front-end](guia_front_us10_us11_us14.md).
+- **Situação:** back-end e front-end concluídos ([PR #16](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/16) e [Front-end](front_us10_us11_us14.md)).
 
 O evento ganhou `situacao` (ativo, cancelado ou adiado) e `nova_data`,
 opcional e válida só para o adiado (CA4). A marcação e o desfazer são feitos
@@ -117,6 +118,40 @@ fonte da verdade.
 Um cuidado do PUT completo: um formulário que edita só a descrição de um
 evento adiado, sem enviar a situação, **preserva** o adiamento e a nova data.
 Voltar para ativo, ou passar a cancelado, limpa a nova data.
+
+
+### Front-end das três prioridades (US10, US11 e US14)
+
+- **Requisitos:** RF53, RF58, RF54 e RF12
+- **Responsáveis:** [Davi Emanuel Ribeiro de Oliveira](https://github.com/daviRolvr), [João Pedro Ferreira Moraes](https://github.com/JoaoPedro2206) e [Renan Vieira Guedes](https://github.com/R-enanVieira)
+- **Situação:** concluído. Detalhamento e as 12 tarefas de cada história em [Front-end — US10, US11 e US14](front_us10_us11_us14.md).
+
+As três histórias tinham o servidor pronto e nenhuma tela. O trio integrou as
+rotas publicadas no [Guia do Front-end](guia_front_us10_us11_us14.md), sem
+alterar o back-end.
+
+**US10.** Os dois links passaram a ficar fixados na página inicial do painel,
+com abrir, copiar e trocar — e, para quem não é superadministradora, o card não
+aparece **e a rota não é chamada**: a planilha reúne dados pessoais de mais de
+2500 líderes. A recusa 409 de cargo ocupado é exibida no próprio formulário,
+preservando o que foi digitado, porque a correção é trocar o cargo ou marcar o
+antecessor como diretor anterior.
+
+**US11.** A área pública `/materiais` foi criada do zero, aberta sem login,
+com filtro por tipo. O botão "Baixar" aponta para o `url_download` que o back-end
+entrega pronto; link externo abre em nova aba, porque ali não há arquivo nosso
+para entregar. O mesmo botão entrou em toda foto das galerias. O painel de
+materiais é exclusivo da superadministradora.
+
+**US14.** O aviso de cancelado ou adiado aparece nas quatro telas públicas, com
+o texto decidido num lugar só, e os botões de inscrição somem enquanto durar a
+situação. O evento marcado continua nas listas — esconder tiraria do visitante
+justamente o aviso. No painel, a marcação é uma ação isolada, que salva sozinha
+e não passa pelo formulário do evento.
+
+**Verificação:** 46 testes E2E novos, suíte completa em 477 passando. O mock de
+API ganhou as rotas novas, o `url_download` por foto e a recusa 409 por cargo
+ocupado, de modo que a regra fica exercitada e não apenas descrita.
 
 ### Verificação das três histórias
 
