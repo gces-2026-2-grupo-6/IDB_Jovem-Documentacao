@@ -542,6 +542,90 @@
   
   
     <li class="md-nav__item">
+      <a href="../sprint03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sprint 03
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guia_front_us10_us11_us14.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guia do Front-end (US10, US11, US14)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../front_us10_us11_us14.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Front-end (US10, US11, US14)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../sprints/" class="md-nav__link">
         
   
@@ -717,6 +801,17 @@
     <span class="md-ellipsis">
       
         Impacto na implementação da US03
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rotas-novas-da-sprint-3-us10-us11-e-us14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rotas novas da Sprint 3 — US10, US11 e US14
       
     </span>
   </a>
@@ -983,6 +1078,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#rotas-novas-da-sprint-3-us10-us11-e-us14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rotas novas da Sprint 3 — US10, US11 e US14
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#historico-de-versao" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1236,6 +1342,87 @@
 </ul>
 <p>A alteração ocorre em três camadas — configuração do Keycloak, guardas de rota no front-end e validação no back-end. Esta matriz cobre apenas a terceira. A verificação da camada de interface é entrega do QA-2.</p>
 <hr />
+<p><a name="sprint3"></a></p>
+<h2 id="rotas-novas-da-sprint-3-us10-us11-e-us14">Rotas novas da Sprint 3 — US10, US11 e US14<a class="headerlink" href="#rotas-novas-da-sprint-3-us10-us11-e-us14" title="Permanent link">&para;</a></h2>
+<p>Registradas na <code>MATRIZ</code> de <code>tests/unit/test_matriz_rotas.py</code>, que lê as guardas
+das próprias rotas da aplicação (<a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/16">PR #16</a>).</p>
+<table>
+<thead>
+<tr>
+<th>Módulo</th>
+<th>Rota</th>
+<th>Método</th>
+<th>Exigência</th>
+<th>Motivo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Painel</td>
+<td><code>/painel/links</code></td>
+<td>GET</td>
+<td><code>superadmin</code></td>
+<td>US10: a planilha tem dados pessoais de mais de 2500 líderes, então até a leitura é restrita</td>
+</tr>
+<tr>
+<td>Painel</td>
+<td><code>/painel/links</code></td>
+<td>PUT</td>
+<td><code>superadmin</code></td>
+<td>US10: só a superadministradora troca os links fixados</td>
+</tr>
+<tr>
+<td>Material</td>
+<td><code>/material/</code></td>
+<td>GET</td>
+<td>Pública</td>
+<td>US11: "todas as pessoas podem baixar, sem login"</td>
+</tr>
+<tr>
+<td>Material</td>
+<td><code>/material/{material_id}</code></td>
+<td>GET</td>
+<td>Pública</td>
+<td>US11</td>
+</tr>
+<tr>
+<td>Material</td>
+<td><code>/material/</code></td>
+<td>POST</td>
+<td><code>superadmin</code></td>
+<td>US11: "só o superadmin envia"</td>
+</tr>
+<tr>
+<td>Material</td>
+<td><code>/material/{material_id}</code></td>
+<td>PUT</td>
+<td><code>superadmin</code></td>
+<td>US11</td>
+</tr>
+<tr>
+<td>Material</td>
+<td><code>/material/{material_id}</code></td>
+<td>DELETE</td>
+<td><code>superadmin</code></td>
+<td>Toda exclusão exige superadmin</td>
+</tr>
+<tr>
+<td>Drive</td>
+<td><code>/drive/download/{file_id}</code></td>
+<td>GET</td>
+<td>Pública</td>
+<td>US11: download aberto. A rota só entrega imagem ou arquivo cadastrado como material; o resto responde 404</td>
+</tr>
+<tr>
+<td>Evento</td>
+<td><code>/evento/{evento_id}/situacao</code></td>
+<td>PATCH</td>
+<td>Setor de eventos</td>
+<td>US14: cancelar, adiar ou desfazer é edição do evento, não exclusão</td>
+</tr>
+</tbody>
+</table>
+<hr />
 <h2 id="historico-de-versao">Histórico de Versão<a class="headerlink" href="#historico-de-versao" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -1252,6 +1439,12 @@
 <td>01/09/2026</td>
 <td>Criação da matriz e registro das lacunas da auditoria</td>
 <td><a href="https://github.com/Jadequilin">João Pedro</a></td>
+</tr>
+<tr>
+<td><code>1.1</code></td>
+<td>26/10/2026</td>
+<td>Registro das rotas novas da Sprint 3 (US10, US11 e US14)</td>
+<td><a href="https://github.com/JuliaReis18">Júlia dos Reis Teixeira Massuda</a>, <a href="https://github.com/Filipe-002">Filipe Carvalho da Silva</a> e <a href="https://github.com/JpRodrigues2">João Rodrigues</a></td>
 </tr>
 </tbody>
 </table>
