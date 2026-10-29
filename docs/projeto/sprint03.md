@@ -17,6 +17,10 @@
 | [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin) / [Rivadalvio Joaquim da Silva Filho](https://github.com/RivaFilho) | 18 | US01, US02, US03, US04, US05, US06, US07, US08, US09, US10, US11, US14, US15, US18, US19, US20, US22, US23 e RNF05 | Garantia de qualidade: portões de CI, correção da listagem pública de eventos, contrato das respostas da API, cobertura das integrações com o Google e especificação executável das melhorias validadas com a cliente (US10, US11, US14, US19 e US23); no front-end, a suíte inteira de telas passou a rodar também em celular Android e iPhone — incluindo os testes das histórias entregues nesta sprint — e o painel administrativo foi verificado em tela pequena (RNF05) |
 | [Gabriel Lopes de Amorim](https://github.com/BrzGab), [Maria Samara Alves Silva](https://github.com/SamaraAlvess) e [João Vitor Alves Viana](https://github.com/Joaovitor045) | 6 | US03, US18, US19, US20, US22, US23 | Front-end: separação das telas de produtos e eventos, exclusão de fotos do álbum, eventos online e presenciais, exclusão de evento com inscritos, missão, visão e valores e calendário com os eventos já ocorridos |
 | [Davi Emanuel Ribeiro de Oliveira](https://github.com/daviRolvr), [João Pedro Ferreira Moraes](https://github.com/JoaoPedro2206) e [Renan Vieira Guedes](https://github.com/R-enanVieira) | 3 | US10, US11, US14 | Front-end das três prioridades da cliente: links fixados no painel e recusa de cargo ocupado, área de materiais para download e aviso de evento cancelado ou adiado |
+<<<<<<< HEAD
+=======
+| [Rivadalvio Joaquim da Silva Filho](https://github.com/RivaFilho) | — | RNF05 | Garantia de qualidade do front-end: suíte de telas rodando também em celular Android e iPhone e verificação do painel administrativo em tela pequena |
+>>>>>>> 33a3067ebd7cfb0b4b8c5138fd25ad607a582f81
 | [Luiz Henrique Guimarães Soares](https://github.com/luizh-gsoares), [Daniel dos Santos Barros de Sousa](https://github.com/daniel-de-sousa) | 4 | US18, US19, US20, US23 | Back-End: Exclusão de fotos do álbum, eventos online e presenciais, exclusão de evento com inscritos e calendário com os eventos já ocorridos.|
 
 ---
