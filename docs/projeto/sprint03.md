@@ -1,20 +1,22 @@
 # Sprint 03
 
-*Período:* 07/10/2026 a 27/10/2026
+*Período:* 07/10/2026 a 29/10/2026
 
-> Sprint em andamento. Este relatório registra as entregas de garantia de
-> qualidade do back-end e do pipeline e o back-end das três prioridades da
-> cliente (US10, US11 e US14). As entregas dos demais trios serão
-> acrescentadas à medida que forem concluídas.
+> Sprint encerrada, com todas as frentes entregues. Este relatório registra a
+> garantia de qualidade do back-end, do pipeline e do front-end; o back-end das
+> três prioridades da cliente (US10, US11 e US14) e o das US18, US19, US20 e
+> US23; e o front-end de seis histórias pelo Trio 01. Quatro histórias ficaram
+> completas nas duas pontas — US18, US19, US20 e US23 —, três estão com o
+> back-end pronto à espera do front-end, e uma com o front-end à espera do
+> back-end.
 
 ## Entregas da Sprint
 
 | Trio de Desenvolvedores | Qtd. de US | US | Assunto das US |
 |---|---:|---|---|
 | [Júlia dos Reis Teixeira Massuda](https://github.com/JuliaReis18), [Filipe Carvalho da Silva](https://github.com/Filipe-002) e [João Rodrigues](https://github.com/JpRodrigues2) | 3 | US10, US11, US14 | Back-end das três prioridades da cliente: cargo único e links fixados no painel, materiais para download e evento cancelado ou adiado |
-| [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin) | 9 | US01, US02, US07, US09, US10, US11, US14, US19, US23 | Garantia de qualidade: portões de CI, correção da listagem pública de eventos, contrato das respostas da API, cobertura das integrações com o Google e especificação executável das melhorias validadas com a cliente |
+| [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin) / [Rivadalvio Joaquim da Silva Filho](https://github.com/RivaFilho) | 18 | US01, US02, US03, US04, US05, US06, US07, US08, US09, US10, US11, US14, US15, US18, US19, US20, US22, US23 e RNF05 | Garantia de qualidade: portões de CI, correção da listagem pública de eventos, contrato das respostas da API, cobertura das integrações com o Google e especificação executável das melhorias validadas com a cliente (US10, US11, US14, US19 e US23); no front-end, a suíte inteira de telas passou a rodar também em celular Android e iPhone — incluindo os testes das histórias entregues nesta sprint — e o painel administrativo foi verificado em tela pequena (RNF05) |
 | [Gabriel Lopes de Amorim](https://github.com/BrzGab), [Maria Samara Alves Silva](https://github.com/SamaraAlvess) e [João Vitor Alves Viana](https://github.com/Joaovitor045) | 6 | US03, US18, US19, US20, US22, US23 | Front-end: separação das telas de produtos e eventos, exclusão de fotos do álbum, eventos online e presenciais, exclusão de evento com inscritos, missão, visão e valores e calendário com os eventos já ocorridos |
-| [Rivadalvio Joaquim da Silva Filho](https://github.com/RivaFilho) | — | RNF05 | Garantia de qualidade do front-end: suíte de telas rodando também em celular Android e iPhone e verificação do painel administrativo em tela pequena |
 | [Luiz Henrique Guimarães Soares](https://github.com/luizh-gsoares), [Daniel dos Santos Barros de Sousa](https://github.com/daniel-de-sousa) | 4 | US18, US19, US20, US23 | Back-End: Exclusão de fotos do álbum, eventos online e presenciais, exclusão de evento com inscritos e calendário com os eventos já ocorridos.|
 
 ---
@@ -185,7 +187,7 @@ Eventos e produtos já tinham telas e itens de menu próprios; o único lugar qu
 #### US18 — Excluir fotos específicas de um álbum (front-end)
 
 - **Requisitos:** RF55, RF07
-- **Situação:** front-end concluído ([PR #29](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/29)). Depende do back-end.
+- **Situação:** concluída — front-end no [PR #29](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/29) e back-end no [PR #18](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/18), mesclado em 28/10/2026.
 
 Os detalhes do evento no painel ganharam a seção **Álbum do evento**, com as fotos e a capa marcada. A superadministradora seleciona uma ou mais fotos, ou todas, e confirma (CA1); o aviso diz que elas somem da galeria, da página do evento e de "Já aconteceram", que as outras fotos continuam e que o arquivo no Drive não é apagado (CA2, CA4, CA6). Excluída a capa, a foto seguinte assume (CA3). O administrador de setor vê o álbum, mas não a opção de excluir (CA5). As linhas de Próximos e Em Andamento da lista de eventos ganharam o atalho **Abrir evento e álbum**: até então, só os eventos anteriores tinham caminho até os detalhes, e um evento em andamento ficava sem acesso ao álbum pelo menu.
 
@@ -257,12 +259,13 @@ O `ServicoCalendario` deixou de filtrar os eventos pelo instante atual na consul
 | QA22 | Busca de evento por nome verificada contra o Postgres | US01 | [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin) | Concluído |
 | QA23 | Especificação executável das melhorias validadas com a cliente | US10, US11, US14, US19, US23 | [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin) | Concluído |
 | QA24 | Testes end-to-end do front-end executados contra o build publicado | Processo | [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin) | Concluído |
-| QA25 | Projetos móveis no Playwright: a suíte de telas rodando em Android e iPhone | RNF05 | [Rivadalvio Joaquim da Silva Filho](https://github.com/RivaFilho) | Concluído |
-| QA31 | Painel administrativo verificado em tela pequena | RNF05 | [Rivadalvio Joaquim da Silva Filho](https://github.com/RivaFilho) | Concluído |
+| QA25 | Projetos móveis no Playwright: a suíte de telas rodando em Android e iPhone | RNF05 · toda a suíte de telas, e com ela todas as US com tela | [Rivadalvio Joaquim da Silva Filho](https://github.com/RivaFilho) | Concluído |
+| QA31 | Painel administrativo verificado em tela pequena | RNF05 · US03, US05, US06, US09, US22 | [Rivadalvio Joaquim da Silva Filho](https://github.com/RivaFilho) | Concluído |
 
-**Resultados.** 64 testes novos no back-end e 1 defeito de severidade alta
-corrigido. A suíte foi de 698 para 762 testes, com 15 `xfailed` — 2 defeitos
-abertos da Sprint 2 e 13 regras ainda sem implementação, registradas de
+**Resultados.** 83 testes novos no back-end e 1 defeito de severidade alta
+corrigido. A suíte foi de 725 para 808 testes coletados: 762 passam na suíte
+rápida, 31 são de endpoint e rodam no job com Postgres, e 15 eram `xfailed` — 2
+defeitos abertos da Sprint 2 e 13 regras então sem implementação, registradas de
 propósito. Cobertura em 99,23% com piso de 97% exigido pela CI, e pylint em
 9,86 com piso de 9,5. No front-end, os testes end-to-end passaram a rodar
 contra o artefato publicado: 436 testes, sem falha e sem teste instável.
@@ -324,7 +327,7 @@ existe: a consulta aparece como coberta no relatório e **nunca é executada**.
 Trocar o limiar, o operador ou o nome da coluna passava por todos os testes e
 só quebraria na primeira busca em produção.
 
-Os 13 testes novos exercitam a rota contra o Postgres de verdade, no job que já
+Os 15 testes novos exercitam a rota contra o Postgres de verdade, no job que já
 sobe banco e aplicação em container: variações de grafia, curingas (`%%`, `__`,
 aspas, tentativa de injeção) tratados como texto e o contrato de tamanho mínimo
 do termo. Ficam marcados com `endpoint`, fora da suíte rápida.
@@ -332,9 +335,9 @@ do termo. Ficam marcados com `endpoint`, fora da suíte rápida.
 ### QA23 — Especificação executável das melhorias
 
 As regras aceitas na reunião de 06/10/2026 entraram no
-[backlog de melhorias](backlog_melhorias.md) e ainda não têm código. Em vez de
-esperar a entrega dos trios para só então escrever teste, cada regra foi
-registrada agora, de uma das duas formas:
+[backlog de melhorias](backlog_melhorias.md) e, quando esta entrega foi escrita,
+ainda não tinham código. Em vez de esperar os trios para só então escrever
+teste, cada regra foi registrada de uma das duas formas:
 
 - **`xfail(strict=True)`** para o que o sistema ainda não faz. Hoje falha como
   esperado e não suja a suíte. No dia em que a implementação entrar, o pytest
@@ -356,10 +359,25 @@ São 18 testes: 13 `xfail` e 5 verdes, cobrindo
 por abrangência) e [US23](backlog_melhorias.md#us23)/[RF59](backlog_melhorias.md#rf59)
 (calendário com eventos passados).
 
-Nenhum nome de campo foi combinado com os trios ainda, então cada regra aceita
-qualquer um dos nomes plausíveis. Quem implementar com um nome fora da lista
-acrescenta-o na própria PR — e a revisão fica sabendo que o contrato público da
-API mudou.
+Nenhum nome de campo tinha sido combinado com os trios, então cada regra aceita
+qualquer um dos nomes plausíveis. Quem implementasse com um nome fora da lista
+acrescentaria o escolhido na própria PR — e a revisão ficaria sabendo que o
+contrato público da API mudou.
+
+**O que aconteceu depois (28/10/2026).** Os trios entregaram as cinco histórias
+entre 26 e 28 de outubro — US10, US11 e US14 na
+[PR #16](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/16), US19
+e US20 na [PR #17](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/17),
+US18 e US23 na [PR #18](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/18) —
+e, ao fazê-lo, **removeram 12 dos 14 marcadores `xfail` do arquivo**, mantendo as
+asserções intactas. As regras combinadas com a cliente passaram a ser testes de
+regressão comuns, no mesmo commit que trouxe o código.
+
+Vale registrar que os campos saíram com os nomes previstos — `modalidade`,
+`situacao` e `url_download` —, então nenhuma regra precisou ser renegociada na
+revisão. O ciclo completo, da anotação da reunião ao teste verde, foi: regra
+registrada no backlog em 18/10, escrita como teste em 19/10, implementada e
+convertida em regressão entre 26 e 28/10.
 
 Ficaram fora de propósito os dois links fixados da US10: são conteúdo da página
 inicial do painel, nenhuma rota os serve, e inventar uma API aqui amarraria o
@@ -429,6 +447,14 @@ no código:
   (`hidden sm:block`). Só a checagem é pulada; o resto do teste continua
   rodando.
 
+Como os projetos móveis rodam a suíte inteira, sem exclusão de arquivo, as
+histórias entregues nesta mesma sprint passaram a ser verificadas em celular na
+semana em que entraram: `admin/us03-us18.spec.js`,
+`admin/us19-us20-eventos.spec.js`, `public/us19-modalidade.spec.js`,
+`admin/us22-institucional.spec.js`, `public/us22-quem-somos.spec.js` e
+`public/us23-calendario-passado.spec.js` rodam hoje nos três projetos — desktop,
+Android e iPhone.
+
 **Os projetos móveis revelaram um defeito real:** no celular, as opções do
 status do voluntário abrem fora da tela
 ([issue #24](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/issues/24)).
@@ -494,26 +520,38 @@ defeito do status corrigido temporariamente —, e falhou nos três casos.
 
 ### Ajuste em relação ao plano
 
-O plano de QA previa começar a sprint pelos testes das histórias novas. Os
-trios ainda não entregaram o código de US10, US11, US14, US19 e US23, e a
-equipe optou por não ficar parada: as regras já validadas com a cliente viraram
-especificação executável (QA23), e o esforço restante foi para o que não depende
-de ninguém — os portões de CI, o defeito já registrado, o contrato das respostas
-e as lacunas que a revisão por mutação da Sprint 2 havia exposto.
+O plano de QA previa começar a sprint pelos testes das histórias novas. Na
+primeira metade da sprint os trios ainda não tinham entregue o código de US10,
+US11, US14, US19 e US23, e a equipe optou por não ficar parada: as regras já
+validadas com a cliente viraram especificação executável (QA23), e o esforço
+restante foi para o que não depende de ninguém — os portões de CI, o defeito já
+registrado, o contrato das respostas e as lacunas que a revisão por mutação da
+Sprint 2 havia exposto.
 
-Isso também muda o que vai para a Sprint 5: ficam reservados para lá apenas os
-itens que dependem de código que ainda não existe — os testes de ponta a ponta
-de tela, que precisam de seletor para existir.
+A escolha se pagou na segunda metade. Entre 26 e 28 de outubro as entregas
+chegaram em bloco — sete histórias no back-end e seis no front-end — e a
+verificação não precisou ser escrita do zero: os testes já existiam, e os trios
+converteram 12 dos 14 `xfail` em regressão no mesmo commit que trouxe o código.
+Os projetos móveis da QA25, mesclados em 28/10, já rodaram sobre essas
+histórias novas.
+
+Para a Sprint 4 fica o que a entrega em bloco deixou em aberto: o front-end de
+US10, US11 e US14, o back-end da US22 e os CA2 e CA3 da US03 — e, do lado da
+QA, os testes de tela dessas histórias assim que as pontas se encontrarem. A
+Sprint 5 segue reservada só para o que depender de código que ainda não existe.
 
 ---
 
 ## Resumo
 
-- *Histórias cobertas pela QA:* 9 — US01, US02, US07, US09, US10, US11, US14, US19 e US23
-- *Total de US concluídas pelos trios:* 3 no back-end — US10, US11 e US14 ([PR #16](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/16)) — e 6 no front-end pelo Trio 01 — US03 (CA1), US18, US19, US20, US22 e US23 ([PR #27](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/27), [PR #28](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/28) e [PR #29](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/29)); destas, a US23 está completa e as outras cinco aguardam o back-end
+- *Histórias cobertas pela QA:* 18 e o RNF05 — US01, US02, US07, US09, US10, US11, US14, US19 e US23 no back-end; e, no front-end, toda história com tela, porque a suíte inteira passou a rodar também em Android e iPhone: US01 a US09, US15, US18, US19, US20, US22 e US23
+- *US completas nas duas pontas:* 4 — US18, US19, US20 e US23
+- *US entregues em uma das pontas:* 5 — US10, US11 e US14 com o back-end pronto ([PR #16](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/16)) e o front-end pendente; US22 com o front-end pronto ([PR #28](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/28)) e o back-end pendente; e a US03, com o CA1 concluído ([PR #29](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/29)) e os CA2 e CA3 fora desta sprint
+- *Trabalho dos trios por ponta:* 7 histórias no back-end — US10, US11 e US14 ([PR #16](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/16)); US19 e US20 ([PR #17](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/17)); US18 e US23 ([PR #18](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/18)) — e 6 no front-end pelo Trio 01 — US03 (CA1), US18, US19, US20, US22 e US23 ([PR #27](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/27), [PR #28](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/28) e [PR #29](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/29))
 - *Entregas de QA:* 9 (6 do back-end e pipeline, 3 do front-end)
+- *Líder da Apresentação*: João Pedro Araújo de Freitas Lyra
 - *Início da Sprint:* 07/10/2026
-- *Fim da Sprint:* 27/10/2026
+- *Fim da Sprint:* 29/10/2026
 
 ---
 
@@ -526,3 +564,7 @@ de tela, que precisam de seletor para existir.
 | `1.2` | 27/10/2026 | Registro do front-end das US03 (CA1), US18, US19, US20, US22 e US23 pelo Trio 01, com o contrato esperado do back-end em cada história | [Gabriel Lopes de Amorim](https://github.com/BrzGab), [Maria Samara Alves Silva](https://github.com/SamaraAlvess) e [João Vitor Alves Viana](https://github.com/Joaovitor045) |
 | `1.3` | 28/10/2026 | Registro das entregas de QA do front-end em tela pequena (QA25 e QA31): projetos móveis no Playwright, verificação do painel no celular e os três defeitos encontrados | [Rivadalvio Joaquim da Silva Filho](https://github.com/RivaFilho) |
 | `1.4` | 28/10/2026 | Registro da dupla do Back-end | [Daniel dos Santos Barros de Sousa](https://github.com/daniel-de-sousa) |
+| `1.5` | 28/10/2026 | Correção dos números da QA18 a QA24 (83 testes novos, não 64; suíte de 725 para 808 coletados; 15 testes na QA22); registro de que os trios converteram 12 dos 14 `xfail` da QA23 em testes de regressão ao entregar as histórias; e reunião da dupla de QA numa linha só na tabela de entregas, como nas Sprints 1 e 2 | [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin) e [Rivadalvio Joaquim da Silva Filho](https://github.com/RivaFilho) |
+| `1.6` | 28/10/2026 | Acerto do resumo depois das PRs #17 e #18 do back-end: US18, US19, US20 e US23 passam a constar como completas nas duas pontas, e a situação da US18 no front deixa de dizer que depende do back-end; registro do líder da apresentação | [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin) |
+| `1.7` | 28/10/2026 | Fechamento do relatório: nota de abertura reescrita para sprint encerrada, e os trechos escritos no meio da sprint (QA23 e ajuste em relação ao plano) atualizados para o que de fato aconteceu até 28/10 | [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin) |
+| `1.8` | 28/10/2026 | Correção da data de fim da sprint para 29/10/2026, no cabeçalho e no resumo | [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin) |
