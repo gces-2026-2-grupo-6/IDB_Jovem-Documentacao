@@ -8,6 +8,7 @@
 |---|---:|---|---|
 | [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin) / [Rivadalvio Joaquim da Silva Filho](https://github.com/RivaFilho) | 5 | US01, US02, US11, US14 e US19 | Garantia de qualidade: testes com Selenium contra o que o servidor entrega e contra a produção publicada, três amarrações de Selenium no pipeline, duas sessões de testes exploratórios com seis achados e a correção dos dois defeitos de severidade alta encontrados |
 | [Gabriel Lopes de Amorim](https://github.com/BrzGab) | 10 | US02, US03, US04, US05, US07, US18, US19, US20, US22 e US23 | Testes funcionais com Selenium sobre a pilha real — front logado pelo Keycloak, back-end e banco de verdade —, com ambiente em contêiner e três defeitos de integração registrados ([PR #31](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/31)) |
+| [Davi Emanuel Ribeiro de Oliveira](https://github.com/daviRolvr), [João Pedro Ferreira Moraes](https://github.com/JoaoPedro2206) e [Renan Vieira Guedes](https://github.com/R-enanVieira) | 7 | RF51, US13, US16, US08, US02, US09 e US14 | Front-end: histórico de participações por convidado, duplicação de evento, acessibilidade e leitor de tela, e card de compartilhamento por evento. Mais três correções de defeitos que estavam em produção: campos do evento descartados em silêncio, opções de status inalcançáveis no celular e a página inicial anunciando como "próximo" um evento já encerrado |
 
 > As demais linhas desta tabela são preenchidas por cada trio ao registrar sua
 > entrega, como nas sprints anteriores.
@@ -264,6 +265,119 @@ verifica chamada que alguém escreveu — **tela que nunca pede um dado não tem
 que interceptar**, então a ausência da funcionalidade inteira passa
 despercebida.
 
+### Front-end da Sprint 4 — RF51, US13, US16 e US08
+
+- **Responsáveis:** [Davi Emanuel Ribeiro de Oliveira](https://github.com/daviRolvr), [João Pedro Ferreira Moraes](https://github.com/JoaoPedro2206) e [Renan Vieira Guedes](https://github.com/R-enanVieira)
+- **Situação:** concluído e integrado à `main` ([PR #32](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/32)).
+
+Quatro histórias escolhidas por um critério só: **o front entrega sozinho**. O
+levantamento conferiu o código dos dois repositórios, e não o texto do backlog
+— foi assim que a US02 ficou de fora da lista inicial, por depender de coluna
+que não existe.
+
+**RF51 — histórico de participações por convidado.** O dado já era calculado
+na tela de convidados, para avisar antes de excluir alguém vinculado, mas só a
+contagem aparecia e a lista era descartada. A agregação passou para o serviço
+(`fetchParticipacoesPorConvidado`) e devolve os eventos inteiros, do mais
+recente para o mais antigo. A listagem consome a mesma função, então contagem e
+histórico não podem divergir.
+
+**US13 (RF09) — duplicar evento.** A regra mora no serviço e é seletiva de
+propósito: copia o que descreve o evento e **recusa** o que pertence àquela
+edição. Datas não vêm (herdar a antiga nasceria um evento no passado), nem a
+situação (a cópia nasce ativa), nem o álbum (o link aponta para as fotos da
+edição anterior), nem os formulários de inscrição (misturaria as duas listas de
+inscritos). Os convidados, esses sim, vêm marcados. O rascunho (RF08) ficou de
+fora: exige campo novo no back-end.
+
+**US16 (RNF02) — acessibilidade e leitor de tela.** Até aqui os rótulos
+acessíveis entravam de carona, onde outra história passava. Duas lacunas
+estruturais foram fechadas: 32 `<label>` em seis formulários não estavam
+ligados ao campo que descreviam — o leitor de tela anunciava "caixa de edição"
+sem dizer de quê — e o `Modal` era um `<div>` comum, que não se anunciava como
+diálogo, não prendia o foco e não o devolvia ao fechar. Um dos testes é uma
+varredura que reprova qualquer campo sem nome acessível em cinco formulários:
+rótulo novo sem associação passa a quebrar o build.
+
+**US08 (RNF03) — card de compartilhamento por evento.** As tags Open Graph
+existiam, mas eram fixas no `index.html` e descreviam o site inteiro; o link
+que as pessoas compartilham é o de um evento. Não dava para resolver no
+cliente, porque o robô do WhatsApp não executa JavaScript. O `vercel.json`
+passou a desviar `/eventos/:slug` para uma função na borda **só quando o
+user-agent é de um robô de prévia**; visitante de verdade continua recebendo a
+aplicação. A imagem sai pelo proxy do back-end, e não pelo link direto do
+Drive, que responde 429/403 a quem vem de fora — era justamente a foto faltando
+que a cliente relatou.
+
+> Esta história estava atribuída a [Rivadalvio Joaquim da Silva
+> Filho](https://github.com/RivaFilho) na matriz de rastreabilidade, que
+> entregou as tags fixas. O que entrou agora é a parte por evento. Fica o
+> registro para evitar trabalho duplicado.
+
+### Três defeitos que estavam em produção
+
+Levantamento pedido antes de publicar as histórias das Sprints 3 e 4. Os três
+foram encontrados no código já publicado, e os três eram visíveis para quem usa
+o sistema.
+
+| Defeito | Onde | Correção |
+|---|---|---|
+| Cinco campos do evento eram digitados e **descartados em silêncio** | US02 | [PR #33](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/33) |
+| Opções de status **inalcançáveis** no celular | US09 | [PR #34](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/34) |
+| A página inicial anunciava como "próximo" um evento **já encerrado** | Home | [PR #35](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/35) |
+
+**US02 — o dado sumia sem aviso.** O formulário de evento coleta vagas, contato
+do responsável, valor, link de pagamento e regulamento desde a US02. Mas
+`toApiEvent` não enviava nenhum dos cinco e `adaptEvent` não lia nenhum: a
+administradora digitava, salvava, e o dado desaparecia — os campos nem são
+obrigatórios, então nada sinalizava a perda. Os cinco passaram a ser mapeados
+nos dois sentidos. **Continua dependendo do back-end:** as colunas não existem,
+e enquanto não existirem a API ignora o campo desconhecido, de modo que o dado
+ainda não persiste. O que deixou de acontecer é o front jogar fora em silêncio
+o que foi digitado. Os nomes usados são assumidos, não um contrato publicado, e
+ficaram isolados num lugar só com a nota de conferi-los antes de dar a
+integração por concluída — na US09 três nomes assumidos estavam errados.
+
+**US09 — trocar o status era impossível pelo telefone.** O `Dropdown`
+posicionava o menu sempre logo abaixo do botão, sem conferir o espaço que
+sobrava. Na última linha da tabela de voluntários, em tela de celular, o menu
+caía fora da área visível e não havia mais página para rolar. Já era defeito
+conhecido, registrado pela QA com `test.fail` na suíte de tela pequena. Agora o
+menu abre para cima quando não cabe embaixo, o lado é limitado para não passar
+da borda direita, e a anotação de defeito conhecido saiu do teste.
+
+**Home — "próximo evento" apontando para o passado.** A escolha do destaque era
+`proximos[0] || all[0]`: sem nenhum evento futuro, caía no primeiro da ordem da
+API e a página inicial exibia "PRÓXIMO EVENTO" com contagem zerada e um botão
+levando a um evento que já tinha acontecido. Além disso, o filtro olhava só a
+data de início, então um evento de vários dias **já em curso** não contava como
+próximo — a home anunciava outro mais distante justamente enquanto o evento
+acontecia. O destaque passou a ser o primeiro evento que ainda não terminou, e
+sem nada em cartaz não há destaque.
+
+### Correções pedidas na revisão da PR #30
+
+A revisão separou 28 testes vermelhos em quatro causas técnicas e uma quinta
+que não foi possível descartar. **A quinta era defeito de produto**, e a
+suspeita estava certa: na largura do iPhone sobram cerca de 88px para a coluna
+do título na lista do painel, e o selo "Cancelado" ocupa 82px com `shrink-0`.
+O título era espremido até largura zero — marcar um evento como cancelado ou
+adiado fazia **o nome dele desaparecer** da lista no celular. Corrigido
+deixando a linha quebrar.
+
+Das outras quatro: a proposta de parametrizar o `setupApiMock` foi adotada, por
+reaproveitar a semente do mock em vez de duplicar um evento dentro do teste; a
+tag `@fonte` ficou só no teste que chama o serviço, e não no bloco inteiro,
+para os demais continuarem rodando contra o build; o teste do celular passou a
+abrir o menu sanduíche antes de clicar em "Materiais"; e a leitura da área de
+transferência ficou condicionada ao navegador, porque o WebKit não conhece
+essas permissões.
+
+> Registro de um erro do trio: a verificação local havia rodado apenas os
+> projetos `build` e `fonte`. Os projetos de celular não foram executados, e
+> foi exatamente neles que os defeitos apareceram. Passou a ser regra rodar os
+> quatro antes de abrir PR.
+
 ### Achados sobre a própria documentação
 
 - **Responsável:** [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin)
@@ -292,6 +406,7 @@ fechada e apresentada.
 - *Histórias cobertas por Selenium:* 13 — US01, US02, US03, US04, US05, US07, US11, US14, US18, US19, US20, US22 e US23. Seguem sem cobertura por Selenium a US06, US08, US09, US10 e US15
 - *Testes exploratórios:* 2 sessões, 6 achados — 2 corrigidos nesta sprint, 1 travado como teste verde, 3 como especificação executável, e 1 à espera da PR #30
 - *Suíte do back-end:* 928 testes, 98,77% de cobertura (piso de 97%), pylint 9,88 (piso de 9,5)
+- *Entregas de front-end:* 4 histórias (RF51, US13, US16 e US08) e 3 correções de defeitos que estavam em produção (US02, US09 e Home), por [Davi Emanuel Ribeiro de Oliveira](https://github.com/daviRolvr), [João Pedro Ferreira Moraes](https://github.com/JoaoPedro2206) e [Renan Vieira Guedes](https://github.com/R-enanVieira)
 - *Líder da Apresentação:* a definir
 - *Início da Sprint:* 30/10/2026
 - *Fim da Sprint:* 19/11/2026
@@ -307,16 +422,26 @@ dívida conhecida da entrega.
 - **Rotacionar o *refresh token* do Google.** A correção do código conserta o
   vazamento futuro, não o passado: o token que está em produção hoje já passou
   por log e deve ser considerado comprometido.
-- **Integrar a [PR #30](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/30)**,
-  sem a qual três histórias não chegam à produção.
+- ~~**Integrar a [PR #30](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/30)**~~
+  — **concluído.** As cinco causas da revisão foram tratadas, o CI fechou verde
+  e a PR foi integrada à `main`, junto da Sprint 4 e das três correções de
+  produção. Falta a publicação: a `main` do fork precisa chegar ao repositório
+  `idbjovemnacional`.
 - **As três correções propostas na EX-02**, uma validação cada, que dependem de
   alguém rodar o fluxo integrado antes de integrar.
 - **Tirar a rota `/test-coverage` do build de produção**, sem quebrar a suíte
   Playwright que depende dela.
 - **Selenium nas cinco histórias descobertas** (US06, US08, US09, US10 e US15).
 - **Firefox no CI**, depois de uma execução manual limpa.
-- **Integrar `docs/restaura-paginas-us10-us11-us14`**, que conserta os quatro
-  links quebrados do site de documentação.
+- **Colunas da US02 no back-end** (`vagas`, `contato_responsavel`,
+  `valor_investimento`, `link_pagamento`, `link_regulamento`). O front já envia
+  e lê os cinco; sem as colunas, a API ignora o campo e o dado não persiste. Os
+  nomes foram assumidos pelo front e precisam ser conferidos antes de dar a
+  integração por concluída.
+- ~~**Integrar `docs/restaura-paginas-us10-us11-us14`**~~ — **concluído**
+  ([PR #19](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Documentacao/pull/19)).
+  As duas páginas voltaram pelo conteúdo exato que estava versionado, e a
+  navegação do MkDocs resolve de novo.
 
 ---
 
@@ -325,3 +450,4 @@ dívida conhecida da entrega.
 | Versão | Data | Descrição | Autor(es) |
 |---|---|---|---|
 | `1.0` | 15/11/2026 | Criação do relatório da Sprint 04 com as entregas de QA (QA32 a QA34): testes com Selenium contra a entrega do build e contra a produção, as três amarrações no pipeline, duas sessões de testes exploratórios com seis achados, a correção dos dois defeitos de severidade alta, a revisão da PR #30 e os achados sobre a própria documentação | [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin) |
+| `1.1` | 16/11/2026 | Registro da entrega de front-end da Sprint 4 — RF51, US13, US16 e US08 —, das três correções de defeitos que estavam em produção (US02, US09 e Home) e do atendimento à revisão da PR #30, incluindo o defeito de produto que ela apontou | [Davi Emanuel Ribeiro de Oliveira](https://github.com/daviRolvr), [João Pedro Ferreira Moraes](https://github.com/JoaoPedro2206) e [Renan Vieira Guedes](https://github.com/R-enanVieira) |

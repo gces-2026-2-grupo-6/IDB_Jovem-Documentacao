@@ -16,6 +16,13 @@ front lê o código do servidor apenas para conferir contrato.
 | [US11](backlog_melhorias.md#us11) | A área de materiais não existia no sistema | Página pública `/materiais`, painel restrito à superadministradora e botão "Baixar" em toda foto | CA1 a CA5 |
 | [US14](backlog_melhorias.md#us14) | A situação do evento não aparecia nem escondia a inscrição | Aviso nas quatro telas públicas e marcação no painel | CA1 a CA4 |
 
+**Situação:** integrado à `main` em 16/11/2026
+([PR #30](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/30)), depois
+da revisão de [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin),
+que apontou cinco causas de falha no E2E — uma delas um defeito de produto: na
+largura do iPhone, o selo de situação espremia o título do evento até largura
+zero, e o nome sumia da lista do painel. Corrigido antes da integração.
+
 **Verificação:** 46 testes E2E novos (Playwright), com a suíte completa em 477
 testes passando. O mock de API dos testes ganhou as rotas `/painel/links`,
 `/material/` e `PATCH /evento/{id}/situacao`, além do `url_download` nas fotos
@@ -177,3 +184,4 @@ em vez de num alerta que some.
 | Versão | Data | Descrição | Autor(es) |
 |---|---|---|---|
 | `1.0` | 28/10/2026 | Registro da entrega do front-end das US10, US11 e US14, com o detalhamento das 12 tarefas de cada história | [Davi Emanuel Ribeiro de Oliveira](https://github.com/daviRolvr), [João Pedro Ferreira Moraes](https://github.com/JoaoPedro2206) e [Renan Vieira Guedes](https://github.com/R-enanVieira) |
+| `1.1` | 16/11/2026 | Registro da integração à `main` após a revisão da PR #30, incluindo o defeito de produto corrigido — o selo de situação espremia o título do evento até sumir, na largura do iPhone | [Davi Emanuel Ribeiro de Oliveira](https://github.com/daviRolvr), [João Pedro Ferreira Moraes](https://github.com/JoaoPedro2206) e [Renan Vieira Guedes](https://github.com/R-enanVieira) |
