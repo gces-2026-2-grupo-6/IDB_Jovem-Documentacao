@@ -111,10 +111,14 @@ funcional foi coletado.
 carregava `"git": { "deploymentEnabled": false }`, que desliga o deploy
 automático **do repositório inteiro**, não de uma branch. Era a causa de o
 envio para produção de 10/11 ter precisado de `npx vercel --prod` na mão, e de
-nenhum merge na `main` publicar nada desde então. O bloco saiu; se um dia for
-preciso desligar o deploy só numa branch, o lugar certo é o *Ignored Build
-Step* do Vercel, com `VERCEL_GIT_COMMIT_REF`. O `.gitignore` ganhou junto
-`.vercel` e `.env*`.
+nenhum merge na `main` publicar nada desde então. A causa foi diagnosticada
+pela QA no envio de 10/11, e o bloco saiu na
+[PR #32](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/32), que
+reescreveu o `rewrites` do arquivo para a regra de Open Graph da US08. Se um
+dia for preciso desligar o deploy só numa branch, o lugar certo é o *Ignored
+Build Step* do Vercel, com `VERCEL_GIT_COMMIT_REF`. Do lado da QA ficou o
+`.gitignore`, que passou a ignorar `.vercel` e `.env*`, preservando o
+`.env.example` ([PR #36](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/36)).
 
 Firefox ficou fora do CI por ora, de propósito. A suíte roda nele com
 `NAVEGADOR=firefox`, e é o único navegador que a Playwright nunca cobre
@@ -224,46 +228,49 @@ dos dois achados da EX-01, que eram vazamento de credencial.
 filtro `isOngoingOrFuture` usa `endDate || date` e ignora `nova_data` —
 inclusive na branch da [PR #30](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/30).
 Isso contraria o CA4 da US14, que pede que o evento continue aparecendo com o
-aviso. O teste depende da PR #30 entrar.
+aviso. A PR #30 entrou em 16/11 com o filtro como estava; o teste desse
+comportamento segue por escrever.
 
 ### Revisão da entrega de front-end das US10, US11 e US14
 
 - **Responsável pela revisão:** [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin)
-- **Situação:** revisada, correções solicitadas.
+- **Situação:** revisada, corrigida e integrada à `main` em 16/11/2026.
 
-A [PR #30](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/30) está
-aberta desde 29/10 com o E2E vermelho: **28 testes falhando**, em quatro
-causas. Nenhuma delas é defeito do produto; a última não foi possível
-descartar.
+A [PR #30](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/30)
+ficou aberta de 29/10 a 16/11 com o E2E vermelho: **28 testes falhando**. A
+revisão separou as falhas em cinco pontos, pelo log do CI.
 
-As duas primeiras são a mesma coisa técnica: testes que fazem
+Os dois primeiros eram a mesma coisa técnica: testes que faziam
 `page.evaluate(() => import('/src/services/...'))`, o que só existe no servidor
 de desenvolvimento — no projeto `build` o `/src/` não é servido. Em
 `tests/public/us14-evento-cancelado-adiado.spec.js` (21 falhas) a correção não
-é marcar com `@fonte`, porque são testes do que o visitante vê e precisam rodar
-contra o build: o caminho é o `setupApiMock` já nascer com o evento marcado. Em
-`tests/admin/us11-materiais.spec.js` (3 falhas) `@fonte` **é** a correção
-certa, porque o teste chama o serviço de propósito para exercitar a validação
-de quem contorna o formulário.
+era marcar com `@fonte`, porque são testes do que o visitante vê e precisam
+rodar contra o build: o caminho era o `setupApiMock` já nascer com o evento
+marcado. Em `tests/admin/us11-materiais.spec.js` (3 falhas) `@fonte` **era** a
+correção certa, porque o teste chama o serviço de propósito para exercitar a
+validação de quem contorna o formulário.
 
-As outras: o link "Materiais" está dentro do menu sanduíche no celular, e o
-teste precisa abri-lo antes de clicar (2 falhas); e
+Os outros: o link "Materiais" fica dentro do menu sanduíche no celular, e o
+teste precisava abri-lo antes de clicar (2 falhas); e
 `grantPermissions(['clipboard-write'])` não existe no WebKit (1 falha).
 
-A última (1 falha, só no iPhone) pode ser defeito de verdade: o nome do evento
-está no DOM da lista do painel mas nunca fica visível na largura do iPhone.
+O quinto (1 falha, só no iPhone) a revisão não conseguiu atribuir ao teste: o
+nome do evento estava no DOM da lista do painel mas nunca ficava visível na
+largura do iPhone. **Era defeito de verdade** — o título do evento sumia da
+lista no celular —, e foi corrigido na própria PR, junto dos ajustes de teste.
 
-**Enquanto essa PR não entrar, as três histórias não estão em produção.** Hoje,
-no site publicado, evento cancelado aparece na listagem pública igual a
-qualquer outro, com data e local, sem nenhum aviso — alguém pode viajar para um
-evento que não vai acontecer. Não há página de materiais e não há links fixados
-no painel.
+Com os cinco pontos tratados, o CI fechou verde e a PR foi integrada.
+**Publicar é outro passo**: enquanto a `main` do fork não chegar ao repositório
+`idbjovemnacional`, o site em produção segue sem as três histórias — evento
+cancelado aparecendo na listagem pública igual a qualquer outro, sem página de
+materiais e sem links fixados no painel.
 
-Nenhuma suíte reclamou disso, e as duas estavam certas: a do back-end testa o
-back-end, e a do front intercepta chamadas que o front não faz. Interceptar só
-verifica chamada que alguém escreveu — **tela que nunca pede um dado não tem o
-que interceptar**, então a ausência da funcionalidade inteira passa
-despercebida.
+O que este caso ensinou fica registrado: durante dezoito dias, três histórias
+com o back-end em produção ficaram sem a ponta do front, e nenhuma suíte
+reclamou — e as duas estavam certas. A do back-end testa o back-end, e a do
+front intercepta chamadas que o front não faz. Interceptar só verifica chamada
+que alguém escreveu — **tela que nunca pede um dado não tem o que
+interceptar**, então a ausência da funcionalidade inteira passa despercebida.
 
 ### Front-end da Sprint 4 — RF51, US13, US16 e US08
 
@@ -383,17 +390,17 @@ essas permissões.
 - **Responsável:** [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin)
 - **Situação:** registrados.
 
-**O `mkdocs.yml` da `main` aponta para duas páginas que não existem nela:**
-`projeto/guia_front_us10_us11_us14.md` e `projeto/front_us10_us11_us14.md`. São
+**O `mkdocs.yml` da `main` apontava para duas páginas que não existiam nela:**
+`projeto/guia_front_us10_us11_us14.md` e `projeto/front_us10_us11_us14.md`. Eram
 quatro links quebrados no site publicado — o `sprint03.md` e o
-`backlog_melhorias.md` também apontam para elas. As duas páginas existem na
-branch `docs/restaura-paginas-us10-us11-us14`, que resolve o problema assim que
-for integrada.
+`backlog_melhorias.md` também apontavam para elas. **Resolvido em 16/11**, com a
+integração da branch `docs/restaura-paginas-us10-us11-us14`, que devolveu as
+duas páginas.
 
 **O resumo da Sprint 3 conta US10, US11 e US14 como completas nas duas
-pontas.** Não estão: o front-end das três está na
-[PR #30](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/30), ainda
-aberta. O `backlog_melhorias.md` está correto — diz "falta o front-end". A
+pontas.** Não estavam ao fim daquela sprint: o front-end das três só foi
+integrado em 16/11, pela
+[PR #30](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/30). A
 divergência fica registrada aqui, sem reescrever a Sprint 3, que já foi
 fechada e apresentada.
 
@@ -404,7 +411,7 @@ fechada e apresentada.
 - *Entregas de QA:* 3 — QA32 a QA34, por [João Pedro](https://github.com/Jadequilin)
 - *Testes com Selenium:* 53 no total — 39 funcionais sobre a pilha real ([PR #31](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/31)) e 14 de entrega do build e de produção (QA32)
 - *Histórias cobertas por Selenium:* 13 — US01, US02, US03, US04, US05, US07, US11, US14, US18, US19, US20, US22 e US23. Seguem sem cobertura por Selenium a US06, US08, US09, US10 e US15
-- *Testes exploratórios:* 2 sessões, 6 achados — 2 corrigidos nesta sprint, 1 travado como teste verde, 3 como especificação executável, e 1 à espera da PR #30
+- *Testes exploratórios:* 2 sessões, 6 achados — 2 corrigidos nesta sprint, 1 travado como teste verde, 3 como especificação executável, e 1 ainda sem teste
 - *Suíte do back-end:* 928 testes, 98,77% de cobertura (piso de 97%), pylint 9,88 (piso de 9,5)
 - *Entregas de front-end:* 4 histórias (RF51, US13, US16 e US08) e 3 correções de defeitos que estavam em produção (US02, US09 e Home), por [Davi Emanuel Ribeiro de Oliveira](https://github.com/daviRolvr), [João Pedro Ferreira Moraes](https://github.com/JoaoPedro2206) e [Renan Vieira Guedes](https://github.com/R-enanVieira)
 - *Líder da Apresentação:* a definir
@@ -451,3 +458,4 @@ dívida conhecida da entrega.
 |---|---|---|---|
 | `1.0` | 15/11/2026 | Criação do relatório da Sprint 04 com as entregas de QA (QA32 a QA34): testes com Selenium contra a entrega do build e contra a produção, as três amarrações no pipeline, duas sessões de testes exploratórios com seis achados, a correção dos dois defeitos de severidade alta, a revisão da PR #30 e os achados sobre a própria documentação | [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin) |
 | `1.1` | 16/11/2026 | Registro da entrega de front-end da Sprint 4 — RF51, US13, US16 e US08 —, das três correções de defeitos que estavam em produção (US02, US09 e Home) e do atendimento à revisão da PR #30, incluindo o defeito de produto que ela apontou | [Davi Emanuel Ribeiro de Oliveira](https://github.com/daviRolvr), [João Pedro Ferreira Moraes](https://github.com/JoaoPedro2206) e [Renan Vieira Guedes](https://github.com/R-enanVieira) |
+| `1.2` | 16/11/2026 | Atualização dos trechos de QA que ficaram desatualizados com as integrações de 16/11: a revisão da PR #30 ganha o desfecho — cinco pontos tratados, o quinto confirmado como defeito real do painel no celular, e a PR integrada —, os achados sobre a documentação passam a constar como resolvidos, e a religação do deploy automático do front é atribuída à PR #32, ficando com a QA o diagnóstico e o `.gitignore` (PR #36) | [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin) |
