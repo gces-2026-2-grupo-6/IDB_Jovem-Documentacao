@@ -106,6 +106,15 @@ de banco, Keycloak nem back-end. Isso exigiu uma mudança pequena no
 que derruba a sessão inteira, e passou a acontecer apenas quando algum teste
 funcional foi coletado.
 
+**Deploy automático do front, religado.** O `vercel.json` do repositório
+carregava `"git": { "deploymentEnabled": false }`, que desliga o deploy
+automático **do repositório inteiro**, não de uma branch. Era a causa de o
+envio para produção de 10/11 ter precisado de `npx vercel --prod` na mão, e de
+nenhum merge na `main` publicar nada desde então. O bloco saiu; se um dia for
+preciso desligar o deploy só numa branch, o lugar certo é o *Ignored Build
+Step* do Vercel, com `VERCEL_GIT_COMMIT_REF`. O `.gitignore` ganhou junto
+`.vercel` e `.env*`.
+
 Firefox ficou fora do CI por ora, de propósito. A suíte roda nele com
 `NAVEGADOR=firefox`, e é o único navegador que a Playwright nunca cobre
 (Chromium e WebKit). Portão que nunca passou uma vez fica vermelho na primeira
@@ -115,6 +124,7 @@ manual limpa.
 
 ### QA34 — Testes exploratórios: duas sessões, seis achados
 
+- **Requisitos tocados:** RF01, RF12, RF46, RF56 e RNF08
 - **Responsável:** [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin)
 - **Situação:** concluída.
 
