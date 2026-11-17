@@ -6,7 +6,7 @@
 
 | Trio de Desenvolvedores | Qtd. de US | US | Assunto das US |
 |---|---:|---|---|
-| [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin) / [Rivadalvio Joaquim da Silva Filho](https://github.com/RivaFilho) | 5 | US01, US02, US11, US14 e US19 | Garantia de qualidade: testes com Selenium contra o que o servidor entrega e contra a produção publicada, três amarrações de Selenium no pipeline, duas sessões de testes exploratórios com seis achados e a correção dos dois defeitos de severidade alta encontrados |
+| [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin) / [Rivadalvio Joaquim da Silva Filho](https://github.com/RivaFilho) | 5 | US01, US02, US11, US14 e US19 | Garantia de qualidade: testes com Selenium contra o que o servidor entrega e contra a produção publicada, três amarrações de Selenium no pipeline, duas sessões de testes exploratórios com seis achados, a correção dos dois defeitos de severidade alta encontrados e os cabeçalhos e o prazo das chamadas ao Google Calendar travados como regressão |
 | [Gabriel Lopes de Amorim](https://github.com/BrzGab) | 10 | US02, US03, US04, US05, US07, US18, US19, US20, US22 e US23 | Testes funcionais com Selenium sobre a pilha real — front logado pelo Keycloak, back-end e banco de verdade —, com ambiente em contêiner e três defeitos de integração registrados ([PR #31](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/31)) |
 | [Davi Emanuel Ribeiro de Oliveira](https://github.com/daviRolvr), [João Pedro Ferreira Moraes](https://github.com/JoaoPedro2206) e [Renan Vieira Guedes](https://github.com/R-enanVieira) | 7 | RF51, US13, US16, US08, US02, US09 e US14 | Front-end: histórico de participações por convidado, duplicação de evento, acessibilidade e leitor de tela, e card de compartilhamento por evento. Mais três correções de defeitos que estavam em produção: campos do evento descartados em silêncio, opções de status inalcançáveis no celular e a página inicial anunciando como "próximo" um evento já encerrado |
 
@@ -231,6 +231,45 @@ Isso contraria o CA4 da US14, que pede que o evento continue aparecendo com o
 aviso. A PR #30 entrou em 16/11 com o filtro como estava; o teste desse
 comportamento segue por escrever.
 
+### QA35 — O que as chamadas ao Google Calendar carregam
+
+- **Requisitos tocados:** RF46
+- **Responsável:** [Rivadalvio Joaquim da Silva Filho](https://github.com/RivaFilho)
+- **Situação:** em revisão, na branch [`qa/sprint4-calendario`](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/tree/qa/sprint4-calendario) do back-end.
+
+A medição por mutação sobre o código da Sprint 3 repetiu, na agenda, a lacuna
+que a [QA21](sprint03.md) fechou no Drive. A suíte do Google Calendar cobria
+bem a leitura — conversão de eventos e parse de datas —, e no caminho de
+escrita verificava o método, o id na URL e o corpo do POST. Nunca verificava o
+que a requisição levava.
+
+| Defeito plantado em `src/calendario/service.py` | Efeito em produção | Antes | Agora |
+|---|---|---|---|
+| Remover o cabeçalho `Authorization` de criar, atualizar, excluir ou listar | O Google responde 401 e a agenda deixa de espelhar o site — sem erro na tela, porque `EventoService` trata a agenda como espelho | Passava | Falha o teste da chamada |
+| Remover o `Content-Type` de criar ou atualizar | O urllib envia o JSON como formulário e o Google recusa o corpo | Passava | Falha o teste da chamada |
+| Remover o `Accept` da listagem | Nenhum hoje, porque o Google responde em JSON por padrão; o teste fixa o que a chamada pede | Passava | Falha o teste da listagem |
+| Remover ou trocar o `timeout=10` de qualquer das quatro chamadas | Uma resposta que nunca chega prende o worker da API | Passava | Falha o caso da chamada |
+
+Os 14 testes novos ficam em `tests/unit/test_calendario_service.py`, no molde
+dos testes do Drive: token e `Content-Type` em criar, atualizar e excluir; o
+método e a URL exata de cada chamada; o id devolvido pela criação; o corpo do
+PATCH, que também não era verificado; o DELETE sem corpo; o token e o `Accept`
+da listagem; e o prazo das quatro chamadas. O comportamento já estava certo,
+então os testes entram verdes, como regressão, sem mudança no código.
+
+**Prova.** Os 15 mutantes da tabela — sete cabeçalhos e oito variações de
+prazo, aplicados um por vez — derrubam, cada um, exatamente o teste
+correspondente. Suíte do back-end com os testes novos: 942 passando, 98,77% de
+cobertura.
+
+**Fora do escopo, de propósito.** Com token, `deletar_evento(None)` envia
+`DELETE .../events/None` ao Google. Isso não foi travado como verde, porque
+fixaria um comportamento errado; em produção o caso não ocorre, porque
+`EventoService` só chama a agenda quando o evento tem `calendario_evento_id`, e
+essa guarda já tem teste. Fica também registrado um achado de severidade baixa:
+`atualizar_evento` e `deletar_evento` chamam `urlopen` sem `with`, e a resposta
+não é fechada. Corrigir exige mudar `src/`, o que esta entrega não faz.
+
 ### Revisão da entrega de front-end das US10, US11 e US14
 
 - **Responsável pela revisão:** [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin)
@@ -408,11 +447,11 @@ fechada e apresentada.
 
 ## Resumo
 
-- *Entregas de QA:* 3 — QA32 a QA34, por [João Pedro](https://github.com/Jadequilin)
+- *Entregas de QA:* 4 — QA32 a QA34, por [João Pedro](https://github.com/Jadequilin), e QA35, por [Rivadalvio](https://github.com/RivaFilho)
 - *Testes com Selenium:* 53 no total — 39 funcionais sobre a pilha real ([PR #31](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/31)) e 14 de entrega do build e de produção (QA32)
 - *Histórias cobertas por Selenium:* 13 — US01, US02, US03, US04, US05, US07, US11, US14, US18, US19, US20, US22 e US23. Seguem sem cobertura por Selenium a US06, US08, US09, US10 e US15
 - *Testes exploratórios:* 2 sessões, 6 achados — 2 corrigidos nesta sprint, 1 travado como teste verde, 3 como especificação executável, e 1 ainda sem teste
-- *Suíte do back-end:* 928 testes, 98,77% de cobertura (piso de 97%), pylint 9,88 (piso de 9,5)
+- *Suíte do back-end:* 942 testes, 98,77% de cobertura (piso de 97%), pylint 9,88 (piso de 9,5)
 - *Entregas de front-end:* 4 histórias (RF51, US13, US16 e US08) e 3 correções de defeitos que estavam em produção (US02, US09 e Home), por [Davi Emanuel Ribeiro de Oliveira](https://github.com/daviRolvr), [João Pedro Ferreira Moraes](https://github.com/JoaoPedro2206) e [Renan Vieira Guedes](https://github.com/R-enanVieira)
 - *Líder da Apresentação:* a definir
 - *Início da Sprint:* 30/10/2026
@@ -459,3 +498,4 @@ dívida conhecida da entrega.
 | `1.0` | 15/11/2026 | Criação do relatório da Sprint 04 com as entregas de QA (QA32 a QA34): testes com Selenium contra a entrega do build e contra a produção, as três amarrações no pipeline, duas sessões de testes exploratórios com seis achados, a correção dos dois defeitos de severidade alta, a revisão da PR #30 e os achados sobre a própria documentação | [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin) |
 | `1.1` | 16/11/2026 | Registro da entrega de front-end da Sprint 4 — RF51, US13, US16 e US08 —, das três correções de defeitos que estavam em produção (US02, US09 e Home) e do atendimento à revisão da PR #30, incluindo o defeito de produto que ela apontou | [Davi Emanuel Ribeiro de Oliveira](https://github.com/daviRolvr), [João Pedro Ferreira Moraes](https://github.com/JoaoPedro2206) e [Renan Vieira Guedes](https://github.com/R-enanVieira) |
 | `1.2` | 16/11/2026 | Atualização dos trechos de QA que ficaram desatualizados com as integrações de 16/11: a revisão da PR #30 ganha o desfecho — cinco pontos tratados, o quinto confirmado como defeito real do painel no celular, e a PR integrada —, os achados sobre a documentação passam a constar como resolvidos, e a religação do deploy automático do front é atribuída à PR #32, ficando com a QA o diagnóstico e o `.gitignore` (PR #36) | [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin) |
+| `1.3` | 16/11/2026 | Registro da QA35: os cabeçalhos e o prazo das chamadas ao Google Calendar, que nenhum teste verificava, travados como regressão por 14 testes, com a prova por mutação; atualização da contagem da suíte do back-end no resumo | [Rivadalvio Joaquim da Silva Filho](https://github.com/RivaFilho) |
