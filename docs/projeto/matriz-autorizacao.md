@@ -116,9 +116,32 @@ das próprias rotas da aplicação ([PR #16](https://github.com/gces-2026-2-grup
 
 ---
 
+<a name="sprint4"></a>
+
+## Rotas novas da Sprint 4 — US21
+
+Registradas na `MATRIZ` de `tests/unit/test_matriz_rotas.py` e cobertas por
+testes de acesso permitido e negado em `tests/unit/test_autorizacao_setores.py`
+([PR #21](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/21)).
+
+| Módulo | Rota | Método | Exigência | Motivo |
+|---|---|---|---|---|
+| Pedido | `/pedido/` | GET | Setor de produtos | US21 (CA1): a lista traz nome e contato de quem pediu |
+| Pedido | `/pedido/{pedido_id}/status` | PATCH | Setor de produtos | US21 (CA2): mudar a situação é acompanhamento, não exclusão |
+| Formulário | `/formulario/produtos/{produto_id}/pedidos` | GET | Setor de produtos | US21: sincroniza as respostas do formulário do produto e grava os pedidos |
+
+O "setor de produtos" libera `admin-produtos` e `superadmin`. A US21 pede o
+setor **Comercial**, mas o papel não existe no Keycloak, porque a revisão da
+US03 (CA2 e CA3) ainda não foi implementada. As rotas reaproveitam o setor
+atual em vez de criar um papel novo. A exclusão de produto continua exigindo
+`superadmin` e passou a responder 409 quando o produto tem pedidos.
+
+---
+
 ## Histórico de Versão
 
 | Versão | Data | Descrição | Autor(es) |
 |---|---|---|---|
 | `1.0` | 01/09/2026 | Criação da matriz e registro das lacunas da auditoria | [João Pedro](https://github.com/Jadequilin) |
 | `1.1` | 26/10/2026 | Registro das rotas novas da Sprint 3 (US10, US11 e US14) | [Júlia dos Reis Teixeira Massuda](https://github.com/JuliaReis18), [Filipe Carvalho da Silva](https://github.com/Filipe-002) e [João Rodrigues](https://github.com/JpRodrigues2) |
+| `1.2` | 17/11/2026 | Registro das rotas novas da Sprint 4 (US21) | [Júlia dos Reis Teixeira Massuda](https://github.com/JuliaReis18), [Filipe Carvalho da Silva](https://github.com/Filipe-002) e [João Rodrigues](https://github.com/JpRodrigues2) |
