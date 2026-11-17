@@ -10,6 +10,7 @@
 | [Gabriel Lopes de Amorim](https://github.com/BrzGab) | 10 | US02, US03, US04, US05, US07, US18, US19, US20, US22 e US23 | Testes funcionais com Selenium sobre a pilha real — front logado pelo Keycloak, back-end e banco de verdade —, com ambiente em contêiner e três defeitos de integração registrados ([PR #31](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/31)) |
 | [Davi Emanuel Ribeiro de Oliveira](https://github.com/daviRolvr), [João Pedro Ferreira Moraes](https://github.com/JoaoPedro2206) e [Renan Vieira Guedes](https://github.com/R-enanVieira) | 7 | RF51, US13, US16, US08, US02, US09 e US14 | Front-end: histórico de participações por convidado, duplicação de evento, acessibilidade e leitor de tela, e card de compartilhamento por evento. Mais três correções de defeitos que estavam em produção: campos do evento descartados em silêncio, opções de status inalcançáveis no celular e a página inicial anunciando como "próximo" um evento já encerrado |
 | [Júlia dos Reis Teixeira Massuda](https://github.com/JuliaReis18), [Filipe Carvalho da Silva](https://github.com/Filipe-002) e [João Rodrigues](https://github.com/JpRodrigues2) | 1 | US21 | Back-end dos pedidos de produto: registro dos pedidos pelo formulário do Google do produto, listagem e mudança de situação restritas ao setor de produtos e exclusão de produto com pedidos recusada ([PR #21](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/21)). **Em Andamento**: back-end integrado à `main`, front-end não iniciado. Mais a reexecução das suítes do back-end das sprints anteriores sobre a `main` com a US21 |
+| [Luiz Henrique Guimarães Soares](https://github.com/luizh-gsoares) e [Daniel dos Santos Barros de Sousa](https://github.com/daniel-de-sousa) | 1 | US22 | Back-end de missão, visão e valores: leitura pública e edição exclusiva da superadministradora em `/institucional`, com registro único no banco, normalização do texto e 22 testes novos ([PR #22](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/22)) |
 
 > As demais linhas desta tabela são preenchidas por cada trio ao registrar sua
 > entrega, como nas sprints anteriores.
@@ -527,6 +528,79 @@ acima do piso, mas fica registrada.
 - **O `GET` de sincronização grava no banco.** É o mesmo desenho já adotado nas
   inscrições da US09, mantido aqui por consistência.
 
+### US22 — Missão, visão e valores (back-end)
+
+- **Requisitos tocados:** RF25
+- **Responsáveis:** [Luiz Henrique Guimarães Soares](https://github.com/luizh-gsoares) e [Daniel dos Santos Barros de Sousa](https://github.com/daniel-de-sousa)
+- **Situação:** concluído no back-end, com a
+  [PR #22](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/22)
+  aberta para integração. O front-end já estava na `main` desde a Sprint 3
+  ([PR #28](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/28)).
+
+O front-end da US22 entrou na Sprint 3 com um contrato definido e um conteúdo
+de reserva: enquanto a API não existisse, a página "Quem somos" mostrava a
+missão já publicada no rodapé. Faltava o back-end. Esta entrega implementa as
+duas rotas que o front já chamava, sem mudar nada na tela.
+
+**Contrato da API.**
+
+| Rota | Método | Exigência | Respostas |
+|---|---|---|---|
+| `/institucional` | GET | Pública | 200 com `missao`, `visao` e `valores`; missão e visão nulas e lista vazia enquanto nada foi salvo |
+| `/institucional` | PUT | `superadmin` | 200 com o conteúdo salvo; 401 para token inválido ou expirado; 403 sem o papel; 422 quando o corpo fica todo vazio |
+
+A resposta de leitura tem sempre os três campos. `valores` é sempre uma lista,
+mesmo vazia, para o front não precisar checar nulo. Missão e visão nulas
+significam "ainda não configurado".
+
+**Como o conteúdo é guardado.** A tabela `institucional` tem um registro único:
+a aplicação lê e grava sempre a linha `institucional_id = 1`. Não há rota de
+criação nem de exclusão; o `PUT` substitui o conteúdo inteiro. Missão e visão
+são `TEXT` anuláveis; `valores` é uma coluna `JSON` não nula, que guarda a lista
+de textos; `atualizado_em` registra a última gravação.
+
+**Normalização e recusa.** Antes de gravar, o schema apara os espaços de missão
+e visão, transforma texto em branco em `null` e descarta valores vazios. Corpo
+sem nenhum dos três conteúdos é recusado com 422 e a mensagem
+`Preencha ao menos a missão, a visão ou um valor.` — a mesma que o formulário
+do painel já mostra. A regra evita apagar a página por acidente.
+
+**Rota sem barra final.** As duas rotas são registradas como `/institucional`,
+e não `/institucional/`, porque é exatamente o caminho que o front chama. Com a
+barra, o `PUT` receberia um redirecionamento 307 antes de chegar ao controlador.
+
+**Autorização.** A leitura é pública, porque a página "Quem somos" é aberta. A
+escrita exige `superadmin`, como o painel já supunha. As duas rotas entraram na
+matriz lida do código (`tests/unit/test_matriz_rotas.py`) e na
+[Matriz de Autorização](matriz-autorizacao.md#us22). O teste de acesso negado
+confirma o 403 para administrador de setor.
+
+**Persistência.** A migration `d3e5b8a1c4f6` (depois de `a7f3c1d9e5b2`) cria a
+tabela `institucional`. A cadeia continua com um *head* só.
+
+**Testes.** 22 testes novos no total:
+
+| Arquivo | Testes | O que cobre |
+|---|---:|---|
+| `test_us22_institucional.py` | 17 | Validação do schema, normalização, recusa de conteúdo vazio, criação e atualização do registro único, GET público, PUT do superadmin, 422 e 403 |
+| `test_matriz_rotas.py` | 2 | As duas rotas novas na matriz de autorização |
+| `test_contrato_respostas.py` | 3 | `RespostaInstitucional` com os três campos e `valores` obrigatório |
+
+**Resultados.** Suíte completa: 1036 testes passando, 4 `xfail` esperados e
+98,89% de cobertura (piso de 97%); pylint 9,87 no conjunto de `src/` (piso de
+9,5), com o módulo novo em 10,00. `alembic heads` aponta um único *head*,
+`d3e5b8a1c4f6`.
+
+**Limites conhecidos.**
+
+- **Nenhum teste de endpoint cobre `/institucional`.** A persistência foi
+  exercitada em SQLite; o `PUT` e o `GET` contra o contêiner com Postgres não
+  entraram nesta entrega.
+- **O front não mudou.** A tela já consumia esse contrato e já tratava a falha
+  da API com o texto de reserva; a integração é só a rota nova no ar.
+- **O RF26 (avisos e comunicados na home) não foi tratado**, como já estava
+  registrado no backlog: a US22 cobre missão, visão e valores.
+
 ### Validação dos testes das sprints anteriores no back-end
 
 - **Responsáveis:** [Júlia dos Reis Teixeira Massuda](https://github.com/JuliaReis18), [Filipe Carvalho da Silva](https://github.com/Filipe-002) e [João Rodrigues](https://github.com/JpRodrigues2)
@@ -606,8 +680,8 @@ fechada e apresentada.
 - *Testes com Selenium:* 53 no total — 39 funcionais sobre a pilha real ([PR #31](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/31)) e 14 de entrega do build e de produção (QA32)
 - *Histórias cobertas por Selenium:* 13 — US01, US02, US03, US04, US05, US07, US11, US14, US18, US19, US20, US22 e US23. Seguem sem cobertura por Selenium a US06, US08, US09, US10 e US15
 - *Testes exploratórios:* 2 sessões, 6 achados — 2 corrigidos nesta sprint, 1 travado como teste verde, 3 como especificação executável, e 1 ainda sem teste
-- *Suíte do back-end:* 1014 testes passando e 4 `xfail` esperados, 98,85% de cobertura (piso de 97%), pylint 9,86 (piso de 9,5), mais 62 testes de endpoint contra o contêiner. Antes da US21 eram 942 passando, 98,77% e pylint 9,88. Os 72 testes novos são da US21
-- *Entregas de back-end:* 1 história em andamento (US21, back-end integrado à `main`, front-end não iniciado) e a reexecução das suítes das sprints anteriores, por [Júlia dos Reis Teixeira Massuda](https://github.com/JuliaReis18), [Filipe Carvalho da Silva](https://github.com/Filipe-002) e [João Rodrigues](https://github.com/JpRodrigues2)
+- *Suíte do back-end:* 1036 testes passando e 4 `xfail` esperados, 98,89% de cobertura (piso de 97%), pylint 9,87 (piso de 9,5), mais 62 testes de endpoint contra o contêiner. Antes da US21 eram 942 passando, 98,77% e pylint 9,88. Os 72 testes da US21 e os 22 da US22 respondem pela diferença
+- *Entregas de back-end:* 2 — US21 em andamento (back-end integrado à `main`, front-end não iniciado) e US22 concluída no back-end (leitura pública e edição pela superadministradora), por [Luiz Henrique Guimarães Soares](https://github.com/luizh-gsoares) e [Daniel dos Santos Barros de Sousa](https://github.com/daniel-de-sousa); mais a reexecução das suítes das sprints anteriores, por [Júlia dos Reis Teixeira Massuda](https://github.com/JuliaReis18), [Filipe Carvalho da Silva](https://github.com/Filipe-002) e [João Rodrigues](https://github.com/JpRodrigues2)
 - *Entregas de front-end:* 4 histórias (RF51, US13, US16 e US08) e 3 correções de defeitos que estavam em produção (US02, US09 e Home), por [Davi Emanuel Ribeiro de Oliveira](https://github.com/daviRolvr), [João Pedro Ferreira Moraes](https://github.com/JoaoPedro2206) e [Renan Vieira Guedes](https://github.com/R-enanVieira)
 - *Líder da Apresentação:* a definir
 - *Início da Sprint:* 30/10/2026
@@ -653,6 +727,8 @@ dívida conhecida da entrega.
   externo. A cliente ainda não confirmou essa leitura.
 - **Teste de endpoint para `/pedido`** contra o contêiner com Postgres, que hoje
   não existe.
+- **Teste de endpoint para `/institucional`** contra o contêiner com Postgres,
+  que hoje não existe.
 
 ---
 
@@ -665,3 +741,4 @@ dívida conhecida da entrega.
 | `1.2` | 16/11/2026 | Atualização dos trechos de QA que ficaram desatualizados com as integrações de 16/11: a revisão da PR #30 ganha o desfecho — cinco pontos tratados, o quinto confirmado como defeito real do painel no celular, e a PR integrada —, os achados sobre a documentação passam a constar como resolvidos, e a religação do deploy automático do front é atribuída à PR #32, ficando com a QA o diagnóstico e o `.gitignore` (PR #36) | [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin) |
 | `1.3` | 16/11/2026 | Registro da QA35: os cabeçalhos e o prazo das chamadas ao Google Calendar, que nenhum teste verificava, travados como regressão por 14 testes, com a prova por mutação; atualização da contagem da suíte do back-end no resumo | [Rivadalvio Joaquim da Silva Filho](https://github.com/RivaFilho) |
 | `1.4` | 17/11/2026 | Registro do back-end da US21 (pedidos de produto), em andamento: critérios atendidos no servidor, contrato da API, autorização pelo setor de produtos, migration `a7f3c1d9e5b2`, 72 testes novos e os resultados do CI da PR #21. Registro da reexecução das suítes do back-end das sprints anteriores, com comandos e resultados por história. Atualização da suíte do back-end no resumo e das pendências da US21 em aberto | [Júlia dos Reis Teixeira Massuda](https://github.com/JuliaReis18), [Filipe Carvalho da Silva](https://github.com/Filipe-002) e [João Rodrigues](https://github.com/JpRodrigues2) |
+| `1.5` | 17/11/2026 | Registro do back-end da US22 (missão, visão e valores): contrato `GET`/`PUT /institucional`, registro único, normalização e recusa de conteúdo vazio, migration `d3e5b8a1c4f6`, 22 testes novos e os resultados da suíte ([PR #22](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/22)) | [Luiz Henrique Guimarães Soares](https://github.com/luizh-gsoares) e [Daniel dos Santos Barros de Sousa](https://github.com/daniel-de-sousa) |
