@@ -1,0 +1,2312 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Base inicial da documentação tecnica e organizacional">
+      
+      
+      
+        <link rel="canonical" href="https://gces-2026-2-grupo-6.github.io/IDB_Jovem-Documentacao/projeto/sprint04/">
+      
+      
+        <link rel="prev" href="../sprint03/">
+      
+      
+        <link rel="next" href="../guia_front_us10_us11_us14/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../imagens/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.1">
+    
+    
+      
+        <title>Sprint 04 - Documentação do Projeto</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/custom.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#sprint-04" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../.." title="Documentação do Projeto" class="md-header__button md-logo" aria-label="Documentação do Projeto" data-md-component="logo">
+      
+  <img src="../../imagens/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Documentação do Projeto
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Sprint 04
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Alternar para tema claro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Alternar para tema claro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="pink"  aria-label="Alternar para tema escuro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Alternar para tema escuro" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="pink"  aria-label="Usar preferência do sistema"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Usar preferência do sistema" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando busca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Documentacao" title="Ir para repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Repositorio
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Inicio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../historia_usuario_novo/" class="md-tabs__link">
+          
+  
+  
+  Projeto
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Documentação do Projeto" class="md-nav__button md-logo" aria-label="Documentação do Projeto" data-md-component="logo">
+      
+  <img src="../../imagens/logo.png" alt="logo">
+
+    </a>
+    Documentação do Projeto
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Documentacao" title="Ir para repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Repositorio
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projeto
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Projeto
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../historia_usuario_novo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    História
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backlog_novo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backlog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backlog_melhorias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backlog de Melhorias
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sprint01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sprint 01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sprint02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sprint 02
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sprint03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sprint 03
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sprint 04
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sprint 04
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#entregas-da-sprint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Entregas da Sprint
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detalhamento-por-historia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detalhamento por história
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Detalhamento por história">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#qa32-selenium-o-que-o-servidor-entrega-e-o-que-esta-publicado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        QA32 — Selenium: o que o servidor entrega e o que está publicado
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#qa33-selenium-no-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        QA33 — Selenium no pipeline
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#qa34-testes-exploratorios-duas-sessoes-seis-achados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        QA34 — Testes exploratórios: duas sessões, seis achados
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="QA34 — Testes exploratórios: duas sessões, seis achados">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sessao-ex-01-superficie-de-autenticacao-e-integracao-com-o-google" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sessão EX-01 — superfície de autenticação e integração com o Google
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sessao-ex-02-o-que-o-cadastro-aceita-gravar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sessão EX-02 — o que o cadastro aceita gravar
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#um-achado-sem-teste-por-ora" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Um achado sem teste, por ora
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#qa35-o-que-as-chamadas-ao-google-calendar-carregam" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        QA35 — O que as chamadas ao Google Calendar carregam
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#revisao-da-entrega-de-front-end-das-us10-us11-e-us14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Revisão da entrega de front-end das US10, US11 e US14
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#front-end-da-sprint-4-rf51-us13-us16-e-us08" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Front-end da Sprint 4 — RF51, US13, US16 e US08
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tres-defeitos-que-estavam-em-producao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Três defeitos que estavam em produção
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#correcoes-pedidas-na-revisao-da-pr-30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Correções pedidas na revisão da PR #30
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#us21-pedidos-de-produto-back-end" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        US21 — Pedidos de produto (back-end)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validacao-dos-testes-das-sprints-anteriores-no-back-end" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validação dos testes das sprints anteriores no back-end
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#achados-sobre-a-propria-documentacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Achados sobre a própria documentação
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resumo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resumo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#em-aberto-ao-fim-da-sprint-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Em aberto ao fim da Sprint 4
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historico-de-versao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Histórico de Versão
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guia_front_us10_us11_us14/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guia do Front-end (US10, US11, US14)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../front_us10_us11_us14/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Front-end (US10, US11, US14)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sprints/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sprints
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../matriz-autorizacao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Matriz de Autorização
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../canvas_mvp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Canvas MVP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prototipo_alta/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Protótipo de alta fidelidade
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modelo_fisico/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modelo Físico
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../entrega_final/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vídeo entrega Final
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#entregas-da-sprint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Entregas da Sprint
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detalhamento-por-historia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detalhamento por história
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Detalhamento por história">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#qa32-selenium-o-que-o-servidor-entrega-e-o-que-esta-publicado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        QA32 — Selenium: o que o servidor entrega e o que está publicado
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#qa33-selenium-no-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        QA33 — Selenium no pipeline
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#qa34-testes-exploratorios-duas-sessoes-seis-achados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        QA34 — Testes exploratórios: duas sessões, seis achados
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="QA34 — Testes exploratórios: duas sessões, seis achados">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sessao-ex-01-superficie-de-autenticacao-e-integracao-com-o-google" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sessão EX-01 — superfície de autenticação e integração com o Google
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sessao-ex-02-o-que-o-cadastro-aceita-gravar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sessão EX-02 — o que o cadastro aceita gravar
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#um-achado-sem-teste-por-ora" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Um achado sem teste, por ora
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#qa35-o-que-as-chamadas-ao-google-calendar-carregam" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        QA35 — O que as chamadas ao Google Calendar carregam
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#revisao-da-entrega-de-front-end-das-us10-us11-e-us14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Revisão da entrega de front-end das US10, US11 e US14
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#front-end-da-sprint-4-rf51-us13-us16-e-us08" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Front-end da Sprint 4 — RF51, US13, US16 e US08
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tres-defeitos-que-estavam-em-producao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Três defeitos que estavam em produção
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#correcoes-pedidas-na-revisao-da-pr-30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Correções pedidas na revisão da PR #30
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#us21-pedidos-de-produto-back-end" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        US21 — Pedidos de produto (back-end)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validacao-dos-testes-das-sprints-anteriores-no-back-end" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validação dos testes das sprints anteriores no back-end
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#achados-sobre-a-propria-documentacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Achados sobre a própria documentação
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resumo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resumo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#em-aberto-ao-fim-da-sprint-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Em aberto ao fim da Sprint 4
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historico-de-versao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Histórico de Versão
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="sprint-04">Sprint 04<a class="headerlink" href="#sprint-04" title="Permanent link">&para;</a></h1>
+<p><em>Período:</em> 30/10/2026 a 19/11/2026</p>
+<h2 id="entregas-da-sprint">Entregas da Sprint<a class="headerlink" href="#entregas-da-sprint" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Trio de Desenvolvedores</th>
+<th style="text-align: right;">Qtd. de US</th>
+<th>US</th>
+<th>Assunto das US</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/Jadequilin">João Pedro Araújo de Freitas Lyra</a> / <a href="https://github.com/RivaFilho">Rivadalvio Joaquim da Silva Filho</a></td>
+<td style="text-align: right;">5</td>
+<td>US01, US02, US11, US14 e US19</td>
+<td>Garantia de qualidade: testes com Selenium contra o que o servidor entrega e contra a produção publicada, três amarrações de Selenium no pipeline, duas sessões de testes exploratórios com seis achados, a correção dos dois defeitos de severidade alta encontrados e os cabeçalhos e o prazo das chamadas ao Google Calendar travados como regressão</td>
+</tr>
+<tr>
+<td><a href="https://github.com/BrzGab">Gabriel Lopes de Amorim</a></td>
+<td style="text-align: right;">10</td>
+<td>US02, US03, US04, US05, US07, US18, US19, US20, US22 e US23</td>
+<td>Testes funcionais com Selenium sobre a pilha real — front logado pelo Keycloak, back-end e banco de verdade —, com ambiente em contêiner e três defeitos de integração registrados (<a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/31">PR #31</a>)</td>
+</tr>
+<tr>
+<td><a href="https://github.com/daviRolvr">Davi Emanuel Ribeiro de Oliveira</a>, <a href="https://github.com/JoaoPedro2206">João Pedro Ferreira Moraes</a> e <a href="https://github.com/R-enanVieira">Renan Vieira Guedes</a></td>
+<td style="text-align: right;">7</td>
+<td>RF51, US13, US16, US08, US02, US09 e US14</td>
+<td>Front-end: histórico de participações por convidado, duplicação de evento, acessibilidade e leitor de tela, e card de compartilhamento por evento. Mais três correções de defeitos que estavam em produção: campos do evento descartados em silêncio, opções de status inalcançáveis no celular e a página inicial anunciando como "próximo" um evento já encerrado</td>
+</tr>
+<tr>
+<td><a href="https://github.com/JuliaReis18">Júlia dos Reis Teixeira Massuda</a>, <a href="https://github.com/Filipe-002">Filipe Carvalho da Silva</a> e <a href="https://github.com/JpRodrigues2">João Rodrigues</a></td>
+<td style="text-align: right;">1</td>
+<td>US21</td>
+<td>Back-end dos pedidos de produto: registro dos pedidos pelo formulário do Google do produto, listagem e mudança de situação restritas ao setor de produtos e exclusão de produto com pedidos recusada (<a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/21">PR #21</a>). <strong>Em Andamento</strong>: back-end integrado à <code>main</code>, front-end não iniciado. Mais a reexecução das suítes do back-end das sprints anteriores sobre a <code>main</code> com a US21</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>As demais linhas desta tabela são preenchidas por cada trio ao registrar sua
+entrega, como nas sprints anteriores.</p>
+</blockquote>
+<hr />
+<h2 id="detalhamento-por-historia">Detalhamento por história<a class="headerlink" href="#detalhamento-por-historia" title="Permanent link">&para;</a></h2>
+<h3 id="qa32-selenium-o-que-o-servidor-entrega-e-o-que-esta-publicado">QA32 — Selenium: o que o servidor entrega e o que está publicado<a class="headerlink" href="#qa32-selenium-o-que-o-servidor-entrega-e-o-que-esta-publicado" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Responsável:</strong> <a href="https://github.com/Jadequilin">João Pedro Araújo de Freitas Lyra</a></li>
+<li><strong>Situação:</strong> concluída.</li>
+</ul>
+<p>O professor acrescentou Selenium como exigência da sprint. O caminho óbvio
+seria reimplementar em Selenium o que a suíte Playwright já faz — 436 testes
+refeitos para fazer as mesmas perguntas, com resultado idêntico e manutenção
+dobrada. A pergunta útil é outra: <strong>o que a suíte atual, por construção, não
+consegue verificar?</strong> São três coisas, e as três são reais.</p>
+<p><strong>A suíte Playwright simula a rede.</strong> Todo teste de tela passa por
+<code>tests/helpers/apiMock.js</code>. Nenhum teste de tela do projeto fala com a API de
+verdade. Se o contrato da API mudar, a simulação continua devolvendo o formato
+antigo e a suíte continua verde.</p>
+<p><strong>Nada olhava para o que está publicado.</strong> A suíte roda contra um build
+servido localmente. Entre 17/10 e 10/11 o Keycloak ficou fora do ar em
+produção — <strong>vinte e quatro dias</strong> — e nenhuma verificação percebeu. O site
+público continuou respondendo; só o login estava morto. A suíte estava verde e
+estava certa: ela não fala com a produção.</p>
+<p><strong>É uma pilha de automação só.</strong> Defeito escondido por configuração de uma
+ferramenta não aparece nela. Uma segunda pilha é verificação cruzada de graça.</p>
+<p>Os testes ficaram dentro da pasta <code>selenium/</code>, no padrão da
+<a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/31">PR #31</a>, em vez
+de abrir uma segunda suíte no mesmo repositório.</p>
+<p><strong><code>testes/test_entrega_do_build.py</code> (7 testes e 1 especificação executável).</strong>
+Cada teste entra pela URL, como quem recebeu um link pronto — e esse caminho
+depende de configuração de servidor, que é justamente o que muda entre o build
+local e a produção. Verifica: rota profunda entrando direto sem cair no 404 do
+servidor (a regra de <code>rewrites</code> do <code>vercel.json</code>); o 404 da aplicação para rota
+inexistente, que é o inverso — o fallback não pode engolir tudo em silêncio;
+navegação pelo menu sem recarregar a página inteira; o painel exigindo sessão
+com o navegador limpo, e não com o estado de autenticação montado por <em>helper</em>;
+e <code>lang</code> e <code>meta viewport</code> do <code>index.html</code> publicado, que nenhum teste de tela
+percebe se o build perder, mas leitor de tela e celular percebem.</p>
+<p><strong><code>testes/test_producao.py</code> (6 testes).</strong> Exigem a pilha publicada no ar e só
+rodam com <code>ALVO=producao</code>. Verificam o endpoint de descoberta do realm — o
+incidente dos vinte e quatro dias, virado teste —, as rotas públicas da API, o
+CORS liberando o domínio do site, os campos das migrações da Sprint 3 presentes
+no contrato publicado, os eventos saindo da API até a tela e o login real de
+ponta a ponta.</p>
+<p>Dois deles não usam navegador, de propósito. O navegador esconde justamente o
+detalhe que importa: resposta bloqueada por CORS chega na tela como lista
+vazia, não como erro — parece que não há evento cadastrado. E a verificação das
+migrações existe porque <em>deploy</em> com <code>git pull</code> e <code>build</code> mas sem
+<code>alembic upgrade head</code> deixa o código novo falando com o banco velho; o sintoma
+é 500 na primeira consulta que toca a coluna nova, nunca um erro de build.</p>
+<p><strong>A especificação executável</strong>, no formato da Sprint 3 (<code>xfail</code> estrito): a
+rota <code>/test-coverage</code> é o arnês que a suíte Playwright usa para medir cobertura
+e hoje vai para produção, publicando cinco serviços em <code>window</code> — entre eles
+<code>window.api</code>, o cliente HTTP já configurado com o interceptador que anexa o
+token da sessão, numa rota pública. O peso no <em>bundle</em> foi medido e é pequeno
+(956,57 kB para 943,22 kB), então o argumento é exposição, não tamanho. O
+conserto não é apagar a página, que a suíte Playwright usa: é condicionar a
+rota a <code>import.meta.env</code> para que ela não entre no build de produção.</p>
+<h3 id="qa33-selenium-no-pipeline">QA33 — Selenium no pipeline<a class="headerlink" href="#qa33-selenium-no-pipeline" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Responsável:</strong> <a href="https://github.com/Jadequilin">João Pedro Araújo de Freitas Lyra</a></li>
+<li><strong>Situação:</strong> concluída.</li>
+</ul>
+<p>Três amarrações:</p>
+<p><strong><code>selenium-entrega</code></strong> consome o mesmo artefato <code>dist</code> que o job de E2E, para
+verificar o que o servidor entrega.</p>
+<p><strong><code>selenium-funcional</code></strong> liga a suíte da <a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/31">PR #31</a>
+ao CI. Ela entrou sem job, e suíte que ninguém executa fica verde por ausência,
+não por acerto — apodrece em duas sprints. O job faz <em>checkout</em> do back-end (os
+dois repositórios são públicos, o <code>GITHUB_TOKEN</code> padrão basta), sobe a pilha
+pelo <code>subir.sh</code>, serve o front e roda os testes funcionais, guardando os
+<em>prints</em> das falhas como artefato.</p>
+<p><strong><code>verificacao-producao.yml</code></strong> roda contra o que está publicado: à mão, pelo
+botão <em>Run workflow</em>, depois de cada <em>deploy</em>, e sozinho toda segunda às 9h17
+de Brasília — para que uma queda silenciosa apareça em dias, não em semanas.</p>
+<p>Os dois módulos novos levam o marcador <code>fora_do_ambiente</code>, porque não precisam
+de banco, Keycloak nem back-end. Isso exigiu uma mudança pequena no
+<code>conftest.py</code> da suíte funcional: a verificação de ambiente chama <code>pytest.exit</code>,
+que derruba a sessão inteira, e passou a acontecer apenas quando algum teste
+funcional foi coletado.</p>
+<p><strong>Deploy automático do front, religado.</strong> O <code>vercel.json</code> do repositório
+carregava <code>"git": { "deploymentEnabled": false }</code>, que desliga o deploy
+automático <strong>do repositório inteiro</strong>, não de uma branch. Era a causa de o
+envio para produção de 10/11 ter precisado de <code>npx vercel --prod</code> na mão, e de
+nenhum merge na <code>main</code> publicar nada desde então. A causa foi diagnosticada
+pela QA no envio de 10/11, e o bloco saiu na
+<a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/32">PR #32</a>, que
+reescreveu o <code>rewrites</code> do arquivo para a regra de Open Graph da US08. Se um
+dia for preciso desligar o deploy só numa branch, o lugar certo é o <em>Ignored
+Build Step</em> do Vercel, com <code>VERCEL_GIT_COMMIT_REF</code>. Do lado da QA ficou o
+<code>.gitignore</code>, que passou a ignorar <code>.vercel</code> e <code>.env*</code>, preservando o
+<code>.env.example</code> (<a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/36">PR #36</a>).</p>
+<p>Firefox ficou fora do CI por ora, de propósito. A suíte roda nele com
+<code>NAVEGADOR=firefox</code>, e é o único navegador que a Playwright nunca cobre
+(Chromium e WebKit). Portão que nunca passou uma vez fica vermelho na primeira
+<em>pull request</em> de outra pessoa, e aí alguém desliga o portão — foi assim que o
+piso de cobertura quebrou a pipeline na Sprint 3. Entra depois de uma execução
+manual limpa.</p>
+<h3 id="qa34-testes-exploratorios-duas-sessoes-seis-achados">QA34 — Testes exploratórios: duas sessões, seis achados<a class="headerlink" href="#qa34-testes-exploratorios-duas-sessoes-seis-achados" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Requisitos tocados:</strong> RF01, RF12, RF46, RF56 e RNF08</li>
+<li><strong>Responsável:</strong> <a href="https://github.com/Jadequilin">João Pedro Araújo de Freitas Lyra</a></li>
+<li><strong>Situação:</strong> concluída.</li>
+</ul>
+<p>A suíte do back-end tem 928 testes e 98,77% de cobertura. Ela responde bem a
+<em>o que já sabemos que pode quebrar continua funcionando?</em> e não responde a <em>o
+que ainda não pensamos em perguntar?</em>. Todo teste automatizado é uma pergunta
+escrita no passado: o defeito que ninguém previu passa por ele sem encostar — e
+passa com a cobertura marcando 100% naquela linha, porque a linha executou, só
+não foi interrogada.</p>
+<p><strong>Os seis achados desta sprint estão todos em linhas com cobertura,
+exercitadas por testes que passam.</strong> É a demonstração mais direta de que
+cobertura mede execução, não verificação.</p>
+<p><strong>Método.</strong> Sessão com carta (missão de uma frase, não roteiro), tempo fechado
+de 60 minutos, registro durante e não depois, um oráculo por observação — o
+critério que diz que aquilo é defeito — e todo achado confirmado virando teste.
+Achado que não vira teste some na próxima sprint.</p>
+<h4 id="sessao-ex-01-superficie-de-autenticacao-e-integracao-com-o-google">Sessão EX-01 — superfície de autenticação e integração com o Google<a class="headerlink" href="#sessao-ex-01-superficie-de-autenticacao-e-integracao-com-o-google" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Achado</th>
+<th>Severidade</th>
+<th>Desfecho</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GET /auth/callback</code> devolve o <em>refresh token</em> do Google no corpo da resposta</td>
+<td>Alta</td>
+<td><strong>corrigido</strong></td>
+</tr>
+<tr>
+<td>O mesmo <em>refresh token</em> é impresso no log do contêiner</td>
+<td>Alta</td>
+<td><strong>corrigido</strong></td>
+</tr>
+<tr>
+<td>Administrador sem papel de setor alcança todos os setores</td>
+<td>Média, operacional</td>
+<td>registrado, teste verde</td>
+</tr>
+</tbody>
+</table>
+<p>O <code>access_token</code> expira em uma hora; o <code>refresh_token</code> não expira sozinho —
+quem o obtiver fala com a conta Google do projeto (Drive, Calendar, Forms) até
+alguém revogar, e ninguém vai revogar, porque não há sinal de que vazou. Agrava
+que o <em>callback</em> é um <code>GET</code>: a URL com o <code>code</code> já circula por histórico de
+navegador, log de <em>proxy</em> e <code>Referer</code>. A origem está na própria resposta —
+<code>"instrucoes": "Copie o refresh_token do terminal/tela"</code> —, conveniência de
+desenvolvimento que foi para produção.</p>
+<p>E há um detalhe que explica por que a cobertura não bastava: <strong>existia um teste
+no repositório que afirmava que os tokens voltam na resposta</strong>
+(<code>test_auth_controller.py::test_callback_google_sucesso</code>). Quem o escreveu
+descreveu o comportamento observado, não o desejado.</p>
+<p><strong>Correção.</strong> Apagar os dois caminhos quebraria quem configura o servidor, que
+precisa do token uma vez para preencher <code>GOOGLE_REFRESH_TOKEN</code>. Ele passou a
+ser gravado num arquivo dentro do contêiner, com permissão 600, e a resposta diz
+o comando para lê-lo e a instrução de apagá-lo em seguida. A resposta não
+carrega mais token nenhum — nem o <em>refresh</em>, nem o <em>access</em> —, e o <code>print</code> saiu.
+Os dois <code>xfail</code> viraram testes verdes: especificação cumprida vira regressão. O
+teste que afirmava o contrário mudou junto.</p>
+<p>De quebra, a resposta passou a distinguir o caso em que o Google não devolve
+<em>refresh token</em>: ele só vem no primeiro consentimento, e o silêncio anterior já
+custou tempo de quem configurou o servidor.</p>
+<p><strong>O terceiro achado está certo hoje</strong>: a regra está comentada em
+<code>src/security.py</code> como retrocompatibilidade, para não trancar do lado de fora
+quem já era administrador antes da US03. O risco é operacional e cresceu nesta
+sprint, porque a cliente passou a criar administradores sozinha pelo console do
+Keycloak: criar o usuário com o papel <code>admin</code> e esquecer o papel de setor não
+produz um administrador limitado — produz um com acesso a tudo, sem nenhum
+aviso na tela. O teste verde trava o comportamento para que fechar essa porta
+seja um ato deliberado, e não um efeito colateral.</p>
+<h4 id="sessao-ex-02-o-que-o-cadastro-aceita-gravar">Sessão EX-02 — o que o cadastro aceita gravar<a class="headerlink" href="#sessao-ex-02-o-que-o-cadastro-aceita-gravar" title="Permanent link">&para;</a></h4>
+<p>Carta: o que o sistema aceita gravar nas histórias entregues na Sprint 3,
+procurando estado que o cadastro permite e que a tela não tem como representar.</p>
+<table>
+<thead>
+<tr>
+<th>Achado</th>
+<th>Severidade</th>
+<th>Desfecho</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>US14: dá para adiar um evento para uma data <strong>no passado</strong></td>
+<td>Média</td>
+<td><code>xfail</code> estrito</td>
+</tr>
+<tr>
+<td>US19: evento online é aceito <strong>sem link de transmissão</strong></td>
+<td>Média</td>
+<td><code>xfail</code> estrito</td>
+</tr>
+<tr>
+<td>US19: <code>link_transmissao</code> não tem validação nenhuma de formato</td>
+<td>Média</td>
+<td><code>xfail</code> estrito</td>
+</tr>
+</tbody>
+</table>
+<p>"Adiado para 10/03/2020" não descreve nada: o visitante não sabe se o evento já
+aconteceu, se foi cancelado ou se alguém errou a digitação. O projeto já recusa
+a incoerência irmã — <code>validar_datas</code> barra data de fim antes da data de início
+—, e esta ficou de fora.</p>
+<p>O CA5 da US19 diz que o link de transmissão é o que o evento online guarda "no
+lugar do endereço", e o endereço é obrigatório no presencial. A simetria não foi
+implementada: o presencial sem coordenadas é recusado com mensagem explícita, o
+online sem link passa, e o card mostra um selo "Online" que não leva a lugar
+nenhum. O formato também não é verificado, enquanto o link do material (US11)
+passa por <code>_link_http</code> — <strong>a mesma equipe validou um e não o outro</strong>. A regra
+que existe hoje mora só no formulário do front: quem chama a API direto grava
+qualquer texto.</p>
+<p>Os três ficaram como especificação executável, com a correção proposta escrita
+no motivo, e <strong>não</strong> como mudança de comportamento. O motivo é concreto: validar
+entrada que o front já envia muda o contrato entre as duas pontas, e verificar
+isso exige a pilha integrada de pé. São regras de produto dos trios, diferente
+dos dois achados da EX-01, que eram vazamento de credencial.</p>
+<h4 id="um-achado-sem-teste-por-ora">Um achado sem teste, por ora<a class="headerlink" href="#um-achado-sem-teste-por-ora" title="Permanent link">&para;</a></h4>
+<p><strong>O evento adiado some da agenda pública quando a data original passa.</strong> O
+filtro <code>isOngoingOrFuture</code> usa <code>endDate || date</code> e ignora <code>nova_data</code> —
+inclusive na branch da <a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/30">PR #30</a>.
+Isso contraria o CA4 da US14, que pede que o evento continue aparecendo com o
+aviso. A PR #30 entrou em 16/11 com o filtro como estava; o teste desse
+comportamento segue por escrever.</p>
+<h3 id="qa35-o-que-as-chamadas-ao-google-calendar-carregam">QA35 — O que as chamadas ao Google Calendar carregam<a class="headerlink" href="#qa35-o-que-as-chamadas-ao-google-calendar-carregam" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Requisitos tocados:</strong> RF46</li>
+<li><strong>Responsável:</strong> <a href="https://github.com/RivaFilho">Rivadalvio Joaquim da Silva Filho</a></li>
+<li><strong>Situação:</strong> em revisão, na branch <a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/tree/qa/sprint4-calendario"><code>qa/sprint4-calendario</code></a> do back-end.</li>
+</ul>
+<p>A medição por mutação sobre o código da Sprint 3 repetiu, na agenda, a lacuna
+que a <a href="../sprint03/">QA21</a> fechou no Drive. A suíte do Google Calendar cobria
+bem a leitura — conversão de eventos e parse de datas —, e no caminho de
+escrita verificava o método, o id na URL e o corpo do POST. Nunca verificava o
+que a requisição levava.</p>
+<table>
+<thead>
+<tr>
+<th>Defeito plantado em <code>src/calendario/service.py</code></th>
+<th>Efeito em produção</th>
+<th>Antes</th>
+<th>Agora</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Remover o cabeçalho <code>Authorization</code> de criar, atualizar, excluir ou listar</td>
+<td>O Google responde 401 e a agenda deixa de espelhar o site — sem erro na tela, porque <code>EventoService</code> trata a agenda como espelho</td>
+<td>Passava</td>
+<td>Falha o teste da chamada</td>
+</tr>
+<tr>
+<td>Remover o <code>Content-Type</code> de criar ou atualizar</td>
+<td>O urllib envia o JSON como formulário e o Google recusa o corpo</td>
+<td>Passava</td>
+<td>Falha o teste da chamada</td>
+</tr>
+<tr>
+<td>Remover o <code>Accept</code> da listagem</td>
+<td>Nenhum hoje, porque o Google responde em JSON por padrão; o teste fixa o que a chamada pede</td>
+<td>Passava</td>
+<td>Falha o teste da listagem</td>
+</tr>
+<tr>
+<td>Remover ou trocar o <code>timeout=10</code> de qualquer das quatro chamadas</td>
+<td>Uma resposta que nunca chega prende o worker da API</td>
+<td>Passava</td>
+<td>Falha o caso da chamada</td>
+</tr>
+</tbody>
+</table>
+<p>Os 14 testes novos ficam em <code>tests/unit/test_calendario_service.py</code>, no molde
+dos testes do Drive: token e <code>Content-Type</code> em criar, atualizar e excluir; o
+método e a URL exata de cada chamada; o id devolvido pela criação; o corpo do
+PATCH, que também não era verificado; o DELETE sem corpo; o token e o <code>Accept</code>
+da listagem; e o prazo das quatro chamadas. O comportamento já estava certo,
+então os testes entram verdes, como regressão, sem mudança no código.</p>
+<p><strong>Prova.</strong> Os 15 mutantes da tabela — sete cabeçalhos e oito variações de
+prazo, aplicados um por vez — derrubam, cada um, exatamente o teste
+correspondente. Suíte do back-end com os testes novos: 942 passando, 98,77% de
+cobertura.</p>
+<p><strong>Fora do escopo, de propósito.</strong> Com token, <code>deletar_evento(None)</code> envia
+<code>DELETE .../events/None</code> ao Google. Isso não foi travado como verde, porque
+fixaria um comportamento errado; em produção o caso não ocorre, porque
+<code>EventoService</code> só chama a agenda quando o evento tem <code>calendario_evento_id</code>, e
+essa guarda já tem teste. Fica também registrado um achado de severidade baixa:
+<code>atualizar_evento</code> e <code>deletar_evento</code> chamam <code>urlopen</code> sem <code>with</code>, e a resposta
+não é fechada. Corrigir exige mudar <code>src/</code>, o que esta entrega não faz.</p>
+<h3 id="revisao-da-entrega-de-front-end-das-us10-us11-e-us14">Revisão da entrega de front-end das US10, US11 e US14<a class="headerlink" href="#revisao-da-entrega-de-front-end-das-us10-us11-e-us14" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Responsável pela revisão:</strong> <a href="https://github.com/Jadequilin">João Pedro Araújo de Freitas Lyra</a></li>
+<li><strong>Situação:</strong> revisada, corrigida e integrada à <code>main</code> em 16/11/2026.</li>
+</ul>
+<p>A <a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/30">PR #30</a>
+ficou aberta de 29/10 a 16/11 com o E2E vermelho: <strong>28 testes falhando</strong>. A
+revisão separou as falhas em cinco pontos, pelo log do CI.</p>
+<p>Os dois primeiros eram a mesma coisa técnica: testes que faziam
+<code>page.evaluate(() =&gt; import('/src/services/...'))</code>, o que só existe no servidor
+de desenvolvimento — no projeto <code>build</code> o <code>/src/</code> não é servido. Em
+<code>tests/public/us14-evento-cancelado-adiado.spec.js</code> (21 falhas) a correção não
+era marcar com <code>@fonte</code>, porque são testes do que o visitante vê e precisam
+rodar contra o build: o caminho era o <code>setupApiMock</code> já nascer com o evento
+marcado. Em <code>tests/admin/us11-materiais.spec.js</code> (3 falhas) <code>@fonte</code> <strong>era</strong> a
+correção certa, porque o teste chama o serviço de propósito para exercitar a
+validação de quem contorna o formulário.</p>
+<p>Os outros: o link "Materiais" fica dentro do menu sanduíche no celular, e o
+teste precisava abri-lo antes de clicar (2 falhas); e
+<code>grantPermissions(['clipboard-write'])</code> não existe no WebKit (1 falha).</p>
+<p>O quinto (1 falha, só no iPhone) a revisão não conseguiu atribuir ao teste: o
+nome do evento estava no DOM da lista do painel mas nunca ficava visível na
+largura do iPhone. <strong>Era defeito de verdade</strong> — o título do evento sumia da
+lista no celular —, e foi corrigido na própria PR, junto dos ajustes de teste.</p>
+<p>Com os cinco pontos tratados, o CI fechou verde e a PR foi integrada.
+<strong>Publicar é outro passo</strong>: enquanto a <code>main</code> do fork não chegar ao repositório
+<code>idbjovemnacional</code>, o site em produção segue sem as três histórias — evento
+cancelado aparecendo na listagem pública igual a qualquer outro, sem página de
+materiais e sem links fixados no painel.</p>
+<p>O que este caso ensinou fica registrado: durante dezoito dias, três histórias
+com o back-end em produção ficaram sem a ponta do front, e nenhuma suíte
+reclamou — e as duas estavam certas. A do back-end testa o back-end, e a do
+front intercepta chamadas que o front não faz. Interceptar só verifica chamada
+que alguém escreveu — <strong>tela que nunca pede um dado não tem o que
+interceptar</strong>, então a ausência da funcionalidade inteira passa despercebida.</p>
+<h3 id="front-end-da-sprint-4-rf51-us13-us16-e-us08">Front-end da Sprint 4 — RF51, US13, US16 e US08<a class="headerlink" href="#front-end-da-sprint-4-rf51-us13-us16-e-us08" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Responsáveis:</strong> <a href="https://github.com/daviRolvr">Davi Emanuel Ribeiro de Oliveira</a>, <a href="https://github.com/JoaoPedro2206">João Pedro Ferreira Moraes</a> e <a href="https://github.com/R-enanVieira">Renan Vieira Guedes</a></li>
+<li><strong>Situação:</strong> concluído e integrado à <code>main</code> (<a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/32">PR #32</a>).</li>
+</ul>
+<p>Quatro histórias escolhidas por um critério só: <strong>o front entrega sozinho</strong>. O
+levantamento conferiu o código dos dois repositórios, e não o texto do backlog
+— foi assim que a US02 ficou de fora da lista inicial, por depender de coluna
+que não existe.</p>
+<p><strong>RF51 — histórico de participações por convidado.</strong> O dado já era calculado
+na tela de convidados, para avisar antes de excluir alguém vinculado, mas só a
+contagem aparecia e a lista era descartada. A agregação passou para o serviço
+(<code>fetchParticipacoesPorConvidado</code>) e devolve os eventos inteiros, do mais
+recente para o mais antigo. A listagem consome a mesma função, então contagem e
+histórico não podem divergir.</p>
+<p><strong>US13 (RF09) — duplicar evento.</strong> A regra mora no serviço e é seletiva de
+propósito: copia o que descreve o evento e <strong>recusa</strong> o que pertence àquela
+edição. Datas não vêm (herdar a antiga nasceria um evento no passado), nem a
+situação (a cópia nasce ativa), nem o álbum (o link aponta para as fotos da
+edição anterior), nem os formulários de inscrição (misturaria as duas listas de
+inscritos). Os convidados, esses sim, vêm marcados. O rascunho (RF08) ficou de
+fora: exige campo novo no back-end.</p>
+<p><strong>US16 (RNF02) — acessibilidade e leitor de tela.</strong> Até aqui os rótulos
+acessíveis entravam de carona, onde outra história passava. Duas lacunas
+estruturais foram fechadas: 32 <code>&lt;label&gt;</code> em seis formulários não estavam
+ligados ao campo que descreviam — o leitor de tela anunciava "caixa de edição"
+sem dizer de quê — e o <code>Modal</code> era um <code>&lt;div&gt;</code> comum, que não se anunciava como
+diálogo, não prendia o foco e não o devolvia ao fechar. Um dos testes é uma
+varredura que reprova qualquer campo sem nome acessível em cinco formulários:
+rótulo novo sem associação passa a quebrar o build.</p>
+<p><strong>US08 (RNF03) — card de compartilhamento por evento.</strong> As tags Open Graph
+existiam, mas eram fixas no <code>index.html</code> e descreviam o site inteiro; o link
+que as pessoas compartilham é o de um evento. Não dava para resolver no
+cliente, porque o robô do WhatsApp não executa JavaScript. O <code>vercel.json</code>
+passou a desviar <code>/eventos/:slug</code> para uma função na borda <strong>só quando o
+user-agent é de um robô de prévia</strong>; visitante de verdade continua recebendo a
+aplicação. A imagem sai pelo proxy do back-end, e não pelo link direto do
+Drive, que responde 429/403 a quem vem de fora — era justamente a foto faltando
+que a cliente relatou.</p>
+<blockquote>
+<p>Esta história estava atribuída a <a href="https://github.com/RivaFilho">Rivadalvio Joaquim da Silva
+Filho</a> na matriz de rastreabilidade, que
+entregou as tags fixas. O que entrou agora é a parte por evento. Fica o
+registro para evitar trabalho duplicado.</p>
+</blockquote>
+<h3 id="tres-defeitos-que-estavam-em-producao">Três defeitos que estavam em produção<a class="headerlink" href="#tres-defeitos-que-estavam-em-producao" title="Permanent link">&para;</a></h3>
+<p>Levantamento pedido antes de publicar as histórias das Sprints 3 e 4. Os três
+foram encontrados no código já publicado, e os três eram visíveis para quem usa
+o sistema.</p>
+<table>
+<thead>
+<tr>
+<th>Defeito</th>
+<th>Onde</th>
+<th>Correção</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cinco campos do evento eram digitados e <strong>descartados em silêncio</strong></td>
+<td>US02</td>
+<td><a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/33">PR #33</a></td>
+</tr>
+<tr>
+<td>Opções de status <strong>inalcançáveis</strong> no celular</td>
+<td>US09</td>
+<td><a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/34">PR #34</a></td>
+</tr>
+<tr>
+<td>A página inicial anunciava como "próximo" um evento <strong>já encerrado</strong></td>
+<td>Home</td>
+<td><a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/35">PR #35</a></td>
+</tr>
+</tbody>
+</table>
+<p><strong>US02 — o dado sumia sem aviso.</strong> O formulário de evento coleta vagas, contato
+do responsável, valor, link de pagamento e regulamento desde a US02. Mas
+<code>toApiEvent</code> não enviava nenhum dos cinco e <code>adaptEvent</code> não lia nenhum: a
+administradora digitava, salvava, e o dado desaparecia — os campos nem são
+obrigatórios, então nada sinalizava a perda. Os cinco passaram a ser mapeados
+nos dois sentidos. <strong>Continua dependendo do back-end:</strong> as colunas não existem,
+e enquanto não existirem a API ignora o campo desconhecido, de modo que o dado
+ainda não persiste. O que deixou de acontecer é o front jogar fora em silêncio
+o que foi digitado. Os nomes usados são assumidos, não um contrato publicado, e
+ficaram isolados num lugar só com a nota de conferi-los antes de dar a
+integração por concluída — na US09 três nomes assumidos estavam errados.</p>
+<p><strong>US09 — trocar o status era impossível pelo telefone.</strong> O <code>Dropdown</code>
+posicionava o menu sempre logo abaixo do botão, sem conferir o espaço que
+sobrava. Na última linha da tabela de voluntários, em tela de celular, o menu
+caía fora da área visível e não havia mais página para rolar. Já era defeito
+conhecido, registrado pela QA com <code>test.fail</code> na suíte de tela pequena. Agora o
+menu abre para cima quando não cabe embaixo, o lado é limitado para não passar
+da borda direita, e a anotação de defeito conhecido saiu do teste.</p>
+<p><strong>Home — "próximo evento" apontando para o passado.</strong> A escolha do destaque era
+<code>proximos[0] || all[0]</code>: sem nenhum evento futuro, caía no primeiro da ordem da
+API e a página inicial exibia "PRÓXIMO EVENTO" com contagem zerada e um botão
+levando a um evento que já tinha acontecido. Além disso, o filtro olhava só a
+data de início, então um evento de vários dias <strong>já em curso</strong> não contava como
+próximo — a home anunciava outro mais distante justamente enquanto o evento
+acontecia. O destaque passou a ser o primeiro evento que ainda não terminou, e
+sem nada em cartaz não há destaque.</p>
+<h3 id="correcoes-pedidas-na-revisao-da-pr-30">Correções pedidas na revisão da PR #30<a class="headerlink" href="#correcoes-pedidas-na-revisao-da-pr-30" title="Permanent link">&para;</a></h3>
+<p>A revisão separou 28 testes vermelhos em quatro causas técnicas e uma quinta
+que não foi possível descartar. <strong>A quinta era defeito de produto</strong>, e a
+suspeita estava certa: na largura do iPhone sobram cerca de 88px para a coluna
+do título na lista do painel, e o selo "Cancelado" ocupa 82px com <code>shrink-0</code>.
+O título era espremido até largura zero — marcar um evento como cancelado ou
+adiado fazia <strong>o nome dele desaparecer</strong> da lista no celular. Corrigido
+deixando a linha quebrar.</p>
+<p>Das outras quatro: a proposta de parametrizar o <code>setupApiMock</code> foi adotada, por
+reaproveitar a semente do mock em vez de duplicar um evento dentro do teste; a
+tag <code>@fonte</code> ficou só no teste que chama o serviço, e não no bloco inteiro,
+para os demais continuarem rodando contra o build; o teste do celular passou a
+abrir o menu sanduíche antes de clicar em "Materiais"; e a leitura da área de
+transferência ficou condicionada ao navegador, porque o WebKit não conhece
+essas permissões.</p>
+<blockquote>
+<p>Registro de um erro do trio: a verificação local havia rodado apenas os
+projetos <code>build</code> e <code>fonte</code>. Os projetos de celular não foram executados, e
+foi exatamente neles que os defeitos apareceram. Passou a ser regra rodar os
+quatro antes de abrir PR.</p>
+</blockquote>
+<h3 id="us21-pedidos-de-produto-back-end">US21 — Pedidos de produto (back-end)<a class="headerlink" href="#us21-pedidos-de-produto-back-end" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Requisitos tocados:</strong> RF57</li>
+<li><strong>Responsáveis:</strong> <a href="https://github.com/JuliaReis18">Júlia dos Reis Teixeira Massuda</a>, <a href="https://github.com/Filipe-002">Filipe Carvalho da Silva</a> e <a href="https://github.com/JpRodrigues2">João Rodrigues</a></li>
+<li><strong>Situação:</strong> Em Andamento. O back-end está concluído, revisado pela QA e
+  integrado à <code>main</code> em 17/11/2026
+  (<a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/21">PR #21</a>).
+  O front-end não foi iniciado, e a publicação em produção não foi verificada.</li>
+</ul>
+<p>A história entrou no back-end antes de a cliente confirmar o escopo, e com
+uma leitura que vale registrar aqui. A US21 ainda está marcada como "escopo
+pendente" no <a href="../backlog_melhorias/#us21">Backlog de Melhorias</a>, e a D08
+continua sem resposta. A implementação segue a leitura que a equipe registrou
+em 18/10/2026: o site <strong>registra e acompanha</strong> o pedido, enquanto a compra e o
+pagamento continuam fora dele, pelo <code>link_produto</code> de cada produto, como ficou
+decidido na US12. Não há carrinho, pagamento, preço nem estoque. Se a cliente
+entender "pedido do produto" de outro jeito, o ajuste cabe na mesma história.</p>
+<p><strong>Como o pedido chega ao sistema.</strong> Pelo mesmo mecanismo que a US09 já usa
+nas inscrições: um formulário do Google ligado ao produto. O produto ganhou o
+campo opcional <code>formulario_pedido_link</code>, e a sincronização lê as respostas
+desse formulário e grava <strong>um pedido por resposta</strong>. Ressincronizar atualiza o
+nome e o contato da mesma resposta, sem criar um pedido novo. Não existe rota
+pública de escrita: o teste <code>test_toda_rota_de_escrita_tem_guarda</code> exige guarda
+de papel em toda escrita, e quem grava o pedido é a sincronização feita pelo
+setor.</p>
+<table>
+<thead>
+<tr>
+<th>Critério</th>
+<th>O que foi entregue no back-end</th>
+<th>O que falta</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CA1 — ver os pedidos com produto, quem pediu e a data</td>
+<td><code>GET /pedido/</code> devolve os pedidos com o nome do produto, o solicitante, o contato, a situação e a data, do mais recente para o mais antigo</td>
+<td>A tela no painel. O critério fala em "abrir a tela de pedidos", e ela não existe</td>
+</tr>
+<tr>
+<td>CA2 — mudar a situação do pedido</td>
+<td><code>PATCH /pedido/{pedido_id}/status</code>, no mesmo molde do voluntário, com as situações <code>pendente</code>, <code>em_andamento</code>, <code>concluido</code> e <code>cancelado</code></td>
+<td>O controle na tela</td>
+</tr>
+</tbody>
+</table>
+<p>Por isso a US21 <strong>não</strong> consta como concluída: os dois critérios estão
+atendidos e testados no servidor, mas nenhum deles é alcançável por quem usa o
+painel.</p>
+<p><strong>Contrato da API.</strong></p>
+<table>
+<thead>
+<tr>
+<th>Rota</th>
+<th>Método</th>
+<th>Exigência</th>
+<th>Respostas</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/pedido/</code></td>
+<td>GET</td>
+<td>Setor de produtos</td>
+<td>200 com a lista (vazia quando não há pedido)</td>
+</tr>
+<tr>
+<td><code>/pedido/{pedido_id}/status</code></td>
+<td>PATCH</td>
+<td>Setor de produtos</td>
+<td>200 com o pedido atualizado; 404 <code>Pedido não encontrado.</code>; 422 para situação fora da lista</td>
+</tr>
+<tr>
+<td><code>/formulario/produtos/{produto_id}/pedidos</code></td>
+<td>GET</td>
+<td>Setor de produtos</td>
+<td>200 com os pedidos sincronizados; 404 para produto inexistente ou sem formulário configurado; 502 quando a chamada ao Google falha</td>
+</tr>
+<tr>
+<td><code>/produto/{produto_id}</code></td>
+<td>DELETE</td>
+<td><code>superadmin</code> (inalterado)</td>
+<td>Passa a responder <strong>409</strong> quando o produto tem pedidos registrados</td>
+</tr>
+</tbody>
+</table>
+<p>A resposta de pedido traz <code>pedido_id</code>, <code>produto_id</code>, <code>nome_produto</code>,
+<code>nome_solicitante</code>, <code>contato_solicitante</code>, <code>status</code>, <code>resposta_id</code> (opcional) e
+<code>criado_em</code>. O produto passou a aceitar e devolver <code>formulario_pedido_link</code>.</p>
+<p><strong>Autorização.</strong> O CA2 da revisão da US03 cria o setor Comercial, mas ele não
+foi implementado em nenhuma das duas pontas: o papel no Keycloak continua sendo
+<code>admin-produtos</code>. Por isso as três rotas novas usam o setor de produtos que já
+existe, liberado para <code>admin-produtos</code> e <code>superadmin</code>, em vez de inventar um
+papel que ninguém tem. A exclusão de produto continua só da superadministradora.
+As rotas entraram na matriz lida do código (<code>tests/unit/test_matriz_rotas.py</code>)
+e na <a href="../matriz-autorizacao/#sprint4">Matriz de Autorização</a>.</p>
+<p><strong>Persistência.</strong> A migration <code>a7f3c1d9e5b2</code> (depois de <code>e9c4a2b7f1d3</code>) cria a
+tabela <code>pedido</code> e a coluna <code>produto.formulario_pedido_link</code>. A tabela tem chave
+estrangeira para <code>produto</code> e um <code>CHECK</code> com as quatro situações; <code>status</code> nasce
+<code>pendente</code> e <code>criado_em</code> usa o horário do servidor. Produto que já existia fica
+sem formulário até alguém configurar um. A cadeia de migrations continua com um
+<em>head</em> só, e o <code>alembic upgrade head</code> aplicou a migration contra Postgres 15 no
+CI. Excluir um produto com pedidos é recusado com 409, para preservar o
+histórico. A chave estrangeira também impede a exclusão no banco, o que
+<code>test_excluir_produto_nao_apaga_pedidos_no_banco</code> verifica.</p>
+<p><strong>Testes.</strong> 72 testes novos na suíte não-endpoint, que passou de 946 para 1018
+testes coletados:</p>
+<table>
+<thead>
+<tr>
+<th>Arquivo</th>
+<th style="text-align: right;">Testes</th>
+<th>O que cobre</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>test_pedido_schema.py</code></td>
+<td style="text-align: right;">10</td>
+<td>Situações aceitas e recusadas, campos obrigatórios da resposta</td>
+</tr>
+<tr>
+<td><code>test_pedido_repository.py</code></td>
+<td style="text-align: right;">8</td>
+<td>Consultas com o nome do produto e contagem por produto</td>
+</tr>
+<tr>
+<td><code>test_pedido_service.py</code></td>
+<td style="text-align: right;">8</td>
+<td>Listagem, mudança de situação e pedido inexistente</td>
+</tr>
+<tr>
+<td><code>test_pedido_controller.py</code></td>
+<td style="text-align: right;">5</td>
+<td>As duas rotas de pedido, incluindo o 404</td>
+</tr>
+<tr>
+<td><code>test_pedido_persistencia.py</code></td>
+<td style="text-align: right;">7</td>
+<td>Chave estrangeira, <code>CHECK</code> de situação, situação e data iniciais e o join da listagem, em SQLite com <code>foreign_keys=ON</code></td>
+</tr>
+<tr>
+<td><code>test_formulario_pedido_repository.py</code></td>
+<td style="text-align: right;">12</td>
+<td>Sincronização: um pedido por resposta, atualização da resposta já gravada e descarte de resposta incompleta</td>
+</tr>
+<tr>
+<td><code>test_formulario_pedido_controller.py</code></td>
+<td style="text-align: right;">4</td>
+<td>200, 404 sem formulário, 404 sem produto e 502 do Google</td>
+</tr>
+<tr>
+<td><code>test_formulario_pedido_service.py</code></td>
+<td style="text-align: right;">2</td>
+<td>Delegação e independência dos fluxos de inscrição</td>
+</tr>
+<tr>
+<td>Arquivos já existentes</td>
+<td style="text-align: right;">16</td>
+<td>Autorização por setor das três rotas (7), exclusão de produto com pedidos no serviço e no controller (3), matriz de rotas (3) e contrato de respostas (3: <code>RespostaPedido</code> e o campo novo de <code>RespostaProduto</code>)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Resultados.</strong> No CI da PR #21 e no CI da <code>main</code> depois do merge
+(17/11/2026), todos os jobs passaram: 1014 testes passando e 4 <code>xfail</code>
+esperados, 98,85% de cobertura (piso de 97%), pylint 9,86 (piso de 9,5), a
+migration aplicada em Postgres 15 e 62 testes de endpoint passando contra o
+contêiner. O pylint estava em 9,88 antes da US21. A queda de 0,02 continua
+acima do piso, mas fica registrada.</p>
+<p><strong>Limites conhecidos, registrados para não se perderem:</strong></p>
+<ul>
+<li><strong>Nenhum teste de endpoint cobre <code>/pedido</code>.</strong> Os 62 testes contra o
+  contêiner já existiam e continuam passando, mas nenhum chama as rotas novas.
+  A persistência foi testada em SQLite, não em Postgres.</li>
+<li><strong>A sincronização depende do formulário.</strong> Ela localiza as perguntas cujo
+  título é exatamente "Nome" e "Email", sem diferenciar maiúsculas. Formulário
+  com outro título não gera pedido nenhum, e não há aviso de erro.</li>
+<li><strong>A ressincronização preserva a situação do pedido</strong>, porque o código só
+  atualiza o nome e o contato. Mas nenhum teste afirma isso explicitamente.</li>
+<li><strong>O <code>GET</code> de sincronização grava no banco.</strong> É o mesmo desenho já adotado nas
+  inscrições da US09, mantido aqui por consistência.</li>
+</ul>
+<h3 id="validacao-dos-testes-das-sprints-anteriores-no-back-end">Validação dos testes das sprints anteriores no back-end<a class="headerlink" href="#validacao-dos-testes-das-sprints-anteriores-no-back-end" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Responsáveis:</strong> <a href="https://github.com/JuliaReis18">Júlia dos Reis Teixeira Massuda</a>, <a href="https://github.com/Filipe-002">Filipe Carvalho da Silva</a> e <a href="https://github.com/JpRodrigues2">João Rodrigues</a></li>
+<li><strong>Situação:</strong> Concluído.</li>
+</ul>
+<p>Antes e depois de integrar a US21, as suítes do back-end das sprints anteriores
+foram executadas de novo, para confirmar que a história nova não quebrou nada
+do que já estava entregue. A execução local na <code>main</code> com a US21 (commit
+<code>292f045</code>) usou os mesmos comandos do CI:</p>
+<ul>
+<li><code>pytest</code>, com o <code>pytest.ini</code> do repositório (exclui o marcador <code>endpoint</code>):
+  <strong>1014 passando, 4 <code>xfail</code>, 62 não selecionados, 98,85% de cobertura.</strong></li>
+<li><code>pylint src/ --fail-under=9.5</code> com as exclusões do CI: <strong>9,86.</strong></li>
+<li><code>alembic heads</code>: <strong>um <em>head</em> só</strong>, <code>a7f3c1d9e5b2</code>.</li>
+<li>Os 62 testes de endpoint precisam do contêiner. Eles <strong>não</strong> rodaram
+  localmente, e o resultado (62 passando) vem do CI.</li>
+</ul>
+<p>Por história, as suítes que já existiam continuam verdes:</p>
+<table>
+<thead>
+<tr>
+<th>História</th>
+<th>Arquivos</th>
+<th>Resultado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>US01</td>
+<td><code>test_evento_multiplos_dias.py</code></td>
+<td>16 passando</td>
+</tr>
+<tr>
+<td>US03</td>
+<td><code>test_autorizacao.py</code>, <code>test_autorizacao_setores.py</code>, <code>test_matriz_rotas.py</code>, <code>test_token_malformado.py</code></td>
+<td>118 passando</td>
+</tr>
+<tr>
+<td>US05</td>
+<td><code>test_lider_*.py</code></td>
+<td>56 passando</td>
+</tr>
+<tr>
+<td>US06</td>
+<td><code>test_banda_palestrante_*.py</code>, <code>test_evento_participantes.py</code>, <code>test_exclusao_com_vinculo.py</code></td>
+<td>41 passando, 1 <code>xfail</code></td>
+</tr>
+<tr>
+<td>US09</td>
+<td><code>test_formulario_participante_*.py</code>, <code>test_voluntario_*.py</code></td>
+<td>49 passando</td>
+</tr>
+<tr>
+<td>US10</td>
+<td><code>test_us10_cadastro_lideres.py</code></td>
+<td>30 passando</td>
+</tr>
+<tr>
+<td>US11</td>
+<td><code>test_us11_materiais.py</code></td>
+<td>52 passando</td>
+</tr>
+<tr>
+<td>US14</td>
+<td><code>test_us14_situacao_evento.py</code></td>
+<td>30 passando</td>
+</tr>
+<tr>
+<td>US18</td>
+<td><code>test_us18_fotos_excluidas.py</code></td>
+<td>15 passando</td>
+</tr>
+<tr>
+<td>QA (Sprints 3 e 4)</td>
+<td><code>test_achados_exploratorios.py</code>, <code>test_especificacao_melhorias.py</code></td>
+<td>21 passando, 3 <code>xfail</code></td>
+</tr>
+<tr>
+<td>Migrations</td>
+<td><code>test_migrations.py</code></td>
+<td>3 passando</td>
+</tr>
+<tr>
+<td>Integração</td>
+<td><code>tests/integration/</code></td>
+<td>184 passando</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Lacunas cobertas.</strong> As que a US21 abriria: as três rotas novas estão na
+matriz de rotas, com testes de acesso permitido e negado por setor, e o
+contrato de respostas passou a conferir <code>RespostaPedido</code> e o campo novo do
+produto. Nenhuma suíte das histórias anteriores ganhou teste novo nesta
+entrega.</p>
+<p><strong>Bugs reproduzidos e corrigidos.</strong> Nenhum defeito novo. A auditoria chegou
+ao vazamento do <em>refresh token</em> do Google, mas esse achado já estava
+registrado e corrigido pela QA na sessão EX-01 (QA34, PR #19 do back-end).
+A primeira versão da PR #21 trazia a mesma correção e o mesmo arquivo de
+achados. A pedido da QA, a PR foi rebaseada sobre a <code>main</code> e ficou só com a
+US21. O crédito da correção é da QA34.</p>
+<p><strong>Pendentes.</strong> Os 4 <code>xfail</code> continuam sendo especificação de comportamento
+que ainda não existe: a D09 (excluir convidado vinculado responde 500) e os
+três achados da EX-02. Nenhum foi resolvido nesta entrega, porque dependem de
+decisão de produto.</p>
+<h3 id="achados-sobre-a-propria-documentacao">Achados sobre a própria documentação<a class="headerlink" href="#achados-sobre-a-propria-documentacao" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Responsável:</strong> <a href="https://github.com/Jadequilin">João Pedro Araújo de Freitas Lyra</a></li>
+<li><strong>Situação:</strong> registrados.</li>
+</ul>
+<p><strong>O <code>mkdocs.yml</code> da <code>main</code> apontava para duas páginas que não existiam nela:</strong>
+<code>projeto/guia_front_us10_us11_us14.md</code> e <code>projeto/front_us10_us11_us14.md</code>. Eram
+quatro links quebrados no site publicado — o <code>sprint03.md</code> e o
+<code>backlog_melhorias.md</code> também apontavam para elas. <strong>Resolvido em 16/11</strong>, com a
+integração da branch <code>docs/restaura-paginas-us10-us11-us14</code>, que devolveu as
+duas páginas.</p>
+<p><strong>O resumo da Sprint 3 conta US10, US11 e US14 como completas nas duas
+pontas.</strong> Não estavam ao fim daquela sprint: o front-end das três só foi
+integrado em 16/11, pela
+<a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/30">PR #30</a>. A
+divergência fica registrada aqui, sem reescrever a Sprint 3, que já foi
+fechada e apresentada.</p>
+<hr />
+<h2 id="resumo">Resumo<a class="headerlink" href="#resumo" title="Permanent link">&para;</a></h2>
+<ul>
+<li><em>Entregas de QA:</em> 4 — QA32 a QA34, por <a href="https://github.com/Jadequilin">João Pedro</a>, e QA35, por <a href="https://github.com/RivaFilho">Rivadalvio</a></li>
+<li><em>Testes com Selenium:</em> 53 no total — 39 funcionais sobre a pilha real (<a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/31">PR #31</a>) e 14 de entrega do build e de produção (QA32)</li>
+<li><em>Histórias cobertas por Selenium:</em> 13 — US01, US02, US03, US04, US05, US07, US11, US14, US18, US19, US20, US22 e US23. Seguem sem cobertura por Selenium a US06, US08, US09, US10 e US15</li>
+<li><em>Testes exploratórios:</em> 2 sessões, 6 achados — 2 corrigidos nesta sprint, 1 travado como teste verde, 3 como especificação executável, e 1 ainda sem teste</li>
+<li><em>Suíte do back-end:</em> 1014 testes passando e 4 <code>xfail</code> esperados, 98,85% de cobertura (piso de 97%), pylint 9,86 (piso de 9,5), mais 62 testes de endpoint contra o contêiner. Antes da US21 eram 942 passando, 98,77% e pylint 9,88. Os 72 testes novos são da US21</li>
+<li><em>Entregas de back-end:</em> 1 história em andamento (US21, back-end integrado à <code>main</code>, front-end não iniciado) e a reexecução das suítes das sprints anteriores, por <a href="https://github.com/JuliaReis18">Júlia dos Reis Teixeira Massuda</a>, <a href="https://github.com/Filipe-002">Filipe Carvalho da Silva</a> e <a href="https://github.com/JpRodrigues2">João Rodrigues</a></li>
+<li><em>Entregas de front-end:</em> 4 histórias (RF51, US13, US16 e US08) e 3 correções de defeitos que estavam em produção (US02, US09 e Home), por <a href="https://github.com/daviRolvr">Davi Emanuel Ribeiro de Oliveira</a>, <a href="https://github.com/JoaoPedro2206">João Pedro Ferreira Moraes</a> e <a href="https://github.com/R-enanVieira">Renan Vieira Guedes</a></li>
+<li><em>Líder da Apresentação:</em> a definir</li>
+<li><em>Início da Sprint:</em> 30/10/2026</li>
+<li><em>Fim da Sprint:</em> 19/11/2026</li>
+</ul>
+<hr />
+<h2 id="em-aberto-ao-fim-da-sprint-4">Em aberto ao fim da Sprint 4<a class="headerlink" href="#em-aberto-ao-fim-da-sprint-4" title="Permanent link">&para;</a></h2>
+<p>A Sprint 5 fica reservada ao que a cliente apontar, então o que segue abaixo
+não está estacionado nela: ou entra ainda nesta sprint, ou fica registrado como
+dívida conhecida da entrega.</p>
+<ul>
+<li><strong>Rotacionar o <em>refresh token</em> do Google.</strong> A correção do código conserta o
+  vazamento futuro, não o passado: o token que está em produção hoje já passou
+  por log e deve ser considerado comprometido.</li>
+<li>~~<strong>Integrar a <a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/30">PR #30</a></strong>~~
+  — <strong>concluído.</strong> As cinco causas da revisão foram tratadas, o CI fechou verde
+  e a PR foi integrada à <code>main</code>, junto da Sprint 4 e das três correções de
+  produção. Falta a publicação: a <code>main</code> do fork precisa chegar ao repositório
+  <code>idbjovemnacional</code>.</li>
+<li><strong>As três correções propostas na EX-02</strong>, uma validação cada, que dependem de
+  alguém rodar o fluxo integrado antes de integrar.</li>
+<li><strong>Tirar a rota <code>/test-coverage</code> do build de produção</strong>, sem quebrar a suíte
+  Playwright que depende dela.</li>
+<li><strong>Selenium nas cinco histórias descobertas</strong> (US06, US08, US09, US10 e US15).</li>
+<li><strong>Firefox no CI</strong>, depois de uma execução manual limpa.</li>
+<li><strong>Colunas da US02 no back-end</strong> (<code>vagas</code>, <code>contato_responsavel</code>,
+  <code>valor_investimento</code>, <code>link_pagamento</code>, <code>link_regulamento</code>). O front já envia
+  e lê os cinco; sem as colunas, a API ignora o campo e o dado não persiste. Os
+  nomes foram assumidos pelo front e precisam ser conferidos antes de dar a
+  integração por concluída.</li>
+<li>~~<strong>Integrar <code>docs/restaura-paginas-us10-us11-us14</code></strong>~~ — <strong>concluído</strong>
+  (<a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Documentacao/pull/19">PR #19</a>).
+  As duas páginas voltaram pelo conteúdo exato que estava versionado, e a
+  navegação do MkDocs resolve de novo.</li>
+<li><strong>Front-end da US21.</strong> A tela de pedidos no painel, para o setor de produtos,
+  consumindo <code>GET /pedido/</code> e <code>PATCH /pedido/{pedido_id}/status</code>, e o campo
+  <code>formulario_pedido_link</code> no cadastro de produto. Sem isso os dois critérios
+  da história só existem na API.</li>
+<li><strong>Confirmar o escopo da US21 com a cliente (D08).</strong> A implementação seguiu a
+  leitura da equipe: registrar e acompanhar o pedido, com a compra pelo link
+  externo. A cliente ainda não confirmou essa leitura.</li>
+<li><strong>Teste de endpoint para <code>/pedido</code></strong> contra o contêiner com Postgres, que hoje
+  não existe.</li>
+</ul>
+<hr />
+<h2 id="historico-de-versao">Histórico de Versão<a class="headerlink" href="#historico-de-versao" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Versão</th>
+<th>Data</th>
+<th>Descrição</th>
+<th>Autor(es)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>1.0</code></td>
+<td>15/11/2026</td>
+<td>Criação do relatório da Sprint 04 com as entregas de QA (QA32 a QA34): testes com Selenium contra a entrega do build e contra a produção, as três amarrações no pipeline, duas sessões de testes exploratórios com seis achados, a correção dos dois defeitos de severidade alta, a revisão da PR #30 e os achados sobre a própria documentação</td>
+<td><a href="https://github.com/Jadequilin">João Pedro Araújo de Freitas Lyra</a></td>
+</tr>
+<tr>
+<td><code>1.1</code></td>
+<td>16/11/2026</td>
+<td>Registro da entrega de front-end da Sprint 4 — RF51, US13, US16 e US08 —, das três correções de defeitos que estavam em produção (US02, US09 e Home) e do atendimento à revisão da PR #30, incluindo o defeito de produto que ela apontou</td>
+<td><a href="https://github.com/daviRolvr">Davi Emanuel Ribeiro de Oliveira</a>, <a href="https://github.com/JoaoPedro2206">João Pedro Ferreira Moraes</a> e <a href="https://github.com/R-enanVieira">Renan Vieira Guedes</a></td>
+</tr>
+<tr>
+<td><code>1.2</code></td>
+<td>16/11/2026</td>
+<td>Atualização dos trechos de QA que ficaram desatualizados com as integrações de 16/11: a revisão da PR #30 ganha o desfecho — cinco pontos tratados, o quinto confirmado como defeito real do painel no celular, e a PR integrada —, os achados sobre a documentação passam a constar como resolvidos, e a religação do deploy automático do front é atribuída à PR #32, ficando com a QA o diagnóstico e o <code>.gitignore</code> (PR #36)</td>
+<td><a href="https://github.com/Jadequilin">João Pedro Araújo de Freitas Lyra</a></td>
+</tr>
+<tr>
+<td><code>1.3</code></td>
+<td>16/11/2026</td>
+<td>Registro da QA35: os cabeçalhos e o prazo das chamadas ao Google Calendar, que nenhum teste verificava, travados como regressão por 14 testes, com a prova por mutação; atualização da contagem da suíte do back-end no resumo</td>
+<td><a href="https://github.com/RivaFilho">Rivadalvio Joaquim da Silva Filho</a></td>
+</tr>
+<tr>
+<td><code>1.4</code></td>
+<td>17/11/2026</td>
+<td>Registro do back-end da US21 (pedidos de produto), em andamento: critérios atendidos no servidor, contrato da API, autorização pelo setor de produtos, migration <code>a7f3c1d9e5b2</code>, 72 testes novos e os resultados do CI da PR #21. Registro da reexecução das suítes do back-end das sprints anteriores, com comandos e resultados por história. Atualização da suíte do back-end no resumo e das pendências da US21 em aberto</td>
+<td><a href="https://github.com/JuliaReis18">Júlia dos Reis Teixeira Massuda</a>, <a href="https://github.com/Filipe-002">Filipe Carvalho da Silva</a> e <a href="https://github.com/JpRodrigues2">João Rodrigues</a></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Voltar para o topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.top", "navigation.instant", "navigation.instant.progress", "content.code.copy"], "search": "../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+    
+  </body>
+</html>

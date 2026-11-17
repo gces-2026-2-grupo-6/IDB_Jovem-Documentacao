@@ -1,0 +1,1582 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Base inicial da documentação tecnica e organizacional">
+      
+      
+      
+        <link rel="canonical" href="https://gces-2026-2-grupo-6.github.io/IDB_Jovem-Documentacao/projeto/front_us10_us11_us14/">
+      
+      
+        <link rel="prev" href="../guia_front_us10_us11_us14/">
+      
+      
+        <link rel="next" href="../sprints/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../imagens/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.1">
+    
+    
+      
+        <title>Front-end (US10, US11, US14) - Documentação do Projeto</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/custom.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#front-end-us10-us11-e-us14" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../.." title="Documentação do Projeto" class="md-header__button md-logo" aria-label="Documentação do Projeto" data-md-component="logo">
+      
+  <img src="../../imagens/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Documentação do Projeto
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Front-end (US10, US11, US14)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Alternar para tema claro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Alternar para tema claro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="pink"  aria-label="Alternar para tema escuro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Alternar para tema escuro" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="pink"  aria-label="Usar preferência do sistema"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Usar preferência do sistema" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando busca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Documentacao" title="Ir para repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Repositorio
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Inicio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../historia_usuario_novo/" class="md-tabs__link">
+          
+  
+  
+  Projeto
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Documentação do Projeto" class="md-nav__button md-logo" aria-label="Documentação do Projeto" data-md-component="logo">
+      
+  <img src="../../imagens/logo.png" alt="logo">
+
+    </a>
+    Documentação do Projeto
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Documentacao" title="Ir para repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Repositorio
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projeto
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Projeto
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../historia_usuario_novo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    História
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backlog_novo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backlog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backlog_melhorias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backlog de Melhorias
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sprint01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sprint 01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sprint02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sprint 02
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sprint03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sprint 03
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sprint04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sprint 04
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guia_front_us10_us11_us14/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guia do Front-end (US10, US11, US14)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Front-end (US10, US11, US14)
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Front-end (US10, US11, US14)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#resumo-da-entrega" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resumo da entrega
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#us10-cadastro-nacional-de-lideres" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        US10 — Cadastro nacional de líderes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="US10 — Cadastro nacional de líderes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#as-12-tarefas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        As 12 tarefas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#us11-materiais-para-download" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        US11 — Materiais para download
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="US11 — Materiais para download">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#as-12-tarefas_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        As 12 tarefas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#us14-evento-cancelado-ou-adiado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        US14 — Evento cancelado ou adiado
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="US14 — Evento cancelado ou adiado">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#as-12-tarefas_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        As 12 tarefas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decisoes-de-implementacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Decisões de implementação
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historico-de-versao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Histórico de Versão
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sprints/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sprints
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../matriz-autorizacao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Matriz de Autorização
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../canvas_mvp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Canvas MVP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prototipo_alta/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Protótipo de alta fidelidade
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modelo_fisico/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modelo Físico
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../entrega_final/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vídeo entrega Final
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#resumo-da-entrega" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resumo da entrega
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#us10-cadastro-nacional-de-lideres" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        US10 — Cadastro nacional de líderes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="US10 — Cadastro nacional de líderes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#as-12-tarefas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        As 12 tarefas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#us11-materiais-para-download" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        US11 — Materiais para download
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="US11 — Materiais para download">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#as-12-tarefas_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        As 12 tarefas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#us14-evento-cancelado-ou-adiado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        US14 — Evento cancelado ou adiado
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="US14 — Evento cancelado ou adiado">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#as-12-tarefas_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        As 12 tarefas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decisoes-de-implementacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Decisões de implementação
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historico-de-versao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Histórico de Versão
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="front-end-us10-us11-e-us14">Front-end — US10, US11 e US14<a class="headerlink" href="#front-end-us10-us11-e-us14" title="Permanent link">&para;</a></h1>
+<p><strong>Sprint:</strong> 3 · <strong>Repositório:</strong> <a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen">IDB_Jovem-Teen</a>
+<strong>Responsáveis:</strong> <a href="https://github.com/daviRolvr">Davi Emanuel Ribeiro de Oliveira</a>, <a href="https://github.com/JoaoPedro2206">João Pedro Ferreira Moraes</a> e <a href="https://github.com/R-enanVieira">Renan Vieira Guedes</a>
+<strong>Base:</strong> <a href="../guia_front_us10_us11_us14/">Guia do Front-end</a>, publicado pelo trio do back-end na <a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/16">PR #16</a></p>
+<p>Este documento registra a entrega do front-end das três prioridades da cliente.
+O back-end foi concluído na Sprint 3 e nada nele foi alterado: a equipe do
+front lê o código do servidor apenas para conferir contrato.</p>
+<h2 id="resumo-da-entrega">Resumo da entrega<a class="headerlink" href="#resumo-da-entrega" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>História</th>
+<th>O que faltava</th>
+<th>O que o front entregou</th>
+<th>Critérios</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../backlog_melhorias/#us10">US10</a></td>
+<td>Os dois links fixados e a recusa de cargo ocupado não tinham tela</td>
+<td>Card na página inicial do painel, com abrir, copiar e trocar; mensagem do 409 no formulário de líder</td>
+<td>CA1 a CA4, CA8 e CA9</td>
+</tr>
+<tr>
+<td><a href="../backlog_melhorias/#us11">US11</a></td>
+<td>A área de materiais não existia no sistema</td>
+<td>Página pública <code>/materiais</code>, painel restrito à superadministradora e botão "Baixar" em toda foto</td>
+<td>CA1 a CA5</td>
+</tr>
+<tr>
+<td><a href="../backlog_melhorias/#us14">US14</a></td>
+<td>A situação do evento não aparecia nem escondia a inscrição</td>
+<td>Aviso nas quatro telas públicas e marcação no painel</td>
+<td>CA1 a CA4</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Situação:</strong> integrado à <code>main</code> em 16/11/2026
+(<a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/30">PR #30</a>), depois
+da revisão de <a href="https://github.com/Jadequilin">João Pedro Araújo de Freitas Lyra</a>,
+que apontou cinco causas de falha no E2E — uma delas um defeito de produto: na
+largura do iPhone, o selo de situação espremia o título do evento até largura
+zero, e o nome sumia da lista do painel. Corrigido antes da integração.</p>
+<p><strong>Verificação:</strong> 46 testes E2E novos (Playwright), com a suíte completa em 477
+testes passando. O mock de API dos testes ganhou as rotas <code>/painel/links</code>,
+<code>/material/</code> e <code>PATCH /evento/{id}/situacao</code>, além do <code>url_download</code> nas fotos
+e da recusa 409 por cargo ocupado.</p>
+<hr />
+<h2 id="us10-cadastro-nacional-de-lideres">US10 — Cadastro nacional de líderes<a class="headerlink" href="#us10-cadastro-nacional-de-lideres" title="Permanent link">&para;</a></h2>
+<p>O cadastro dos mais de 2500 líderes acontece <strong>fora do site</strong>: cada líder se
+inscreve por um formulário externo e as respostas caem numa planilha. Ao site
+cabem duas coisas — fixar os dois endereços para a superadministradora e
+impedir que dois líderes ativos ocupem o mesmo cargo.</p>
+<p><strong>Os dois links (CA1 a CA4).</strong> O card fica na página inicial do painel, com o
+link de cadastro (para divulgar) separado do link da planilha (para consultar).
+Cada um pode ser aberto, copiado e trocado ali mesmo, sem a equipe técnica. A
+atualização é parcial, então salvar um link não apaga o outro, e o campo em
+branco remove o link fixado.</p>
+<p>Para o administrador de setor (CA3) o card não aparece <strong>e a rota não é
+chamada</strong>. Esconder não bastaria: a planilha reúne nome, e-mail e WhatsApp de
+mais de 2500 pessoas, e o back-end recusa a leitura com 403 justamente por
+isso. O teste verifica as duas coisas — que o card some e que nenhuma
+requisição a <code>/painel/links</code> sai do navegador.</p>
+<p><strong>Cargo ocupado (CA8 e CA9).</strong> A recusa 409 do servidor já vem com a frase
+pronta, dizendo quem ocupa o cargo e como liberá-lo. O front a exibe como está,
+<strong>dentro do formulário</strong> e não num alerta: a correção costuma ser trocar o
+cargo ou marcar o antecessor como diretor anterior, e um alerta que some
+apagaria o que a pessoa acabou de digitar. A regra vale também na edição — o
+caminho que costuma escapar quando a validação entra só no cadastro.</p>
+<h3 id="as-12-tarefas">As 12 tarefas<a class="headerlink" href="#as-12-tarefas" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">#</th>
+<th>Tarefa</th>
+<th>Critério</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">1</td>
+<td><code>services/api/painelApi.js</code> — <code>GET</code> e <code>PUT /painel/links</code></td>
+<td>CA1, CA2</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td><code>services/painelService.js</code> — adaptação dos campos e validação do endereço</td>
+<td>CA4</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td>Tratamento de 403 e 422 com mensagem própria</td>
+<td>CA3</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td>Componente <code>LinksLideresCard</code> na página inicial do painel</td>
+<td>CA1, CA2</td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td>Card do link de cadastro, com abrir e copiar</td>
+<td>CA1</td>
+</tr>
+<tr>
+<td style="text-align: right;">6</td>
+<td>Card da planilha, separado do de cadastro</td>
+<td>CA2</td>
+</tr>
+<tr>
+<td style="text-align: right;">7</td>
+<td>Estado "Configurar" quando o link ainda não existe</td>
+<td>CA2</td>
+</tr>
+<tr>
+<td style="text-align: right;">8</td>
+<td>Edição do endereço no próprio card, com salvar e cancelar</td>
+<td>CA4</td>
+</tr>
+<tr>
+<td style="text-align: right;">9</td>
+<td>Não chamar a rota quando a pessoa não é superadministradora</td>
+<td>CA3</td>
+</tr>
+<tr>
+<td style="text-align: right;">10</td>
+<td>409 de cargo ocupado tratado no <code>liderService</code></td>
+<td>CA8</td>
+</tr>
+<tr>
+<td style="text-align: right;">11</td>
+<td>Recusa exibida no formulário, preservando o que foi digitado</td>
+<td>CA8, CA9</td>
+</tr>
+<tr>
+<td style="text-align: right;">12</td>
+<td>11 testes E2E, incluindo a troca de mandato (CA7)</td>
+<td>CA1–CA4, CA7–CA9</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="us11-materiais-para-download">US11 — Materiais para download<a class="headerlink" href="#us11-materiais-para-download" title="Permanent link">&para;</a></h2>
+<p>A área de materiais <strong>não existia</strong> no sistema. O arquivo continua no Drive: o
+site guarda o cadastro e o link, e nunca recebe upload.</p>
+<p><strong>Área pública (CA1, CA3).</strong> <code>/materiais</code> é aberta a qualquer visitante — a
+rota não exige login e a tela não fala com o contexto de autenticação. Cada
+material aparece identificado pelo tipo, com filtro por foto, vídeo ou
+documento, e o visitante chega lá pelo menu da página inicial.</p>
+<p><strong>O botão "Baixar" (CA5).</strong> O endereço vem pronto do back-end em
+<code>url_download</code>; o front não monta URL do Drive. Arquivo do Drive volta como
+anexo, com o nome original e sem pedir login. Link externo — um vídeo no
+YouTube, por exemplo — volta como está, e aí o botão <strong>abre em nova aba</strong> em
+vez de baixar: não há arquivo nosso para entregar, e forçar o download daria em
+nada. O mesmo botão foi colocado em toda foto das galerias, do evento e da
+galeria pública, que passaram a trazer <code>url_download</code> por foto.</p>
+<p><strong>Painel (CA2, CA4).</strong> Cadastrar, editar e excluir são exclusivos da
+superadministradora. A rota exige o papel, o menu não oferece o item e o
+servidor recusa quem insistir. Excluir remove o cadastro e o material sai da
+área pública; o arquivo continua no Drive, e a confirmação diz isso para não
+deixar dúvida na hora de clicar.</p>
+<h3 id="as-12-tarefas_1">As 12 tarefas<a class="headerlink" href="#as-12-tarefas_1" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">#</th>
+<th>Tarefa</th>
+<th>Critério</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">1</td>
+<td><code>services/api/materialApi.js</code> — listar, criar, editar e excluir</td>
+<td>CA1, CA4</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td><code>services/materialService.js</code> — adaptação e validação dos campos</td>
+<td>CA1</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td>Tratamento de 401, 403, 404 e 422</td>
+<td>CA2</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td>Página pública <code>/materiais</code>, sem login</td>
+<td>CA3</td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td>Filtro por tipo: foto, vídeo e documento</td>
+<td>CA1</td>
+</tr>
+<tr>
+<td style="text-align: right;">6</td>
+<td>Card do material identificado pelo tipo</td>
+<td>CA1</td>
+</tr>
+<tr>
+<td style="text-align: right;">7</td>
+<td>Botão "Baixar" apontando para <code>url_download</code></td>
+<td>CA5</td>
+</tr>
+<tr>
+<td style="text-align: right;">8</td>
+<td>Link externo abre em nova aba em vez de baixar</td>
+<td>CA5</td>
+</tr>
+<tr>
+<td style="text-align: right;">9</td>
+<td>Item "Materiais" no menu do site, a partir da home</td>
+<td>CA3</td>
+</tr>
+<tr>
+<td style="text-align: right;">10</td>
+<td>Painel <code>/admin/materiais</code> restrito à superadministradora</td>
+<td>CA2</td>
+</tr>
+<tr>
+<td style="text-align: right;">11</td>
+<td><code>MaterialForm</code> para cadastro e edição, e exclusão com confirmação</td>
+<td>CA1, CA4</td>
+</tr>
+<tr>
+<td style="text-align: right;">12</td>
+<td>Botão "Baixar" nas galerias + 16 testes E2E</td>
+<td>CA5</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="us14-evento-cancelado-ou-adiado">US14 — Evento cancelado ou adiado<a class="headerlink" href="#us14-evento-cancelado-ou-adiado" title="Permanent link">&para;</a></h2>
+<p>O evento marcado <strong>continua aparecendo</strong> no site. Esconder o evento tiraria do
+visitante justamente o aviso que a história quer dar: o que muda é que a
+situação é informada e a inscrição some enquanto ela durar.</p>
+<p><strong>Nas telas públicas (CA2, CA4).</strong> O aviso aparece na agenda, no calendário da
+página inicial, no carrossel da home e na página do evento. O texto é decidido
+num lugar só — "Evento cancelado", "Adiado para 10/04/2027" ou "Evento adiado —
+nova data em breve" — para que as quatro telas digam a mesma coisa. Os botões
+de inscrição, participante e voluntário, só existem no evento ativo; "Veja
+mais" continua, porque é na página do evento que o visitante entende o que
+aconteceu.</p>
+<p><strong>No painel (CA1, CA3).</strong> A marcação fica <strong>fora</strong> do formulário do evento, e
+salva sozinha. São ações de natureza diferente: editar reescreve tudo o que
+está no formulário, enquanto marcar a situação é uma decisão isolada, que vale
+na hora. Separadas, cancelar um evento não exige revalidar coordenadas, datas e
+links. A nova data só é pedida no adiado, é opcional, e voltar para "ativo"
+desfaz a marcação.</p>
+<p>Nada é apagado (CA3) e ninguém é avisado (CA5): a comunicação com os inscritos
+continua sendo feita pela equipe, por fora. Um cuidado verificado por teste: o
+formulário completo não envia <code>situacao</code>, e o servidor só sobrescreve o que
+recebe — então editar a descrição de um evento adiado <strong>preserva</strong> o
+adiamento.</p>
+<h3 id="as-12-tarefas_2">As 12 tarefas<a class="headerlink" href="#as-12-tarefas_2" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">#</th>
+<th>Tarefa</th>
+<th>Critério</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">1</td>
+<td><code>situacao</code> e <code>nova_data</code> mapeados na adaptação do evento</td>
+<td>CA2</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td>Constante <code>SITUACAO</code> e os predicados de cancelado e adiado</td>
+<td>CA2</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td><code>mostrarInscricao</code>, que decide a exibição dos botões</td>
+<td>CA4</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td><code>avisoDeSituacao</code>, com o texto do aviso num lugar só</td>
+<td>CA2</td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td><code>handleAlterarSituacaoEvento</code> — <code>PATCH /evento/{id}/situacao</code></td>
+<td>CA1</td>
+</tr>
+<tr>
+<td style="text-align: right;">6</td>
+<td>Componentes <code>EventStatusNotice</code> (faixa) e <code>EventStatusBadge</code> (selo)</td>
+<td>CA2</td>
+</tr>
+<tr>
+<td style="text-align: right;">7</td>
+<td>Aviso na página do evento</td>
+<td>CA2</td>
+</tr>
+<tr>
+<td style="text-align: right;">8</td>
+<td>Aviso e selo na agenda, sem filtrar o evento da lista</td>
+<td>CA2, CA4</td>
+</tr>
+<tr>
+<td style="text-align: right;">9</td>
+<td>Aviso no calendário da página inicial</td>
+<td>CA2</td>
+</tr>
+<tr>
+<td style="text-align: right;">10</td>
+<td>Aviso no carrossel da página inicial</td>
+<td>CA2</td>
+</tr>
+<tr>
+<td style="text-align: right;">11</td>
+<td><code>SituacaoEventoCard</code> no painel: marcar, adiar e desfazer</td>
+<td>CA1, CA3</td>
+</tr>
+<tr>
+<td style="text-align: right;">12</td>
+<td>Selo na lista do painel + 19 testes E2E</td>
+<td>CA1–CA4</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="decisoes-de-implementacao">Decisões de implementação<a class="headerlink" href="#decisoes-de-implementacao" title="Permanent link">&para;</a></h2>
+<p><strong>O front não monta URL de download.</strong> Tanto o material quanto a foto trazem
+<code>url_download</code> pronto do back-end. Montar a URL no cliente duplicaria uma regra
+que já mora no servidor e quebraria no dia em que o caminho mudasse.</p>
+<p><strong>Esconder botão não é controle de acesso.</strong> As telas restritas escondem o que
+a pessoa não pode fazer e, nos casos em que o dado é sensível, nem chegam a
+pedi-lo. A barreira que vale continua sendo a do servidor; o front evita
+oferecer o que será recusado.</p>
+<p><strong>A recusa aparece onde a correção acontece.</strong> O 409 de cargo ocupado e os
+erros de material são exibidos no próprio formulário, com os dados preservados,
+em vez de num alerta que some.</p>
+<h2 id="historico-de-versao">Histórico de Versão<a class="headerlink" href="#historico-de-versao" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Versão</th>
+<th>Data</th>
+<th>Descrição</th>
+<th>Autor(es)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>1.0</code></td>
+<td>28/10/2026</td>
+<td>Registro da entrega do front-end das US10, US11 e US14, com o detalhamento das 12 tarefas de cada história</td>
+<td><a href="https://github.com/daviRolvr">Davi Emanuel Ribeiro de Oliveira</a>, <a href="https://github.com/JoaoPedro2206">João Pedro Ferreira Moraes</a> e <a href="https://github.com/R-enanVieira">Renan Vieira Guedes</a></td>
+</tr>
+<tr>
+<td><code>1.1</code></td>
+<td>16/11/2026</td>
+<td>Registro da integração à <code>main</code> após a revisão da PR #30, incluindo o defeito de produto corrigido — o selo de situação espremia o título do evento até sumir, na largura do iPhone</td>
+<td><a href="https://github.com/daviRolvr">Davi Emanuel Ribeiro de Oliveira</a>, <a href="https://github.com/JoaoPedro2206">João Pedro Ferreira Moraes</a> e <a href="https://github.com/R-enanVieira">Renan Vieira Guedes</a></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Voltar para o topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.top", "navigation.instant", "navigation.instant.progress", "content.code.copy"], "search": "../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+    
+  </body>
+</html>
