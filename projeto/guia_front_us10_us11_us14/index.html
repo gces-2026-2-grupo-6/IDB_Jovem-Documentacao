@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../../imagens/logo.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -31,10 +31,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.57a0d79d.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.fb2fffe2.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -1324,33 +1324,33 @@
 <p>Os dois links ficam na página inicial do painel e só a superadministradora os vê. O back-end recusa com <strong>403</strong> qualquer outro papel, inclusive na leitura, porque a planilha tem dados pessoais de mais de 2500 líderes. Para o administrador de setor, basta não chamar a rota.</p>
 <p><strong><code>GET /painel/links</code></strong> devolve:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">"link_cadastro_lideres"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://forms.gle/..."</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">"link_planilha_lideres"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
+<span class="w">  </span><span class="nt">&quot;link_cadastro_lideres&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://forms.gle/...&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;link_planilha_lideres&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
 <span class="p">}</span>
 </code></pre></div>
 <p><code>null</code> quer dizer que o link ainda não foi configurado. Nesse caso, o card some ou mostra "Configurar".</p>
 <p><strong><code>PUT /painel/links</code></strong> faz atualização parcial: só os campos enviados mudam. Para remover um link, envie <code>""</code>. O link precisa começar com <code>https://</code> ou <code>http://</code>; se não começar, a resposta é <strong>422</strong>.</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"> </span><span class="nt">"link_planilha_lideres"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://docs.google.com/spreadsheets/d/..."</span><span class="w"> </span><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"> </span><span class="nt">&quot;link_planilha_lideres&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://docs.google.com/spreadsheets/d/...&quot;</span><span class="w"> </span><span class="p">}</span>
 </code></pre></div>
 <p>A resposta é o mesmo objeto do GET, já atualizado.</p>
 <div class="highlight"><pre><span></span><code><span class="c1">// src/services/api/painelApi.js</span>
-<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">api</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">"../api"</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">api</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;../api&quot;</span><span class="p">;</span>
 
 <span class="cm">/** GET /painel/links (superadmin) */</span>
 <span class="k">export</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">obterLinksPainel</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">api</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">"/painel/links"</span><span class="p">);</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">api</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;/painel/links&quot;</span><span class="p">);</span>
 <span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">data</span><span class="p">;</span><span class="w"> </span><span class="c1">// { link_cadastro_lideres, link_planilha_lideres }</span>
 <span class="p">}</span>
 
-<span class="cm">/** PUT /painel/links (superadmin). Envie só o que mudou; "" remove o link. */</span>
+<span class="cm">/** PUT /painel/links (superadmin). Envie só o que mudou; &quot;&quot; remove o link. */</span>
 <span class="k">export</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">atualizarLinksPainel</span><span class="p">(</span><span class="nx">links</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">api</span><span class="p">.</span><span class="nx">put</span><span class="p">(</span><span class="s2">"/painel/links"</span><span class="p">,</span><span class="w"> </span><span class="nx">links</span><span class="p">);</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">api</span><span class="p">.</span><span class="nx">put</span><span class="p">(</span><span class="s2">&quot;/painel/links&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">links</span><span class="p">);</span>
 <span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">data</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 <h3 id="cargo-unico">Cargo único<a class="headerlink" href="#cargo-unico" title="Permanent link">&para;</a></h3>
 <p><code>POST /lider/</code> e <code>PUT /lider/{id}</code> agora respondem <strong>409</strong> quando já existe um líder ativo no mesmo cargo e na mesma região. A mensagem vem pronta em <code>detail</code> e pode ser exibida como está:</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"> </span><span class="nt">"detail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"O cargo 'Diretor Regional' na região Sul já está ocupado por Ana Souza. Marque o líder atual como diretor anterior antes de cadastrar o novo."</span><span class="w"> </span><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"> </span><span class="nt">&quot;detail&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;O cargo &#39;Diretor Regional&#39; na região Sul já está ocupado por Ana Souza. Marque o líder atual como diretor anterior antes de cadastrar o novo.&quot;</span><span class="w"> </span><span class="p">}</span>
 </code></pre></div>
 <p>A regra é esta:</p>
 <ul>
@@ -1374,13 +1374,13 @@
 <p><strong><code>GET /material/</code></strong> é público e não precisa de login. O filtro <code>?tipo=foto</code>, <code>?tipo=video</code> ou <code>?tipo=documento</code> é opcional. A lista vem do mais novo para o mais antigo.</p>
 <div class="highlight"><pre><span></span><code><span class="p">[</span>
 <span class="w">  </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">"material_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">"titulo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Manual do Líder 2026"</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">"descricao"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Versão para impressão"</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">"tipo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"documento"</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">"link"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://drive.google.com/file/d/1AbC.../view"</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">"url_download"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://&lt;api&gt;/drive/download/1AbC..."</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">"criado_em"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-10-26T19:18:29Z"</span>
+<span class="w">    </span><span class="nt">&quot;material_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;titulo&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Manual do Líder 2026&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;descricao&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Versão para impressão&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;tipo&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;documento&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;link&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://drive.google.com/file/d/1AbC.../view&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;url_download&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://&lt;api&gt;/drive/download/1AbC...&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;criado_em&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2026-10-26T19:18:29Z&quot;</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">]</span>
 </code></pre></div>
@@ -1427,17 +1427,17 @@
 </ul>
 <p>O arquivo do Drive precisa estar compartilhado com a conta institucional, a mesma da galeria.</p>
 <div class="highlight"><pre><span></span><code><span class="c1">// src/services/api/materialApi.js</span>
-<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">api</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">"../api"</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">api</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;../api&quot;</span><span class="p">;</span>
 
-<span class="cm">/** GET /material/ (publico). tipo: "foto" | "video" | "documento" | undefined */</span>
+<span class="cm">/** GET /material/ (publico). tipo: &quot;foto&quot; | &quot;video&quot; | &quot;documento&quot; | undefined */</span>
 <span class="k">export</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">listarMateriais</span><span class="p">(</span><span class="nx">tipo</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">api</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">"/material/"</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">params</span><span class="o">:</span><span class="w"> </span><span class="nx">tipo</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">tipo</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="p">});</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">api</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;/material/&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">params</span><span class="o">:</span><span class="w"> </span><span class="nx">tipo</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">tipo</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="p">});</span>
 <span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">data</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="cm">/** POST /material/ (superadmin) */</span>
 <span class="k">export</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">criarMaterial</span><span class="p">(</span><span class="nx">material</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">api</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s2">"/material/"</span><span class="p">,</span><span class="w"> </span><span class="nx">material</span><span class="p">);</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">api</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s2">&quot;/material/&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">material</span><span class="p">);</span>
 <span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">data</span><span class="p">;</span>
 <span class="p">}</span>
 
@@ -1481,10 +1481,10 @@
 </table>
 <h3 id="marcar-adiar-e-desfazer-painel">Marcar, adiar e desfazer (painel)<a class="headerlink" href="#marcar-adiar-e-desfazer-painel" title="Permanent link">&para;</a></h3>
 <p><strong><code>PATCH /evento/{id}/situacao</code></strong> é liberada para o setor de eventos e para a superadmin. O corpo é pequeno, e não é preciso reenviar o evento inteiro.</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"> </span><span class="nt">"situacao"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cancelado"</span><span class="w"> </span><span class="p">}</span>
-<span class="p">{</span><span class="w"> </span><span class="nt">"situacao"</span><span class="p">:</span><span class="w"> </span><span class="s2">"adiado"</span><span class="p">,</span><span class="w"> </span><span class="nt">"nova_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2027-04-10T09:00:00Z"</span><span class="w"> </span><span class="p">}</span>
-<span class="p">{</span><span class="w"> </span><span class="nt">"situacao"</span><span class="p">:</span><span class="w"> </span><span class="s2">"adiado"</span><span class="w"> </span><span class="p">}</span>
-<span class="p">{</span><span class="w"> </span><span class="nt">"situacao"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ativo"</span><span class="w"> </span><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"> </span><span class="nt">&quot;situacao&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cancelado&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="p">{</span><span class="w"> </span><span class="nt">&quot;situacao&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;adiado&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;nova_data&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2027-04-10T09:00:00Z&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="p">{</span><span class="w"> </span><span class="nt">&quot;situacao&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;adiado&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="p">{</span><span class="w"> </span><span class="nt">&quot;situacao&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ativo&quot;</span><span class="w"> </span><span class="p">}</span>
 </code></pre></div>
 <p>O último exemplo desfaz a marcação. A resposta é o evento completo, já atualizado. Ao marcar, nada é apagado e ninguém é avisado; o título na agenda do Google ganha <code>[CANCELADO]</code> ou <code>[ADIADO]</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="c1">// em src/services/eventService.js (ou num eventoApi.js)</span>
@@ -1499,14 +1499,14 @@
 <p>O <code>PUT /evento/{id}</code> do formulário completo também aceita <code>situacao</code> e <code>nova_data</code>. Se o formulário não enviar <code>situacao</code>, o adiamento é preservado.</p>
 <h3 id="exibicao-no-site">Exibição no site<a class="headerlink" href="#exibicao-no-site" title="Permanent link">&para;</a></h3>
 <p>Nas telas de agenda, calendário, home e página do evento, o comportamento é este:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">cancelado</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">evento</span><span class="p">.</span><span class="nx">situacao</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">"cancelado"</span><span class="p">;</span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">adiado</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">evento</span><span class="p">.</span><span class="nx">situacao</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">"adiado"</span><span class="p">;</span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">mostrarInscricao</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">evento</span><span class="p">.</span><span class="nx">situacao</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">"ativo"</span><span class="p">;</span><span class="w"> </span><span class="c1">// CA4: oculta os botões</span>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">cancelado</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">evento</span><span class="p">.</span><span class="nx">situacao</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;cancelado&quot;</span><span class="p">;</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">adiado</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">evento</span><span class="p">.</span><span class="nx">situacao</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;adiado&quot;</span><span class="p">;</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">mostrarInscricao</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">evento</span><span class="p">.</span><span class="nx">situacao</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;ativo&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// CA4: oculta os botões</span>
 
 <span class="c1">// Aviso:</span>
-<span class="c1">//   cancelado            -&gt; "Evento cancelado"</span>
-<span class="c1">//   adiado + nova_data   -&gt; "Adiado para 10/04/2027"</span>
-<span class="c1">//   adiado sem nova_data -&gt; "Evento adiado — nova data em breve"</span>
+<span class="c1">//   cancelado            -&gt; &quot;Evento cancelado&quot;</span>
+<span class="c1">//   adiado + nova_data   -&gt; &quot;Adiado para 10/04/2027&quot;</span>
+<span class="c1">//   adiado sem nova_data -&gt; &quot;Evento adiado — nova data em breve&quot;</span>
 </code></pre></div>
 <p>O evento cancelado ou adiado <strong>continua aparecendo</strong> nas listas. Não filtre esses eventos.</p>
 <hr />
@@ -1622,10 +1622,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.top", "navigation.instant", "navigation.instant.progress", "content.code.copy"], "search": "../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.top", "navigation.instant", "navigation.instant.progress", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

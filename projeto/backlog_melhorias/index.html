@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../../imagens/logo.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -31,10 +31,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.57a0d79d.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.fb2fffe2.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -2168,7 +2168,7 @@
 <td>Pedidos de produto no setor Comercial</td>
 <td>M</td>
 <td>—</td>
-<td>Escopo proposto pela equipe em 18/10/2026, ainda a confirmar com a cliente. <strong>Em Andamento: back-end integrado à <code>main</code> na Sprint 4</strong> (<a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/21">PR #21</a>), conforme a leitura da equipe. Falta o front-end, e a publicação em produção não foi verificada — detalhes em <a href="../sprint04/">Sprint 04</a></td>
+<td>Escopo proposto pela equipe em 18/10/2026. <strong>Concluída na Sprint 4:</strong> back-end integrado à <code>main</code> (<a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/21">PR #21</a>) e em produção desde 18/11/2026, e front-end entregue (tela de pedidos no painel, CA1 e CA2) — detalhes em <a href="../sprint04/">Sprint 04</a></td>
 </tr>
 <tr>
 <td>—</td>
@@ -2226,7 +2226,7 @@
 <tr><td><strong>Descrição</strong></td><td>Eu, como <em>administradora</em>, desejo <em>registrar informações completas do evento</em>, para <em>que o participante encontre tudo no site sem precisar perguntar no WhatsApp</em>.</td></tr>
 <tr><td><strong>Critérios de Aceitação</strong></td><td>- Campos novos: valor/investimento, vagas limitadas, link de pagamento, contato do responsável e regulamento/anexo <br> - Campos opcionais não bloqueiam a criação do evento <br> - As informações aparecem na página pública do evento</td></tr>
 <tr><td><strong>Prioridade</strong></td><td>Alta</td></tr>
-<tr><td><strong>Status</strong></td><td>Validado — todos os cinco campos marcados. <strong>Defeito corrigido na Sprint 4</strong> (<a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/33">PR #33</a>): os cinco campos eram coletados pelo formulário mas nem enviados nem lidos — a pessoa digitava, salvava e o dado sumia sem aviso. Agora são mapeados nos dois sentidos. <strong>Depende do back-end</strong> para persistir: as colunas ainda não existem, e a API ignora o campo desconhecido. Os nomes usados pelo front são assumidos e precisam ser conferidos</td></tr>
+<tr><td><strong>Status</strong></td><td>Validado — todos os cinco campos marcados. <strong>Defeito corrigido na Sprint 4</strong> (<a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/33">PR #33</a>): os cinco campos eram coletados pelo formulário mas nem enviados nem lidos — a pessoa digitava, salvava e o dado sumia sem aviso. Agora são mapeados nos dois sentidos. <strong>Back-end implementado na Sprint 4</strong> (<a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/23">PR #23</a>): adicionadas as 5 colunas opcionais (<code>vagas</code>, <code>contato_responsavel</code>, <code>valor_investimento</code>, <code>link_pagamento</code>, <code>link_regulamento</code>) com migration <code>a1b2c3d4e5f7</code>, mantendo os mesmos nomes consumidos pelo front-end</td></tr>
 </tbody>
 </table>
 
@@ -2449,7 +2449,7 @@
 <tr><td><strong>Tamanho</strong></td><td>M</td></tr>
 <tr><td><strong>Dependências</strong></td><td>US07 (álbuns por evento) e US15 (histórico) — concluídas. US03 (regra de exclusão)</td></tr>
 <tr><td><strong>Prioridade</strong></td><td>Média — <strong>4ª na ordem da cliente</strong>, <strong>5ª</strong> na ordem de execução depois da elevação da US19 em 18/10/2026</td></tr>
-<tr><td><strong>Status</strong></td><td>História nova (06/10/2026), alcance fechado em 18/10/2026 — substitui o escopo em aberto da US17. Front-end concluído na Sprint 3 (<a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/29">PR #29</a>); aguarda o back-end</td></tr>
+<tr><td><strong>Status</strong></td><td>História nova (06/10/2026), alcance fechado em 18/10/2026 — substitui o escopo em aberto da US17. Front-end concluído na Sprint 3 (<a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/29">PR #29</a>) e back-end no <a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/18">PR #18 do back-end</a>: <strong>concluída</strong>, verificada de ponta a ponta pelos testes funcionais com Selenium (PR #31)</td></tr>
 </tbody>
 </table>
 
@@ -2469,7 +2469,7 @@
 <tr><td><strong>Tamanho</strong></td><td>M. O cadastro ganha um campo de modalidade; o endereço deixa de ser obrigatório só quando o evento é online</td></tr>
 <tr><td><strong>Dependências</strong></td><td>Correção do defeito registrado na Sprint 2: evento sem latitude e longitude derruba a listagem com erro 500. Sem ela, o CA3 não é atendido</td></tr>
 <tr><td><strong>Prioridade</strong></td><td>Média — <strong>6ª na ordem da cliente</strong>, elevada pela equipe para <strong>4ª</strong> em 18/10/2026, com atenção especial ao registro do tipo do evento</td></tr>
-<tr><td><strong>Status</strong></td><td>História nova (06/10/2026), elevada em 18/10/2026. Front-end concluído na Sprint 3 (<a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/27">PR #27</a>); aguarda o back-end</td></tr>
+<tr><td><strong>Status</strong></td><td>História nova (06/10/2026), elevada em 18/10/2026. Front-end concluído na Sprint 3 (<a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/27">PR #27</a>) e back-end no <a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/17">PR #17 do back-end</a>: <strong>concluída</strong>, verificada de ponta a ponta pelos testes funcionais com Selenium (PR #31)</td></tr>
 </tbody>
 </table>
 
@@ -2493,7 +2493,7 @@
 <tr><td><strong>Tamanho</strong></td><td>P em qualquer das opções</td></tr>
 <tr><td><strong>Dependências</strong></td><td>Nenhuma. A decisão pela Opção A foi registrada em 18/10/2026</td></tr>
 <tr><td><strong>Prioridade</strong></td><td>Média — <strong>7ª na ordem da cliente</strong></td></tr>
-<tr><td><strong>Status</strong></td><td>Desbloqueada em 18/10/2026 — segue a Opção A. Front-end concluído na Sprint 3 (<a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/27">PR #27</a>); aguarda o back-end</td></tr>
+<tr><td><strong>Status</strong></td><td>Desbloqueada em 18/10/2026 — segue a Opção A. Front-end concluído na Sprint 3 (<a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/27">PR #27</a>) e back-end no <a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/17">PR #17 do back-end</a>: <strong>concluída</strong>, verificada de ponta a ponta pelos testes funcionais com Selenium (PR #31)</td></tr>
 </tbody>
 </table>
 
@@ -2530,7 +2530,7 @@
 <tr><td><strong>Descrição</strong></td><td>Eu, como <em>jovem ou adolescente</em>, desejo <em>encontrar no site a missão, a visão e os valores</em>, para <em>conhecer a organização sem pedir a alguém</em>.</td></tr>
 <tr><td><strong>Critérios de Aceitação</strong></td><td>- Conteúdo institucional (missão, visão e valores) publicado e editável pelo painel <br> - Navegação clara a partir da página inicial</td></tr>
 <tr><td><strong>Prioridade</strong></td><td>Média</td></tr>
-<tr><td><strong>Status</strong></td><td>Desmembrada da US11 em 06/10/2026, sem mudança de escopo. Não tratada na reunião de validação. Front-end concluído na Sprint 3 (<a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/28">PR #28</a>); aguarda o back-end. O RF26 (avisos e comunicados) não foi tratado</td></tr>
+<tr><td><strong>Status</strong></td><td>Desmembrada da US11 em 06/10/2026, sem mudança de escopo. Não tratada na reunião de validação. Front-end concluído na Sprint 3 (<a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/28">PR #28</a>) e back-end na Sprint 4 (<a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/22">PR #22 do back-end</a>): <strong>concluída</strong>, verificada de ponta a ponta pelos testes funcionais com Selenium (PR #31). O RF26 (avisos e comunicados) não foi tratado</td></tr>
 </tbody>
 </table>
 
@@ -2598,7 +2598,7 @@
 <tr><td><strong>Tamanho</strong></td><td>M, pelo escopo proposto pela equipe</td></tr>
 <tr><td><strong>Dependências</strong></td><td>Revisão da US03 (setor Comercial). Relação com a US12 (cadastro de produtos)</td></tr>
 <tr><td><strong>Prioridade</strong></td><td>A definir — não consta da ordem dada pela cliente</td></tr>
-<tr><td><strong>Status</strong></td><td>História nova (06/10/2026) — escopo pendente de confirmação pela cliente. <strong>Em Andamento.</strong> <strong>Back-end concluído e integrado à <code>main</code> na Sprint 4</strong> (<a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/21">PR #21</a>, 17/11/2026): CA1 e CA2 atendidos e testados no servidor — <code>GET /pedido/</code> lista os pedidos com produto, solicitante, contato, situação e data, e <code>PATCH /pedido/{pedido_id}/status</code> muda a situação (pendente, em andamento, concluído, cancelado). Os pedidos chegam pelo formulário do Google ligado ao produto (<code>formulario_pedido_link</code>), no mesmo mecanismo das inscrições da US09. <strong>Falta o front-end</strong>: a tela de pedidos que os dois critérios descrevem não existe. A publicação em produção não foi verificada</td></tr>
+<tr><td><strong>Status</strong></td><td>História nova (06/10/2026). <strong>Concluída na Sprint 4.</strong> <strong>Back-end integrado à <code>main</code></strong> (<a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/21">PR #21</a>, 17/11/2026) e em produção desde 18/11/2026: CA1 e CA2 atendidos e testados no servidor — <code>GET /pedido/</code> lista os pedidos com produto, solicitante, contato, situação e data, e <code>PATCH /pedido/{pedido_id}/status</code> muda a situação (pendente, em andamento, concluído, cancelado). Os pedidos chegam pelo formulário do Google ligado ao produto (<code>formulario_pedido_link</code>), no mesmo mecanismo das inscrições da US09. <strong>Front-end entregue na Sprint 4:</strong> a tela de pedidos no painel (CA1 e CA2) e o campo <code>formulario_pedido_link</code> no cadastro de produto, com guarda do setor de produtos. US21 concluída nas duas pontas</td></tr>
 </tbody>
 </table>
 
@@ -2845,7 +2845,7 @@
 <td>Pedidos de produto</td>
 <td><a href="#us21">US21</a></td>
 <td>Tela de pedidos no setor Comercial, no formato da tela de inscrições; a compra continua por link externo</td>
-<td>Leitura da anotação <em>"+ pedido do produto"</em>, a confirmar antes de entrar em alguma sprint. <strong>Ainda não confirmada pela cliente.</strong> O back-end da Sprint 4 foi implementado sobre esta leitura (<a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/21">PR #21</a>)</td>
+<td>Leitura da anotação <em>"+ pedido do produto"</em>. A US21 foi concluída na Sprint 4 sobre esta leitura: back-end (<a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/21">PR #21</a>) em produção e front-end entregue (tela de pedidos no painel)</td>
 </tr>
 </tbody>
 </table>
@@ -2970,8 +2970,8 @@
 <td>Campos novos: vagas, valor, faixa etária, prazo, o que levar</td>
 <td>S</td>
 <td>US02 — Alta</td>
-<td>QA: <a href="https://github.com/Jadequilin">João Pedro Araújo de Freitas Lyra</a><br>Implementação (US01): <a href="https://github.com/daviRolvr">Davi Emanuel Ribeiro de Oliveira</a>, <a href="https://github.com/JoaoPedro2206">João Pedro Ferreira Moraes</a>, <a href="https://github.com/R-enanVieira">Renan Vieira Guedes</a><br>Implementação (US02): <a href="https://github.com/BrzGab">Gabriel Lopes de Amorim</a>, <a href="https://github.com/SamaraAlvess">Maria Samara Alves Silva</a>, <a href="https://github.com/Joaovitor045">João Vitor Alves Viana</a></td>
-<td><strong>QA:</strong> testes de campos complementares: link de formulário, link de galeria e campos opcionais ausentes não bloqueiam a criação.<br><strong>Implementação (parcial, via US01):</strong> reestruturação do formulário de evento e da validação de datas, que a US02 estende com os cinco campos novos.<br><strong>Implementação (US02):</strong> cinco campos novos no formulário de criação e edição de evento — quantidade de vagas, contato do responsável, valor/investimento, link de pagamento e regulamento (link de PDF no Drive, no mesmo padrão da capa e da galeria) — carregados a partir do evento ao editar (<a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/commit/78de466d82e35f9df0b49f09b1fd59b21fb8f2fc">commit 78de466</a>).<br><strong>Pendência:</strong> mapear os campos em <code>eventService.toApiEvent</code>, criar as colunas no back-end e exibir o regulamento na página pública do evento.<br><strong>Protótipo:</strong> tela <a href="https://www.figma.com/design/a6mGpOqwc1ZCeVTOIWtyxo/IDB_Jovem?node-id=388-1990">US 2 - Admin - Eventos - Criação de Eventos</a> no Figma do projeto, feita pelo trio.</td>
+<td>QA: <a href="https://github.com/Jadequilin">João Pedro Araújo de Freitas Lyra</a><br>Implementação (US01): <a href="https://github.com/daviRolvr">Davi Emanuel Ribeiro de Oliveira</a>, <a href="https://github.com/JoaoPedro2206">João Pedro Ferreira Moraes</a>, <a href="https://github.com/R-enanVieira">Renan Vieira Guedes</a><br>Implementação (US02, front): <a href="https://github.com/BrzGab">Gabriel Lopes de Amorim</a>, <a href="https://github.com/SamaraAlvess">Maria Samara Alves Silva</a>, <a href="https://github.com/Joaovitor045">João Vitor Alves Viana</a><br>Implementação (US02, back): <a href="https://github.com/luizh-gsoares">Luiz Henrique Guimarães Soares</a>, <a href="https://github.com/daniel-de-sousa">Daniel dos Santos Barros de Sousa</a></td>
+<td><strong>QA:</strong> testes de campos complementares: link de formulário, link de galeria e campos opcionais ausentes não bloqueiam a criação.<br><strong>Implementação (parcial, via US01):</strong> reestruturação do formulário de evento e da validação de datas, que a US02 estende com os cinco campos novos.<br><strong>Implementação (US02, front):</strong> cinco campos novos no formulário de criação e edição de evento — quantidade de vagas, contato do responsável, valor/investimento, link de pagamento e regulamento (link de PDF no Drive, no mesmo padrão da capa e da galeria) — carregados a partir do evento ao editar (<a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/commit/78de466d82e35f9df0b49f09b1fd59b21fb8f2fc">commit 78de466</a>) e mapeados em <code>eventService</code> (<a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/33">PR #33</a>).<br><strong>Implementação (US02, back):</strong> adicionadas as 5 colunas opcionais (<code>vagas</code>, <code>contato_responsavel</code>, <code>valor_investimento</code>, <code>link_pagamento</code>, <code>link_regulamento</code>) em <code>Evento</code> e <code>BaseEvento</code> (com validação <code>vagas &gt;= 0</code>), migration <code>a1b2c3d4e5f7</code>, contrato atualizado e 13 testes em <code>test_us02_campos_evento.py</code> (<a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/23">PR #23</a>).<br><strong>Pendência:</strong> rodar <code>alembic upgrade head</code> no servidor de produção e exibir o regulamento na página pública do evento.<br><strong>Protótipo:</strong> tela <a href="https://www.figma.com/design/a6mGpOqwc1ZCeVTOIWtyxo/IDB_Jovem?node-id=388-1990">US 2 - Admin - Eventos - Criação de Eventos</a> no Figma do projeto, feita pelo trio.</td>
 </tr>
 <tr>
 <td>RF12</td>
@@ -3098,7 +3098,7 @@
 <td>S</td>
 <td>US22 — Média</td>
 <td>Front-end: <a href="https://github.com/BrzGab">Gabriel Lopes de Amorim</a>, <a href="https://github.com/SamaraAlvess">Maria Samara Alves Silva</a>, <a href="https://github.com/Joaovitor045">João Vitor Alves Viana</a></td>
-<td><strong>Front-end (Sprint 3, US22):</strong> página pública "Quem somos" com missão, visão e valores, link a partir do "Saiba mais" da home e do rodapé, e tela no painel, só da superadministradora, para editar o conteúdo. A missão do rodapé é a mesma editada no painel. Aguarda o back-end (<code>GET</code> e <code>PUT /institucional</code>); até lá, o site mantém a missão já publicada. <a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/28">PR #28</a>.</td>
+<td><strong>Front-end (Sprint 3, US22):</strong> página pública "Quem somos" com missão, visão e valores, link a partir do "Saiba mais" da home e do rodapé, e tela no painel, só da superadministradora, para editar o conteúdo. A missão do rodapé é a mesma editada no painel. Back-end entregue na Sprint 4 (<a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/22">PR #22 do back-end</a>); os testes funcionais confirmaram que o conteúdo salvo no painel aparece na página pública. <a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/28">PR #28</a>.</td>
 </tr>
 <tr>
 <td>RF26</td>
@@ -3429,7 +3429,7 @@
 <td>R</td>
 <td>US18 — Média</td>
 <td>Front-end: <a href="https://github.com/BrzGab">Gabriel Lopes de Amorim</a>, <a href="https://github.com/SamaraAlvess">Maria Samara Alves Silva</a>, <a href="https://github.com/Joaovitor045">João Vitor Alves Viana</a></td>
-<td><strong>Front-end (Sprint 3, US18):</strong> seção "Álbum do evento" nos detalhes do evento no painel, com seleção de uma ou mais fotos, confirmação e aviso de que o arquivo no Drive não é apagado. Excluída a capa, a seguinte assume; o administrador de setor vê o álbum, mas não a opção de excluir. Atalho "Abrir evento e álbum" na lista de próximos e em andamento. Aguarda o back-end (<code>POST /evento/{id}/galeria/excluidas</code>). <a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/29">PR #29</a>.</td>
+<td><strong>Front-end (Sprint 3, US18):</strong> seção "Álbum do evento" nos detalhes do evento no painel, com seleção de uma ou mais fotos, confirmação e aviso de que o arquivo no Drive não é apagado. Excluída a capa, a seguinte assume; o administrador de setor vê o álbum, mas não a opção de excluir. Atalho "Abrir evento e álbum" na lista de próximos e em andamento. Back-end entregue no <a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/18">PR #18 do back-end</a> (<code>POST /evento/{id}/galeria/excluidas</code>). <a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/29">PR #29</a>.</td>
 </tr>
 <tr>
 <td>RF56</td>
@@ -3437,15 +3437,15 @@
 <td>R</td>
 <td>US19 — Média</td>
 <td>QA: <a href="https://github.com/Jadequilin">João Pedro Araújo de Freitas Lyra</a><br>Front-end: <a href="https://github.com/BrzGab">Gabriel Lopes de Amorim</a>, <a href="https://github.com/SamaraAlvess">Maria Samara Alves Silva</a>, <a href="https://github.com/Joaovitor045">João Vitor Alves Viana</a></td>
-<td><strong>QA (Sprint 3):</strong> a correção de que esta história dependia foi entregue — evento sem coordenadas deixou de derrubar a listagem pública (QA19). O cadastro <strong>continua</strong> exigindo as coordenadas, e é esse teste que vai acusar a mudança de regra quando o campo de modalidade entrar. A regra em si está registrada: 2 testes <code>xfail(strict=True)</code> exigem que a resposta do evento publique a modalidade e que o evento marcado como online seja aceito sem coordenadas; 1 teste verde fixa que o presencial continue exigindo-as, para que a implementação não torne o endereço opcional para todo mundo.<br><br><strong>Front-end (Sprint 3, US19):</strong> presencial ou online no cadastro, com o link da transmissão no lugar do mapa no online; selo e filtro de modalidade na agenda, agora em ordem de data; botão "Assistir à transmissão" na página do evento. Evento sem o campo é presencial. Aguarda o back-end (<code>modalidade</code> e <code>link_transmissao</code>). <a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/27">PR #27</a>. <br><br><strong>QA (Sprint 4, sessão exploratória EX-02):</strong> o CA5 diz que o link de transmissão é o que o evento online guarda "no lugar do endereço", e o endereço é obrigatório no presencial — a simetria não foi implementada. O <strong>evento online é aceito sem link</strong>: o presencial sem coordenadas é recusado com mensagem explícita, o online sem link passa, e o card exibe um selo "Online" que não leva a lugar nenhum. E o <strong>campo não tem validação de formato nenhuma</strong>, enquanto o link do material (US11) passa por <code>_link_http</code> — a mesma equipe validou um e não o outro. A regra que existe hoje mora só no formulário do front: quem chama a API direto grava qualquer texto. Os dois ficaram como <code>xfail</code> estrito em <code>tests/unit/test_achados_exploratorios.py</code>, com a correção proposta no motivo. Verificado também pelos testes funcionais com Selenium da <a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/31">PR #31</a>.</td>
+<td><strong>QA (Sprint 3):</strong> a correção de que esta história dependia foi entregue — evento sem coordenadas deixou de derrubar a listagem pública (QA19). O cadastro <strong>continua</strong> exigindo as coordenadas, e é esse teste que vai acusar a mudança de regra quando o campo de modalidade entrar. A regra em si está registrada: 2 testes <code>xfail(strict=True)</code> exigem que a resposta do evento publique a modalidade e que o evento marcado como online seja aceito sem coordenadas; 1 teste verde fixa que o presencial continue exigindo-as, para que a implementação não torne o endereço opcional para todo mundo.<br><br><strong>Front-end (Sprint 3, US19):</strong> presencial ou online no cadastro, com o link da transmissão no lugar do mapa no online; selo e filtro de modalidade na agenda, agora em ordem de data; botão "Assistir à transmissão" na página do evento. Evento sem o campo é presencial. Back-end entregue no <a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/17">PR #17 do back-end</a> (<code>modalidade</code> e <code>link_transmissao</code>); os testes funcionais confirmaram o cadastro online gravado sem endereço. <a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/27">PR #27</a>. <br><br><strong>QA (Sprint 4, sessão exploratória EX-02):</strong> o CA5 diz que o link de transmissão é o que o evento online guarda "no lugar do endereço", e o endereço é obrigatório no presencial — a simetria não foi implementada. O <strong>evento online é aceito sem link</strong>: o presencial sem coordenadas é recusado com mensagem explícita, o online sem link passa, e o card exibe um selo "Online" que não leva a lugar nenhum. E o <strong>campo não tem validação de formato nenhuma</strong>, enquanto o link do material (US11) passa por <code>_link_http</code> — a mesma equipe validou um e não o outro. A regra que existe hoje mora só no formulário do front: quem chama a API direto grava qualquer texto. Os dois ficaram como <code>xfail</code> estrito em <code>tests/unit/test_achados_exploratorios.py</code>, com a correção proposta no motivo. Verificado também pelos testes funcionais com Selenium da <a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/31">PR #31</a>.</td>
 </tr>
 <tr>
 <td>RF57</td>
 <td>Gestão de pedidos de produto no setor Comercial</td>
 <td>R</td>
-<td>US21 — escopo pendente de confirmação; back-end entregue na Sprint 4</td>
+<td>US21 — concluída na Sprint 4</td>
 <td>Implementação (back-end): <a href="https://github.com/JuliaReis18">Júlia dos Reis Teixeira Massuda</a>, <a href="https://github.com/Filipe-002">Filipe Carvalho da Silva</a>, <a href="https://github.com/JpRodrigues2">João Rodrigues</a></td>
-<td><strong>Implementação (back-end, Sprint 4):</strong> tabela <code>pedido</code> (migration <code>a7f3c1d9e5b2</code>), com chave estrangeira para o produto e as situações pendente, em andamento, concluído e cancelado, e o campo opcional <code>formulario_pedido_link</code> no produto. O visitante registra o pedido pelo formulário do Google do produto. A rota <code>GET /formulario/produtos/{produto_id}/pedidos</code> sincroniza as respostas, com um pedido por resposta, e responde 404 para produto sem formulário e 502 quando o Google falha. <code>GET /pedido/</code> lista os pedidos com produto, solicitante, contato, situação e data. <code>PATCH /pedido/{pedido_id}/status</code> muda a situação. As três rotas exigem o setor de produtos, porque o papel Comercial não existe. Excluir produto com pedidos passou a responder 409, para preservar o histórico. A compra continua pelo link externo do produto: não há carrinho, pagamento nem estoque. 72 testes novos. No CI da <code>main</code> depois do merge: 1014 passando, 4 <code>xfail</code> esperados, 98,85% de cobertura e a migration aplicada em Postgres 15. <a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/21">PR #21</a>.<br><strong>Não atendido ainda:</strong> a tela de pedidos no painel (front-end), teste de endpoint das rotas novas contra o contêiner e a confirmação do escopo pela cliente (D08).</td>
+<td><strong>Implementação (back-end, Sprint 4):</strong> tabela <code>pedido</code> (migration <code>a7f3c1d9e5b2</code>), com chave estrangeira para o produto e as situações pendente, em andamento, concluído e cancelado, e o campo opcional <code>formulario_pedido_link</code> no produto. O visitante registra o pedido pelo formulário do Google do produto. A rota <code>GET /formulario/produtos/{produto_id}/pedidos</code> sincroniza as respostas, com um pedido por resposta, e responde 404 para produto sem formulário e 502 quando o Google falha. <code>GET /pedido/</code> lista os pedidos com produto, solicitante, contato, situação e data. <code>PATCH /pedido/{pedido_id}/status</code> muda a situação. As três rotas exigem o setor de produtos, porque o papel Comercial não existe. Excluir produto com pedidos passou a responder 409, para preservar o histórico. A compra continua pelo link externo do produto: não há carrinho, pagamento nem estoque. 72 testes novos. No CI da <code>main</code> depois do merge: 1014 passando, 4 <code>xfail</code> esperados, 98,85% de cobertura e a migration aplicada em Postgres 15. <a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/21">PR #21</a>.<br><strong>Front-end (Sprint 4):</strong> a tela de pedidos no painel (CA1 e CA2) e o campo <code>formulario_pedido_link</code> no cadastro de produto, com guarda do setor de produtos, mais cobertura por testes de endpoint das rotas novas contra o contêiner (<a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/24">PR #24</a>). US21 concluída.</td>
 </tr>
 <tr>
 <td>RF58<a name="rf58"></a></td>
@@ -3746,6 +3746,24 @@
 <td>Registro do back-end da US21 na Sprint 4 (PR #21): status da história e situação na tabela de priorização como Em Andamento, com o front-end pendente; RF57 com responsáveis, entrega e evidência; nota com a interpretação aplicada — o sistema registra e acompanha o pedido, e a compra segue pelo link externo, conforme a US12 —, sem registrá-la como aceite da cliente; a D08 segue em aberto</td>
 <td><a href="https://github.com/JuliaReis18">Júlia dos Reis Teixeira Massuda</a>, <a href="https://github.com/Filipe-002">Filipe Carvalho da Silva</a> e <a href="https://github.com/JpRodrigues2">João Rodrigues</a></td>
 </tr>
+<tr>
+<td><code>3.9</code></td>
+<td>17/11/2026</td>
+<td>Registro do back-end da US02 na Sprint 4 (PR #23): adicionadas as 5 colunas opcionais em <code>Evento</code>, schema com validação <code>vagas &gt;= 0</code>, migration <code>a1b2c3d4e5f7</code> e 13 testes em <code>test_us02_campos_evento.py</code></td>
+<td><a href="https://github.com/luizh-gsoares">Luiz Henrique Guimarães Soares</a> e <a href="https://github.com/daniel-de-sousa">Daniel dos Santos Barros de Sousa</a></td>
+</tr>
+<tr>
+<td><code>4.0</code></td>
+<td>18/11/2026</td>
+<td>Conclusão da US21 na Sprint 4: front-end entregue (tela de pedidos no painel, CA1 e CA2, e o campo <code>formulario_pedido_link</code> no cadastro de produto). História marcada como concluída na tabela de priorização, no bloco de status e no RF57, e registro do deploy de 18/11/2026 (back-end em produção)</td>
+<td><a href="https://github.com/Jadequilin">João Pedro Araújo de Freitas Lyra</a></td>
+</tr>
+<tr>
+<td><code>4.1</code></td>
+<td>18/11/2026</td>
+<td>Situação das US18, US19, US20 e US22 atualizada para concluída, com o back-end de cada uma (PRs #17, #18 e #22 do back-end) e a verificação de ponta a ponta pelos testes funcionais com Selenium; mesmas atualizações nos RF25, RF55 e RF56</td>
+<td><a href="https://github.com/BrzGab">Gabriel Lopes de Amorim</a>, <a href="https://github.com/SamaraAlvess">Maria Samara Alves Silva</a> e <a href="https://github.com/Joaovitor045">João Vitor Alves Viana</a></td>
+</tr>
 </tbody>
 </table>
 
@@ -3805,10 +3823,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.top", "navigation.instant", "navigation.instant.progress", "content.code.copy"], "search": "../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.top", "navigation.instant", "navigation.instant.progress", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>
