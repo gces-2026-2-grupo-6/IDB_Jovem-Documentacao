@@ -9,7 +9,7 @@
 | [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin) / [Rivadalvio Joaquim da Silva Filho](https://github.com/RivaFilho) | 5 | US01, US02, US11, US14 e US19 | Garantia de qualidade: testes com Selenium contra o que o servidor entrega e contra a produção publicada, três amarrações de Selenium no pipeline, duas sessões de testes exploratórios com seis achados, a correção dos dois defeitos de severidade alta encontrados e os cabeçalhos e o prazo das chamadas ao Google Calendar travados como regressão |
 | [Gabriel Lopes de Amorim](https://github.com/BrzGab) | 10 | US02, US03, US04, US05, US07, US18, US19, US20, US22 e US23 | Testes funcionais com Selenium sobre a pilha real — front logado pelo Keycloak, back-end e banco de verdade —, com ambiente em contêiner e três defeitos de integração registrados ([PR #31](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/31)) |
 | [Davi Emanuel Ribeiro de Oliveira](https://github.com/daviRolvr), [João Pedro Ferreira Moraes](https://github.com/JoaoPedro2206) e [Renan Vieira Guedes](https://github.com/R-enanVieira) | 7 | RF51, US13, US16, US08, US02, US09 e US14 | Front-end: histórico de participações por convidado, duplicação de evento, acessibilidade e leitor de tela, e card de compartilhamento por evento. Mais três correções de defeitos que estavam em produção: campos do evento descartados em silêncio, opções de status inalcançáveis no celular e a página inicial anunciando como "próximo" um evento já encerrado |
-| [Júlia dos Reis Teixeira Massuda](https://github.com/JuliaReis18), [Filipe Carvalho da Silva](https://github.com/Filipe-002) e [João Rodrigues](https://github.com/JpRodrigues2) | 1 | US21 | Back-end dos pedidos de produto: registro dos pedidos pelo formulário do Google do produto, listagem e mudança de situação restritas ao setor de produtos e exclusão de produto com pedidos recusada ([PR #21](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/21)). **Em Andamento**: back-end integrado à `main`, front-end não iniciado. Mais a reexecução das suítes do back-end das sprints anteriores sobre a `main` com a US21 |
+| [Júlia dos Reis Teixeira Massuda](https://github.com/JuliaReis18), [Filipe Carvalho da Silva](https://github.com/Filipe-002) e [João Rodrigues](https://github.com/JpRodrigues2) | 1 | US21 | Back-end dos pedidos de produto: registro dos pedidos pelo formulário do Google do produto, listagem e mudança de situação restritas ao setor de produtos e exclusão de produto com pedidos recusada ([PR #21](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/21)). Back-end integrado à `main`; o front-end (tela de pedidos no painel, CA1 e CA2) foi entregue na Sprint 4, restando confirmar o escopo com a cliente (D08). Mais a reexecução das suítes do back-end das sprints anteriores sobre a `main` com a US21 |
 | [Luiz Henrique Guimarães Soares](https://github.com/luizh-gsoares) e [Daniel dos Santos Barros de Sousa](https://github.com/daniel-de-sousa) | 2 | US22, US02 | Back-end de missão, visão e valores em `/institucional` ([PR #22](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/22)) e back-end das informações completas do evento — 5 colunas opcionais, migration `a1b2c3d4e5f7` e 13 testes novos ([PR #23](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/23)) |
 
 > As demais linhas desta tabela são preenchidas por cada trio ao registrar sua
@@ -455,12 +455,14 @@ setor.
 
 | Critério | O que foi entregue no back-end | O que falta |
 |---|---|---|
-| CA1 — ver os pedidos com produto, quem pediu e a data | `GET /pedido/` devolve os pedidos com o nome do produto, o solicitante, o contato, a situação e a data, do mais recente para o mais antigo | A tela no painel. O critério fala em "abrir a tela de pedidos", e ela não existe |
-| CA2 — mudar a situação do pedido | `PATCH /pedido/{pedido_id}/status`, no mesmo molde do voluntário, com as situações `pendente`, `em_andamento`, `concluido` e `cancelado` | O controle na tela |
+| CA1 — ver os pedidos com produto, quem pediu e a data | `GET /pedido/` devolve os pedidos com o nome do produto, o solicitante, o contato, a situação e a data, do mais recente para o mais antigo | **Entregue na Sprint 4:** a tela `/admin/pedidos`, no setor de produtos, lista os pedidos consumindo `GET /pedido/` |
+| CA2 — mudar a situação do pedido | `PATCH /pedido/{pedido_id}/status`, no mesmo molde do voluntário, com as situações `pendente`, `em_andamento`, `concluido` e `cancelado` | **Entregue:** o seletor de situação na tela de pedidos, via `PATCH /pedido/{pedido_id}/status` |
 
-Por isso a US21 **não** consta como concluída: os dois critérios estão
-atendidos e testados no servidor, mas nenhum deles é alcançável por quem usa o
-painel.
+Com a interface entregue na Sprint 4 — a tela de pedidos no painel e o campo
+`formulario_pedido_link` no cadastro de produto, que liga a sincronização ao
+formulário do Google —, os dois critérios passam a ser alcançáveis por quem usa
+o painel. O que resta da história não é implementação, e sim a confirmação do
+escopo com a cliente (D08).
 
 **Contrato da API.**
 
@@ -719,8 +721,8 @@ fechada e apresentada.
 ## Resumo
 
 - *Entregas de QA:* 4 — QA32 a QA34, por [João Pedro](https://github.com/Jadequilin), e QA35, por [Rivadalvio](https://github.com/RivaFilho)
-- *Testes com Selenium:* 53 no total — 39 funcionais sobre a pilha real ([PR #31](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/31)) e 14 de entrega do build e de produção (QA32)
-- *Histórias cobertas por Selenium:* 13 — US01, US02, US03, US04, US05, US07, US11, US14, US18, US19, US20, US22 e US23. Seguem sem cobertura por Selenium a US06, US08, US09, US10 e US15
+- *Testes com Selenium:* 43 funcionais sobre a pilha real — os 39 de [PR #31](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/31) mais 4 cobrindo US06, US09 e US15 — e os de entrega do build e de produção (QA32), estes com a guarda da tela de pedidos da US21 somada à suíte de entrega
+- *Histórias cobertas por Selenium:* 16 — US01, US02, US03, US04, US05, US06, US07, US09, US11, US14, US15, US18, US19, US20, US22 e US23. Seguem sem cobertura funcional própria apenas US08 e US10, ambas exercitadas pelos testes de produção (card de compartilhamento e painel não público)
 - *Testes exploratórios:* 2 sessões, 6 achados — 2 corrigidos nesta sprint, 1 travado como teste verde, 3 como especificação executável, e 1 ainda sem teste
 - *Suíte do back-end:* 1049 testes passando e 4 `xfail` esperados, 98,94% de cobertura (piso de 97%), pylint 9,90 (piso de 9,5), mais 62 testes de endpoint contra o contêiner. Antes da US21 eram 942 passando, 98,77% e pylint 9,88. Os 72 testes da US21, os 22 da US22 e os 13 da US02 respondem pela diferença
 - *Entregas de back-end:* 3 — US21 em andamento (back-end integrado à `main`, front-end não iniciado) e reexecução das suítes das sprints anteriores, por [Júlia dos Reis Teixeira Massuda](https://github.com/JuliaReis18), [Filipe Carvalho da Silva](https://github.com/Filipe-002) e [João Rodrigues](https://github.com/JpRodrigues2); US22 concluída no back-end (leitura pública e edição pela superadministradora), por [Luiz Henrique Guimarães Soares](https://github.com/luizh-gsoares) e [Daniel dos Santos Barros de Sousa](https://github.com/daniel-de-sousa); e US02 no back-end (5 campos opcionais do evento, [PR #23](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/23)), por [Luiz Henrique Guimarães Soares](https://github.com/luizh-gsoares) e [Daniel dos Santos Barros de Sousa](https://github.com/daniel-de-sousa)
@@ -749,7 +751,12 @@ dívida conhecida da entrega.
   alguém rodar o fluxo integrado antes de integrar.
 - **Tirar a rota `/test-coverage` do build de produção**, sem quebrar a suíte
   Playwright que depende dela.
-- **Selenium nas cinco histórias descobertas** (US06, US08, US09, US10 e US15).
+- ~~**Selenium nas cinco histórias descobertas** (US06, US08, US09, US10 e US15).~~
+  **US06, US09 e US15 cobertas** com testes funcionais sobre a pilha real
+  (busca de convidado por função e reaproveitamento entre eventos; abas
+  separadas de voluntários e participantes; histórico de eventos passados). US08
+  e US10 seguem exercitadas pelos testes de produção (card de compartilhamento e
+  painel não público).
 - **Firefox no CI**, depois de uma execução manual limpa.
 - ~~**Colunas da US02 no back-end** (`vagas`, `contato_responsavel`,
   `valor_investimento`, `link_pagamento`, `link_regulamento`).~~ **Integrado à
@@ -760,10 +767,12 @@ dívida conhecida da entrega.
   ([PR #19](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Documentacao/pull/19)).
   As duas páginas voltaram pelo conteúdo exato que estava versionado, e a
   navegação do MkDocs resolve de novo.
-- **Front-end da US21.** A tela de pedidos no painel, para o setor de produtos,
-  consumindo `GET /pedido/` e `PATCH /pedido/{pedido_id}/status`, e o campo
-  `formulario_pedido_link` no cadastro de produto. Sem isso os dois critérios
-  da história só existem na API.
+- ~~**Front-end da US21.**~~ **Entregue na Sprint 4:** a tela de pedidos no
+  painel (`/admin/pedidos`, setor de produtos), consumindo `GET /pedido/` e
+  `PATCH /pedido/{pedido_id}/status`, o campo `formulario_pedido_link` no
+  cadastro de produto (sem o qual a sincronização não teria formulário para
+  ler) e uma guarda de rota em Selenium. Os dois critérios da história agora são
+  alcançáveis pelo painel.
 - **Confirmar o escopo da US21 com a cliente (D08).** A implementação seguiu a
   leitura da equipe: registrar e acompanhar o pedido, com a compra pelo link
   externo. A cliente ainda não confirmou essa leitura.
@@ -785,3 +794,4 @@ dívida conhecida da entrega.
 | `1.4` | 17/11/2026 | Registro do back-end da US21 (pedidos de produto), em andamento: critérios atendidos no servidor, contrato da API, autorização pelo setor de produtos, migration `a7f3c1d9e5b2`, 72 testes novos e os resultados do CI da PR #21. Registro da reexecução das suítes do back-end das sprints anteriores, com comandos e resultados por história. Atualização da suíte do back-end no resumo e das pendências da US21 em aberto | [Júlia dos Reis Teixeira Massuda](https://github.com/JuliaReis18), [Filipe Carvalho da Silva](https://github.com/Filipe-002) e [João Rodrigues](https://github.com/JpRodrigues2) |
 | `1.5` | 17/11/2026 | Registro do back-end da US22 (missão, visão e valores): contrato `GET`/`PUT /institucional`, registro único, normalização e recusa de conteúdo vazio, migration `d3e5b8a1c4f6`, 22 testes novos e os resultados da suíte ([PR #22](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/22)) | [Luiz Henrique Guimarães Soares](https://github.com/luizh-gsoares) e [Daniel dos Santos Barros de Sousa](https://github.com/daniel-de-sousa) |
 | `1.6` | 17/11/2026 | Registro do back-end da US02 (informações completas do evento): 5 colunas opcionais (`vagas`, `contato_responsavel`, `valor_investimento`, `link_pagamento`, `link_regulamento`), migration `a1b2c3d4e5f7`, 13 testes novos, contrato atualizado e resultados da suíte ([PR #23](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/23)) | [Luiz Henrique Guimarães Soares](https://github.com/luizh-gsoares) e [Daniel dos Santos Barros de Sousa](https://github.com/daniel-de-sousa) |
+| `1.7` | 18/11/2026 | Entrega do front-end da US21 (tela de pedidos no painel, CA1 e CA2, mais o campo `formulario_pedido_link` no cadastro de produto) e cobertura por Selenium das três histórias que seguiam descobertas — US06 (busca por função e reaproveitamento), US09 (abas separadas de voluntários e participantes) e US15 (histórico de eventos passados). Atualização do resumo de cobertura, das pendências e do status da US21 | [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin) e [Rivadalvio Joaquim da Silva Filho](https://github.com/RivaFilho) |
