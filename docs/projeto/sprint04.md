@@ -10,7 +10,7 @@
 | [Gabriel Lopes de Amorim](https://github.com/BrzGab) | 10 | US02, US03, US04, US05, US07, US18, US19, US20, US22 e US23 | Testes funcionais com Selenium sobre a pilha real — front logado pelo Keycloak, back-end e banco de verdade —, com ambiente em contêiner e três defeitos de integração registrados ([PR #31](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/31)) |
 | [Davi Emanuel Ribeiro de Oliveira](https://github.com/daviRolvr), [João Pedro Ferreira Moraes](https://github.com/JoaoPedro2206) e [Renan Vieira Guedes](https://github.com/R-enanVieira) | 7 | RF51, US13, US16, US08, US02, US09 e US14 | Front-end: histórico de participações por convidado, duplicação de evento, acessibilidade e leitor de tela, e card de compartilhamento por evento. Mais três correções de defeitos que estavam em produção: campos do evento descartados em silêncio, opções de status inalcançáveis no celular e a página inicial anunciando como "próximo" um evento já encerrado |
 | [Júlia dos Reis Teixeira Massuda](https://github.com/JuliaReis18), [Filipe Carvalho da Silva](https://github.com/Filipe-002) e [João Rodrigues](https://github.com/JpRodrigues2) | 1 | US21 | Back-end dos pedidos de produto: registro dos pedidos pelo formulário do Google do produto, listagem e mudança de situação restritas ao setor de produtos e exclusão de produto com pedidos recusada ([PR #21](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/21)). **Em Andamento**: back-end integrado à `main`, front-end não iniciado. Mais a reexecução das suítes do back-end das sprints anteriores sobre a `main` com a US21 |
-| [Luiz Henrique Guimarães Soares](https://github.com/luizh-gsoares) e [Daniel dos Santos Barros de Sousa](https://github.com/daniel-de-sousa) | 1 | US22 | Back-end de missão, visão e valores: leitura pública e edição exclusiva da superadministradora em `/institucional`, com registro único no banco, normalização do texto e 22 testes novos ([PR #22](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/22)) |
+| [Luiz Henrique Guimarães Soares](https://github.com/luizh-gsoares) e [Daniel dos Santos Barros de Sousa](https://github.com/daniel-de-sousa) | 2 | US22, US02 | Back-end de missão, visão e valores em `/institucional` ([PR #22](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/22)) e back-end das informações completas do evento — 5 colunas opcionais, migration `a1b2c3d4e5f7` e 13 testes novos ([PR #23](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/23)) |
 
 > As demais linhas desta tabela são preenchidas por cada trio ao registrar sua
 > entrega, como nas sprints anteriores.
@@ -601,6 +601,48 @@ tabela `institucional`. A cadeia continua com um *head* só.
 - **O RF26 (avisos e comunicados na home) não foi tratado**, como já estava
   registrado no backlog: a US22 cobre missão, visão e valores.
 
+### Back-end da US02 — Informações completas do evento
+
+- **Responsáveis:** [Luiz Henrique Guimarães Soares](https://github.com/luizh-gsoares) e [Daniel dos Santos Barros de Sousa](https://github.com/daniel-de-sousa)
+- **PR:** [PR #23](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/23) (`feat/us02-campos-evento`) — aberta para revisão.
+
+O front-end da US02 já coletava e mapeava cinco campos complementares em
+`eventService.js`, mas o back-end ainda não possuía as colunas e a API ignorava
+os campos desconhecidos. Esta entrega implementa a persistência e o contrato
+completo na API, mantendo todos os campos opcionais para não bloquear o
+cadastro.
+
+**Campos adicionados em `Evento` (`src/evento/model.py` e `src/evento/schema.py`).**
+
+| Campo | Tipo no banco | Tipo no schema | Regra |
+|---|---|---|---|
+| `vagas` | `Integer` | `int \| None` | Opcional; `Field(default=None, ge=0)` (recusa negativos com `422`) |
+| `contato_responsavel` | `Text` | `str \| None` | Opcional |
+| `valor_investimento` | `Text` | `str \| None` | Opcional (texto livre, ex.: `"R$ 180,00"` ou `"Gratuito"`) |
+| `link_pagamento` | `Text` | `str \| None` | Opcional |
+| `link_regulamento` | `Text` | `str \| None` | Opcional |
+
+**Persistência.** A migration `a1b2c3d4e5f7` (`migrations/versions/a1b2c3d4e5f7_us02_campos_completos_evento.py`),
+encadeada após `d3e5b8a1c4f6` (US22), adiciona as cinco colunas anuláveis na
+tabela `evento` com `upgrade` e `downgrade`. `alembic heads` mantém um único
+*head* (`a1b2c3d4e5f7`).
+
+**Testes e resultados.**
+
+- `tests/unit/test_us02_campos_evento.py` (**13 testes novos**): valida schema
+  (campos preenchidos, ausentes, `vagas=0`, `vagas=-1`), serviço (`criar_evento` e
+  `atualizar_evento`, incluindo limpeza para `None`) e controller (`POST`, `PUT`,
+  `GET` e retorno `422` para `vagas` negativas).
+- `tests/unit/test_contrato_respostas.py`: os cinco novos campos opcionais foram
+  registrados em `CONTRATO["RespostaEvento"]["campos"]`.
+- **Suíte completa (`pytest -q`):** **1049 passando**, 4 `xfail` esperados, 62
+  desmarcados (`-m "not endpoint"`), com **98,94% de cobertura** (piso de 97%).
+- **Pylint (`src/`):** nota **9,90/10** (piso de 9,5).
+- **Validação integrada local:** migration aplicada no PostgreSQL em Docker,
+  cadastro via formulário (`/admin/eventos/criar`) gravando o evento e
+  recarregamento na tela de edição (`/admin/eventos/{id}/editar`) confirmando os
+  cinco campos persistidos.
+
 ### Validação dos testes das sprints anteriores no back-end
 
 - **Responsáveis:** [Júlia dos Reis Teixeira Massuda](https://github.com/JuliaReis18), [Filipe Carvalho da Silva](https://github.com/Filipe-002) e [João Rodrigues](https://github.com/JpRodrigues2)
@@ -681,7 +723,7 @@ fechada e apresentada.
 - *Histórias cobertas por Selenium:* 13 — US01, US02, US03, US04, US05, US07, US11, US14, US18, US19, US20, US22 e US23. Seguem sem cobertura por Selenium a US06, US08, US09, US10 e US15
 - *Testes exploratórios:* 2 sessões, 6 achados — 2 corrigidos nesta sprint, 1 travado como teste verde, 3 como especificação executável, e 1 ainda sem teste
 - *Suíte do back-end:* 1036 testes passando e 4 `xfail` esperados, 98,89% de cobertura (piso de 97%), pylint 9,87 (piso de 9,5), mais 62 testes de endpoint contra o contêiner. Antes da US21 eram 942 passando, 98,77% e pylint 9,88. Os 72 testes da US21 e os 22 da US22 respondem pela diferença
-- *Entregas de back-end:* 2 — US21 em andamento (back-end integrado à `main`, front-end não iniciado) e US22 concluída no back-end (leitura pública e edição pela superadministradora), por [Luiz Henrique Guimarães Soares](https://github.com/luizh-gsoares) e [Daniel dos Santos Barros de Sousa](https://github.com/daniel-de-sousa); mais a reexecução das suítes das sprints anteriores, por [Júlia dos Reis Teixeira Massuda](https://github.com/JuliaReis18), [Filipe Carvalho da Silva](https://github.com/Filipe-002) e [João Rodrigues](https://github.com/JpRodrigues2)
+- *Entregas de back-end:* 3 — US21 em andamento (back-end integrado à `main`, front-end não iniciado) e reexecução das suítes das sprints anteriores, por [Júlia dos Reis Teixeira Massuda](https://github.com/JuliaReis18), [Filipe Carvalho da Silva](https://github.com/Filipe-002) e [João Rodrigues](https://github.com/JpRodrigues2); US22 concluída no back-end (leitura pública e edição pela superadministradora), por [Luiz Henrique Guimarães Soares](https://github.com/luizh-gsoares) e [Daniel dos Santos Barros de Sousa](https://github.com/daniel-de-sousa); e US02 no back-end (5 campos opcionais do evento, [PR #23](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/23)), por [Luiz Henrique Guimarães Soares](https://github.com/luizh-gsoares) e [Daniel dos Santos Barros de Sousa](https://github.com/daniel-de-sousa)
 - *Entregas de front-end:* 4 histórias (RF51, US13, US16 e US08) e 3 correções de defeitos que estavam em produção (US02, US09 e Home), por [Davi Emanuel Ribeiro de Oliveira](https://github.com/daviRolvr), [João Pedro Ferreira Moraes](https://github.com/JoaoPedro2206) e [Renan Vieira Guedes](https://github.com/R-enanVieira)
 - *Líder da Apresentação:* a definir
 - *Início da Sprint:* 30/10/2026
@@ -709,11 +751,12 @@ dívida conhecida da entrega.
   Playwright que depende dela.
 - **Selenium nas cinco histórias descobertas** (US06, US08, US09, US10 e US15).
 - **Firefox no CI**, depois de uma execução manual limpa.
-- **Colunas da US02 no back-end** (`vagas`, `contato_responsavel`,
-  `valor_investimento`, `link_pagamento`, `link_regulamento`). O front já envia
-  e lê os cinco; sem as colunas, a API ignora o campo e o dado não persiste. Os
-  nomes foram assumidos pelo front e precisam ser conferidos antes de dar a
-  integração por concluída.
+- ~~**Colunas da US02 no back-end** (`vagas`, `contato_responsavel`,
+  `valor_investimento`, `link_pagamento`, `link_regulamento`).~~ **Implementado
+  na [PR #23](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/23)**
+  (migration `a1b2c3d4e5f7`, mesmos nomes já enviados/lidos pelo front-end);
+  pendente apenas o merge da PR e a execução de `alembic upgrade head` no
+  servidor de produção.
 - ~~**Integrar `docs/restaura-paginas-us10-us11-us14`**~~ — **concluído**
   ([PR #19](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Documentacao/pull/19)).
   As duas páginas voltaram pelo conteúdo exato que estava versionado, e a
@@ -742,3 +785,4 @@ dívida conhecida da entrega.
 | `1.3` | 16/11/2026 | Registro da QA35: os cabeçalhos e o prazo das chamadas ao Google Calendar, que nenhum teste verificava, travados como regressão por 14 testes, com a prova por mutação; atualização da contagem da suíte do back-end no resumo | [Rivadalvio Joaquim da Silva Filho](https://github.com/RivaFilho) |
 | `1.4` | 17/11/2026 | Registro do back-end da US21 (pedidos de produto), em andamento: critérios atendidos no servidor, contrato da API, autorização pelo setor de produtos, migration `a7f3c1d9e5b2`, 72 testes novos e os resultados do CI da PR #21. Registro da reexecução das suítes do back-end das sprints anteriores, com comandos e resultados por história. Atualização da suíte do back-end no resumo e das pendências da US21 em aberto | [Júlia dos Reis Teixeira Massuda](https://github.com/JuliaReis18), [Filipe Carvalho da Silva](https://github.com/Filipe-002) e [João Rodrigues](https://github.com/JpRodrigues2) |
 | `1.5` | 17/11/2026 | Registro do back-end da US22 (missão, visão e valores): contrato `GET`/`PUT /institucional`, registro único, normalização e recusa de conteúdo vazio, migration `d3e5b8a1c4f6`, 22 testes novos e os resultados da suíte ([PR #22](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/22)) | [Luiz Henrique Guimarães Soares](https://github.com/luizh-gsoares) e [Daniel dos Santos Barros de Sousa](https://github.com/daniel-de-sousa) |
+| `1.6` | 17/11/2026 | Registro do back-end da US02 (informações completas do evento): 5 colunas opcionais (`vagas`, `contato_responsavel`, `valor_investimento`, `link_pagamento`, `link_regulamento`), migration `a1b2c3d4e5f7`, 13 testes novos, contrato atualizado e resultados da suíte ([PR #23](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/23)) | [Luiz Henrique Guimarães Soares](https://github.com/luizh-gsoares) e [Daniel dos Santos Barros de Sousa](https://github.com/daniel-de-sousa) |
