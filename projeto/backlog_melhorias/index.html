@@ -2498,7 +2498,7 @@
 </table>
 
 <blockquote>
-<p><strong>O defeito continua aberto até esta história entrar.</strong> Hoje, excluir um evento com vínculo responde erro 500 e não apaga nada no banco. Pior: a agenda do Google é apagada antes de o banco recusar (registrado na QA08). Enquanto a D09 não for respondida, nada muda. A mesma falha atinge a exclusão de <strong>convidado</strong> vinculado a evento. Esse caso não foi tratado na reunião e segue com a decisão pendente da Sprint 2.</p>
+<p><strong>O defeito continua aberto até esta história entrar.</strong> Hoje, excluir um evento com vínculo responde erro 500 e não apaga nada no banco. Pior: a agenda do Google é apagada antes de o banco recusar (registrado na QA08). Enquanto a D09 não for respondida, nada muda. A mesma falha atingia a exclusão de <strong>convidado</strong> vinculado a evento. Esse caso não foi tratado na reunião. <strong>Corrigido na Sprint 4</strong> (<a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/25">PR #25 do back-end</a>): a exclusão de convidado vinculado é recusada com 409 e uma mensagem clara, e o cadastro e os vínculos continuam.</p>
 </blockquote>
 <p><a name="us23"></a></p>
 <h3 id="us23-calendario-com-os-eventos-ja-ocorridos">US23 — Calendário com os eventos já ocorridos<a class="headerlink" href="#us23-calendario-com-os-eventos-ja-ocorridos" title="Permanent link">&para;</a></h3>
@@ -3335,7 +3335,7 @@
 <td>T</td>
 <td>US06 — Alta</td>
 <td>QA: <a href="https://github.com/Jadequilin">João Pedro Araújo de Freitas Lyra</a><br>Implementação: <a href="https://github.com/daviRolvr">Davi Emanuel Ribeiro de Oliveira</a>, <a href="https://github.com/JoaoPedro2206">João Pedro Ferreira Moraes</a>, <a href="https://github.com/R-enanVieira">Renan Vieira Guedes</a></td>
-<td><strong>Implementação:</strong> Tela de convidados no painel, com busca por nome e função, cadastro, edição e exclusão. Construída sobre o CRUD que a API já oferecia e que nenhuma tela alcançava. A função (banda, pregador, convidado) é derivada do campo de texto livre da API, sem descaracterizar o que já estava cadastrado.<br><br><strong>QA (Sprint 2):</strong> edição de convidados coberta, inclusive a persistência. Registrado defeito em aberto: excluir convidado vinculado a evento responde 500 e não apaga nada — aguarda decisão entre apagar os vínculos junto ou recusar com 409.</td>
+<td><strong>Implementação:</strong> Tela de convidados no painel, com busca por nome e função, cadastro, edição e exclusão. Construída sobre o CRUD que a API já oferecia e que nenhuma tela alcançava. A função (banda, pregador, convidado) é derivada do campo de texto livre da API, sem descaracterizar o que já estava cadastrado.<br><br><strong>QA (Sprint 2):</strong> edição de convidados coberta, inclusive a persistência. Registrado defeito em aberto: excluir convidado vinculado a evento responde 500 e não apaga nada — aguarda decisão entre apagar os vínculos junto ou recusar com 409.<br><br><strong>Sprint 4:</strong> defeito confirmado pelos testes funcionais com Selenium e <strong>corrigido</strong> na <a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/25">PR #25 do back-end</a>: a exclusão é recusada com 409 e a mensagem "Este convidado está vinculado a N evento(s). Remova-o da programação antes de excluir.".</td>
 </tr>
 <tr>
 <td>RF48</td>
@@ -3762,6 +3762,12 @@
 <td><code>4.1</code></td>
 <td>18/11/2026</td>
 <td>Situação das US18, US19, US20 e US22 atualizada para concluída, com o back-end de cada uma (PRs #17, #18 e #22 do back-end) e a verificação de ponta a ponta pelos testes funcionais com Selenium; mesmas atualizações nos RF25, RF55 e RF56</td>
+<td><a href="https://github.com/BrzGab">Gabriel Lopes de Amorim</a>, <a href="https://github.com/SamaraAlvess">Maria Samara Alves Silva</a> e <a href="https://github.com/Joaovitor045">João Vitor Alves Viana</a></td>
+</tr>
+<tr>
+<td><code>4.2</code></td>
+<td>18/11/2026</td>
+<td>Defeito de exclusão de convidado vinculado a evento (D09, US06) registrado como corrigido na <a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/25">PR #25 do back-end</a>, com recusa por 409: nota da US20 e RF47 atualizados</td>
 <td><a href="https://github.com/BrzGab">Gabriel Lopes de Amorim</a>, <a href="https://github.com/SamaraAlvess">Maria Samara Alves Silva</a> e <a href="https://github.com/Joaovitor045">João Vitor Alves Viana</a></td>
 </tr>
 </tbody>

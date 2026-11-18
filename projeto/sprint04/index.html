@@ -2373,7 +2373,7 @@ o navegador visível.</p>
 <tr>
 <td>Excluir um convidado vinculado a um evento estoura <code>IntegrityError</code> no back-end; a requisição cai sem resposta e, como o erro sai sem cabeçalho CORS, a tela mostra só "Network Error"</td>
 <td>US06, back</td>
-<td><strong>Aberto.</strong> É a D09, registrada pela QA na Sprint 2; os testes funcionais confirmaram que continua</td>
+<td><strong>Corrigido</strong> na <a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/25">PR #25 do back-end</a>. É a D09, registrada pela QA na Sprint 2: a decisão foi recusar a exclusão enquanto houver vínculo, com 409 e a mensagem "Este convidado está vinculado a N evento(s). Remova-o da programação antes de excluir.". O cadastro e o vínculo continuam. Verificado contra o Postgres real</td>
 </tr>
 </tbody>
 </table>
@@ -2483,7 +2483,8 @@ US21. O crédito da correção é da QA34.</p>
 <p><strong>Pendentes.</strong> Os 4 <code>xfail</code> continuam sendo especificação de comportamento
 que ainda não existe: a D09 (excluir convidado vinculado responde 500) e os
 três achados da EX-02. Nenhum foi resolvido nesta entrega, porque dependem de
-decisão de produto.</p>
+decisão de produto. <em>(A D09 foi corrigida depois, na <a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/25">PR #25 do back-end</a>: o <code>xfail</code> virou
+teste que exige o 409.)</em></p>
 <h3 id="achados-sobre-a-propria-documentacao">Achados sobre a própria documentação<a class="headerlink" href="#achados-sobre-a-propria-documentacao" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>Responsável:</strong> <a href="https://github.com/Jadequilin">João Pedro Araújo de Freitas Lyra</a></li>
@@ -2511,7 +2512,7 @@ fechada e apresentada.</p>
 <li><em>Suíte do back-end:</em> 1049 testes passando e 4 <code>xfail</code> esperados, 98,94% de cobertura (piso de 97%), pylint 9,90 (piso de 9,5), mais 62 testes de endpoint contra o contêiner. Antes da US21 eram 942 passando, 98,77% e pylint 9,88. Os 72 testes da US21, os 22 da US22 e os 13 da US02 respondem pela diferença</li>
 <li><em>Entregas de back-end:</em> 3 — US21 (back-end integrado à <code>main</code> pela trinca, front-end entregue na Sprint 4: história concluída) e reexecução das suítes das sprints anteriores, por <a href="https://github.com/JuliaReis18">Júlia dos Reis Teixeira Massuda</a>, <a href="https://github.com/Filipe-002">Filipe Carvalho da Silva</a> e <a href="https://github.com/JpRodrigues2">João Rodrigues</a>; US22 concluída no back-end (leitura pública e edição pela superadministradora), por <a href="https://github.com/luizh-gsoares">Luiz Henrique Guimarães Soares</a> e <a href="https://github.com/daniel-de-sousa">Daniel dos Santos Barros de Sousa</a>; e US02 no back-end (5 campos opcionais do evento, <a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/23">PR #23</a>), por <a href="https://github.com/luizh-gsoares">Luiz Henrique Guimarães Soares</a> e <a href="https://github.com/daniel-de-sousa">Daniel dos Santos Barros de Sousa</a></li>
 <li><em>Entregas de front-end:</em> 4 histórias (RF51, US13, US16 e US08) e 3 correções de defeitos que estavam em produção (US02, US09 e Home), por <a href="https://github.com/daviRolvr">Davi Emanuel Ribeiro de Oliveira</a>, <a href="https://github.com/JoaoPedro2206">João Pedro Ferreira Moraes</a> e <a href="https://github.com/R-enanVieira">Renan Vieira Guedes</a></li>
-<li><em>Defeitos encontrados pelos testes funcionais do Trio 01:</em> 3 — US02 e US22 corrigidos nesta sprint, e a exclusão de convidado vinculado (US06, D09) ainda aberta</li>
+<li><em>Defeitos encontrados pelos testes funcionais do Trio 01:</em> 3, todos corrigidos nesta sprint — US02, US22 e a exclusão de convidado vinculado (US06, D09, <a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/25">PR #25 do back-end</a>)</li>
 <li><em>Líder da Apresentação:</em> a definir</li>
 <li><em>Início da Sprint:</em> 30/10/2026</li>
 <li><em>Fim da Sprint:</em> 19/11/2026</li>
@@ -2541,11 +2542,11 @@ dívida conhecida da entrega.</p>
   e US10 seguem exercitadas pelos testes de produção (card de compartilhamento e
   painel não público).</li>
 <li><strong>Firefox no CI</strong>, depois de uma execução manual limpa.</li>
-<li><strong>Atualizar os testes funcionais da US02 e da US22.</strong> Com as duas correções,
-  os testes que reproduziam os defeitos passaram e o pytest acusa <code>XPASS</code>: o
-  marcador <code>xfail</code> deve sair, para eles ficarem como regressão, e os testes da
-  US22 que supunham a rota <code>/institucional</code> ausente precisam passar a verificar
-  o comportamento real.</li>
+<li><strong>Atualizar os testes funcionais da US02, da US22 e da US06.</strong> Com as três
+  correções, os testes que reproduziam os defeitos passaram e o pytest acusa
+  <code>XPASS</code>: o marcador <code>xfail</code> deve sair, para eles ficarem como regressão, e os
+  testes da US22 que supunham a rota <code>/institucional</code> ausente precisam passar a
+  verificar o comportamento real.</li>
 <li>~~<strong>Colunas da US02 no back-end</strong> (<code>vagas</code>, <code>contato_responsavel</code>,
   <code>valor_investimento</code>, <code>link_pagamento</code>, <code>link_regulamento</code>).~~ <strong>Integrado à
   <code>main</code> na <a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/23">PR #23</a></strong>
@@ -2631,6 +2632,12 @@ dívida conhecida da entrega.</p>
 <td><code>1.8</code></td>
 <td>18/11/2026</td>
 <td>Registro dos testes funcionais com Selenium do Trio 01 (PR #31 do front-end): ambiente, cobertura das dez histórias e os três defeitos de integração encontrados (US02 e US22 corrigidos, US06 aberto); crédito do trio na tabela de entregas</td>
+<td><a href="https://github.com/BrzGab">Gabriel Lopes de Amorim</a>, <a href="https://github.com/SamaraAlvess">Maria Samara Alves Silva</a> e <a href="https://github.com/Joaovitor045">João Vitor Alves Viana</a></td>
+</tr>
+<tr>
+<td><code>1.9</code></td>
+<td>18/11/2026</td>
+<td>Defeito da US06 (D09, exclusão de convidado vinculado a evento) registrado como corrigido na <a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/25">PR #25 do back-end</a>, que recusa a exclusão com 409; resumo dos defeitos do Trio 01 atualizado (os três corrigidos) e pendência dos testes funcionais estendida à US06</td>
 <td><a href="https://github.com/BrzGab">Gabriel Lopes de Amorim</a>, <a href="https://github.com/SamaraAlvess">Maria Samara Alves Silva</a> e <a href="https://github.com/Joaovitor045">João Vitor Alves Viana</a></td>
 </tr>
 </tbody>
