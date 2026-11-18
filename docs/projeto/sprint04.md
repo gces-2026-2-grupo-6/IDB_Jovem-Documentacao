@@ -604,7 +604,7 @@ tabela `institucional`. A cadeia continua com um *head* só.
 ### Back-end da US02 — Informações completas do evento
 
 - **Responsáveis:** [Luiz Henrique Guimarães Soares](https://github.com/luizh-gsoares) e [Daniel dos Santos Barros de Sousa](https://github.com/daniel-de-sousa)
-- **PR:** [PR #23](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/23) (`feat/us02-campos-evento`) — aberta para revisão.
+- **PR:** [PR #23](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/23) (`feat/us02-campos-evento`) — integrada à `main`.
 
 O front-end da US02 já coletava e mapeava cinco campos complementares em
 `eventService.js`, mas o back-end ainda não possuía as colunas e a API ignorava
@@ -752,11 +752,10 @@ dívida conhecida da entrega.
 - **Selenium nas cinco histórias descobertas** (US06, US08, US09, US10 e US15).
 - **Firefox no CI**, depois de uma execução manual limpa.
 - ~~**Colunas da US02 no back-end** (`vagas`, `contato_responsavel`,
-  `valor_investimento`, `link_pagamento`, `link_regulamento`).~~ **Implementado
-  na [PR #23](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/23)**
+  `valor_investimento`, `link_pagamento`, `link_regulamento`).~~ **Integrado à
+  `main` na [PR #23](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/23)**
   (migration `a1b2c3d4e5f7`, mesmos nomes já enviados/lidos pelo front-end);
-  pendente apenas o merge da PR e a execução de `alembic upgrade head` no
-  servidor de produção.
+  pendente apenas a execução de `alembic upgrade head` no servidor de produção.
 - ~~**Integrar `docs/restaura-paginas-us10-us11-us14`**~~ — **concluído**
   ([PR #19](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Documentacao/pull/19)).
   As duas páginas voltaram pelo conteúdo exato que estava versionado, e a
