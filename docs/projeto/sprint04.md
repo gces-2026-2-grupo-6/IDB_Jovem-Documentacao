@@ -7,7 +7,7 @@
 | Trio de Desenvolvedores | Qtd. de US | US | Assunto das US |
 |---|---:|---|---|
 | [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin) / [Rivadalvio Joaquim da Silva Filho](https://github.com/RivaFilho) | 5 | US01, US02, US11, US14 e US19 | Garantia de qualidade: testes com Selenium contra o que o servidor entrega e contra a produção publicada, três amarrações de Selenium no pipeline, duas sessões de testes exploratórios com seis achados, a correção dos dois defeitos de severidade alta encontrados e os cabeçalhos e o prazo das chamadas ao Google Calendar travados como regressão |
-| [Gabriel Lopes de Amorim](https://github.com/BrzGab) | 10 | US02, US03, US04, US05, US07, US18, US19, US20, US22 e US23 | Testes funcionais com Selenium sobre a pilha real — front logado pelo Keycloak, back-end e banco de verdade —, com ambiente em contêiner e três defeitos de integração registrados ([PR #31](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/31)) |
+| [Gabriel Lopes de Amorim](https://github.com/BrzGab), [Maria Samara Alves Silva](https://github.com/SamaraAlvess) e [João Vitor Alves Viana](https://github.com/Joaovitor045) | 10 | US02, US03, US04, US05, US07, US18, US19, US20, US22 e US23 | Testes funcionais com Selenium sobre a pilha real — front logado pelo Keycloak, back-end e banco de verdade —, com ambiente em contêiner e três defeitos de integração encontrados, dois deles já corrigidos ([PR #31](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/31)) |
 | [Davi Emanuel Ribeiro de Oliveira](https://github.com/daviRolvr), [João Pedro Ferreira Moraes](https://github.com/JoaoPedro2206) e [Renan Vieira Guedes](https://github.com/R-enanVieira) | 7 | RF51, US13, US16, US08, US02, US09 e US14 | Front-end: histórico de participações por convidado, duplicação de evento, acessibilidade e leitor de tela, e card de compartilhamento por evento. Mais três correções de defeitos que estavam em produção: campos do evento descartados em silêncio, opções de status inalcançáveis no celular e a página inicial anunciando como "próximo" um evento já encerrado |
 | [Júlia dos Reis Teixeira Massuda](https://github.com/JuliaReis18), [Filipe Carvalho da Silva](https://github.com/Filipe-002) e [João Rodrigues](https://github.com/JpRodrigues2) | 1 | US21 | Back-end dos pedidos de produto: registro dos pedidos pelo formulário do Google do produto, listagem e mudança de situação restritas ao setor de produtos e exclusão de produto com pedidos recusada ([PR #21](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/21)). Back-end integrado à `main`; o front-end (tela de pedidos no painel, CA1 e CA2) foi entregue na Sprint 4, deixando a **US21 concluída**. Mais a reexecução das suítes do back-end das sprints anteriores sobre a `main` com a US21 |
 | [Luiz Henrique Guimarães Soares](https://github.com/luizh-gsoares) e [Daniel dos Santos Barros de Sousa](https://github.com/daniel-de-sousa) | 2 | US22, US02 | Back-end de missão, visão e valores em `/institucional` ([PR #22](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/22)) e back-end das informações completas do evento — 5 colunas opcionais, migration `a1b2c3d4e5f7` e 13 testes novos ([PR #23](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/23)) |
@@ -643,6 +643,61 @@ tabela `evento` com `upgrade` e `downgrade`. `alembic heads` mantém um único
   recarregamento na tela de edição (`/admin/eventos/{id}/editar`) confirmando os
   cinco campos persistidos.
 
+### Testes funcionais com Selenium — Trio 01
+
+- **Responsáveis:** [Gabriel Lopes de Amorim](https://github.com/BrzGab), [Maria Samara Alves Silva](https://github.com/SamaraAlvess) e [João Vitor Alves Viana](https://github.com/Joaovitor045)
+- **PR:** [PR #31](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/31) do front-end — integrada à `main`.
+- **Situação:** concluída.
+
+A suíte Playwright do front-end roda contra uma API simulada
+(`tests/helpers/apiMock.js`): se o back-end responder diferente do que a
+simulação supõe, a tela quebra em produção e a suíte continua verde. Os testes
+desta entrega fazem o caminho de quem usa o site: o **front de verdade**,
+logado pelo **Keycloak de verdade**, falando com o **back-end e o banco de
+verdade**, todos em contêiner. Por isso acharam defeitos que nenhum teste do
+projeto via — e os três eram de integração entre front e back-end.
+
+**Ambiente.** A pasta `selenium/` do front-end traz um `docker-compose` com
+Postgres, Keycloak e o back-end construído a partir do repositório
+`IDB_Jovem-Backend`, sem ler nem alterar o `.env` de ninguém, e com o banco
+descartado ao final. O `preparar_keycloak.py` cria um usuário por perfil
+(superadministradora, eventos, produtos e inscrições) e libera o front local no
+CORS do client, que no `realm.json` só aceita `localhost:8000`. Cada teste
+prepara os próprios dados pela API real, com um prefixo único, e os apaga no
+fim; a tela é verificada pelo que a pessoa vê, nunca pela API.
+
+**O que cobre.** 39 testes, das dez histórias do trio:
+
+| História | O que o teste verifica |
+|---|---|
+| US02 | Os cinco campos complementares no formulário e se continuam salvos ao reabrir o evento |
+| US03 | Painel inicial só com a agenda, Produtos com tela própria, administrador da loja entrando direto em Produtos e sem acesso à agenda |
+| US04 | `lang="pt-BR"` e `notranslate` em todas as páginas públicas; nome do líder com `translate="no"` e sem duplicar |
+| US05 | Cadastrar, editar e excluir líder pela tela; tela só da superadministradora; galeria de anteriores só com cargo nacional |
+| US07 | Galeria sem fotos mostrando estado vazio, sem álbuns fictícios |
+| US18 | Atalho da lista até o álbum, evento sem álbum, falha do Drive que não vira "álbum vazio" e exclusão aceita só da superadministradora |
+| US19 | Evento online gravado sem endereço e com link; link sem `https` recusado; presencial que vira online; selo, filtro e ordem por data na agenda; botão da transmissão |
+| US20 | Modal com a programação e os convidados que saem junto; exclusão que mantém o cadastro do convidado; "Não" que mantém o evento; permissões na tela e no servidor |
+| US22 | "Saiba mais" e rodapé levando a Quem somos; missão publicada; tela só da superadministradora; conteúdo salvo aparecendo na página pública |
+| US23 | Evento do mês passado com "Já aconteceu", "Ver fotos" levando ao evento e evento futuro sem a etiqueta |
+
+Na entrega, foram **36 testes passando e 3 `xfail`** — os três defeitos abaixo,
+registrados como especificação do comportamento esperado — estáveis em três
+execuções seguidas, em cerca de 2 minutos. A execução foi gravada em vídeo com
+o navegador visível.
+
+**Defeitos encontrados.**
+
+| Defeito | Onde | Situação |
+|---|---|---|
+| Vagas, contato do responsável, valor, link de pagamento e regulamento eram preenchidos no painel e sumiam ao salvar: o front não enviava os campos e o back-end não tinha as colunas | US02, front e back | **Corrigido.** Front na [PR #33](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/33), back-end na [PR #23 do back-end](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/23). O teste que reproduzia o defeito passou a passar |
+| O back-end não tinha `GET`/`PUT /institucional`: missão, visão e valores não podiam ser salvos | US22, back | **Corrigido** na [PR #22 do back-end](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/22). O teste que reproduzia o defeito passou a passar |
+| Excluir um convidado vinculado a um evento estoura `IntegrityError` no back-end; a requisição cai sem resposta e, como o erro sai sem cabeçalho CORS, a tela mostra só "Network Error" | US06, back | **Aberto.** É a D09, registrada pela QA na Sprint 2; os testes funcionais confirmaram que continua |
+
+**Limite do ambiente local.** Sem as credenciais do Google, o Drive e a Agenda
+ficam desligados. O fluxo de excluir fotos de um álbum com fotos (US18) e os
+álbuns da galeria com fotos (US07) continuam cobertos pela suíte Playwright.
+
 ### Validação dos testes das sprints anteriores no back-end
 
 - **Responsáveis:** [Júlia dos Reis Teixeira Massuda](https://github.com/JuliaReis18), [Filipe Carvalho da Silva](https://github.com/Filipe-002) e [João Rodrigues](https://github.com/JpRodrigues2)
@@ -725,6 +780,7 @@ fechada e apresentada.
 - *Suíte do back-end:* 1049 testes passando e 4 `xfail` esperados, 98,94% de cobertura (piso de 97%), pylint 9,90 (piso de 9,5), mais 62 testes de endpoint contra o contêiner. Antes da US21 eram 942 passando, 98,77% e pylint 9,88. Os 72 testes da US21, os 22 da US22 e os 13 da US02 respondem pela diferença
 - *Entregas de back-end:* 3 — US21 (back-end integrado à `main` pela trinca, front-end entregue na Sprint 4: história concluída) e reexecução das suítes das sprints anteriores, por [Júlia dos Reis Teixeira Massuda](https://github.com/JuliaReis18), [Filipe Carvalho da Silva](https://github.com/Filipe-002) e [João Rodrigues](https://github.com/JpRodrigues2); US22 concluída no back-end (leitura pública e edição pela superadministradora), por [Luiz Henrique Guimarães Soares](https://github.com/luizh-gsoares) e [Daniel dos Santos Barros de Sousa](https://github.com/daniel-de-sousa); e US02 no back-end (5 campos opcionais do evento, [PR #23](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/23)), por [Luiz Henrique Guimarães Soares](https://github.com/luizh-gsoares) e [Daniel dos Santos Barros de Sousa](https://github.com/daniel-de-sousa)
 - *Entregas de front-end:* 4 histórias (RF51, US13, US16 e US08) e 3 correções de defeitos que estavam em produção (US02, US09 e Home), por [Davi Emanuel Ribeiro de Oliveira](https://github.com/daviRolvr), [João Pedro Ferreira Moraes](https://github.com/JoaoPedro2206) e [Renan Vieira Guedes](https://github.com/R-enanVieira)
+- *Defeitos encontrados pelos testes funcionais do Trio 01:* 3 — US02 e US22 corrigidos nesta sprint, e a exclusão de convidado vinculado (US06, D09) ainda aberta
 - *Líder da Apresentação:* a definir
 - *Início da Sprint:* 30/10/2026
 - *Fim da Sprint:* 19/11/2026
@@ -756,6 +812,11 @@ dívida conhecida da entrega.
   e US10 seguem exercitadas pelos testes de produção (card de compartilhamento e
   painel não público).
 - **Firefox no CI**, depois de uma execução manual limpa.
+- **Atualizar os testes funcionais da US02 e da US22.** Com as duas correções,
+  os testes que reproduziam os defeitos passaram e o pytest acusa `XPASS`: o
+  marcador `xfail` deve sair, para eles ficarem como regressão, e os testes da
+  US22 que supunham a rota `/institucional` ausente precisam passar a verificar
+  o comportamento real.
 - ~~**Colunas da US02 no back-end** (`vagas`, `contato_responsavel`,
   `valor_investimento`, `link_pagamento`, `link_regulamento`).~~ **Integrado à
   `main` na [PR #23](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/23)**
@@ -791,3 +852,4 @@ dívida conhecida da entrega.
 | `1.5` | 17/11/2026 | Registro do back-end da US22 (missão, visão e valores): contrato `GET`/`PUT /institucional`, registro único, normalização e recusa de conteúdo vazio, migration `d3e5b8a1c4f6`, 22 testes novos e os resultados da suíte ([PR #22](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/22)) | [Luiz Henrique Guimarães Soares](https://github.com/luizh-gsoares) e [Daniel dos Santos Barros de Sousa](https://github.com/daniel-de-sousa) |
 | `1.6` | 17/11/2026 | Registro do back-end da US02 (informações completas do evento): 5 colunas opcionais (`vagas`, `contato_responsavel`, `valor_investimento`, `link_pagamento`, `link_regulamento`), migration `a1b2c3d4e5f7`, 13 testes novos, contrato atualizado e resultados da suíte ([PR #23](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/23)) | [Luiz Henrique Guimarães Soares](https://github.com/luizh-gsoares) e [Daniel dos Santos Barros de Sousa](https://github.com/daniel-de-sousa) |
 | `1.7` | 18/11/2026 | Entrega do front-end da US21 (tela de pedidos no painel, CA1 e CA2, mais o campo `formulario_pedido_link` no cadastro de produto) e cobertura por Selenium das três histórias que seguiam descobertas — US06 (busca por função e reaproveitamento), US09 (abas separadas de voluntários e participantes) e US15 (histórico de eventos passados). Atualização do resumo de cobertura, das pendências e do status da US21, agora concluída | [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin) |
+| `1.8` | 18/11/2026 | Registro dos testes funcionais com Selenium do Trio 01 (PR #31 do front-end): ambiente, cobertura das dez histórias e os três defeitos de integração encontrados (US02 e US22 corrigidos, US06 aberto); crédito do trio na tabela de entregas | [Gabriel Lopes de Amorim](https://github.com/BrzGab), [Maria Samara Alves Silva](https://github.com/SamaraAlvess) e [João Vitor Alves Viana](https://github.com/Joaovitor045) |
