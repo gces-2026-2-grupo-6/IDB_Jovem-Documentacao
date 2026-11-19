@@ -831,54 +831,7 @@ fechada e apresentada.
 
 ## Em aberto ao fim da Sprint 4
 
-A Sprint 5 fica reservada ao que a cliente apontar, então o que segue abaixo
-não está estacionado nela: ou entra ainda nesta sprint, ou fica registrado como
-dívida conhecida da entrega.
-
-- **Rotacionar o *refresh token* do Google.** A correção do código conserta o
-  vazamento futuro, não o passado: o token que está em produção hoje já passou
-  por log e deve ser considerado comprometido.
-- ~~**Integrar a [PR #30](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/30)**~~
-  — **concluído.** As cinco causas da revisão foram tratadas, o CI fechou verde
-  e a PR foi integrada à `main`, junto da Sprint 4 e das três correções de
-  produção, e publicada no deploy de 18/11/2026 (a `main` do fork chegou ao
-  repositório `idbjovemnacional`).
-- **As três correções propostas na EX-02**, uma validação cada, que dependem de
-  alguém rodar o fluxo integrado antes de integrar.
-- **Tirar a rota `/test-coverage` do build de produção**, sem quebrar a suíte
-  Playwright que depende dela.
-- ~~**Selenium nas cinco histórias descobertas** (US06, US08, US09, US10 e US15).~~
-  **US06, US09 e US15 cobertas** com testes funcionais sobre a pilha real
-  (busca de convidado por função e reaproveitamento entre eventos; abas
-  separadas de voluntários e participantes; histórico de eventos passados). US08
-  e US10 seguem exercitadas pelos testes de produção (card de compartilhamento e
-  painel não público).
-- **Firefox no CI**, depois de uma execução manual limpa.
-- **Atualizar os testes funcionais da US02, da US22 e da US06.** Com as três
-  correções, os testes que reproduziam os defeitos passaram e o pytest acusa
-  `XPASS`: o marcador `xfail` deve sair, para eles ficarem como regressão, e os
-  testes da US22 que supunham a rota `/institucional` ausente precisam passar a
-  verificar o comportamento real.
-- ~~**Colunas da US02 no back-end** (`vagas`, `contato_responsavel`,
-  `valor_investimento`, `link_pagamento`, `link_regulamento`).~~ **Integrado à
-  `main` na [PR #23](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/23)**
-  (migration `a1b2c3d4e5f7`, mesmos nomes já enviados/lidos pelo front-end), com
-  a migration aplicada em produção no deploy de 18/11/2026 (`alembic upgrade
-  head`, *head* `a1b2c3d4e5f7`).
-- ~~**Integrar `docs/restaura-paginas-us10-us11-us14`**~~ — **concluído**
-  ([PR #19](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Documentacao/pull/19)).
-  As duas páginas voltaram pelo conteúdo exato que estava versionado, e a
-  navegação do MkDocs resolve de novo.
-- ~~**Front-end da US21.**~~ **Entregue na Sprint 4:** a tela de pedidos no
-  painel (`/admin/pedidos`, setor de produtos), consumindo `GET /pedido/` e
-  `PATCH /pedido/{pedido_id}/status`, o campo `formulario_pedido_link` no
-  cadastro de produto (sem o qual a sincronização não teria formulário para
-  ler) e uma guarda de rota em Selenium. Os dois critérios da história agora são
-  alcançáveis pelo painel. **US21 concluída.**
-- **Teste de endpoint para `/pedido`** contra o contêiner com Postgres, que hoje
-  não existe.
-- **Teste de endpoint para `/institucional`** contra o contêiner com Postgres,
-  que hoje não existe.
+A Sprint 5 fica reservada ao que a cliente apontar.
 
 ---
 
