@@ -2417,47 +2417,13 @@ dívida conhecida da entrega.</p>
 <li><strong>Rotacionar o <em>refresh token</em> do Google.</strong> A correção do código conserta o
   vazamento futuro, não o passado: o token que está em produção hoje já passou
   por log e deve ser considerado comprometido.</li>
-<li>~~<strong>Integrar a <a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/30">PR #30</a></strong>~~
-  — <strong>concluído.</strong> As cinco causas da revisão foram tratadas, o CI fechou verde
-  e a PR foi integrada à <code>main</code>, junto da Sprint 4 e das três correções de
-  produção, e publicada no deploy de 18/11/2026 (a <code>main</code> do fork chegou ao
-  repositório <code>idbjovemnacional</code>).</li>
-<li><strong>As três correções propostas na EX-02</strong>, uma validação cada, que dependem de
+<li><strong>As três correções propostas na EX-02</strong>, uma validação cada — recusar adiar
+  um evento para data no passado (US14), exigir link de transmissão no evento
+  online e validar esse link como endereço HTTP (US19) —, que dependem de
   alguém rodar o fluxo integrado antes de integrar.</li>
 <li><strong>Tirar a rota <code>/test-coverage</code> do build de produção</strong>, sem quebrar a suíte
   Playwright que depende dela.</li>
-<li>~~<strong>Selenium nas cinco histórias descobertas</strong> (US06, US08, US09, US10 e US15).~~
-  <strong>US06, US09 e US15 cobertas</strong> com testes funcionais sobre a pilha real
-  (busca de convidado por função e reaproveitamento entre eventos; abas
-  separadas de voluntários e participantes; histórico de eventos passados). US08
-  e US10 seguem exercitadas pelos testes de produção (card de compartilhamento e
-  painel não público).</li>
 <li><strong>Firefox no CI</strong>, depois de uma execução manual limpa.</li>
-<li><strong>Atualizar os testes funcionais da US02, da US22 e da US06.</strong> Com as três
-  correções, os testes que reproduziam os defeitos passaram e o pytest acusa
-  <code>XPASS</code>: o marcador <code>xfail</code> deve sair, para eles ficarem como regressão, e os
-  testes da US22 que supunham a rota <code>/institucional</code> ausente precisam passar a
-  verificar o comportamento real.</li>
-<li>~~<strong>Colunas da US02 no back-end</strong> (<code>vagas</code>, <code>contato_responsavel</code>,
-  <code>valor_investimento</code>, <code>link_pagamento</code>, <code>link_regulamento</code>).~~ <strong>Integrado à
-  <code>main</code> na <a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/23">PR #23</a></strong>
-  (migration <code>a1b2c3d4e5f7</code>, mesmos nomes já enviados/lidos pelo front-end), com
-  a migration aplicada em produção no deploy de 18/11/2026 (<code>alembic upgrade
-  head</code>, <em>head</em> <code>a1b2c3d4e5f7</code>).</li>
-<li>~~<strong>Integrar <code>docs/restaura-paginas-us10-us11-us14</code></strong>~~ — <strong>concluído</strong>
-  (<a href="https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Documentacao/pull/19">PR #19</a>).
-  As duas páginas voltaram pelo conteúdo exato que estava versionado, e a
-  navegação do MkDocs resolve de novo.</li>
-<li>~~<strong>Front-end da US21.</strong>~~ <strong>Entregue na Sprint 4:</strong> a tela de pedidos no
-  painel (<code>/admin/pedidos</code>, setor de produtos), consumindo <code>GET /pedido/</code> e
-  <code>PATCH /pedido/{pedido_id}/status</code>, o campo <code>formulario_pedido_link</code> no
-  cadastro de produto (sem o qual a sincronização não teria formulário para
-  ler) e uma guarda de rota em Selenium. Os dois critérios da história agora são
-  alcançáveis pelo painel. <strong>US21 concluída.</strong></li>
-<li><strong>Teste de endpoint para <code>/pedido</code></strong> contra o contêiner com Postgres, que hoje
-  não existe.</li>
-<li><strong>Teste de endpoint para <code>/institucional</code></strong> contra o contêiner com Postgres,
-  que hoje não existe.</li>
 </ul>
 <hr />
 <h2 id="historico-de-versao">Histórico de Versão<a class="headerlink" href="#historico-de-versao" title="Permanent link">&para;</a></h2>
