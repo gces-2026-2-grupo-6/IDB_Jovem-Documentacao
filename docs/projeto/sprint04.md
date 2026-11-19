@@ -751,6 +751,47 @@ três achados da EX-02. Nenhum foi resolvido nesta entrega, porque dependem de
 decisão de produto. *(A D09 foi corrigida depois, na [PR #25 do back-end](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/25): o `xfail` virou
 teste que exige o 409.)*
 
+### Um quarto defeito, encontrado depois: o foco escapava do diálogo
+
+Levantado ao conferir se a US21 havia conflitado com as entregas do trio. Não
+havia conflito — o `vercel.json`, a barra lateral, as rotas e os rótulos da
+US16 sobreviveram intactos —, mas três testes da US16 falhavam no iPhone.
+
+Era lacuna da própria US16, não limitação do navegador. A prisão de foco só
+agia nas **pontas** da lista de elementos focáveis; no meio dela, a navegação
+era deixada para o navegador. Funciona no Chromium, mas o WebKit inclui o
+`<body>` na ordem de tabulação:
+
+| | elemento com o foco | |
+|---|---|---|
+| ao abrir | `BUTTON "Sim"` | dentro |
+| Tab | `BODY` | **fora do diálogo** |
+| Tab | `BUTTON "Sim"` | dentro |
+
+O Tab passou a ser conduzido do começo ao fim — o próximo elemento é decidido
+no próprio manipulador, com `preventDefault` sempre —, de modo que o foco fica
+preso em qualquer motor
+([PR #39](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Teen/pull/39)).
+
+Duas coisas investigadas que **não** eram defeito, apesar de parecerem:
+
+- **A devolução do foco ao fechar.** Ela devolve a quem tinha o foco antes de
+  abrir; o que muda entre motores é quem era esse. O Chromium foca um botão ao
+  ser clicado, o WebKit não, por convenção do macOS — abrindo com o mouse, o
+  "antes" é o botão num e o `<body>` no outro, e os dois estão certos. Quem
+  navega por teclado aciona o botão com Enter, e aí ele tem o foco em qualquer
+  motor, que é o caso em que a devolução importa. O **teste** é que presumia o
+  botão, e passou a verificar o contrato real.
+- **`focus()` programático no WebKit móvel**, testado de propósito antes de
+  concluir qualquer coisa: funciona. Foi o que descartou "limitação do motor"
+  e levou à causa certa.
+
+> **O padrão que se repetiu.** Foi a segunda vez na sprint que rodar apenas o
+> projeto `build` escondeu um defeito que os projetos de celular revelam — a
+> primeira foi o título do evento sumindo da lista no iPhone, apontada na
+> revisão da PR #30. A regra passou a ser rodar os quatro projetos antes de
+> abrir PR.
+
 ### Achados sobre a própria documentação
 
 - **Responsável:** [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin)
@@ -855,3 +896,4 @@ dívida conhecida da entrega.
 | `1.7` | 18/11/2026 | Entrega do front-end da US21 (tela de pedidos no painel, CA1 e CA2, mais o campo `formulario_pedido_link` no cadastro de produto) e cobertura por Selenium das três histórias que seguiam descobertas — US06 (busca por função e reaproveitamento), US09 (abas separadas de voluntários e participantes) e US15 (histórico de eventos passados). Atualização do resumo de cobertura, das pendências e do status da US21, agora concluída | [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin) |
 | `1.8` | 18/11/2026 | Registro dos testes funcionais com Selenium do Trio 01 (PR #31 do front-end): ambiente, cobertura das dez histórias e os três defeitos de integração encontrados (US02 e US22 corrigidos, US06 aberto); crédito do trio na tabela de entregas | [Gabriel Lopes de Amorim](https://github.com/BrzGab), [Maria Samara Alves Silva](https://github.com/SamaraAlvess) e [João Vitor Alves Viana](https://github.com/Joaovitor045) |
 | `1.9` | 18/11/2026 | Defeito da US06 (D09, exclusão de convidado vinculado a evento) registrado como corrigido na [PR #25 do back-end](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/25), que recusa a exclusão com 409; resumo dos defeitos do Trio 01 atualizado (os três corrigidos) e pendência dos testes funcionais estendida à US06 | [Gabriel Lopes de Amorim](https://github.com/BrzGab), [Maria Samara Alves Silva](https://github.com/SamaraAlvess) e [João Vitor Alves Viana](https://github.com/Joaovitor045) |
+| `1.2` | 18/11/2026 | Registro do quarto defeito do front-end — o foco escapava do diálogo no WebKit —, da verificação de que a US21 não conflitou com as entregas do trio, e das duas hipóteses descartadas no caminho | [Davi Emanuel Ribeiro de Oliveira](https://github.com/daviRolvr), [João Pedro Ferreira Moraes](https://github.com/JoaoPedro2206) e [Renan Vieira Guedes](https://github.com/R-enanVieira) |
