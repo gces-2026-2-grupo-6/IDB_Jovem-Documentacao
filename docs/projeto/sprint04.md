@@ -823,7 +823,7 @@ fechada e apresentada.
 - *Entregas de back-end:* 3 — US21 (back-end integrado à `main` pela trinca, front-end entregue na Sprint 4: história concluída) e reexecução das suítes das sprints anteriores, por [Júlia dos Reis Teixeira Massuda](https://github.com/JuliaReis18), [Filipe Carvalho da Silva](https://github.com/Filipe-002) e [João Rodrigues](https://github.com/JpRodrigues2); US22 concluída no back-end (leitura pública e edição pela superadministradora), por [Luiz Henrique Guimarães Soares](https://github.com/luizh-gsoares) e [Daniel dos Santos Barros de Sousa](https://github.com/daniel-de-sousa); e US02 no back-end (5 campos opcionais do evento, [PR #23](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/23)), por [Luiz Henrique Guimarães Soares](https://github.com/luizh-gsoares) e [Daniel dos Santos Barros de Sousa](https://github.com/daniel-de-sousa)
 - *Entregas de front-end:* 4 histórias (RF51, US13, US16 e US08) e 3 correções de defeitos que estavam em produção (US02, US09 e Home), por [Davi Emanuel Ribeiro de Oliveira](https://github.com/daviRolvr), [João Pedro Ferreira Moraes](https://github.com/JoaoPedro2206) e [Renan Vieira Guedes](https://github.com/R-enanVieira)
 - *Defeitos encontrados pelos testes funcionais do Trio 01:* 3, todos corrigidos nesta sprint — US02, US22 e a exclusão de convidado vinculado (US06, D09, [PR #25 do back-end](https://github.com/gces-2026-2-grupo-6/IDB_Jovem-Backend/pull/25))
-- *Líder da Apresentação:* a definir
+- *Líder da Apresentação:* Rivadalvio Filho 
 - *Início da Sprint:* 30/10/2026
 - *Fim da Sprint:* 19/11/2026
 
