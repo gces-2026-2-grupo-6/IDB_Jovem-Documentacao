@@ -271,4 +271,4 @@ formatos de imagem. Não faz parte do site e não é publicado.
 
 | Versão | Data | Descrição | Autor(es) |
 |---|---|---|---|
-| `1.0` | 24/11/2026 | Criação do documento: validação com a cliente em 23/11, diagnóstico e correção da integração com o Google Forms, US10 na área pública, US06, US12, US21, calendário do painel, matriz de autorização e guia da cliente | [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin) |
+| `1.0` | 24/11/2026 | Criação do documento: validação com a cliente em 23/11, diagnóstico e correção da integração com o Google Forms, US10 na área pública, US06, US12, US21, calendário do painel, matriz de autorização e guia da cliente | [João Pedro Araújo de Freitas Lyra](https://github.com/Jadequilin) e [Rivadalvio Joaquim da Silva Filho](https://github.com/RivaFilho) |
